@@ -19,16 +19,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompPowerTrader _powerTraderComp;
-        public CompRefuelableConditional FuelComp
+        public CompRefuelable FuelComp
         {
             get
             {
                 if (_fuelComp == null)
-                    this._fuelComp = base.GetComp<CompRefuelableConditional>();
+                    this._fuelComp = base.GetComp<CompRefuelable>();
                 return _fuelComp;
             }
         }
-        private CompRefuelableConditional _fuelComp;
+        private CompRefuelable _fuelComp;
         public CompFlickable FlickComp
         {
             get
@@ -39,6 +39,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompFlickable _flickComp;
+        public CompSignalHook CompSignalHook
+        {
+            get
+            {
+                if (_signalHook == null)
+                    this._signalHook = base.GetComp<CompSignalHook>();
+                return _signalHook;
+            }
+        }
+        private CompSignalHook _signalHook;
 
         public bool IsRunning
         {
@@ -86,6 +96,10 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Log.Message("Out of fuel.");
                 CauseRedraw();
+            };
+            CompSignalHook.OnSignal += (s) =>
+            {
+
             };
         }
 
