@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-    <ThingDef Name="AABuildingBase" Abstract="True">
-        <category>Building</category>
-        <thingClass>Building</thingClass>
+    <ThingDef Name="AABuildingBase" ParentName="BuildingBase" Abstract="True">
         <thingCategories>
             <li>BuildingsPower</li>
         </thingCategories>
-        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
-        <selectable>true</selectable>
-        <drawerType>MapMeshAndRealTime</drawerType>
-        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
-        <repairEffect>Repair</repairEffect>
-        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
-        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
         <designationCategory>Antimatter</designationCategory>
         <passability>PassThroughOnly</passability>
         <altitudeLayer>Building</altitudeLayer>
         <tickerType>Normal</tickerType>
-        <statBases>
-            <SellPriceFactor>0.70</SellPriceFactor>
-        </statBases>
         
     </ThingDef>
 
@@ -108,16 +97,20 @@
 
   <ThingDef ParentName="AAPoweredLarge">
     <defName>AntimatterReactor</defName>
-    <thingClass>AntimatterAnnihilation.Building_AntimatterReactor</thingClass>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterReactor</thingClass>
     <label>Antimatter Reactor</label>
     <description>The ultimate form of power generation.
-Reacts contained antimatter with regular matter to produce massive amounts of power. An ultra-powerful AT field contains the massive amount of power and radiation created, making it mostly safe to work around.</description>
+Reacts injected antimatter with regular matter to produce massive amounts of power. An ultra-powerful AT field contains the massive amount of energy and radiation created, making it mostly safe to work around.
+Requires a Reactor Injector to inject antimatter, and a Reactor Power Collector to capture the output beam and turn it into electrical power.</description>
     <graphicData>
       <texPath>AntimatterAnnihilation/Buildings/Reactor</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
+      <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(12,12)</drawSize>
     </graphicData>
     <passability>Impassable</passability>
+    <holdsRoof>true</holdsRoof> <!--Just because of how large it is, building roofs is difficult without putting columns all around it.-->
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>East</defaultPlacingRot>
     <size>(12, 12)</size>
     <costList>
       <Steel>1200</Steel>
@@ -132,9 +125,53 @@ Reacts contained antimatter with regular matter to produce massive amounts of po
         <basePowerConsumption>6000</basePowerConsumption>
         <transmitsPower>true</transmitsPower>
       </li>
-      <li Class="CompProperties_Glower"> <!-- Note that this glows whenever it has power - this is fine because the energy ball only appears when the reactor has enough power. -->
+      <li Class="CompProperties_Glower"> <!-- Note that this glows whenever it has power - this is fine (for now) because the energy ball only appears when the reactor has enough power. -->
         <glowRadius>14</glowRadius>
-        <glowColor>(51,124,193,255</glowColor>
+        <glowColor>(51,124,193,255)</glowColor>
+      </li>
+    </comps>
+    <!-- <researchPrerequisites>
+      <li>SomeResearch</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactorInjector</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_ReactorInjector</thingClass>
+    <label>Reactor Injector</label>
+    <description>Takes in Contained Antimatter and fires it as a beam into an Antimatter Reactor.
+The beam is possible thanks to a cylindrical AT field that both repels regular matter and confines anti-matter, allowing for an otherwise impossible suspended vaccumm to be created in mid-air.
+If the beam is fired without a reactor to collect it, the fired anti-matter will annihilate upon contact with any matter, quickly destroying it. This could be a wall, an enemy or a colonist, so watch out...</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/ReactorInjector</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+    </graphicData>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>East</defaultPlacingRot>
+    <passability>PassThroughOnly</passability>
+    <size>(2, 3)</size>
+    <costList>
+      <Steel>100</Steel>
+      <Plasteel>20</Plasteel>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>1</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+        <transmitsPower>false</transmitsPower>
+      </li>
+      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+        <fuelConsumptionRate>5</fuelConsumptionRate>
+        <fuelCapacity>50.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Chemfuel</li>
+          </thingDefs>
+        </fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
       </li>
     </comps>
     <!-- <researchPrerequisites>

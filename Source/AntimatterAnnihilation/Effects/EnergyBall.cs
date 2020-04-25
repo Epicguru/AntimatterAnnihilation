@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Effects
 {
-    public class EnergyBall
+    public class EnergyBall : IDisposable
     {
         private const float LERP_TIME = 0.5f;
         private const float MAX_SCALE = 4.1181f;
@@ -20,10 +22,14 @@ namespace AntimatterAnnihilation.Effects
             ball = spawned.transform;
             ball.position = pos;
             ball.localEulerAngles = new Vector3(0f, 0f, 90f);
+            ball.localScale = Vector3.zero;
         }
 
         public void Tick()
         {
+            if (ball == null)
+                return;
+
             const float DT = 1f / 60f;
 
             lerp += DT / LERP_TIME * (Visible ? 1f : -1f);
@@ -32,6 +38,15 @@ namespace AntimatterAnnihilation.Effects
             float scale = MAX_SCALE * t * SizeScale;
 
             ball.localScale = new Vector3(scale, scale, scale);
+        }
+
+        public void Dispose()
+        {
+            if (ball == null)
+                return;
+
+            Object.Destroy(ball.gameObject);
+            ball = null;
         }
     }
 }

@@ -69,8 +69,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_ReactorInjector.cs" />
     <Compile Include="BundleFinder.cs" />
+    <Compile Include="ThingComps\CompProperties_RefuelableConditional.cs" />
+    <Compile Include="ThingComps\CompRefuelableConditional.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
     <Compile Include="Hook.cs" />
