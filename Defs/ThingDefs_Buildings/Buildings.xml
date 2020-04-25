@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef Name="AABuildingBase" Abstract="True">
+        <category>Building</category>
+        <thingClass>Building</thingClass>
+        <thingCategories>
+            <li>BuildingsPower</li>
+        </thingCategories>
+        <soundImpactDefault>BulletImpact_Metal</soundImpactDefault>
+        <selectable>true</selectable>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        <terrainAffordanceNeeded>Light</terrainAffordanceNeeded>
+        <repairEffect>Repair</repairEffect>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <filthLeaving>Filth_RubbleBuilding</filthLeaving>
+        <designationCategory>Antimatter</designationCategory>
+        <passability>PassThroughOnly</passability>
+        <altitudeLayer>Building</altitudeLayer>
+        <tickerType>Normal</tickerType>
+        <statBases>
+            <SellPriceFactor>0.70</SellPriceFactor>
+        </statBases>
+        
+    </ThingDef>
+
+    <ThingDef Name="AAPoweredLarge" ParentName="AABuildingBase" Abstract="True">
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(9,9)</drawSize>
+        </graphicData>
+        <category>Building</category>
+        <tickerType>Normal</tickerType>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <canOverlapZones>false</canOverlapZones>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>false</castEdgeShadows>
+        <pathCost>60</pathCost>
+        <size>(9,9)</size>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <WorkToBuild>35000</WorkToBuild>
+            <Flammability>3.0</Flammability>
+            <Beauty>5</Beauty>
+            <Cleanliness>10</Cleanliness>
+            <Mass>80</Mass>
+        </statBases>
+        <comps>
+        <li Class="CompProperties_Flickable"/>
+        <li Class="CompProperties_Breakdownable"/>
+
+        <li Class="CompProperties_HeatPusher">
+            <compClass>CompHeatPusherPowered</compClass>
+            <heatPerSecond>6</heatPerSecond>
+        </li>
+        <li Class="CompProperties_Explosive">
+            <explosiveRadius>12</explosiveRadius>
+            <explosiveDamageType>Flame</explosiveDamageType>
+            <destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
+            <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+            <preExplosionSpawnThingDef>Filth_RubbleBuilding</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <wickTicks>
+                <min>150</min>
+                <max>190</max>
+            </wickTicks>
+        </li>
+        </comps>
+        <building>
+        <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef ParentName="AAPoweredLarge">
+    <defName>ParticleAccelerator</defName>
+    <label>Particle Accelerator</label>
+    <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(9,9)</drawSize>
+    </graphicData>
+    <costList>
+      <Steel>850</Steel>
+      <Gold>90</Gold>
+      <Plasteel>180</Plasteel>
+      <ComponentIndustrial>20</ComponentIndustrial>
+      <ComponentSpacer>4</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>4000</basePowerConsumption>
+      </li>
+    </comps>
+    <!-- <researchPrerequisites>
+      <li>SomeResearch</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+  <!--  -->
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactor</defName>
+    <thingClass>AntimatterAnnihilation.Building_AntimatterReactor</thingClass>
+    <label>Antimatter Reactor</label>
+    <description>The ultimate form of power generation.
+Reacts contained antimatter with regular matter to produce massive amounts of power. An ultra-powerful AT field contains the massive amount of power and radiation created, making it mostly safe to work around.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/Reactor</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(12,12)</drawSize>
+    </graphicData>
+    <passability>Impassable</passability>
+    <size>(12, 12)</size>
+    <costList>
+      <Steel>1200</Steel>
+      <Gold>50</Gold>
+      <Plasteel>200</Plasteel>
+      <ComponentIndustrial>30</ComponentIndustrial>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>6000</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+      <li Class="CompProperties_Glower"> <!-- Note that this glows whenever it has power - this is fine because the energy ball only appears when the reactor has enough power. -->
+        <glowRadius>14</glowRadius>
+        <glowColor>(51,124,193,255</glowColor>
+      </li>
+    </comps>
+    <!-- <researchPrerequisites>
+      <li>SomeResearch</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
+  </Defs>

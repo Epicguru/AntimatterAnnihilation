@@ -6,7 +6,7 @@ namespace AntimatterAnnihilation
     [StaticConstructorOnStartup]
     public static class Content
     {
-        public static GameObject Prefab;
+        public static GameObject EnergyBallPrefab;
 
         static Content()
         {
@@ -15,9 +15,9 @@ namespace AntimatterAnnihilation
 
             var bundles = ModCore.Instance.Content.assetBundles;
             var bundle = bundles.GetByName("aa");
-            Prefab = bundle.LoadAsset<GameObject>("Prefab");
+            EnergyBallPrefab = bundle.LoadAsset<GameObject>("OuterPrefab");
 
-            ModCore.Trace("Got prefab: " + Prefab);
+            ModCore.Trace("Got prefab: " + EnergyBallPrefab);
         }
     }
 }
