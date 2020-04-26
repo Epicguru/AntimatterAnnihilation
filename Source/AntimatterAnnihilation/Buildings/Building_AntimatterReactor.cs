@@ -50,6 +50,13 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
         }
+        public bool IsHorizontal
+        {
+            get
+            {
+                return Rotation.IsHorizontal;
+            }
+        }
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -57,26 +64,24 @@ namespace AntimatterAnnihilation.Buildings
 
             //Log.Message("Spawn. After load: " + respawningAfterLoad + ", has power: " + PowerTraderComp.PowerOn);
 
-            EnergyBall = new EnergyBall(Position.ToVector3() + GetEnergyBallOffset());
+            EnergyBall = new EnergyBall(Position.ToVector3() + GetEnergyBallOffset(), Rotation.IsHorizontal ? 0f : 90f);
 
             if (PowerTraderComp.PowerOn)
                 OnPowerStart(map);
             else
                 OnPowerStop(map);
 
-            var thing = map.thingGrid.ThingAt(Position, ThingCategory.Building);
-            Log.Message(thing?.ToString() ?? "null");
+            //var thing = map.thingGrid.ThingAt(Position, ThingCategory.Building);
+            //Log.Message(thing?.ToString() ?? "null");
 
             PowerTraderComp.powerStartedAction += () => OnPowerStart();
             PowerTraderComp.powerStoppedAction += () => OnPowerStop();
-
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             EnergyBall.Dispose();
             base.DeSpawn(mode);
-
         }
 
         private Vector3 GetEnergyBallOffset()

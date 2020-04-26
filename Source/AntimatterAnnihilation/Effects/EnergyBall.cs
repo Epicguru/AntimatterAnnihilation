@@ -9,19 +9,19 @@ namespace AntimatterAnnihilation.Effects
         private const float LERP_TIME = 0.5f;
         private const float MAX_SCALE = 4.1181f;
 
-        public float SizeScale { get; set; } = 1f;
-        public bool Visible { get; set; }
+        public float SizeScale = 1f;
+        public bool Visible;
 
         private Transform ball;
         private float lerp;
         private AnimationCurve lerpCurve = new AnimationCurve(new Keyframe(0f, 0f), new Keyframe(0.8f, 1.2f), new Keyframe(1f, 1f));
 
-        public EnergyBall(Vector3 pos)
+        public EnergyBall(Vector3 pos, float rot)
         {
             var spawned = Object.Instantiate(Content.EnergyBallPrefab);
             ball = spawned.transform;
             ball.position = pos;
-            ball.localEulerAngles = new Vector3(0f, 0f, 90f);
+            ball.localEulerAngles = new Vector3(0f, rot, 90f);
             ball.localScale = Vector3.zero;
         }
 

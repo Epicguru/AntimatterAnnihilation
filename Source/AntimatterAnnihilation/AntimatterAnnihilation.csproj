@@ -31,12 +31,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="0Harmony, Version=2.0.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lib.Harmony.2.0.0.10\lib\net472\0Harmony.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,12 +78,19 @@
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="Damage\AADefOf.cs" />
+    <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
+    <Compile Include="Effects\EnergyBeam.cs" />
     <Compile Include="Hook.cs" />
     <Compile Include="ModCore.cs" />
+    <Compile Include="Patches\RefuelableFix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ThingComps\CompProperties_SignalHook.cs" />
-    <Compile Include="ThingComps\CompSignalHook.cs" />
+    <Compile Include="ThingComps\CompProperties_RefuelableConditional.cs" />
+    <Compile Include="ThingComps\CompRefuelableConditional.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

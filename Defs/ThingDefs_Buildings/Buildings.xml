@@ -10,10 +10,6 @@
     </ThingDef>
 
     <ThingDef Name="AAPoweredLarge" ParentName="AABuildingBase" Abstract="True">
-        <minifiedDef>MinifiedThing</minifiedDef>
-        <thingCategories>
-            <li>BuildingsPower</li>
-        </thingCategories>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -161,7 +157,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <basePowerConsumption>300</basePowerConsumption>
         <transmitsPower>false</transmitsPower>
       </li>
-      <li Class="CompProperties_Refuelable">
+      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
         <fuelConsumptionRate>5</fuelConsumptionRate>
         <fuelCapacity>50.0</fuelCapacity>
         <fuelFilter>
@@ -171,79 +167,11 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>30</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>50</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
     <!-- <researchPrerequisites>
       <li>SomeResearch</li>
     </researchPrerequisites> -->
   </ThingDef>
-
-  <ThingDef ParentName="BuildingBase">
-    <defName>MyPassiveCooler</defName>
-    <label>My passive cooler</label>
-    <description>Fueling test</description>
-    <category>Building</category>
-    <graphicData>
-      <texPath>Things/Building/Misc/PassiveCooler</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawRotated>false</drawRotated>
-      <allowFlip>false</allowFlip>
-      <shadowData>
-        <volume>(0.9,0.3,0.9)</volume>
-      </shadowData>
-      <damageData>
-        <rect>(0.2,0,0.6,0.1)</rect>
-      </damageData>
-    </graphicData>
-    <rotatable>false</rotatable>
-    <altitudeLayer>Building</altitudeLayer>
-    <passability>PassThroughOnly</passability>
-    <pathCost>50</pathCost>
-    <constructEffect>ConstructDirt</constructEffect>
-    <tickerType>Normal</tickerType>
-    <drawerType>RealtimeOnly</drawerType>
-    <fillPercent>0.40</fillPercent>
-    <statBases>
-      <MaxHitPoints>80</MaxHitPoints>
-      <WorkToBuild>200</WorkToBuild>
-      <Flammability>1</Flammability>
-    </statBases>
-    <selectable>true</selectable>
-    <costList>
-      <WoodLog>50</WoodLog>
-    </costList>
-    <soundImpactDefault>BulletImpact_Ground</soundImpactDefault>
-    <leaveResourcesWhenKilled>false</leaveResourcesWhenKilled>
-    <resourcesFractionWhenDeconstructed>0</resourcesFractionWhenDeconstructed>
-    <placeWorkers>
-      <li>PlaceWorker_CoolerSimple</li>
-    </placeWorkers>
-    <drawPlaceWorkersWhileSelected>true</drawPlaceWorkersWhileSelected>
-    <comps>
-      <li Class="CompProperties_HeatPusher">
-        <compClass>CompHeatPusherPowered</compClass>
-        <heatPerSecond>-11</heatPerSecond>
-        <heatPushMinTemperature>17</heatPushMinTemperature>
-      </li>
-      <li Class="CompProperties_Refuelable">
-        <fuelConsumptionRate>10.0</fuelConsumptionRate>
-        <fuelCapacity>50.0</fuelCapacity>
-        <fuelFilter>
-          <thingDefs>
-            <li>WoodLog</li>
-          </thingDefs>
-        </fuelFilter>
-        <initialFuelPercent>1</initialFuelPercent>
-        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-      </li>
-      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_SignalHook"></li>      
-    </comps>
-    <designationCategory>Temperature</designationCategory>
-    <designationHotKey>Misc4</designationHotKey>
-    <researchPrerequisites>
-      <li>PassiveCooler</li>
-    </researchPrerequisites>
-  </ThingDef>
-
   </Defs>

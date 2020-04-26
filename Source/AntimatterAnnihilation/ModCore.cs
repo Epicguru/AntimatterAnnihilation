@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using HarmonyLib;
+using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation
@@ -14,6 +16,10 @@ namespace AntimatterAnnihilation
 
             AddHook();
             Trace("Added hook.");
+
+            Harmony harmony = new Harmony("epicguru.AntimatterAnnihilation");
+            harmony.PatchAll();
+            Log($"Patched {harmony.GetPatchedMethods().Count()} methods.");
         }
 
         private void AddHook()

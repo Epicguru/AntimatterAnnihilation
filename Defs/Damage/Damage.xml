@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DamageDef>
+    <defName>Annihilate</defName>
+    <label>Annihilate</label>
+    <workerClass>AntimatterAnnihilation.Damage.DamageWorker_Annihilate</workerClass>
+    <hasForcefulImpact>false</hasForcefulImpact>
+    <externalViolence>true</externalViolence>
+    <makesBlood>true</makesBlood>
+    <deathMessage>{0} was annihilated.</deathMessage>
+    <hediff>AnnihilationInjury</hediff> <!--TODO Change me-->
+    <armorCategory>Heat</armorCategory>
+    <defaultDamage>5</defaultDamage>
+    <defaultArmorPenetration>90</defaultArmorPenetration>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>AnnihilationInjury</defName>
+    <label>Annihilation Injury</label>
+    <labelNoun>an annihilation injury</labelNoun>
+    <description>An annihilation injury, caused by contact with anti-matter.
+The flesh is literally annihilated, leaving nothing behind but a gruesome wound. Causes intense pain and has a high chance of infection.</description>
+    <comps>
+    <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+        <tendAllAtOnce>false</tendAllAtOnce>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.60</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>Annihilation Scar</permanentLabel>
+      </li>
+    </comps>
+    <tendable>true</tendable>
+    <displayWound>true</displayWound>
+    <injuryProps>
+      <painPerSeverity>0.03</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.004</averagePainPerSeverityPermanent>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Completely Annihilated</destroyedLabel>
+      <destroyedOutLabel>Annihilated</destroyedOutLabel>
+      <bleedRate>0.09</bleedRate>
+    </injuryProps>
+  </HediffDef>
+
+</Defs>

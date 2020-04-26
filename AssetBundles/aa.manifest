@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 46020590
+CRC: 3895006100
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2a9c00b85d417cfe00f1a14a8e1715ec
+    Hash: 944a576e7a25acf4296b7a8bcf0a9967
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9b1f96faa025328b86fadc32f7a7d76b
+    Hash: 63e4cc610365591972cf0b948686b9f3
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
 Assets:
 - Assets/Shaders/OuterPrefab.prefab
+- Assets/Shaders/Beam.prefab
 Dependencies: []
