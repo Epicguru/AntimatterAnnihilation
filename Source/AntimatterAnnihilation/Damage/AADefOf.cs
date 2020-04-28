@@ -12,5 +12,6 @@ namespace AntimatterAnnihilation.Damage
         }
 
         public static DamageDef Annihilate;
+        public static DamageDef EnergyBurn;
     }
 }

@@ -75,6 +75,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_PowerConverter.cs" />
+    <Compile Include="Buildings\Building_PowerNetConsole.cs" />
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
@@ -88,6 +90,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThingComps\CompProperties_RefuelableConditional.cs" />
     <Compile Include="ThingComps\CompRefuelableConditional.cs" />
+    <Compile Include="UI\UI_PowerNetConsole.cs" />
+    <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\IResettable.cs" />
+    <Compile Include="Utils\ObjectPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

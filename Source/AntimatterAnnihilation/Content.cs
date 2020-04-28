@@ -7,7 +7,8 @@ namespace AntimatterAnnihilation
     public static class Content
     {
         public static GameObject EnergyBallPrefab;
-        public static GameObject EnergyBeamPrefab;
+        public static GameObject EnergyBeamInPrefab;
+        public static GameObject EnergyBeamOutPrefab;
 
         static Content()
         {
@@ -15,7 +16,8 @@ namespace AntimatterAnnihilation
             var bundles = ModCore.Instance.Content.assetBundles;
             var bundle = bundles.GetByName("aa");
             EnergyBallPrefab = bundle.LoadAsset<GameObject>("OuterPrefab");
-            EnergyBeamPrefab = bundle.LoadAsset<GameObject>("Beam");
+            EnergyBeamInPrefab = bundle.LoadAsset<GameObject>("In Beam");
+            EnergyBeamOutPrefab = bundle.LoadAsset<GameObject>("Out Beam");
 
             ModCore.Trace("Loaded content.");
         }

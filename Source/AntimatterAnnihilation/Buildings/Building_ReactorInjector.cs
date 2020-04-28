@@ -2,8 +2,6 @@
 using AntimatterAnnihilation.Effects;
 using AntimatterAnnihilation.ThingComps;
 using RimWorld;
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
@@ -53,17 +51,6 @@ namespace AntimatterAnnihilation.Buildings
                 return FuelComp.IsConditionPassed && FuelComp.HasFuel && FlickComp.SwitchIsOn;
             }
         }
-        public EnergyBeam Beam { get; private set; }
-        public IntVec3 BeamExploreDirection { get; private set; }
-
-        public int MaxBeamLength = 10;
-
-        public int UpdateInterval = 20; // Every 20 ticks, so 3 times a second.
-        public int BuildingDamage = 15;
-        public int PawnDamage = 4;
-
-        private long tick;
-
         public override Graphic Graphic
         {
             get
@@ -76,7 +63,6 @@ namespace AntimatterAnnihilation.Buildings
                 }
 
                 bool isRunning = IsRunning;
-                Beam.Visible = isRunning;
                 if (isRunning)
                 {
                     return running;
@@ -87,6 +73,17 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
         }
+        public EnergyBeam Beam { get; private set; }
+        public IntVec3 BeamExploreDirection { get; private set; }
+
+        public int MaxBeamLength = 10;
+
+        public int UpdateInterval = 20; // Every 20 ticks, so 3 times a second.
+        public int BuildingDamage = 25;
+        public int PawnDamage = 4;
+
+        private long tick;
+        private Building_AntimatterReactor lastReactor;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -103,15 +100,17 @@ namespace AntimatterAnnihilation.Buildings
             };
             PowerTraderComp.powerStartedAction += () =>
             {
+                //Log.Message("Power start");
                 CauseRedraw();
             };
             PowerTraderComp.powerStoppedAction += () =>
             {
+                //Log.Message("Power stop");
                 CauseRedraw();
             };
 
             Vector3 offset = GetOffset(out float angle);
-            Beam = new EnergyBeam(Position.ToVector3() + offset, angle);
+            Beam = new EnergyBeam(Position.ToVector3() + offset, angle, true);
             ModCore.Log(Position.ToString());
             Beam.Length = 5;
             if (Rotation == Rot4.South)
@@ -159,6 +158,9 @@ namespace AntimatterAnnihilation.Buildings
             if (Beam == null)
                 return;
 
+            Beam.Visible = IsRunning;
+            //CauseRedraw();
+
             Beam.Tick();
 
             if (!IsRunning)
@@ -205,13 +207,13 @@ namespace AntimatterAnnihilation.Buildings
 
                 bool done = false;
                 var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
-                if (pawn != null)
+                if (pawn != null && !(pawn as Pawn).Downed) // Don't damage downed pawns, because it's too punishing.
                 {
                     done = true;
                     tempThings.Add(pawn);
                 }
                 var pawn2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Pawn);
-                if (pawn2 != null)
+                if (pawn2 != null && !(pawn2 as Pawn).Downed)
                 {
                     done = true;
                     tempThings.Add(pawn2);
@@ -220,27 +222,27 @@ namespace AntimatterAnnihilation.Buildings
                 if (done)
                     break;
 
-                var build = Map.thingGrid.ThingAt(posLower, ThingCategory.Building);
-                if (build != null)
+                var things = Map.thingGrid.ThingsListAtFast(posLower);
+                foreach (var build in things)
                 {
                     bool shouldDamage = build.def.altitudeLayer == AltitudeLayer.Building || build.def.altitudeLayer == AltitudeLayer.BuildingOnTop;
-                    if (shouldDamage)
-                    {
-                        done = true;
-                        tempThings.Add(build);
-                    }
+                    if (!shouldDamage)
+                        continue;
 
-
+                    done = true;
+                    tempThings.Add(build);
+                    break;
                 }
-                var build2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Building);
-                if (build2 != null)
+                things = Map.thingGrid.ThingsListAtFast(posUpper);
+                foreach (var build in things)
                 {
-                    bool shouldDamage = build2.def.altitudeLayer == AltitudeLayer.Building || build2.def.altitudeLayer == AltitudeLayer.BuildingOnTop;
-                    if (shouldDamage)
-                    {
-                        done = true;
-                        tempThings.Add(build2);
-                    }
+                    bool shouldDamage = build.def.altitudeLayer == AltitudeLayer.Building || build.def.altitudeLayer == AltitudeLayer.BuildingOnTop;
+                    if (!shouldDamage)
+                        continue;
+
+                    done = true;
+                    tempThings.Add(build);
+                    break;
                 }
 
                 if (done)
@@ -251,6 +253,7 @@ namespace AntimatterAnnihilation.Buildings
 
             foreach (var thing in tempThings)
             {
+                bool isInLine = false;
                 if (thing.def.defName == "AntimatterReactor")
                 {
                     // This might be the reactor that needs to have power injected into it.
@@ -270,23 +273,27 @@ namespace AntimatterAnnihilation.Buildings
                     else if (!horizontal && tc.x != rtc.x)
                         valid = false;
 
-                    if (!doneReactor && valid && Rotation == Rot4.North) // When firing the beam into the bottom, needs to further than the edge due to the camera angle.
+                    if (!doneReactor && valid && Rotation == Rot4.North) // When firing the beam into the bottom, needs to go further than the edge due to the camera angle.
                         i += 0.815f;
 
-                    if (valid || doneReactor)
+                    if ((valid || doneReactor)) // Only if it has power to contain the antimatter beam - otherwise the reactor will take damage at a reduced rate.
                     {
-                        doneReactor = true;
-                        continue;
+                        isInLine = true;
+                        if (reactor.PowerTraderComp.PowerOn)
+                        {
+                            reactor.RegisterInput(this, this.Rotation.AsInt);
+                            lastReactor = reactor;
+                            doneReactor = true;
+                            continue;
+                        }
                     }
                 }
 
-                if (thing is Pawn pawn)
-                {
-                    if (pawn.Downed)
-                        continue; // Don't damage downed pawns, animals etc.
-                }
-
-                thing.TakeDamage(new DamageInfo(AADefOf.Annihilate, thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage, 90, instigator: this));
+                bool thingIsReactor = thing is Building_AntimatterReactor;
+                float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
+                if (thingIsReactor && isInLine)
+                    damage *= 0.15f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
+                thing.TakeDamage(new DamageInfo(AADefOf.Annihilate, damage, 15, instigator: this));
             }
 
             return i;
@@ -298,6 +305,8 @@ namespace AntimatterAnnihilation.Buildings
 
             Beam?.Dispose();
             Beam = null;
+
+            lastReactor?.RemoveInput(this);
         }
 
         public void CauseRedraw(Map map = null)
@@ -305,7 +314,7 @@ namespace AntimatterAnnihilation.Buildings
             if (map == null)
                 map = base.Map;
 
-            map.mapDrawer.MapMeshDirty(base.Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
+            map?.mapDrawer.MapMeshDirty(base.Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
         }
     }
 }

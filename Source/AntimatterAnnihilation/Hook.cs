@@ -22,7 +22,7 @@ namespace AntimatterAnnihilation
                 Vector3 pos = new Vector3(15, 0, 15);
                 Log.Message("Spawning at " + pos);
 
-                var beam = Object.Instantiate(Content.EnergyBeamPrefab).transform;
+                var beam = Object.Instantiate(Content.EnergyBeamInPrefab).transform;
                 beam.transform.position = pos;
                 beam.localScale = Vector3.one;
                 beam.eulerAngles = new Vector3(90f, 90f, 0f);

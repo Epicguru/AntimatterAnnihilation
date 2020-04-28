@@ -9,7 +9,7 @@
     <externalViolence>true</externalViolence>
     <makesBlood>true</makesBlood>
     <deathMessage>{0} was annihilated.</deathMessage>
-    <hediff>AnnihilationInjury</hediff> <!--TODO Change me-->
+    <hediff>AnnihilationInjury</hediff>
     <armorCategory>Heat</armorCategory>
     <defaultDamage>5</defaultDamage>
     <defaultArmorPenetration>90</defaultArmorPenetration>
@@ -44,6 +44,52 @@ The flesh is literally annihilated, leaving nothing behind but a gruesome wound.
       <destroyedLabel>Completely Annihilated</destroyedLabel>
       <destroyedOutLabel>Annihilated</destroyedOutLabel>
       <bleedRate>0.09</bleedRate>
+    </injuryProps>
+  </HediffDef>
+
+  <DamageDef>
+    <defName>EnergyBurn</defName>
+    <label>Energy Burn</label>
+    <workerClass>AntimatterAnnihilation.Damage.DamageWorker_Annihilate</workerClass> <!-- Just applies to random exterior body part. -->
+    <hasForcefulImpact>true</hasForcefulImpact>
+    <externalViolence>true</externalViolence>
+    <makesBlood>true</makesBlood>
+    <deathMessage>{0} was killed by an energy burn.</deathMessage>
+    <hediff>EnergyBurnInjury</hediff>
+    <armorCategory>Heat</armorCategory>
+    <defaultDamage>12</defaultDamage>
+    <defaultArmorPenetration>90</defaultArmorPenetration>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>EnergyBurnInjury</defName>
+    <label>Energy Burn</label>
+    <labelNoun>an energy burn</labelNoun>
+    <description>An energy burn, caused by being hit with an intense blast of pure energy.
+Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</description>
+    <comps>
+    <li Class="HediffCompProperties_TendDuration">
+        <labelTendedWell>bandaged</labelTendedWell>
+        <labelTendedWellInner>sutured</labelTendedWellInner>
+        <labelSolidTendedWell>set</labelSolidTendedWell>
+        <tendAllAtOnce>false</tendAllAtOnce>
+      </li>
+      <li Class="HediffCompProperties_Infecter">
+        <infectionChance>0.40</infectionChance>
+      </li>
+      <li Class="HediffCompProperties_GetsPermanent">
+        <permanentLabel>Energy Burn Scar</permanentLabel>
+      </li>
+    </comps>
+    <tendable>true</tendable>
+    <displayWound>true</displayWound>
+    <injuryProps>
+      <painPerSeverity>0.025</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.0035</averagePainPerSeverityPermanent>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Burned Off</destroyedLabel>
+      <destroyedOutLabel>Burned Out</destroyedOutLabel>
+      <bleedRate>0</bleedRate>
     </injuryProps>
   </HediffDef>
 

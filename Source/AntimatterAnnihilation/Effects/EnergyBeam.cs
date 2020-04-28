@@ -9,7 +9,7 @@ namespace AntimatterAnnihilation.Effects
         public Vector3 Position;
         public bool Visible;
         public float Length = 1f;
-        public float Angle;
+        public float Rotation;
         public float RadiusScale = 1f;
         public float BeamExtendPerSecond = 60;
         public float RadiusChangeSpeed = 1f;
@@ -19,14 +19,14 @@ namespace AntimatterAnnihilation.Effects
         private float currentLength;
         private Transform beam;
 
-        public EnergyBeam(Vector3 pos, float rot)
+        public EnergyBeam(Vector3 pos, float rot, bool isInBeam)
         {
-            beam = Object.Instantiate(Content.EnergyBeamPrefab).transform;
+            beam = Object.Instantiate(isInBeam ? Content.EnergyBeamInPrefab : Content.EnergyBeamOutPrefab).transform;
             beam.position = pos;
             beam.localScale = Vector3.zero;
             beam.eulerAngles = new Vector3(90f, rot, 0f);
 
-            this.Angle = rot;
+            this.Rotation = rot;
             this.Position = pos;
         }
 
@@ -75,6 +75,8 @@ namespace AntimatterAnnihilation.Effects
                 }
             }
 
+            beam.position = Position;
+            beam.eulerAngles = new Vector3(90f, Rotation, 0f);
             beam.localScale = new Vector3(currentRadiusScale, currentLength, currentRadiusScale);
         }
 

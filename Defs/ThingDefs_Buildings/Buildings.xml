@@ -36,23 +36,6 @@
             <Mass>80</Mass>
         </statBases>
         <comps>
-        <li Class="CompProperties_Flickable"/>
-        <li Class="CompProperties_HeatPusher">
-            <compClass>CompHeatPusherPowered</compClass>
-            <heatPerSecond>6</heatPerSecond>
-        </li>
-        <li Class="CompProperties_Explosive">
-            <explosiveRadius>12</explosiveRadius>
-            <explosiveDamageType>Flame</explosiveDamageType>
-            <destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
-            <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
-            <preExplosionSpawnThingDef>Filth_RubbleBuilding</preExplosionSpawnThingDef>
-            <preExplosionSpawnChance>1</preExplosionSpawnChance>
-            <wickTicks>
-                <min>150</min>
-                <max>190</max>
-            </wickTicks>
-        </li>
         </comps>
         <building>
         <ai_chillDestination>false</ai_chillDestination>
@@ -94,7 +77,7 @@
     <label>Antimatter Reactor</label>
     <description>The ultimate form of power generation.
 Reacts injected antimatter with regular matter to produce massive amounts of power. An ultra-powerful AT field contains the massive amount of energy and radiation created, making it mostly safe to work around.
-Requires a Reactor Injector to inject antimatter, and a Reactor Power Collector to capture the output beam and turn it into electrical power.</description>
+Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter to capture the output beam and turn it into electrical power.</description>
     <graphicData>
       <texPath>AntimatterAnnihilation/Buildings/Reactor</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
@@ -116,8 +99,20 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Collector 
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>6000</basePowerConsumption>
-        <transmitsPower>true</transmitsPower>
+        <transmitsPower>false</transmitsPower>
       </li>
+      <li Class="CompProperties_Explosive">
+            <explosiveRadius>10</explosiveRadius>
+            <explosiveDamageType>Flame</explosiveDamageType>
+            <destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
+            <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+            <preExplosionSpawnThingDef>Filth_RubbleBuilding</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <wickTicks>
+                <min>150</min>
+                <max>190</max>
+            </wickTicks>
+        </li>
       <li Class="CompProperties_Glower"> <!-- Note that this glows whenever it has power - this is fine (for now) because the energy ball only appears when the reactor has enough power. -->
         <glowRadius>14</glowRadius>
         <glowColor>(51,124,193,255)</glowColor>
@@ -146,12 +141,13 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
     <selectable>true</selectable>
     <size>(2, 3)</size>
     <costList>
-      <Steel>100</Steel>
-      <Plasteel>20</Plasteel>
+      <Steel>300</Steel>
+      <Plasteel>60</Plasteel>
       <ComponentIndustrial>15</ComponentIndustrial>
-      <ComponentSpacer>1</ComponentSpacer>
+      <ComponentSpacer>2</ComponentSpacer>
     </costList>
     <comps>
+      <li Class="CompProperties_Flickable"/>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>300</basePowerConsumption>
@@ -174,4 +170,71 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
       <li>SomeResearch</li>
     </researchPrerequisites> -->
   </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactorPowerConverter</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_PowerConverter</thingClass>
+    <label>Reactor Power Converter</label>
+    <description>Captures the output beam of the Antimatter Reactor and turns it into useable electrical power.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/PowerConverter</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+    </graphicData>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>West</defaultPlacingRot>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+    <size>(2, 3)</size>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>50</Plasteel>
+      <Gold>60</Gold>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>0</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <!-- <researchPrerequisites>
+      <li>SomeResearch</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>PowerNetConsole</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_PowerNetConsole</thingClass>
+    <label>PowerNet Console</label>
+    <description>Shows a detailed overview of the power network, showing where power is being used and produced.
+Also has the ability to switch machines on or off remotely.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/PowerConverter</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+    <size>(1, 1)</size>
+    <costList>
+      <Steel>120</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+        <transmitsPower>false</transmitsPower>
+      </li>
+    </comps>
+    <!-- <researchPrerequisites>
+      <li>SomeResearch</li>
+    </researchPrerequisites> -->
+  </ThingDef>
+
   </Defs>
