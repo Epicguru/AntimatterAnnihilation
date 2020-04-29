@@ -54,7 +54,7 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             var trader = PowerComp as CompPowerTrader;
-            trader.PowerOutput = HasInput ? 16000 : 0;
+            trader.PowerOutput = HasInput ? 30000 : 0;
 
             base.Tick();
         }

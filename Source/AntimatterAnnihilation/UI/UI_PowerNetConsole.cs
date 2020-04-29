@@ -4,6 +4,7 @@ using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Reflection;
 using UnityEngine;
 using Verse;
 
@@ -11,6 +12,12 @@ namespace AntimatterAnnihilation.UI
 {
     public class UI_PowerNetConsole : Window
     {
+        [TweakValue("AntimatterAnnihilation")]
+        public static bool InstantFlickMode = true;
+
+        private static ObjectPool<Category> pool = new ObjectPool<Category>() { CreateFunction = () => new Category() };
+        private static FieldInfo wantsToBeOnInfo;
+
         public static UI_PowerNetConsole Open(Building_PowerNetConsole cons)
         {
             var created = new UI_PowerNetConsole(cons);
@@ -47,7 +54,39 @@ namespace AntimatterAnnihilation.UI
                         return 0;
                 }
             }
+
+            public void Flick()
+            {
+                if (FlickComp == null)
+                    return;
+
+                if (wantsToBeOnInfo == null)
+                {
+                    wantsToBeOnInfo = typeof(CompFlickable).GetField("wantSwitchOn", BindingFlags.Instance | BindingFlags.NonPublic);
+                }
+
+                bool currentWantsToBeOn = (bool)wantsToBeOnInfo.GetValue(FlickComp);
+                wantsToBeOnInfo.SetValue(FlickComp, !currentWantsToBeOn);
+
+                if(!InstantFlickMode)
+                    FlickUtility.UpdateFlickDesignation(Thing);
+
+                if(InstantFlickMode)
+                    FlickComp.DoFlick();
+            }
+
+            public bool IsFlickedOn()
+            {
+                if (FlickComp == null)
+                    return false;
+
+                if (InstantFlickMode)
+                    return FlickComp.SwitchIsOn;
+                else
+                    return (bool)wantsToBeOnInfo.GetValue(FlickComp);
+            }
         }
+        public override Vector2 InitialSize => new Vector2(620, 650);
 
         private Building_PowerNetConsole console;
 
@@ -93,10 +132,10 @@ namespace AntimatterAnnihilation.UI
 
         private Vector2 scroll;
         private Stopwatch st = new Stopwatch();
-        private static ObjectPool<Category> pool = new ObjectPool<Category>() { CreateFunction = () => new Category() };
+        private Dictionary<string, bool> expanded = new Dictionary<string, bool>();
         private float lastHeight;
-        private float[] columnWidths = { 200, 95, 120 };
-        private float[] cumulativeWidths = { 0, 200, 295 };
+        private float[] columnWidths = { 262, 110, 120 };
+        private float[] cumulativeWidths = { 0, 262, 372 };
 
         public void Refresh()
         {
@@ -158,7 +197,7 @@ namespace AntimatterAnnihilation.UI
             switch (SortingMode)
             {
                 case SortMode.Name:
-                    AllCats.Sort((a, b) => string.Compare(a.DefName, b.DefName, StringComparison.Ordinal) * (Ascending ? 1 : -1));
+                    AllCats.Sort((a, b) => string.Compare(a.Label, b.Label, StringComparison.Ordinal) * (Ascending ? 1 : -1));
                     break;
                 case SortMode.Power:
                     AllCats.Sort((a, b) => (int)(a.TotalPower - b.TotalPower) * (Ascending ? 1 : -1));
@@ -166,8 +205,13 @@ namespace AntimatterAnnihilation.UI
                 case SortMode.Enabled:
                     AllCats.Sort((a, b) =>
                     {
-                        bool aState = a.AreAllEnabled(out int _);
-                        bool bState = b.AreAllEnabled(out int _);
+                        bool aState = a.AreAllEnabled(out int aCount);
+                        bool bState = b.AreAllEnabled(out int bCount);
+
+                        if (aCount == 0)
+                            return 1;
+                        if (bCount == 0)
+                            return -1;
 
                         int val;
                         if (aState && !bState)
@@ -187,8 +231,25 @@ namespace AntimatterAnnihilation.UI
             }
         }
 
+        public bool IsExpanded(string defName)
+        {
+            bool hasValue = expanded.TryGetValue(defName, out bool exp);
+            return hasValue && exp;
+        }
+
+        public void SetExpanded(string defName, bool exp)
+        {
+            if (expanded.ContainsKey(defName))
+                expanded[defName] = exp;
+            else
+                expanded.Add(defName, exp);
+        }
+
         public override void DoWindowContents(Rect inRect)
         {
+            if (console == null)
+                return;
+
             if (!st.IsRunning)
                 st.Start();
 
@@ -199,11 +260,19 @@ namespace AntimatterAnnihilation.UI
             }
 
             bool indented = false;
+            bool isCat = false;
             int column = 0;
             float itemHeight;
 
             Text.Font = GameFont.Medium;
-            Widgets.Label(GetItemRect(40), "PowerNet Info");
+            Widgets.Label(GetItemRect(40), "<b>PowerNet Info</b>");
+            float totalPower = console.PowerTraderComp.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick;
+            string totalPowerText = GetPrettyPower(totalPower);
+            if (totalPower > 0)
+                totalPowerText = $"<color=green>{totalPowerText}</color>";
+            if (totalPower < 0)
+                totalPowerText = $"<color=red>{totalPowerText}</color>";
+            Widgets.Label(new Rect(inRect.x + 200, inRect.y, 200, 32), totalPowerText);
             MoveDown(45);
             Text.Font = GameFont.Small;
 
@@ -220,14 +289,66 @@ namespace AntimatterAnnihilation.UI
 
             GetItemRect(32);
 
+            string ascDec = Ascending ? "(Asc)" : "(Des)";
+            isCat = true;
             // Name.
-            Widgets.ButtonTextSubtle(GetColumnRect(), "<b>Name</b>");
+            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Name</b> {(SortingMode == SortMode.Name ? ascDec : "")}"))
+            {
+                if (SortingMode != SortMode.Name)
+                {
+                    SortingMode = SortMode.Name;
+                    Ascending = true;
+                    Refresh();
+                    return;
+                }
+                else
+                {
+                    Ascending = !Ascending;
+                    Refresh();
+                    return;
+                }
+            }
 
             // Power in/out.
-            Widgets.ButtonTextSubtle(GetColumnRect(), "<b>Power</b>");
+            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Power</b> {(SortingMode == SortMode.Power ? ascDec : "")}"))
+            {
+                {
+                    if (SortingMode != SortMode.Power)
+                    {
+                        SortingMode = SortMode.Power;
+                        Ascending = true;
+                        Refresh();
+                        return;
+                    }
+                    else
+                    {
+                        Ascending = !Ascending;
+                        Refresh();
+                        return;
+                    }
+                }
+            }
 
             // Turn on/off
-            Widgets.ButtonTextSubtle(GetColumnRect(), "<b>Enabled</b>");
+            if (Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Enabled</b> {(SortingMode == SortMode.Enabled ? ascDec : "")}"))
+            {
+                {
+                    if (SortingMode != SortMode.Enabled)
+                    {
+                        SortingMode = SortMode.Enabled;
+                        Ascending = true;
+                        Refresh();
+                        return;
+                    }
+                    else
+                    {
+                        Ascending = !Ascending;
+                        Refresh();
+                        return;
+                    }
+                }
+            }
+            isCat = false;
 
             MoveDown(32 + 10f);
 
@@ -239,17 +360,44 @@ namespace AntimatterAnnihilation.UI
                 if(cat.Count == 1)
                 {
                     indented = false;
+                    isCat = true;
                     DrawThing(cat.Things[0]);
+                    isCat = false;
                 }
                 else
                 {
                     indented = false;
+                    isCat = true;
                     var r = GetItemRect(36f);
                     column = 0;
                     Widgets.DrawBox(r, 2);
 
+                    var expRect = new Rect(inRect.x, inRect.y, 32, 32);
+                    bool isExp = IsExpanded(cat.DefName);
+                    if (Widgets.ButtonImage(expRect, isExp ? Content.Collapse : Content.Expand))
+                    {
+                        isExp = !isExp;
+                        SetExpanded(cat.DefName, isExp);
+                    }
+
                     // Name.
-                    Widgets.Label(GetColumnRect().GetInner(), cat.Label + $" x{cat.Count}");
+                    var labelRect = GetColumnRect();
+                    Widgets.Label(labelRect.GetInner(), cat.Label + $" x{cat.Count}");
+
+                    if (Widgets.ButtonInvisible(labelRect))
+                    {
+                        Vector3 averagePos = Vector3.zero;
+                        if (!Input.GetKey(KeyCode.LeftShift))
+                            Find.Selector.ClearSelection();
+                        foreach (var thing in cat.Things)
+                        {
+                            averagePos += thing.Thing.DrawPos;
+                            Find.Selector.Select(thing.Thing);
+                        }
+                        averagePos /= cat.Things.Count;
+
+                        Find.CameraDriver.JumpToCurrentMapLoc(averagePos);
+                    }
 
                     // Power in/out.
                     float catPower = cat.TotalPower;
@@ -268,11 +416,17 @@ namespace AntimatterAnnihilation.UI
                     if (flickable > 0 && Widgets.ButtonText(fr.GetInner(3), $"Turn All {(on ? "Off" : "On")}"))
                     {
                         cat.FlickAll(on);
+                        Refresh();
+                        Widgets.EndScrollView();
+                        return;
                     }
-                    
 
                     MoveDown(32 + 10f);
 
+                    isCat = false;
+
+                    if (!isExp)
+                        continue;
                     indented = true;
                     foreach(var thing in cat.Things)
                     {
@@ -290,7 +444,8 @@ namespace AntimatterAnnihilation.UI
                 Widgets.DrawBox(r);
 
                 // Name.
-                Widgets.Label(GetColumnRect().GetInner(), thing.Thing.LabelShortCap);
+                Rect nameRect = GetColumnRect();
+                Widgets.Label(nameRect.GetInner(), thing.Thing.LabelShortCap);
 
                 // Power in/out.
                 string wattText = GetPrettyPower(thing.Watts);
@@ -305,10 +460,18 @@ namespace AntimatterAnnihilation.UI
                 var fr = GetColumnRect();
                 if (thing.FlickComp != null)
                 {
-                    if (Widgets.ButtonText(fr.GetInner(3), $"Turn {(thing.FlickComp.SwitchIsOn ? "Off" : "On")}"))
+                    if (Widgets.ButtonText(fr.GetInner(3), $"Turn {(thing.IsFlickedOn() ? "Off" : "On")}"))
                     {
-                        thing.FlickComp?.DoFlick();
+                        thing.Flick();
                     }
+                }
+
+                if (Widgets.ButtonInvisible(nameRect))
+                {
+                    Find.CameraDriver.JumpToCurrentMapLoc(thing.Thing.DrawPos);
+                    if(!Input.GetKey(KeyCode.LeftShift))
+                        Find.Selector.ClearSelection();
+                    Find.Selector.Select(thing.Thing);
                 }
 
                 MoveDown(32 + 10f);
@@ -325,6 +488,8 @@ namespace AntimatterAnnihilation.UI
             Rect GetColumnRect()
             {
                 int add = indented ? 32 : 0;
+                if (isCat)
+                    add += 32;
                 var r = new Rect(inRect.x + cumulativeWidths[column] + add, inRect.y,  columnWidths[column], itemHeight);
                 column++;
                 return r;
@@ -413,7 +578,7 @@ namespace AntimatterAnnihilation.UI
                         continue;
 
                     haveComp++;
-                    if (!thing.FlickComp.SwitchIsOn)
+                    if (!thing.IsFlickedOn())
                         return false;
                 }
                 return true;
@@ -428,9 +593,9 @@ namespace AntimatterAnnihilation.UI
                         continue;
 
                     if (startingState && fc.SwitchIsOn)
-                        fc.DoFlick();
+                        thing.Flick();
                     else if (!startingState && !fc.SwitchIsOn)
-                        fc.DoFlick();
+                        thing.Flick();
                 }
             }
 

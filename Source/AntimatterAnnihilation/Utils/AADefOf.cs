@@ -1,7 +1,7 @@
 ﻿using RimWorld;
 using Verse;
 
-namespace AntimatterAnnihilation.Damage
+namespace AntimatterAnnihilation.Utils
 {
     [DefOf]
     public static class AADefOf
@@ -13,5 +13,6 @@ namespace AntimatterAnnihilation.Damage
 
         public static DamageDef Annihilate;
         public static DamageDef EnergyBurn;
+        public static ThingDef AntimatterCanister;
     }
 }

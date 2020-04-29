@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.29521.150
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntimatterAnnihilation", "AntimatterAnnihilation\AntimatterAnnihilation.csproj", "{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RunRimworld", "RunRimworld\RunRimworld.csproj", "{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4} = {B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

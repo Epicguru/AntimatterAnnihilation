@@ -33,11 +33,11 @@ namespace AntimatterAnnihilation.ThingComps
             switch (signal)
             {
                 case "RanOutOfFuel":
-                    OnRunOutOfFuel.Invoke(this);
+                    OnRunOutOfFuel?.Invoke(this);
                     break;
 
                 case "Refueled":
-                    OnRefueled.Invoke(this);
+                    OnRefueled?.Invoke(this);
                     break;
             }
 

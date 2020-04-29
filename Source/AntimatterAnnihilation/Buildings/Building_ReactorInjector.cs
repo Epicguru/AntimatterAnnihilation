@@ -1,6 +1,6 @@
-﻿using AntimatterAnnihilation.Damage;
-using AntimatterAnnihilation.Effects;
+﻿using AntimatterAnnihilation.Effects;
 using AntimatterAnnihilation.ThingComps;
+using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;

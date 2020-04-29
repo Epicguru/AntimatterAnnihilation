@@ -31,7 +31,7 @@
             <MaxHitPoints>400</MaxHitPoints>
             <WorkToBuild>35000</WorkToBuild>
             <Flammability>3.0</Flammability>
-            <Beauty>5</Beauty>
+            <Beauty>2</Beauty>
             <Cleanliness>10</Cleanliness>
             <Mass>80</Mass>
         </statBases>
@@ -46,6 +46,7 @@
     <ThingDef ParentName="AAPoweredLarge">
     <defName>ParticleAccelerator</defName>
     <label>Particle Accelerator</label>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_ParticleAccelerator</thingClass>
     <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
     <graphicData>
       <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
@@ -63,6 +64,18 @@
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>4000</basePowerConsumption>
+      </li>
+      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+        <fuelConsumptionRate>10</fuelConsumptionRate>
+        <fuelCapacity>40.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>Plasteel</li>
+          </thingDefs>
+        </fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
     <!-- <researchPrerequisites>
@@ -154,16 +167,16 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <transmitsPower>false</transmitsPower>
       </li>
       <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
-        <fuelConsumptionRate>5</fuelConsumptionRate>
-        <fuelCapacity>50.0</fuelCapacity>
+        <fuelConsumptionRate>1.5</fuelConsumptionRate>
+        <fuelCapacity>20.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>Plasteel</li>
+            <li>AntimatterCanister</li>
           </thingDefs>
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>50</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
     <!-- <researchPrerequisites>
@@ -212,7 +225,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
     <description>Shows a detailed overview of the power network, showing where power is being used and produced.
 Also has the ability to switch machines on or off remotely.</description>
     <graphicData>
-      <texPath>AntimatterAnnihilation/Buildings/PowerConverter</texPath>
+      <texPath>AntimatterAnnihilation/Buildings/PowerNetConsole</texPath>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
@@ -222,7 +235,7 @@ Also has the ability to switch machines on or off remotely.</description>
     <selectable>true</selectable>
     <size>(1, 1)</size>
     <costList>
-      <Steel>120</Steel>
+      <Steel>90</Steel>
       <ComponentIndustrial>6</ComponentIndustrial>
     </costList>
     <comps>
