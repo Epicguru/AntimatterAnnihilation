@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseBullet">
+    <defName>Bullet_Antimatter</defName>
+    <label>antimatter charge</label>
+    <graphicData>
+      <texPath>Things/Projectile/Charge_Small</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+    </graphicData>
+    <projectile>
+      <damageDef>Annihilate</damageDef>
+      <damageAmountBase>17</damageAmountBase>
+      <armorPenetrationBase>0.4</armorPenetrationBase>
+      <speed>75</speed>
+    </projectile>
+  </ThingDef>
+
+    <ThingDef ParentName="BaseHumanMakeableGun">
+        <defName>AntimatterRifle</defName>
+        <label>antimatter rifle</label>
+        <description>Not to be confused with an anti-materiel rifle. This is much more powerful.
+Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
+        <techLevel>Spacer</techLevel>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Interact_ChargeRifle</soundInteract>
+        <statBases>
+            <WorkToMake>50000</WorkToMake>
+            <Mass>5</Mass>
+            <AccuracyTouch>0.65</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.63</AccuracyMedium>
+            <AccuracyLong>0.36</AccuracyLong>
+            <RangedWeapon_Cooldown>0.9</RangedWeapon_Cooldown>
+        </statBases>
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <costList>
+            <Plasteel>50</Plasteel>
+            <AntimatterCanister>1</AntimatterCanister>
+            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+        <recipeMaker>
+            <skillRequirements>
+                <Crafting>7</Crafting>
+                <Intellectual>3</Intellectual>
+            </skillRequirements>
+            <recipeUsers Inherit="False">
+                <li>FabricationBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_Antimatter</defaultProjectile>
+                <warmupTime>0.8</warmupTime>
+                <range>25.5</range>
+                <ticksBetweenBurstShots>14</ticksBetweenBurstShots>
+                <burstShotCount>2</burstShotCount>
+                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCastTail>GunTail_Large</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                <li>Blunt</li>
+                <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+</Defs>

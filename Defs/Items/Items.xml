@@ -2,7 +2,7 @@
 <Defs>
     <ThingDef ParentName="ResourceBase">
         <defName>AntimatterCanister</defName>
-        <label>Antimatter Canister</label>
+        <label>antimatter canister</label>
         <description>An ultra-durable canister containing a small amount of antimatter.
 The antimatter is suspended in an AT field that prevents it from entering contact with the sides of the canister. Each canister has an internal power supply for this field, desinged to last for hundreds of years.</description>
         <graphicData>

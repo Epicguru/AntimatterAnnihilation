@@ -38,12 +38,12 @@ The flesh is literally annihilated, leaving nothing behind but a gruesome wound.
     <tendable>true</tendable>
     <displayWound>true</displayWound>
     <injuryProps>
-      <painPerSeverity>0.03</painPerSeverity>
-      <averagePainPerSeverityPermanent>0.004</averagePainPerSeverityPermanent>
+      <painPerSeverity>0.0155</painPerSeverity>
+      <averagePainPerSeverityPermanent>0.0065</averagePainPerSeverityPermanent>
+      <bleedRate>0.09</bleedRate>
       <canMerge>false</canMerge>
       <destroyedLabel>Completely Annihilated</destroyedLabel>
       <destroyedOutLabel>Annihilated</destroyedOutLabel>
-      <bleedRate>0.09</bleedRate>
     </injuryProps>
   </HediffDef>
 
