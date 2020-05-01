@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="AntimatterGunBase" Abstract="True" ParentName="BaseHumanMakeableGun">
+    
+        <techLevel>Spacer</techLevel> <!-- I would rather Ultra tech level, but I don't know the spawn conditions for 'Ultra' raiders (might even be DLC only) -->
+        <soundInteract>Interact_ChargeRifle</soundInteract> <!-- TODO change me for a cusom sound (something like MW night vision power-on :p)-->
+        <weaponTags>
+            <li>SpacerGun</li>
+        </weaponTags>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+
+    </ThingDef>
+
+</Defs>

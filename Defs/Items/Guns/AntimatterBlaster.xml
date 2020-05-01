@@ -2,34 +2,33 @@
 <Defs>
 
     <ThingDef ParentName="AntimatterGunBase">
-        <defName>AntimatterRifle</defName>
-        <label>antimatter rifle</label>
-        <description>Not to be confused with an anti-materiel rifle. This is much more powerful.
+        <defName>AntimatterBlaster</defName>
+        <label>antimatter blaster</label>
+        <description>A medium range personal defence weapon, firing antimatter.
 
 Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Weapons/AntimatterRifle</texPath>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterBlaster</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>
-            <WorkToMake>50000</WorkToMake>
-            <Mass>3.8</Mass>
-            <AccuracyTouch>0.65</AccuracyTouch>
-            <AccuracyShort>0.75</AccuracyShort>
-            <AccuracyMedium>0.63</AccuracyMedium>
-            <AccuracyLong>0.36</AccuracyLong>
-            <RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
-            <MarketValue>2800</MarketValue>
+            <WorkToMake>30000</WorkToMake>
+            <Mass>1.6</Mass>
+            <AccuracyTouch>0.8</AccuracyTouch>
+            <AccuracyShort>0.7</AccuracyShort>
+            <AccuracyMedium>0.45</AccuracyMedium>
+            <AccuracyLong>0.2</AccuracyLong>
+            <MarketValue>1900</MarketValue>
         </statBases>
         <costList>
-            <Plasteel>50</Plasteel>
+            <Plasteel>30</Plasteel>
             <AntimatterCanister>1</AntimatterCanister>
-            <ComponentIndustrial>6</ComponentIndustrial>
-            <ComponentSpacer>2</ComponentSpacer>
+            <ComponentIndustrial>5</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <recipeMaker>
             <skillRequirements>
-                <Crafting>7</Crafting>
+                <Crafting>6</Crafting>
                 <Intellectual>3</Intellectual>
             </skillRequirements>
             <recipeUsers Inherit="False">
@@ -41,13 +40,11 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>Bullet_Antimatter</defaultProjectile>
-                <warmupTime>0.8</warmupTime>
-                <range>25.5</range>
-                <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
-                <burstShotCount>2</burstShotCount>
+                <warmupTime>0.65</warmupTime>
+                <range>12.5</range>
                 <soundCast>Shot_ChargeRifle</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>12</muzzleFlashScale>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>10</muzzleFlashScale>
             </li>
         </verbs>
         <tools>
@@ -56,8 +53,8 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>9</power>
-                <cooldownTime>2</cooldownTime>
+                <power>7</power>
+                <cooldownTime>1.4</cooldownTime>
             </li>
             <li>
                 <label>barrel</label>
@@ -65,8 +62,8 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>9</power>
-                <cooldownTime>2</cooldownTime>
+                <power>8</power>
+                <cooldownTime>1.2</cooldownTime>
             </li>
         </tools>
     </ThingDef>
