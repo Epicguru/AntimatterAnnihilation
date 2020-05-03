@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AATurret" Name="AntimatterRailgunTurret" Abstract="True"> 
+        <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(5, 5)</drawSize>
+        </graphicData>    
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <size>(5,5)</size>
+        <statBases>
+            <MaxHitPoints>380</MaxHitPoints>
+            <Flammability>0.7</Flammability>
+            <WorkToBuild>15000</WorkToBuild>
+            <Mass>400</Mass>
+            <Beauty>-25</Beauty>
+        </statBases>
+        <tickerType>Normal</tickerType>
+        <passability>PassThroughOnly</passability>
+        <pathCost>150</pathCost>
+        <fillPercent>0.8</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>Antimatter</designationCategory>
+        <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretTopDrawSize>9</turretTopDrawSize>
+            <turretTopOffset>(0, 0)</turretTopOffset>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>AntimatterAnnihilation.Buildings.PlaceWorker_ShowAATurretRadius</li>
+        </placeWorkers>
+        <designationHotKey>Misc3</designationHotKey>    
+        <uiIconScale>0.95</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="AntimatterRailgunTurret">
+        <defName>Turret_AntimatterRailgun</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterRailgun</thingClass>
+        <label>antimatter railgun</label>
+        <description>A railgun that fires antimatter that causes an annihilation explosion upon impact. Truly devastating.</description>
+        <uiIconPath>Things/Building/Security/TurretAutocannon_MenuIcon</uiIconPath>
+        <statBases>
+            <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
+        </statBases>
+        <costList>
+            <Steel>350</Steel>
+            <Plasteel>40</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>250</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Antimatter remaining</fuelLabel>
+                <fuelGizmoLabel>Antimatter remaining</fuelGizmoLabel>
+                <outOfFuelMessage>Cannot shoot: Needs antimatter canister refuel</outOfFuelMessage>
+                <fuelFilter><thingDefs><li>AntimatterCanister</li></thingDefs></fuelFilter>
+                <fuelCapacity>2</fuelCapacity>       <!-- 20 shots -->
+                <initialFuelPercent>0</initialFuelPercent>
+                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <showFuelGizmo>true</showFuelGizmo>
+                <minimumFueledThreshold>0.1</minimumFueledThreshold>
+                <factorByDifficulty>false</factorByDifficulty>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>Gun_AntimatterRailgunTurret</turretGunDef>
+            <turretBurstCooldownTime>0.5</turretBurstCooldownTime>
+        </building>
+        <researchPrerequisites>
+        <li>HeavyTurrets</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_AntimatterRailgun</defName>
+        <label>antimatter railgun blast</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate</damageDef>
+            <damageAmountBase>100</damageAmountBase>
+            <speed>200</speed>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>Gun_AntimatterRailgunTurret</defName>
+        <label>antimatter railgun</label>
+        <description>The top part of an antimatter railgun. How did you get this...?</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.9</AccuracyTouch>
+            <AccuracyShort>0.98</AccuracyShort>
+            <AccuracyMedium>0.98</AccuracyMedium>
+            <AccuracyLong>0.95</AccuracyLong>
+            <RangedWeapon_Cooldown>20</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>300</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <!-- <verbClass>Verb_Shoot</verbClass> -->
+                <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
+                <defaultProjectile>Bullet_AntimatterRailgun</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <minRange>8.9</minRange>
+                <range>400</range>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>Shot_Autocannon</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>40</muzzleFlashScale>
+                <consumeFuelPerShot>0.1</consumeFuelPerShot>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>

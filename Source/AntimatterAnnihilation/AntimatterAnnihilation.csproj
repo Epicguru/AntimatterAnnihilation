@@ -78,6 +78,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buildings\AATurretTop.cs" />
+    <Compile Include="Buildings\Building_AATurret.cs" />
+    <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
     <Compile Include="Buildings\Building_PowerConverter.cs" />
     <Compile Include="Buildings\Building_ParticleAccelerator.cs" />
@@ -85,6 +88,7 @@
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="Defs\AATurretDef.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
@@ -99,6 +103,7 @@
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\IResettable.cs" />
     <Compile Include="Utils\ObjectPool.cs" />
+    <Compile Include="Verbs\Verb_Railgun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

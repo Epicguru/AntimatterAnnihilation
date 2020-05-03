@@ -23,7 +23,7 @@
         <passability>PassThroughOnly</passability>
         <blockWind>true</blockWind>
         <castEdgeShadows>false</castEdgeShadows>
-        <pathCost>60</pathCost>
+        <pathCost>90</pathCost>
         <size>(9,9)</size>
         <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
         <rotatable>false</rotatable>
@@ -35,12 +35,21 @@
             <Cleanliness>10</Cleanliness>
             <Mass>80</Mass>
         </statBases>
-        <comps>
-        </comps>
         <building>
-        <ai_chillDestination>false</ai_chillDestination>
+            <ai_chillDestination>false</ai_chillDestination>
         </building>
         <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef Name="AATurret" ParentName="AABuildingBase" Abstract="True">
+    
+        <pathCost>120</pathCost>
+        <blockWind>true</blockWind>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <rotatable>false</rotatable>
+        <canOverlapZones>false</canOverlapZones>
+        <castEdgeShadows>false</castEdgeShadows>
+        
     </ThingDef>
 
     <ThingDef ParentName="AAPoweredLarge">

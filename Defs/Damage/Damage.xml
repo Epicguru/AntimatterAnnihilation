@@ -5,7 +5,7 @@
     <defName>Annihilate</defName>
     <label>Annihilate</label>
     <workerClass>AntimatterAnnihilation.Damage.DamageWorker_Annihilate</workerClass>
-    <hasForcefulImpact>false</hasForcefulImpact>
+    <hasForcefulImpact>true</hasForcefulImpact>
     <externalViolence>true</externalViolence>
     <makesBlood>true</makesBlood>
     <deathMessage>{0} was annihilated.</deathMessage>

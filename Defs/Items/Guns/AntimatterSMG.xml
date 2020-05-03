@@ -2,35 +2,35 @@
 <Defs>
 
     <ThingDef ParentName="AntimatterGunBase">
-        <defName>AntimatterRifle</defName>
-        <label>antimatter rifle</label>
-        <description>Not to be confused with an anti-materiel rifle. This is much more powerful.
+        <defName>AntimatterSMG</defName>
+        <label>antimatter SMG</label>
+        <description>Thanks to advanced heat venting techniques, this SMG fires a large volley of antimatter with deadly precision.
 
 Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Weapons/AntimatterRifle</texPath>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterSMG</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <statBases>
-            <WorkToMake>50000</WorkToMake>
-            <Mass>3.8</Mass>
-            <AccuracyTouch>0.65</AccuracyTouch>
-            <AccuracyShort>0.75</AccuracyShort>
-            <AccuracyMedium>0.63</AccuracyMedium>
-            <AccuracyLong>0.36</AccuracyLong>
-            <RangedWeapon_Cooldown>0.6</RangedWeapon_Cooldown>
-            <MarketValue>2800</MarketValue>
+            <WorkToMake>45000</WorkToMake>
+            <Mass>3</Mass>
+            <AccuracyTouch>0.55</AccuracyTouch>
+            <AccuracyShort>0.6</AccuracyShort>
+            <AccuracyMedium>0.55</AccuracyMedium>
+            <AccuracyLong>0.2</AccuracyLong>
+            <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+            <MarketValue>3200</MarketValue>
         </statBases>
         <costList>
-            <Plasteel>50</Plasteel>
+            <Plasteel>55</Plasteel>
             <AntimatterCanister>1</AntimatterCanister>
-            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentIndustrial>12</ComponentIndustrial>
             <ComponentSpacer>2</ComponentSpacer>
         </costList>
         <recipeMaker>
             <skillRequirements>
-                <Crafting>7</Crafting>
-                <Intellectual>3</Intellectual>
+                <Crafting>8</Crafting>
+                <Intellectual>4</Intellectual>
             </skillRequirements>
             <recipeUsers Inherit="False">
                 <li>FabricationBench</li>
@@ -40,14 +40,14 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
             <li>
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>Bullet_Antimatter</defaultProjectile>
-                <warmupTime>0.8</warmupTime>
-                <range>27.5</range>
-                <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
-                <burstShotCount>2</burstShotCount>
+                <defaultProjectile>Bullet_LightAntimatter</defaultProjectile>
+                <warmupTime>0.2</warmupTime> <!-- Aim time is very fast, kind of like the Quick Draw mod, but the Ranged Cooldown compensates for this.-->
+                <range>15.5</range>
+                <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+                <burstShotCount>6</burstShotCount>
                 <soundCast>Shot_ChargeRifle</soundCast>
-                <soundCastTail>GunTail_Heavy</soundCastTail>
-                <muzzleFlashScale>12</muzzleFlashScale>
+                <soundCastTail>GunTail_Light</soundCastTail>
+                <muzzleFlashScale>9</muzzleFlashScale>
             </li>
         </verbs>
         <tools>
@@ -56,7 +56,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                 <capacities>
                     <li>Blunt</li>
                 </capacities>
-                <power>9</power>
+                <power>6</power>
                 <cooldownTime>2</cooldownTime>
             </li>
             <li>
@@ -65,7 +65,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                     <li>Blunt</li>
                     <li>Poke</li>
                 </capacities>
-                <power>9</power>
+                <power>8</power>
                 <cooldownTime>2</cooldownTime>
             </li>
         </tools>
