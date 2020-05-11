@@ -16,14 +16,16 @@ Painted red so that you don't loose your way.</description>
         </weaponTags>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <statBases>
-            <WorkToMake>55000</WorkToMake>
+            <WorkToMake>40000</WorkToMake>
             <Mass>12</Mass>
         </statBases>
+        <equippedStatOffsets>
+            <MoveSpeed>0.4</MoveSpeed> <!-- Gives +0.4 cps movement boost. Because I can. -->
+        </equippedStatOffsets>
         <costList>
-            <Plasteel>60</Plasteel>
-            <AntimatterCanister>8</AntimatterCanister>
-            <ComponentIndustrial>16</ComponentIndustrial>
-            <ComponentSpacer>2</ComponentSpacer>
+            <AntimatterComposite>40</AntimatterComposite> <!-- ~1.3 canisters, ~80 plasteel -->
+            <ComponentIndustrial>12</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <equippedAngleOffset>0</equippedAngleOffset>
         <tools>
