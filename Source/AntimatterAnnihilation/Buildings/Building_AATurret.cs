@@ -187,11 +187,14 @@ namespace AntimatterAnnihilation.Buildings
 		public override void ExposeData()
 		{
 			base.ExposeData();
-			Scribe_Values.Look<int>(ref this.burstCooldownTicksLeft, "burstCooldownTicksLeft", 0, false);
-			Scribe_Values.Look<int>(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft", 0, false);
-			Scribe_TargetInfo.Look(ref this.currentTargetInt, "currentTarget");
-			Scribe_Values.Look<bool>(ref this.holdFire, "holdFire", false, false);
-			Scribe_Deep.Look<Thing>(ref this.gun, "gun", Array.Empty<object>());
+			Scribe_Values.Look(ref this.burstCooldownTicksLeft, "burstCooldownTicksLeft", 0, false);
+			Scribe_Values.Look(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft", 0, false);
+
+            Scribe_Values.Look(ref this.top.curRotationInt, "aa_turretTopRot");
+
+            Scribe_TargetInfo.Look(ref this.currentTargetInt, "currentTarget");
+			Scribe_Values.Look(ref this.holdFire, "holdFire", false, false);
+			Scribe_Deep.Look(ref this.gun, "gun", Array.Empty<object>());
 			BackCompatibility.PostExposeData(this);
 			if (Scribe.mode == LoadSaveMode.PostLoadInit)
 			{
@@ -299,7 +302,7 @@ namespace AntimatterAnnihilation.Buildings
             }
 		}
 
-		protected void TryStartShootSomething(bool canBeginBurstImmediately)
+        protected void TryStartShootSomething(bool canBeginBurstImmediately)
 		{
             if (!base.Spawned || (this.holdFire && this.CanToggleHoldFire) || (this.AttackVerb.ProjectileFliesOverhead() && base.Map.roofGrid.Roofed(base.Position)) || !this.AttackVerb.Available())
             {

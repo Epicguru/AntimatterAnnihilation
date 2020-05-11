@@ -10,6 +10,7 @@ namespace AntimatterAnnihilation.Buildings
         public RailgunTop(Building_AATurret parentTurret) : base(parentTurret)
         {
             Recoil = new RecoilManager();
+            Recoil.RecoveryMultiplier = 0.9f;
         }
 
         public override void Tick()
@@ -21,7 +22,7 @@ namespace AntimatterAnnihilation.Buildings
 
         public override void OnShoot()
         {
-            Recoil.AddRecoil(20f);
+            Recoil.AddRecoil(60f);
         }
     }
 }

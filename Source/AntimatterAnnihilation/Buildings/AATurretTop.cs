@@ -24,7 +24,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         public Vector3 LocalDrawOffset { get; protected set; }
-
         public float CurrentRotation
         {
             get
@@ -44,8 +43,10 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
         }
+
+        internal float curRotationInt;
+
         protected Building_AATurret parentTurret;
-        private float curRotationInt;
 
         public void SetRotationFromOrientation()
         {

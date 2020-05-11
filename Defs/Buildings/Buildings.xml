@@ -69,6 +69,8 @@
       <ComponentIndustrial>20</ComponentIndustrial>
       <ComponentSpacer>4</ComponentSpacer>
     </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-5)</interactionCellOffset>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>

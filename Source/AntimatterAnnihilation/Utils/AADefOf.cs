@@ -14,5 +14,6 @@ namespace AntimatterAnnihilation.Utils
         public static DamageDef Annihilate;
         public static DamageDef EnergyBurn;
         public static ThingDef AntimatterCanister;
+        public static ThingDef AntimatterComposite;
     }
 }

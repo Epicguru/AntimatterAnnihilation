@@ -95,6 +95,7 @@ namespace AntimatterAnnihilation.Buildings
         {
             var zone = new Zone_Stockpile(StorageSettingsPreset.DefaultStockpile, Map.zoneManager);
             zone.settings.filter.SetDisallowAll();
+            zone.settings.Priority = StoragePriority.Low;
             zone.settings.filter.SetAllow(AADefOf.AntimatterCanister, true);
             Map.zoneManager.RegisterZone(zone);
             zone.AddCell(OutputPos);
