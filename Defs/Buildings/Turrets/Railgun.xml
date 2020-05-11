@@ -13,8 +13,8 @@
         <rotatable>false</rotatable>
         <size>(5,5)</size>
         <statBases>
-            <MaxHitPoints>380</MaxHitPoints>
-            <Flammability>0.7</Flammability>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Flammability>0.6</Flammability>
             <WorkToBuild>15000</WorkToBuild>
             <Mass>400</Mass>
             <Beauty>-25</Beauty>
@@ -50,15 +50,16 @@
             <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
         </statBases>
         <costList>
-            <Steel>350</Steel>
-            <Plasteel>40</Plasteel>
-            <ComponentIndustrial>6</ComponentIndustrial>
+            <Steel>650</Steel>
+            <Plasteel>60</Plasteel>
+            <ComponentIndustrial>15</ComponentIndustrial>
+            <ComponentSpacer>4</ComponentSpacer>
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>250</basePowerConsumption>
+                <basePowerConsumption>450</basePowerConsumption>
             </li>
             <li Class="CompProperties_Flickable"/>
             <li Class="CompProperties_Refuelable">
@@ -78,10 +79,10 @@
         </comps>
         <building>
             <turretGunDef>Gun_AntimatterRailgunTurret</turretGunDef>
-            <turretBurstCooldownTime>0.5</turretBurstCooldownTime>
+            <turretBurstCooldownTime>12</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
-        <li>HeavyTurrets</li>
+            <li>HeavyTurrets</li>
         </researchPrerequisites>
     </ThingDef>
 
@@ -113,7 +114,7 @@
             <AccuracyShort>0.98</AccuracyShort>
             <AccuracyMedium>0.98</AccuracyMedium>
             <AccuracyLong>0.95</AccuracyLong>
-            <RangedWeapon_Cooldown>20</RangedWeapon_Cooldown>
+            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>300</Mass>
             <Flammability>0</Flammability>

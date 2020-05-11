@@ -23,14 +23,15 @@ namespace AntimatterAnnihilation.Buildings
                 return (parentTurret.CurrentOrForcedTarget.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
             }
         }
+        public Vector3 LocalDrawOffset { get; protected set; }
 
-        private float CurrentRotation
+        public float CurrentRotation
         {
             get
             {
                 return this.curRotationInt;
             }
-            set
+            protected set
             {
                 this.curRotationInt = value;
                 if (this.curRotationInt > 360f)
@@ -43,7 +44,7 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
         }
-        private Building_AATurret parentTurret;
+        protected Building_AATurret parentTurret;
         private float curRotationInt;
 
         public void SetRotationFromOrientation()
@@ -56,7 +57,7 @@ namespace AntimatterAnnihilation.Buildings
             this.parentTurret = parentTurret;
         }
 
-        public void Tick()
+        public virtual void Tick()
         {
             LocalTargetInfo currentTarget = parentTurret.CurrentOrForcedTarget;
             if (currentTarget.IsValid)
@@ -65,19 +66,25 @@ namespace AntimatterAnnihilation.Buildings
             }
             else
             {
+                // TODO add default rotation as gizmo option.
                 // Do nothing, just point wherever we were last pointing.
             }
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             // TODO implement offset and size here instead of current texture-based solution.
 
-            Vector3 b = new Vector3(this.parentTurret.def.building.turretTopOffset.x, 0f, this.parentTurret.def.building.turretTopOffset.y).RotatedBy(this.CurrentRotation);
+            Vector3 b = (new Vector3(this.parentTurret.def.building.turretTopOffset.x, 0f, this.parentTurret.def.building.turretTopOffset.y) + LocalDrawOffset).RotatedBy(this.CurrentRotation);
             float turretTopDrawSize = this.parentTurret.def.building.turretTopDrawSize;
             Matrix4x4 matrix = default(Matrix4x4);
             matrix.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect + b, (this.CurrentRotation + (float)TurretTop.ArtworkRotation).ToQuat(), new Vector3(turretTopDrawSize, 1f, turretTopDrawSize));
             Graphics.DrawMesh(MeshPool.plane10, matrix, this.parentTurret.def.building.turretTopMat, 0);
+        }
+
+        public virtual void OnShoot()
+        {
+
         }
 
         /// <summary>
@@ -110,13 +117,13 @@ namespace AntimatterAnnihilation.Buildings
     {
         public override AcceptanceReport AllowsPlacing(BuildableDef checkingDef, IntVec3 loc, Rot4 rot, Map map, Thing thingToIgnore = null, Thing thing = null)
         {
-            VerbProperties verbProperties = ((ThingDef)checkingDef).building.turretGunDef.Verbs.Find((VerbProperties v) => v.verbClass == typeof(Verb_Railgun));
+            VerbProperties verbProperties = ((ThingDef)checkingDef).building.turretGunDef.Verbs.Find((VerbProperties v) => typeof(Verb_LaunchProjectile).IsAssignableFrom(v.verbClass));
 
             // Don't draw the max range, it's too large.
-            //if (verbProperties.range > 0f)
-            //{
-            //    GenDraw.DrawRadiusRing(loc, verbProperties.range);
-            //}
+            if (verbProperties.range > 0f && verbProperties.range <= 60f)
+            {
+                GenDraw.DrawRadiusRing(loc, verbProperties.range);
+            }
 
             if (verbProperties.minRange > 0f)
             {

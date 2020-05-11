@@ -13,7 +13,9 @@ namespace AntimatterAnnihilation.Buildings
 {
 	[StaticConstructorOnStartup]
 	public abstract class Building_AATurret : Building_Turret
-	{
+    {
+        public float ScreenShakeOnShoot { get; set; } = 0f;
+
 		public bool Active
 		{
 			get
@@ -148,7 +150,12 @@ namespace AntimatterAnnihilation.Buildings
 
         public Building_AATurret()
         {
-			this.top = new AATurretTop(this);
+			this.top = CreateTop();
+        }
+
+        public virtual AATurretTop CreateTop()
+        {
+			return new AATurretTop(this);
 		}
 
 		public override void SpawnSetup(Map map, bool respawningAfterLoad)
@@ -256,6 +263,10 @@ namespace AntimatterAnnihilation.Buildings
             if (this.Active && (this.mannableComp == null || this.mannableComp.MannedNow) && base.Spawned)
             {
                 this.GunCompEq.verbTracker.VerbsTick();
+
+				if(!this.stunner.Stunned)
+                    this.top.Tick();
+
                 if (!this.stunner.Stunned && this.AttackVerb.state != VerbState.Bursting)
                 {
                     if (this.WarmingUp)
@@ -279,8 +290,6 @@ namespace AntimatterAnnihilation.Buildings
                             this.TryStartShootSomething(true);
                         }
                     }
-					
-                    this.top.Tick();
                     return;
                 }
             }
@@ -622,9 +631,9 @@ namespace AntimatterAnnihilation.Buildings
 		}
 
         public Thing gun;
+		public AATurretTop top;
 
 		protected LocalTargetInfo currentTargetInt = LocalTargetInfo.Invalid;
-		protected AATurretTop top;
         protected CompPowerTrader powerComp;
         protected CompCanBeDormant dormantComp;
         protected CompInitiatable initiatableComp;

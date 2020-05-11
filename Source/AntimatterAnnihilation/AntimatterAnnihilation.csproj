@@ -86,9 +86,11 @@
     <Compile Include="Buildings\Building_ParticleAccelerator.cs" />
     <Compile Include="Buildings\Building_PowerNetConsole.cs" />
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
+    <Compile Include="Buildings\Building_ThunderGun.cs" />
+    <Compile Include="Buildings\RailgunTop.cs" />
+    <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
-    <Compile Include="Defs\AATurretDef.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
@@ -103,11 +105,14 @@
     <Compile Include="Utils\Extensions.cs" />
     <Compile Include="Utils\IResettable.cs" />
     <Compile Include="Utils\ObjectPool.cs" />
+    <Compile Include="Utils\RecoilManager.cs" />
     <Compile Include="Verbs\Verb_Railgun.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Defs\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
