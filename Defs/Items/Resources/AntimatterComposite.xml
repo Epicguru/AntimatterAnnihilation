@@ -5,8 +5,9 @@
         <defName>AntimatterComposite</defName>
         <label>antimatter composite</label>
         <stackLimit>200</stackLimit>
-        <description>Ingots of antimatter composite. Created by trapping antimatter inside an ultra-complex lattice of plasteel.
-Has the ability to cause microscopic annihilation reactions when taking damage, or upon demand, which gives it many applications in construction and weaponry.</description>
+        <description>Ingots of antimatter composite. Created in the Composite Refiner.
+
+This material has the ability to cause microscopic annihilation reactions when taking damage, or upon demand, which gives it many applications in construction and weaponry.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Items/AntimatterComposite</texPath>
             <graphicClass>Graphic_StackCount</graphicClass>
@@ -16,7 +17,7 @@ Has the ability to cause microscopic annihilation reactions when taking damage, 
         <useHitPoints>false</useHitPoints>
         <healthAffectsPrice>false</healthAffectsPrice>
         <statBases>
-            <MarketValue>22</MarketValue>
+            <MarketValue>26</MarketValue>
             <Mass>0.6</Mass>
             <StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
             <StuffPower_Armor_Blunt>1.3</StuffPower_Armor_Blunt>
@@ -38,7 +39,7 @@ Has the ability to cause microscopic annihilation reactions when taking damage, 
         </categories>
         <commonality>0</commonality>
         <constructEffect>ConstructMetal</constructEffect>
-        <color>(101,51,160)</color>
+        <color>(159,159,243)</color>
         <soundImpactStuff>BulletImpact_Metal</soundImpactStuff>
         <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
         <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>

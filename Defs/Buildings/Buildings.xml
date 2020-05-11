@@ -63,11 +63,11 @@
       <drawSize>(9,9)</drawSize>
     </graphicData>
     <costList>
-      <Steel>850</Steel>
-      <Gold>90</Gold>
-      <Plasteel>180</Plasteel>
-      <ComponentIndustrial>20</ComponentIndustrial>
-      <ComponentSpacer>4</ComponentSpacer>
+      <Steel>650</Steel>
+      <Gold>80</Gold>
+      <Plasteel>150</Plasteel>
+      <ComponentIndustrial>18</ComponentIndustrial>
+      <ComponentSpacer>3</ComponentSpacer>
     </costList>
     <hasInteractionCell>True</hasInteractionCell>
     <interactionCellOffset>(0,0,-5)</interactionCellOffset>

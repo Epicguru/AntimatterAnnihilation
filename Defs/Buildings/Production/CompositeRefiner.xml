@@ -7,7 +7,7 @@
         <label>composite refiner</label>
         <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.
 
-Produces 30 antimatter composite in 12 hours, given 60 plasteel and 1 antimatter canister.</description>
+Produces 30 antimatter composite in 6 hours, using 60 plasteel and 1 antimatter canister.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -32,7 +32,7 @@ Produces 30 antimatter composite in 12 hours, given 60 plasteel and 1 antimatter
         </li>
         </comps>
         <!-- <researchPrerequisites>
-        <li>SomeResearch</li>
+            <li>SomeResearch</li>
         </researchPrerequisites> -->
     </ThingDef>
 
