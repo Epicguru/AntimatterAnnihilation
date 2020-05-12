@@ -50,8 +50,8 @@
             <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
         </statBases>
         <costList>
-            <Steel>650</Steel>
-            <Plasteel>60</Plasteel>
+            <Steel>450</Steel>
+            <AntimatterComposite>80</AntimatterComposite>
             <ComponentIndustrial>15</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
         </costList>

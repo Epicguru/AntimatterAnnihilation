@@ -63,20 +63,22 @@
       <drawSize>(9,9)</drawSize>
     </graphicData>
     <costList>
-      <Steel>850</Steel>
-      <Gold>90</Gold>
-      <Plasteel>180</Plasteel>
-      <ComponentIndustrial>20</ComponentIndustrial>
-      <ComponentSpacer>4</ComponentSpacer>
+      <Steel>650</Steel>
+      <Gold>80</Gold>
+      <Plasteel>150</Plasteel>
+      <ComponentIndustrial>18</ComponentIndustrial>
+      <ComponentSpacer>3</ComponentSpacer>
     </costList>
+    <hasInteractionCell>True</hasInteractionCell>
+    <interactionCellOffset>(0,0,-5)</interactionCellOffset>
     <comps>
       <li Class="CompProperties_Power">
         <compClass>CompPowerTrader</compClass>
         <basePowerConsumption>4000</basePowerConsumption>
       </li>
       <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
-        <fuelConsumptionRate>10</fuelConsumptionRate>
-        <fuelCapacity>40.0</fuelCapacity>
+        <fuelConsumptionRate>20</fuelConsumptionRate>
+        <fuelCapacity>60.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
             <li>Plasteel</li>
@@ -84,7 +86,7 @@
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
         <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
+        <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
     <!-- <researchPrerequisites>
@@ -111,7 +113,7 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
     <defaultPlacingRot>East</defaultPlacingRot>
     <size>(12, 12)</size>
     <costList>
-      <Steel>1200</Steel>
+      <Steel>1100</Steel>
       <Gold>50</Gold>
       <Plasteel>200</Plasteel>
       <ComponentIndustrial>30</ComponentIndustrial>
@@ -124,12 +126,12 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
         <transmitsPower>false</transmitsPower>
       </li>
       <li Class="CompProperties_Explosive">
-            <explosiveRadius>10</explosiveRadius>
+            <explosiveRadius>8</explosiveRadius>
             <explosiveDamageType>Flame</explosiveDamageType>
             <destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
             <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
             <preExplosionSpawnThingDef>Filth_RubbleBuilding</preExplosionSpawnThingDef>
-            <preExplosionSpawnChance>1</preExplosionSpawnChance>
+            <preExplosionSpawnChance>0.75</preExplosionSpawnChance>
             <wickTicks>
                 <min>150</min>
                 <max>190</max>

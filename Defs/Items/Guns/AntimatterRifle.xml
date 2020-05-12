@@ -4,7 +4,7 @@
     <ThingDef ParentName="AntimatterGunBase">
         <defName>AntimatterRifle</defName>
         <label>antimatter rifle</label>
-        <description>Not to be confused with an anti-materiel rifle. This is much more powerful.
+        <description>A 2-burst antimatter rifle. High accuracy and damage.
 
 Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
         <graphicData>

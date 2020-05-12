@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AAPoweredLarge">
+        <defName>AA_CompositeRefiner</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_CompositeRefiner</thingClass>
+        <label>composite refiner</label>
+        <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.
+
+Produces 30 antimatter composite in 6 hours, using 60 plasteel and 1 antimatter canister.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,2)</drawSize>
+        </graphicData>
+        <passability>PassThroughOnly</passability>
+        <selectable>true</selectable>
+        <size>(3, 2)</size>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <costList>
+            <Steel>150</Steel>
+            <Plasteel>20</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+        </costList>
+        <comps>
+        <li Class="CompProperties_Flickable"/>
+        <li Class="CompProperties_Power">
+            <compClass>CompPowerTrader</compClass>
+            <basePowerConsumption>1500</basePowerConsumption>
+            <transmitsPower>false</transmitsPower>
+        </li>
+        </comps>
+        <!-- <researchPrerequisites>
+            <li>SomeResearch</li>
+        </researchPrerequisites> -->
+    </ThingDef>
+
+</Defs>

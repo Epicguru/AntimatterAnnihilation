@@ -4,7 +4,7 @@
     <ThingDef ParentName="AntimatterGunBase">
         <defName>AntimatterBlaster</defName>
         <label>antimatter blaster</label>
-        <description>A medium range personal defence weapon, firing antimatter.
+        <description>A medium range personal defense weapon, firing antimatter.
 
 Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
         <graphicData>
