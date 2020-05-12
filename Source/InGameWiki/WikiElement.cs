@@ -28,6 +28,7 @@ namespace InGameWiki
         public string Text;
 
         public Texture2D Image;
+        public bool AutoFitImage = false;
         public Vector2 ImageSize = new Vector2(-1, -1);
         public float ImageScale = 1f;
         public GameFont FontSize = GameFont.Small;
@@ -60,11 +61,35 @@ namespace InGameWiki
             float imageOffset = 0;
             if (HasImage)
             {
-                float width = ImageSize.x < 1 ? Image.width * ImageScale : ImageSize.x;
-                float height = ImageSize.y < 1 ? Image.height * ImageScale : ImageSize.y;
-                Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
-                size += new Vector2(width, height);
-                imageOffset = width;
+                if (!AutoFitImage)
+                {
+                    float width = ImageSize.x < 1 ? Image.width * ImageScale : ImageSize.x;
+                    float height = ImageSize.y < 1 ? Image.height * ImageScale : ImageSize.y;
+                    Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
+                    size += new Vector2(width, height);
+                    imageOffset = width;
+                }
+                else
+                {
+                    float baseWith = Image.width;
+
+                    if(baseWith <= maxBounds.width)
+                    {
+                        float width = Image.width;
+                        float height = Image.height;
+                        Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
+                        size += new Vector2(width, height);
+                        imageOffset = width;
+                    }
+                    else
+                    {
+                        float width = maxBounds.width;
+                        float height = Image.height * (width / Image.width);
+                        Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
+                        size += new Vector2(width, height);
+                        imageOffset = width;
+                    }
+                }
             }
 
             if (DefForIconAndLabel != null)

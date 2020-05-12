@@ -1,4 +1,6 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 using Verse;
@@ -14,7 +16,15 @@ namespace InGameWiki
             if (!Directory.Exists(dir))
                 return;
 
-            string[] files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories);
+            var files = Directory.GetFiles(dir, "*.txt", SearchOption.AllDirectories).ToList();
+
+            files.Sort((a, b) =>
+            {
+                string nameA = new FileInfo(a).Name;
+                string nameB = new FileInfo(b).Name;
+
+                return -string.Compare(nameA, nameB, StringComparison.Ordinal);
+            });
 
             foreach (var file in files)
             {
@@ -25,6 +35,7 @@ namespace InGameWiki
                     continue;
                 }
 
+                Log.Message("Added " + file);
                 wiki.Pages.Add(page);
             }
         }
@@ -41,7 +52,7 @@ namespace InGameWiki
 
             string title = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
             Texture2D icon = ContentFinder<Texture2D>.Get(lines[1].Trim(), false);
-            string desc = string.IsNullOrWhiteSpace(lines[1].Trim()) ? null : lines[1].Trim();
+            string desc = string.IsNullOrWhiteSpace(lines[2].Trim()) ? null : lines[2].Trim();
 
             WikiPage p = new WikiPage();
             p.Title = title;
@@ -62,6 +73,16 @@ namespace InGameWiki
                     largeText = line.Length >= 2 && line[1] == '-';
                     str.Clear();
                     str.Append(line.Substring(largeText ? 2 : 1));
+                }
+                else if(line[0] == '*')
+                {
+                    string imagePath = line.Substring(1).Trim();
+                    Texture2D loaded = ContentFinder<Texture2D>.Get(imagePath, false);
+                    p.Elements.Add(new WikiElement()
+                    {
+                        Image = loaded,
+                        AutoFitImage = true
+                    });
                 }
                 else
                 {

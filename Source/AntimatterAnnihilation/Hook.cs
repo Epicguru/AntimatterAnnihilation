@@ -44,12 +44,13 @@ namespace AntimatterAnnihilation
                     {
                         wiki = new ModWiki();
                         wiki.ModTitle = "Antimatter Annihilation";
-                        wiki.Pages.Add(WikiPage.CreateFromThing(AADefOf.AA_ScissorBlade));
-                        wiki.Pages.Add(WikiPage.CreateFromThing(ThingDef.Named("ElectricSmelter")));
 
                         string dir = Path.Combine(ModCore.Instance.Content.RootDir, "Wiki");
                         PageParser.AddAllFromDirectory(wiki, dir);
 
+                        wiki.Pages.Add(WikiPage.CreateFromThing(AADefOf.AA_ScissorBlade));
+
+                        // Test: add auto-generated pages for all thing defs.
                         //foreach (var def in DefDatabase<ThingDef>.AllDefs)
                         //{
                         //    var createdPage = WikiPage.CreateFromThing(def);

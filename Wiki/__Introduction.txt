@@ -8,3 +8,5 @@ AntimatterAnnihilation/Items/AntimatterCanister
 
 -I recommend reading the <i>What Is Antimatter</i> page for a bit of a lore/science primer before you start.
 Otherwise, to get started see the <i>Getting Started</i> page.
+-
+*AntimatterAnnihilation/PreRendered/ReactorWithProps

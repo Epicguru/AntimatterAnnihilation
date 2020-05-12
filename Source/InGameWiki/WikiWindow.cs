@@ -47,6 +47,7 @@ namespace InGameWiki
             Rect pagesArea = new Rect(global.x, global.y + TopHeight + 10 + SearchHeight, SideWidth, global.height - 10 - TopHeight - SearchHeight);
             Rect contentArea = new Rect(global.x + SideWidth + 5, global.y + TopHeight + 5, global.width - SideWidth - 5, global.height - TopHeight - 5);
 
+            Widgets.DrawBoxSolid(pagesArea, Color.white * 0.4f);
             Widgets.DrawBox(pagesArea);
             Widgets.DrawBox(titleArea);
             Widgets.DrawBox(contentArea);
