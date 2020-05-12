@@ -30,6 +30,7 @@ namespace InGameWiki
         public Texture2D Image;
         public Vector2 ImageSize = new Vector2(-1, -1);
         public float ImageScale = 1f;
+        public GameFont FontSize = GameFont.Small;
 
         public Def DefForIconAndLabel;
 
@@ -52,6 +53,9 @@ namespace InGameWiki
         public virtual Vector2 Draw(Rect maxBounds)
         {
             Vector2 size = Vector2.zero;
+
+            var old = Verse.Text.Font;
+            Verse.Text.Font = FontSize;
 
             float imageOffset = 0;
             if (HasImage)
@@ -84,6 +88,8 @@ namespace InGameWiki
                 if (size.y < change)
                     size.y = change;
             }
+
+            Verse.Text.Font = old;
 
             return size;
         }

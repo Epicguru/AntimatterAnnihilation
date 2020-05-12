@@ -14,34 +14,39 @@ namespace InGameWiki
 
             WikiPage p = new WikiPage();
 
+            Log.Message(thing.LabelCap.ToString());
             p.Title = thing.LabelCap;
             p.ShortDescription = thing.DescriptionDetailed;
             p.Icon = thing.uiIcon;
 
-            var cost = new SectionWikiElement();
-            cost.Name = "Cost";
-
-            foreach (var costThing in thing.costList)
+            // Cost.
+            if(thing.costList != null)
             {
-                cost.Elements.Add(new WikiElement(){DefForIconAndLabel = costThing.thingDef, Text = costThing.count <= 1 ? "" : $"x{costThing.count}"});
-            }
-            if (cost.Elements.Count > 0)
-            {
-                p.Elements.Add(cost);
+                var cost = new SectionWikiElement();
+                cost.Name = "Cost";
+
+                foreach (var costThing in thing.costList)
+                {
+                    cost.Elements.Add(new WikiElement() { DefForIconAndLabel = costThing.thingDef, Text = costThing.count <= 1 ? "" : $"x{costThing.count}" });
+                }
+                if (cost.Elements.Count > 0)
+                {
+                    p.Elements.Add(cost);
+                }
+
+                // Show recipes added by this production thing.
+                foreach (var rec in thing.AllRecipes)
+                {
+                    p.Elements.Add(WikiElement.Create(rec.defName));
+                }
             }
 
-            // Show recipes added by this production thing.
-            foreach (var rec in thing.AllRecipes)
-            {
-                p.Elements.Add(WikiElement.Create(rec.defName));
-            }
-
-            var crafting = new SectionWikiElement();
-            crafting.Name = "Crafted at";
-
-            // Show how this is created.
+            // Crafting (where is it crafted)
             if (thing.recipeMaker != null)
             {
+                var crafting = new SectionWikiElement();
+                crafting.Name = "Crafted at";
+
                 foreach (var user in thing.recipeMaker.recipeUsers)
                 {
                     crafting.Elements.Add(new WikiElement() {DefForIconAndLabel = user});
@@ -52,6 +57,22 @@ namespace InGameWiki
                     p.Elements.Add(crafting);
                 }
             }
+
+            // Research prerequisite.
+            if (thing.researchPrerequisites != null && thing.researchPrerequisites.Count > 0)
+            {
+                var research = new SectionWikiElement();
+                research.Name = "Research to unlock";
+
+                foreach (var r in thing.researchPrerequisites)
+                {
+                    research.Elements.Add(new WikiElement() {Text = r.LabelCap});
+                }
+
+                p.Elements.Add(research);
+            }
+
+            p.Elements.Add(WikiElement.Create("This is a <b>test</b>."));
 
             return p;
         }
@@ -66,10 +87,6 @@ namespace InGameWiki
         private float lastHeight;
         private Vector2 scroll;
         private Vector2 descScroll;
-
-        public WikiPage()
-        {
-        }
 
         public string GetDisplayName()
         {
