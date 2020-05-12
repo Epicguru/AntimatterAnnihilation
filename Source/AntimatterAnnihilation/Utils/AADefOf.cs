@@ -15,5 +15,6 @@ namespace AntimatterAnnihilation.Utils
         public static DamageDef EnergyBurn;
         public static ThingDef AntimatterCanister;
         public static ThingDef AntimatterComposite;
+        public static ThingDef AA_ScissorBlade;
     }
 }

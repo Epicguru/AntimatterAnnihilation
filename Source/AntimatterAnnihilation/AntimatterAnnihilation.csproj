@@ -113,8 +113,12 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Defs\" />
+    <ProjectReference Include="..\InGameWiki\InGameWiki.csproj">
+      <Project>{0b0e6a15-10b6-489e-9fc9-fe43369718a2}</Project>
+      <Name>InGameWiki</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

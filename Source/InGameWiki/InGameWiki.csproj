@@ -53,10 +53,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompoundWikiElement.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="ModWiki.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SectionWikiElement.cs" />
     <Compile Include="WikiElement.cs" />
     <Compile Include="WikiPage.cs" />
+    <Compile Include="WikiWindow.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
