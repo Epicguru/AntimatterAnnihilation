@@ -44,24 +44,26 @@ namespace InGameWiki
         {
             string[] lines = rawText.Split('\n');
 
-            if (lines.Length < 3)
+            if (lines.Length < 4)
             {
-                Log.Error("Expected minimum 3 lines for title, icon and description.");
+                Log.Error("Expected minimum 4 lines for title, icon, background and description.");
                 return null;
             }
 
             string title = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
             Texture2D icon = ContentFinder<Texture2D>.Get(lines[1].Trim(), false);
-            string desc = string.IsNullOrWhiteSpace(lines[2].Trim()) ? null : lines[2].Trim();
+            Texture2D bg = ContentFinder<Texture2D>.Get(lines[2].Trim(), false);
+            string desc = string.IsNullOrWhiteSpace(lines[3].Trim()) ? null : lines[3].Trim();
 
             WikiPage p = new WikiPage();
             p.Title = title;
             p.Icon = icon;
             p.ShortDescription = desc;
+            p.Background = bg;
 
             bool largeText = false;
             StringBuilder str = new StringBuilder();
-            for (int i = 3; i < lines.Length; i++)
+            for (int i = 4; i < lines.Length; i++)
             {
                 string line = lines[i];
                 if (string.IsNullOrWhiteSpace(line))

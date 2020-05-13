@@ -1,5 +1,6 @@
 Introduction
 AntimatterAnnihilation/Items/AntimatterCanister
+AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
 
 --Welcome to Antimatter Annihilation!
 

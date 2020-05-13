@@ -81,6 +81,7 @@ namespace InGameWiki
         public string Title;
         public string ShortDescription;
         public Texture2D Icon;
+        public Texture2D Background;
 
         public List<WikiElement> Elements = new List<WikiElement>();
 
@@ -98,6 +99,16 @@ namespace InGameWiki
             const int PADDING = 5;
 
             float topHeight = 128 + PADDING;
+
+            // Background
+            if (Background != null)
+            {
+                GUI.color = Color.white * 0.6f;
+                var coords = CalculateUVCoords(maxBounds, new Rect(0, 0, Background.width, Background.height));
+                GUI.DrawTextureWithTexCoords(maxBounds, Background, coords, true);
+                GUI.Label(new Rect(200, 200, 200, 200), coords.ToString());
+                GUI.color = Color.white;
+            }
 
             // Icon.
             bool drawnIcon = Icon != null;
@@ -154,6 +165,20 @@ namespace InGameWiki
             }
 
             Widgets.EndScrollView();
+        }
+
+        private Rect CalculateUVCoords(Rect boundsToFill, Rect imageSize)
+        {
+            var nr = new Rect();
+            nr.size = imageSize.size;
+            nr.center = boundsToFill.center;
+
+            Vector2 topLeftOffset = boundsToFill.min - nr.min;
+            Vector2 bottomRightOffset = boundsToFill.max - nr.min;
+            Vector2 topLeftUV = new Vector2(topLeftOffset.x / imageSize.width, topLeftOffset.y / imageSize.height);
+            Vector2 bottomRightUV = new Vector2(bottomRightOffset.x / imageSize.width, bottomRightOffset.y / imageSize.height);
+            Rect uv = new Rect(topLeftUV, bottomRightUV - topLeftUV);
+            return uv;
         }
     }
 }
