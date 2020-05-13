@@ -65,10 +65,10 @@
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-            <explosionRadius>3</explosionRadius >
+            <explosionRadius>2.5</explosionRadius>
             <damageDef>AnnihilationExplosion</damageDef>
-            <explosionDamage>
-            <explosionDelay>80</explosionDelay>
+            <!-- Use default damage from explosion def -->
+            <explosionDelay>110</explosionDelay>
         </projectile>
     </ThingDef>
 
