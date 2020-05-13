@@ -10,8 +10,8 @@
         </graphicData>
         <projectile>
             <damageDef>Annihilate</damageDef>
-            <damageAmountBase>13</damageAmountBase>
-            <armorPenetrationBase>0.3</armorPenetrationBase>
+            <damageAmountBase>12</damageAmountBase>
+            <armorPenetrationBase>0.15</armorPenetrationBase>
             <speed>75</speed>
         </projectile>
     </ThingDef>
