@@ -49,8 +49,8 @@
         </verbs>
         <comps>
         <li Class="CompProperties_Explosive">
-            <explosiveRadius>2.66</explosiveRadius>
-            <explosiveDamageType>Bomb</explosiveDamageType>
+            <explosiveRadius>2</explosiveRadius>
+            <explosiveDamageType>AnnihilationExplosion</explosiveDamageType>
             <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
         </li>
         </comps>

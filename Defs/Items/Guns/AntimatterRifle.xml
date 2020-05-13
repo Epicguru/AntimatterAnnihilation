@@ -45,7 +45,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                 <range>27.5</range>
                 <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
                 <burstShotCount>2</burstShotCount>
-                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCast>Shot_AntimatterBlaster</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>12</muzzleFlashScale>
             </li>

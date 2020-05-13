@@ -42,7 +42,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
                 <defaultProjectile>Bullet_Antimatter</defaultProjectile>
                 <warmupTime>0.65</warmupTime>
                 <range>12.5</range>
-                <soundCast>Shot_ChargeRifle</soundCast>
+                <soundCast>Shot_AntimatterBlaster</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>

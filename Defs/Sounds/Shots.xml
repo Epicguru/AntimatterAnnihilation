@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <SoundDef>
+        <defName>Shot_AntimatterBlaster</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/BlasterShoot</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.88~1</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+</Defs>

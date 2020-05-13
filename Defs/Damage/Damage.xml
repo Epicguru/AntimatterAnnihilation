@@ -115,7 +115,7 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <explosionCellMote>Mote_BlastDry</explosionCellMote>
     <explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
     <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
-    <soundExplosion>Explosion_Bomb</soundExplosion>
+    <soundExplosion>Explosion_Antimatter</soundExplosion>
     <combatLogRules>Damage_Bomb</combatLogRules>
   </DamageDef>
 
