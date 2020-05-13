@@ -14,7 +14,7 @@
             </recipeUsers>
         </recipeMaker>
         <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</texPath>
+            <texPath>AntimatterAnnihilation/Pawn/Void_Hulk_south</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <generateCommonality>1.9</generateCommonality>
@@ -32,6 +32,7 @@
         </statBases>
         <equippedStatOffsets>
             <MoveSpeed>-0.3</MoveSpeed>
+            <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
         </equippedStatOffsets>
         <thingCategories>
             <li>ApparelArmor</li>
@@ -53,7 +54,7 @@
                 <li>Arms</li>
                 <li>Legs</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmor/PowerArmor</wornGraphicPath>
+            <wornGraphicPath>AntimatterAnnihilation/Pawn/Void</wornGraphicPath>
             <layers>
                 <li>Middle</li>
                 <li>Shell</li>
