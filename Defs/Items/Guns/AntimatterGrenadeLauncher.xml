@@ -36,7 +36,7 @@
             <hasStandardCommand>true</hasStandardCommand>
             <defaultProjectile>Bullet_AntimatterGrenade</defaultProjectile>
             <warmupTime>4.5</warmupTime>
-            <range>23.9</range>
+            <range>20</range>
             <forcedMissRadius>2</forcedMissRadius>
             <burstShotCount>1</burstShotCount>
             <soundCast>Shot_IncendiaryLauncher</soundCast>
