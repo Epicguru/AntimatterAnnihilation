@@ -64,27 +64,20 @@
             </defaultOutfitTags>
             <useDeflectMetalEffect>true</useDeflectMetalEffect>
         </apparel>
-        <!-- <colorGenerator Class="ColorGenerator_Options">
+        <colorGenerator Class="ColorGenerator_Options">
             <options>
                 <li>
-                    <weight>10</weight>
-                    <only>(0.33,0.33,0.33)</only>
+                    <weight>2</weight>
+                    <min>(0.5921, 0.4862, 0.6862)</min>
+                    <max>(0.8784, 0.3058, 0.8)</max>
                 </li>
                 <li>
                     <weight>10</weight>
-                    <only>(0.65,0.65,0.65)</only>
-                </li>
-                <li>
-                    <weight>6</weight>
-                    <min>(0.3,0.3,0.3)</min>
-                    <max>(0.5,0.5,0.5)</max>
-                </li>
-                <li>
-                    <weight>10</weight>
-                    <only>(0.9,0.9,0.9)</only>
+                    <min>(0.85, 0.85, 0.85)</min>
+                    <max>(1, 1, 1)</max>
                 </li>
             </options>
-        </colorGenerator> -->
+        </colorGenerator>
         <thingSetMakerTags>
             <li>RewardStandardHighFreq</li>
         </thingSetMakerTags>
