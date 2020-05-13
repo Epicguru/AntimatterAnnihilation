@@ -132,6 +132,9 @@
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>40</muzzleFlashScale>
                 <consumeFuelPerShot>0.1</consumeFuelPerShot>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
             </li>
         </verbs>
     </ThingDef>

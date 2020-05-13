@@ -93,4 +93,30 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     </injuryProps>
   </HediffDef>
 
+  <DamageDef Name="AnnihilationExplosion">
+    <defName>AnnihilationExplosion</defName>
+    <label>annihilation explosion</label>
+    <workerClass>DamageWorker_AddInjury</workerClass>
+    <externalViolence>true</externalViolence>
+    <isExplosive>true</isExplosive>
+    <deathMessage>{0} has died in an annihilation explosion.</deathMessage>
+    <hediff>AnnihilationInjury</hediff>
+    <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
+    <impactSoundType>Blunt</impactSoundType>
+    <armorCategory>Sharp</armorCategory>
+    <minDamageToFragment>15</minDamageToFragment>
+    <defaultDamage>55</defaultDamage>
+    <defaultStoppingPower>0.9</defaultStoppingPower>
+    <defaultArmorPenetration>0.20</defaultArmorPenetration>
+    <buildingDamageFactor>5.5</buildingDamageFactor>
+    <plantDamageFactor>7</plantDamageFactor>
+    <explosionAffectOutsidePartsOnly>false</explosionAffectOutsidePartsOnly>
+    <explosionHeatEnergyPerCell>20</explosionHeatEnergyPerCell>
+    <explosionCellMote>Mote_BlastDry</explosionCellMote>
+    <explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
+    <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
+    <soundExplosion>Explosion_Bomb</soundExplosion>
+    <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+
 </Defs>
