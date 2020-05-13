@@ -60,7 +60,7 @@ Painted red so that you don't loose your way.</description>
         <recipeMaker>
             <researchPrerequisite>LongBlades</researchPrerequisite>
             <skillRequirements>
-                <Crafting>14</Crafting>
+                <Crafting>12</Crafting>
             </skillRequirements>
         </recipeMaker>
     </ThingDef>
