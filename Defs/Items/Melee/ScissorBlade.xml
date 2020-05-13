@@ -7,7 +7,7 @@
         <description>Unique long blade that resembles half of a pair of scissors. Very high cutting damage and armor penetration, and fast blunt attack.
 Painted red so that you don't loose your way.</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Items/ScissorBlade</texPath>
+            <texPath>AntimatterAnnihilation/Weapons/ScissorBlade</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <techLevel>Spacer</techLevel>
