@@ -105,7 +105,7 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <impactSoundType>Blunt</impactSoundType>
     <armorCategory>Sharp</armorCategory>
     <minDamageToFragment>15</minDamageToFragment>
-    <defaultDamage>65</defaultDamage>
+    <defaultDamage>55</defaultDamage>
     <defaultStoppingPower>0.9</defaultStoppingPower>
     <defaultArmorPenetration>0.20</defaultArmorPenetration>
     <buildingDamageFactor>5.5</buildingDamageFactor>

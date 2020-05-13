@@ -7,7 +7,7 @@
         <description>Grenades that contain tiny amounts of antimatter that is allowed to come into contact with the environment, creating a large explosion of energy and radiation.</description>
         <tickerType>Normal</tickerType>
         <graphicData>
-            <texPath>Things/Item/Equipment/WeaponRanged/Grenades</texPath>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterGrenades</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <uiIconScale>1.3</uiIconScale>
@@ -16,7 +16,7 @@
         <statBases>
             <Mass>1.2</Mass>
             <RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
-            <WorkToMake>12000</WorkToMake>
+            <WorkToMake>20000</WorkToMake>
         </statBases>
         <costList>
             <Steel>30</Steel>
@@ -34,7 +34,7 @@
             <label>throw antimatter grenade</label>
             <verbClass>Verb_LaunchProjectile</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <range>14</range>
+            <range>13.5</range>
             <forcedMissRadius>1.4</forcedMissRadius>
             <warmupTime>2</warmupTime>
             <noiseRadius>6</noiseRadius>
@@ -61,14 +61,14 @@
         <label>antimatter grenade</label>
         <thingClass>Projectile_Explosive</thingClass>
         <graphicData>
-            <texPath>Things/Projectile/Grenade</texPath>
+            <texPath>AntimatterAnnihilation/Projectiles/AntimatterGrenade</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-            <explosionRadius>2.5</explosionRadius>
+            <explosionRadius>2.3</explosionRadius>
             <damageDef>AnnihilationExplosion</damageDef>
             <!-- Use default damage from explosion def -->
-            <explosionDelay>110</explosionDelay>
+            <explosionDelay>120</explosionDelay>
         </projectile>
     </ThingDef>
 
