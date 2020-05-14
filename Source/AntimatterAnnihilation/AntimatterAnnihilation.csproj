@@ -93,6 +93,7 @@
     <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
+    <Compile Include="Damage\DamageWorker_GalvaPain.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />

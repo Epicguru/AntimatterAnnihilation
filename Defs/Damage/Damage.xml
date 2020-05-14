@@ -119,4 +119,34 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <combatLogRules>Damage_Bomb</combatLogRules>
   </DamageDef>
 
+  <DamageDef>
+    <defName>GalvaPain</defName>
+    <label>galvaknuckles pain</label>
+    <workerClass>AntimatterAnnihilation.Damage.DamageWorker_GalvaPain</workerClass>
+    <hasForcefulImpact>true</hasForcefulImpact>
+    <externalViolence>true</externalViolence>
+    <makesBlood>true</makesBlood>
+    <deathMessage>{0} was killed.</deathMessage>
+    <hediff>GalvaInjury</hediff>
+    <armorCategory>Blunt</armorCategory>
+    <defaultDamage>5</defaultDamage>
+    <defaultArmorPenetration>50</defaultArmorPenetration>
+  </DamageDef>
+
+  <HediffDef ParentName="InjuryBase">
+    <defName>GalvaInjury</defName>
+    <label>Painful Bruise</label>
+    <labelNoun>a bruise from being hit by galvaknuckles</labelNoun>
+    <description>A bruise from being hit by someone using galvaknuckles. Upon impact the weapon releases a large electrical discharge, causing great pain but little long-term effects.</description>
+    <tendable>false</tendable>
+    <displayWound>true</displayWound>
+    <injuryProps>
+      <painPerSeverity>0.03</painPerSeverity>
+      <averagePainPerSeverityPermanent>0</averagePainPerSeverityPermanent>
+      <bleedRate>0</bleedRate>
+      <canMerge>false</canMerge>
+      <destroyedLabel>Destroyed</destroyedLabel>
+    </injuryProps>
+  </HediffDef>
+
 </Defs>

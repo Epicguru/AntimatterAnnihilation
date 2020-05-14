@@ -8,3 +8,7 @@ Sound Effects & Music - Freesound.org users:
  -michalwa2003 (Long laser build-up & firing)
  -humanoide9000 (Main sci-fi blaster sound)
  -EFlexMusic (Small-ish sci-fi explosion sound (grenades))
+ -Tim_Verberne (Coil electrical sound)
+ -Sergenious (Electrical discharge sound)
+
+All sounds used were posted under the Creative Commons or Attribution liscences.

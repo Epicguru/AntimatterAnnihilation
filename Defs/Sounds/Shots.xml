@@ -15,4 +15,21 @@
             </li>
         </subSounds>
     </SoundDef>
+
+    <SoundDef>
+        <defName>Melee_GalvaknucklesDischarge</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/Zap</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.85~1.15</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+
 </Defs>
