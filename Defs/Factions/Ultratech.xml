@@ -62,21 +62,11 @@
                 <!-- Normal fights, standard mix -->
                 <kindDef>Combat</kindDef>
                 <options>
-                    <Villager>5</Villager>
-                    <Town_Guard>10</Town_Guard>
-                    <Grenadier_Destructive>1.5</Grenadier_Destructive>
-                    <Mercenary_Slasher>7</Mercenary_Slasher>
-                    <Mercenary_Gunner>10</Mercenary_Gunner>
-                    <Mercenary_Elite>10</Mercenary_Elite>
-                    <Town_Councilman>10</Town_Councilman>
-                </options>
-            </li>
-            <li>
-                <kindDef>Peaceful</kindDef>
-                <options>
-                    <Villager>20</Villager>
-                    <Town_Guard>10</Town_Guard>
-                    <Town_Councilman>10</Town_Councilman>
+                    <UltratechMelee>5</UltratechMelee>
+                    <UltratechSniper>5</UltratechSniper>
+                    <UltratechGunner>10</UltratechGunner>
+                    <UltratechGunnerAdvanced>12</UltratechGunnerAdvanced>
+                    <UltratechMeleeAdvanced>8</UltratechMeleeAdvanced>
                 </options>
             </li>
             <li>
@@ -90,8 +80,10 @@
                     <Mercenary_Elite>10</Mercenary_Elite>
                     <Town_Councilman>10</Town_Councilman> -->
                     <UltratechMelee>10</UltratechMelee>
-                    <UltratechSniper>10</UltratechSniper>
+                    <UltratechSniper>5</UltratechSniper>
                     <UltratechGunner>10</UltratechGunner>
+                    <UltratechGunnerAdvanced>8</UltratechGunnerAdvanced>
+                    <UltratechMeleeAdvanced>8</UltratechMeleeAdvanced>
                 </options>
             </li>
         </pawnGroupMakers>

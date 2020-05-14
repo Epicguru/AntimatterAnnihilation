@@ -68,6 +68,51 @@
         <defName>UltratechGunner</defName>
     </PawnKindDef>
 
+    <!-- Elite gunner implementation. Has much better guns, gear, bionics.-->
+    <PawnKindDef ParentName="UltratechGunnerBase">
+        <defName>UltratechGunnerAdvanced</defName>
+        <label>ultratech elite gunner</label>
+        <combatPower>160</combatPower>
+        <gearHealthRange>0.95~4.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>BeltDefensePop</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <techHediffsRequired>
+            <li>BionicEye</li>
+            <li>ArchotechArm</li>
+            <li>BionicLeg</li>
+        </techHediffsRequired>
+        <apparelMoney>3000~4500</apparelMoney>
+        <apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
+        <weaponMoney>2000~3500</weaponMoney>
+        <weaponTags>
+            <li>SpacerGun</li>
+            <li>IndustrialGunAdvanced</li>
+            <li>MechanoidGunMedium</li>
+            <li>GunHeavy</li>
+        </weaponTags>
+        <inventoryOptions>
+        <skipChance>0.4</skipChance>
+        <subOptionsChooseOne>
+            <li>
+                <thingDef>Silver</thingDef>
+                <countRange>100~200</countRange>
+            </li>
+            <li>
+                <thingDef>MedicineIndustrial</thingDef>
+                <countRange>2~5</countRange>
+            </li>
+            <li>
+                <thingDef>MedicineUltratech</thingDef>
+                <countRange>2~3</countRange>
+            </li>
+        </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
     <!-- Basic sniper soldier. Uses only sniper rifles and long range antimatter rifles. Abstract to allow death acidifer version (dlc only?)-->
     <PawnKindDef Name="UltratechSniperBase" ParentName="UltratechSoldierBase" Abstract="True">
         <label>ultratech sniper</label>
@@ -128,7 +173,7 @@
             <li>SpacerMeleeAdvanced</li>
         </weaponTags>
         <inventoryOptions>
-        <skipChance>0.7</skipChance>
+            <skipChance>0.7</skipChance>
             <subOptionsChooseOne>
                 <li>
                     <thingDef>Silver</thingDef>
@@ -145,6 +190,39 @@
     <!-- Basic melee (slasher) implementation -->
     <PawnKindDef ParentName="UltratechMeleeBase">
         <defName>UltratechMelee</defName>
+    </PawnKindDef>
+
+    <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, wepaons. -->
+    <PawnKindDef ParentName="UltratechMeleeBase">
+        <defName>UltratechMeleeAdvanced</defName>
+        <label>ultratech elite slasher</label>
+        <combatPower>160</combatPower>
+        <gearHealthRange>0.7~3.5</gearHealthRange>
+        <apparelMoney>2500~4000</apparelMoney>
+        <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+        <weaponMoney>700~3000</weaponMoney>
+        <weaponTags>
+            <li>MedievalMeleeAdvanced</li>
+            <li>SpacerMeleeAdvanced</li>
+        </weaponTags>
+        <techHediffsRequired>
+            <li>ArchotechEye</li>
+            <li>BionicLeg</li>
+            <li>BionicLeg</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <skipChance>0.4</skipChance>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>Silver</thingDef>
+                    <countRange>100~2000</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>2~3</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
     </PawnKindDef>
 
 </Defs>
