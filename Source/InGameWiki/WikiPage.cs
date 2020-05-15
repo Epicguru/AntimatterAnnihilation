@@ -71,7 +71,7 @@ namespace InGameWiki
                 p.Elements.Add(research);
             }
 
-            p.ThingDefName = thing.defName;
+            p.Def = thing;
 
             return p;
         }
@@ -81,7 +81,7 @@ namespace InGameWiki
         public string ShortDescription;
         public Texture2D Icon;
         public Texture2D Background;
-        public string ThingDefName;
+        public Def Def;
 
         public List<WikiElement> Elements = new List<WikiElement>();
 
@@ -106,13 +106,18 @@ namespace InGameWiki
                 GUI.color = Color.white * 0.45f;
                 var coords = CalculateUVCoords(maxBounds, new Rect(0, 0, Background.width, Background.height));
                 GUI.DrawTextureWithTexCoords(maxBounds, Background, coords, true);
-                GUI.Label(new Rect(200, 200, 200, 200), coords.ToString());
                 GUI.color = Color.white;
             }
 
             // Icon.
             bool drawnIcon = Icon != null;
-            Widgets.ButtonImage(new Rect(maxBounds.x + PADDING, maxBounds.y + PADDING, 128, 128), Icon, false);
+            if (drawnIcon)
+            {
+                if (Widgets.ButtonImage(new Rect(maxBounds.x + PADDING, maxBounds.y + PADDING, 128, 128), Icon, Color.white, Color.white * 0.8f, false))
+                {
+                    // TODO bring up larger version of image.
+                }
+            }
 
             // Title.
             if (Title != null)
@@ -123,20 +128,33 @@ namespace InGameWiki
                 Widgets.Label(new Rect(x, maxBounds.y + PADDING, w, 34), Title);
             }
 
+
             // Short description.
             if(ShortDescription != null)
             {
                 Text.Font = GameFont.Small;
                 float x = !drawnIcon ? maxBounds.x + PADDING : maxBounds.x + PADDING + 128 + PADDING;
                 float y = Title == null ? maxBounds.y + PADDING : maxBounds.y + PADDING * 2 + 34;
-                float w = !drawnIcon ? maxBounds.width - PADDING * 2 : maxBounds.width - PADDING * 2 - 128;
+                float w = !drawnIcon ? maxBounds.width - PADDING * 2 : maxBounds.width - PADDING * 3 - 128;
                 float h = (maxBounds.y + PADDING + 128) - y;
                 Widgets.LabelScrollable(new Rect(x, y, w, h), ShortDescription, ref descScroll, false, true, true);
             }
 
+            // Info card button.
+            if (Def != null)
+            {
+                float infoCardX = maxBounds.xMax - Widgets.InfoCardButtonSize - 5;
+                float infoCardY = maxBounds.y + PADDING;
+                Widgets.InfoCardButton(infoCardX, infoCardY, Def);
+            }
+
+            // Move down to 'real wiki' part.
             Text.Font = GameFont.Small;
             maxBounds.y += topHeight;
             maxBounds.height -= topHeight;
+
+            // Draw horizontal line separating wiki from description/icon.
+            Widgets.DrawLineHorizontal(maxBounds.x, maxBounds.y, maxBounds.width);
 
             // Scroll view stuff.
             var whereToDraw = maxBounds;

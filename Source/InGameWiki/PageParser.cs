@@ -31,7 +31,6 @@ namespace InGameWiki
                 var info = new FileInfo(file);
                 string fileName = info.Name;
                 fileName = fileName.Substring(0, fileName.Length - info.Extension.Length);
-                Log.Message(fileName);
                 if (fileName.StartsWith("Thing_"))
                 {
                     string thingDefName = fileName.Substring(6);
@@ -39,7 +38,7 @@ namespace InGameWiki
                     if (existing != null)
                     {
                         Parse(File.ReadAllText(file), existing);
-                        Log.Message("Added to existing " + file);
+                        //Log.Message("Added to existing " + file);
                     }
                     else
                     {
@@ -55,7 +54,7 @@ namespace InGameWiki
                     continue;
                 }
 
-                Log.Message("Added " + file);
+                //Log.Message("Added " + file);
                 wiki.Pages.Insert(0, page);
             }
         }

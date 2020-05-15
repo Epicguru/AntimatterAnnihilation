@@ -6,6 +6,12 @@ namespace InGameWiki
 {
     public class ModWiki
     {
+        public static void OpenInspectWindow(Def def)
+        {
+            if (def != null)
+                Find.WindowStack.Add((Window)new Dialog_InfoCard(def));
+        }
+
         public string ModTitle = "Your Mod Name Here";
 
         public List<WikiPage> Pages = new List<WikiPage>();
@@ -56,7 +62,7 @@ namespace InGameWiki
 
             foreach (var page in Pages)
             {
-                if (page != null && page.ThingDefName == defName)
+                if (page != null && page.Def?.defName == defName)
                     return page;
             }
             return null;

@@ -26,13 +26,11 @@ namespace InGameWiki
         }
 
         public string Text;
-
         public Texture2D Image;
         public bool AutoFitImage = false;
         public Vector2 ImageSize = new Vector2(-1, -1);
         public float ImageScale = 1f;
         public GameFont FontSize = GameFont.Small;
-
         public Def DefForIconAndLabel;
 
         public bool HasText
@@ -42,7 +40,6 @@ namespace InGameWiki
                 return !string.IsNullOrWhiteSpace(Text);
             }
         }
-
         public bool HasImage
         {
             get
@@ -94,7 +91,13 @@ namespace InGameWiki
 
             if (DefForIconAndLabel != null)
             {
-                Widgets.DefLabelWithIcon(new Rect(maxBounds.x, maxBounds.y, 200, 32), DefForIconAndLabel);
+                //TooltipHandler.TipRegion(rect, (TipSignal)def.description);
+                var rect = new Rect(maxBounds.x, maxBounds.y, 200, 32);
+                Widgets.DefLabelWithIcon(rect, DefForIconAndLabel);
+                if (Widgets.ButtonInvisible(rect, true))
+                {
+                    WikiWindow.CurrentActive?.GoToPage(this.DefForIconAndLabel, true);
+                }
                 size.y += 32;
                 imageOffset = 200;
             }

@@ -7,9 +7,7 @@
         <label>composite refiner</label>
         <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.
 
-        Requires 2 Input Trays to be built to the left and right of it. One should be configured to store Plasteel, and the other to store Antimatter.
-
-Produces 30 antimatter composite in 6 hours, using 60 plasteel and 1 antimatter canister.</description>
+See the in-game wiki for more information and how to use.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
             <graphicClass>Graphic_Single</graphicClass>

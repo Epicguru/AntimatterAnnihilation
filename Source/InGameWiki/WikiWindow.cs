@@ -9,12 +9,19 @@ namespace InGameWiki
         {
             if (wiki == null)
                 return null;
+            if (CurrentActive != null)
+            {
+                Log.Message("There is already an open wiki page.");
+                return null;
+            }
 
             var created = new WikiWindow(wiki);
+            CurrentActive = created;
             Find.WindowStack?.Add(created);
 
             return created;
         }
+        public static WikiWindow CurrentActive { get; private set; }
 
         public ModWiki Wiki;
         public int TopHeight = 34;
@@ -82,7 +89,34 @@ namespace InGameWiki
 
             // Current page.
             CurrentPage?.Draw(contentArea);
+        }
 
+        public override void PreClose()
+        {
+            CurrentActive = null;
+            base.PreClose();
+        }
+
+        public bool GoToPage(Def def, bool openInspectWindow = false)
+        {
+            if (def == null)
+                return false;
+
+            var page = Wiki.GetPage(def.defName);
+            if (page == null)
+            {
+                if (openInspectWindow)
+                {
+                    ModWiki.OpenInspectWindow(def);
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                this.CurrentPage = page;
+                return true;
+            }
         }
     }
 }
