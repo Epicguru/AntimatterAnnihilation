@@ -36,9 +36,9 @@ namespace AntimatterAnnihilation.Buildings
                 {
                     if (thing.stackCount <= toDelete)
                     {
-                        thing.Destroy(DestroyMode.Vanish);
                         toDelete -= thing.stackCount;
                         amountRemoved += thing.stackCount;
+                        thing.Destroy(DestroyMode.Vanish);
                     }
                     else
                     {

@@ -36,7 +36,7 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                return MaxAntimatter - CurrentAntimatterAmount;
+                return MaxAntimatter - CurrentAntimatterCount;
             }
         }
 
@@ -46,7 +46,7 @@ namespace AntimatterAnnihilation.Buildings
         public int OutputAmount = 30;
 
         public int CurrentPlasteelCount;
-        public int CurrentAntimatterAmount;
+        public int CurrentAntimatterCount;
         public int ProductionTicks;
 
         private ulong tickCount;
@@ -76,6 +76,22 @@ namespace AntimatterAnnihilation.Buildings
             base.Tick();
 
             tickCount++;
+
+            bool isRunning = GetShouldBeRunning();
+            if (isRunning)
+            {
+                ProductionTicks++;
+                if (ProductionTicks >= TicksToProduceOutput)
+                {
+                    ProductionTicks = 0;
+                    CurrentAntimatterCount = 0;
+                    CurrentPlasteelCount = 0;
+
+                    PlaceOutput(OutputAmount);
+                    Log.Message("Placed output, reset counts.");
+                }
+            }
+
             if (tickCount % 120 == 0)
             {
                 Building_InputTray lt = null;
@@ -97,22 +113,8 @@ namespace AntimatterAnnihilation.Buildings
                         rt = GetRightTray();
                     }
 
-                    TryGet(lt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterAmount);
-                    TryGet(rt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterAmount);
-                }
-            }
-
-            bool isRunning = GetShouldBeRunning();
-            if(isRunning)
-            {
-                ProductionTicks++;
-                if (ProductionTicks >= TicksToProduceOutput)
-                {
-                    ProductionTicks = 0;
-                    CurrentAntimatterAmount = 0;
-                    CurrentPlasteelCount = 0;
-
-                    PlaceOutput(OutputAmount);
+                    TryGet(lt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterCount);
+                    TryGet(rt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterCount);
                 }
             }
         }
@@ -139,14 +141,16 @@ namespace AntimatterAnnihilation.Buildings
 
             var removed = tray.TryRemove(defName, amount);
             if (removed > 0)
+            {
                 counter += removed;
+            }
         }
 
         public override void ExposeData()
         {
             base.ExposeData();
 
-            Scribe_Values.Look(ref CurrentAntimatterAmount, "currentAntimatter");
+            Scribe_Values.Look(ref CurrentAntimatterCount, "currentAntimatter");
             Scribe_Values.Look(ref CurrentPlasteelCount, "currentPlasteel");
             Scribe_Values.Look(ref ProductionTicks, "productionTicks");
         }
@@ -190,7 +194,7 @@ namespace AntimatterAnnihilation.Buildings
         public override string GetInspectString()
         {
             string reasonNotRunning = GetReasonNotRunning();
-            return base.GetInspectString() + $"\n{(reasonNotRunning == null ? $"Running: {(TicksToProduceOutput - ProductionTicks)/2500f:F1} hours until output" : $"Not running: {reasonNotRunning}")}\nPlasteel: {CurrentPlasteelCount}/{MaxPlasteel}\nAntimatter: {CurrentAntimatterAmount}/{MaxAntimatter}";
+            return base.GetInspectString() + $"\n{(reasonNotRunning == null ? $"Running: {(TicksToProduceOutput - ProductionTicks)/2500f:F1} hours until output" : $"Not running: {reasonNotRunning}")}\nPlasteel: {CurrentPlasteelCount}/{MaxPlasteel}\nAntimatter: {CurrentAntimatterCount}/{MaxAntimatter}";
         }
     }
 }

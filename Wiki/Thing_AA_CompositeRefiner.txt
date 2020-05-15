@@ -1,0 +1,13 @@
+
+#!How to set up#
+#2 <color=\#e0d290>Input Trays</color> must be built next to the Composite Refiner, as shown here:#
+$AntimatterAnnihilation/UI/CompositeRefinerTrays$
+#Now, one of them must be configured to store Plasteel, and the other to store Antimatter Canisters. It does not matter which side stores each.#
+#This is how the final result should look:#
+$AntimatterAnnihilation/UI/CompositeRefinerWithItems$
+#!How it works#
+#This machine will automatically pull plasteel and antimatter canisters from the 2 input trays.
+<b>It requires 60 plasteel and 1 antimatter canisters to start!</b>
+Once it has started running (as can be seen in the inspection panel), it will take 6 in-game hours to produce an output of 30 antimatter composite.#
+#The output is placed directly below the machine, in it's interaction spot (white circle)#
+$AntimatterAnnihilation/UI/CompositeRefinerWithOutput$
