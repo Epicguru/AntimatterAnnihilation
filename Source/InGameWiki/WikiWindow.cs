@@ -17,11 +17,11 @@ namespace InGameWiki
         }
 
         public ModWiki Wiki;
-        public int TopHeight = 40;
+        public int TopHeight = 34;
         public int SearchHeight = 34;
-        public int SideWidth = 220;
+        public int SideWidth = 260;
         public WikiPage CurrentPage { get; set; }
-        public override Vector2 InitialSize => new Vector2(800, 800);
+        public override Vector2 InitialSize => new Vector2(900, 800);
         public string SearchText = "";
 
         private Vector2 scroll;

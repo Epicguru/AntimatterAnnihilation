@@ -14,7 +14,6 @@ namespace InGameWiki
 
             WikiPage p = new WikiPage();
 
-            Log.Message(thing.LabelCap.ToString());
             p.Title = thing.LabelCap;
             p.ShortDescription = thing.DescriptionDetailed;
             p.Icon = thing.uiIcon;

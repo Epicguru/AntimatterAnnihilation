@@ -40,6 +40,12 @@ namespace InGameWiki
             if (def.projectile != null)
                 return false;
 
+            if (def.entityDefToBuild != null)
+                return false;
+
+            if (def.weaponTags?.Contains("TurretGun") ?? false)
+                return false;
+
             return true;
         }
     }
