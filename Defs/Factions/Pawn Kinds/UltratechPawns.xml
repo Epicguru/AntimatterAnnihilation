@@ -200,7 +200,7 @@
         <gearHealthRange>0.7~3.5</gearHealthRange>
         <apparelMoney>2500~4000</apparelMoney>
         <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
-        <weaponMoney>1400~3000</weaponMoney>
+        <weaponMoney>2000~3000</weaponMoney>
         <weaponTags>
             <li>MedievalMeleeAdvanced</li>
             <li>SpacerMeleeAdvanced</li>

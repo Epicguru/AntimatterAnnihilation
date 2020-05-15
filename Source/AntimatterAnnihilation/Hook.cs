@@ -48,7 +48,14 @@ namespace AntimatterAnnihilation
                         string dir = Path.Combine(ModCore.Instance.Content.RootDir, "Wiki");
                         PageParser.AddAllFromDirectory(wiki, dir);
 
-                        wiki.Pages.Add(WikiPage.CreateFromThing(AADefOf.AA_ScissorBlade));
+                        foreach (var def in ModCore.Instance.Content.AllDefs)
+                        {
+                            if (!(def is ThingDef thingDef))
+                                continue;
+
+                            var page = WikiPage.CreateFromThingDef(thingDef);
+                            wiki.Pages.Add(page);
+                        }
 
                         // Test: add auto-generated pages for all thing defs.
                         //foreach (var def in DefDatabase<ThingDef>.AllDefs)

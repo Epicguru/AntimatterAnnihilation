@@ -7,7 +7,7 @@ namespace InGameWiki
 {
     public class WikiPage
     {
-        public static WikiPage CreateFromThing(ThingDef thing)
+        public static WikiPage CreateFromThingDef(ThingDef thing)
         {
             if (thing == null)
                 return null;
