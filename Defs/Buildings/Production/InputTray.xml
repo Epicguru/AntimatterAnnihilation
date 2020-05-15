@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <ThingDef ParentName="AABuildingBase">
-        <defName>AA_InputTray</defName>
+        <defName>InputTray_AA</defName>
         <label>input tray</label>
         <description>A spacial container to store materials for a nearby machine to use.</description>
         <thingClass>AntimatterAnnihilation.Buildings.Building_InputTray</thingClass>

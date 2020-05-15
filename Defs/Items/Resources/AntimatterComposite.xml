@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="ResourceBase">
-        <defName>AntimatterComposite</defName>
+        <defName>AntimatterComposite_AA</defName>
         <label>antimatter composite</label>
         <stackLimit>200</stackLimit>
         <description>Ingots of antimatter composite. Created in the Composite Refiner.

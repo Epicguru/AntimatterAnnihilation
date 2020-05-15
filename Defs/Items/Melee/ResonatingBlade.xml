@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
-        <defName>AA_ResonatingBlade</defName>
+        <defName>ResonatingBlade_AA</defName>
         <label>resonating blade</label>
         <description>An antimatter composite blade, that is engineered to create constant internal annihilation reactions, similarly to how nuclear decay works.\n\nThe energy released from this flows through the user, increasing their maximum muscle strength and allowing them to move much faster than normal. This also tires out the user, resulting in slightly decreased work speed.</description>
         <graphicData>
@@ -23,7 +23,7 @@
             <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
         </equippedStatOffsets>
         <costList>
-            <AntimatterComposite>35</AntimatterComposite> <!-- ~1.3 canisters, ~80 plasteel -->
+            <AntimatterComposite_AA>35</AntimatterComposite_AA> <!-- ~1.3 canisters, ~80 plasteel -->
             <ComponentIndustrial>16</ComponentIndustrial>
             <ComponentSpacer>6</ComponentSpacer>
         </costList>

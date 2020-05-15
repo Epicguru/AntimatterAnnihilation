@@ -2,21 +2,21 @@
 <Defs>
 
   <DamageDef>
-    <defName>Annihilate</defName>
+    <defName>Annihilate_AA</defName>
     <label>Annihilate</label>
     <workerClass>AntimatterAnnihilation.Damage.DamageWorker_Annihilate</workerClass>
     <hasForcefulImpact>true</hasForcefulImpact>
     <externalViolence>true</externalViolence>
     <makesBlood>true</makesBlood>
     <deathMessage>{0} was annihilated.</deathMessage>
-    <hediff>AnnihilationInjury</hediff>
+    <hediff>AnnihilationInjury_AA</hediff>
     <armorCategory>Heat</armorCategory>
     <defaultDamage>5</defaultDamage>
     <defaultArmorPenetration>90</defaultArmorPenetration>
   </DamageDef>
 
   <HediffDef ParentName="InjuryBase">
-    <defName>AnnihilationInjury</defName>
+    <defName>AnnihilationInjury_AA</defName>
     <label>Annihilation Injury</label>
     <labelNoun>an annihilation injury</labelNoun>
     <description>An annihilation injury, caused by contact with anti-matter.
@@ -48,21 +48,21 @@ The flesh is literally annihilated, leaving nothing behind but a gruesome wound.
   </HediffDef>
 
   <DamageDef>
-    <defName>EnergyBurn</defName>
+    <defName>EnergyBurn_AA</defName>
     <label>Energy Burn</label>
     <workerClass>AntimatterAnnihilation.Damage.DamageWorker_Annihilate</workerClass> <!-- Just applies to random exterior body part. -->
     <hasForcefulImpact>true</hasForcefulImpact>
     <externalViolence>true</externalViolence>
     <makesBlood>true</makesBlood>
     <deathMessage>{0} was killed by an energy burn.</deathMessage>
-    <hediff>EnergyBurnInjury</hediff>
+    <hediff>EnergyBurnInjury_AA</hediff>
     <armorCategory>Heat</armorCategory>
     <defaultDamage>12</defaultDamage>
     <defaultArmorPenetration>90</defaultArmorPenetration>
   </DamageDef>
 
   <HediffDef ParentName="InjuryBase">
-    <defName>EnergyBurnInjury</defName>
+    <defName>EnergyBurnInjury_AA</defName>
     <label>Energy Burn</label>
     <labelNoun>an energy burn</labelNoun>
     <description>An energy burn, caused by being hit with an intense blast of pure energy.
@@ -94,13 +94,13 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
   </HediffDef>
 
   <DamageDef Name="AnnihilationExplosion">
-    <defName>AnnihilationExplosion</defName>
+    <defName>AnnihilationExplosion_AA</defName>
     <label>annihilation explosion</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
     <externalViolence>true</externalViolence>
     <isExplosive>true</isExplosive>
     <deathMessage>{0} has died in an annihilation explosion.</deathMessage>
-    <hediff>AnnihilationInjury</hediff>
+    <hediff>AnnihilationInjury_AA</hediff>
     <harmAllLayersUntilOutside>true</harmAllLayersUntilOutside>
     <impactSoundType>Blunt</impactSoundType>
     <armorCategory>Sharp</armorCategory>
@@ -115,26 +115,26 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <explosionCellMote>Mote_BlastDry</explosionCellMote>
     <explosionColorCenter>(1, 0.5, 0.3)</explosionColorCenter>
     <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
-    <soundExplosion>Explosion_Antimatter</soundExplosion>
+    <soundExplosion>Explosion_Antimatter_AA</soundExplosion>
     <combatLogRules>Damage_Bomb</combatLogRules>
   </DamageDef>
 
   <DamageDef>
-    <defName>GalvaPain</defName>
+    <defName>GalvaPain_AA</defName>
     <label>galvaknuckles pain</label>
     <workerClass>AntimatterAnnihilation.Damage.DamageWorker_GalvaPain</workerClass>
     <hasForcefulImpact>true</hasForcefulImpact>
     <externalViolence>true</externalViolence>
     <makesBlood>true</makesBlood>
     <deathMessage>{0} was killed.</deathMessage>
-    <hediff>GalvaInjury</hediff>
+    <hediff>GalvaInjury_AA</hediff>
     <armorCategory>Blunt</armorCategory>
     <defaultDamage>5</defaultDamage>
     <defaultArmorPenetration>50</defaultArmorPenetration>
   </DamageDef>
 
   <HediffDef ParentName="InjuryBase">
-    <defName>GalvaInjury</defName>
+    <defName>GalvaInjury_AA</defName>
     <label>Painful Bruise</label>
     <labelNoun>a bruise from being hit by galvaknuckles</labelNoun>
     <description>A bruise from being hit by someone using galvaknuckles. Upon impact the weapon releases a large electrical discharge, causing great pain but little long-term effects.</description>

@@ -253,7 +253,7 @@ namespace AntimatterAnnihilation.Buildings
             foreach (var thing in tempThings)
             {
                 bool isInLine = false;
-                if (thing.def.defName == "AntimatterReactor")
+                if (thing.def.defName == "AntimatterReactor_AA")
                 {
                     // This might be the reactor that needs to have power injected into it.
                     // However, the power needs to be injected from the correct side, and in the correct position.
@@ -292,7 +292,7 @@ namespace AntimatterAnnihilation.Buildings
                 float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
                 if (thingIsReactor && isInLine)
                     damage *= 0.05f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
-                thing.TakeDamage(new DamageInfo(AADefOf.Annihilate, damage, 15, instigator: this));
+                thing.TakeDamage(new DamageInfo(AADefOf.Annihilate_AA, damage, 15, instigator: this));
             }
 
             return i;

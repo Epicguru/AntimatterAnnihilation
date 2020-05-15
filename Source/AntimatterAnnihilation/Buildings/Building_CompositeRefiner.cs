@@ -66,7 +66,7 @@ namespace AntimatterAnnihilation.Buildings
             var zone = new Zone_Stockpile(StorageSettingsPreset.DefaultStockpile, Map.zoneManager);
             zone.settings.filter.SetDisallowAll();
             zone.settings.Priority = StoragePriority.Low;
-            zone.settings.filter.SetAllow(AADefOf.AntimatterComposite, true);
+            zone.settings.filter.SetAllow(AADefOf.AntimatterComposite_AA, true);
             Map.zoneManager.RegisterZone(zone);
             zone.AddCell(OutputPos);
         }
@@ -124,7 +124,7 @@ namespace AntimatterAnnihilation.Buildings
             if (count <= 0)
                 return;
 
-            Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterComposite);
+            Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterComposite_AA);
             thing.stackCount = count;
 
             GenPlace.TryPlaceThing(thing, OutputPos, Find.CurrentMap, ThingPlaceMode.Near);

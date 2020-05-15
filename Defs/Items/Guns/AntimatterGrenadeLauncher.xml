@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="BaseHumanMakeableGun">
-        <defName>AntimatterGrenadeLauncher</defName>
+        <defName>AntimatterGrenadeLauncher_AA</defName>
         <label>antimatter grenade launcher</label>
         <description>A huge gun that fires antimatter grenades over a longer distance. Very devastating against structures and enemies alike.</description>
         <graphicData>
@@ -17,7 +17,7 @@
             <RangedWeapon_Cooldown>6.5</RangedWeapon_Cooldown>
         </statBases>
         <costList>
-            <AntimatterComposite>70</AntimatterComposite>
+            <AntimatterComposite_AA>70</AntimatterComposite_AA>
             <ComponentIndustrial>6</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
         </costList>
@@ -34,7 +34,7 @@
         <li>
             <verbClass>Verb_Shoot</verbClass>
             <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_AntimatterGrenade</defaultProjectile>
+            <defaultProjectile>Bullet_AntimatterGrenade_AA</defaultProjectile>
             <warmupTime>4.5</warmupTime>
             <range>20</range>
             <forcedMissRadius>2</forcedMissRadius>
@@ -69,7 +69,7 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_AntimatterGrenade</defName>
+        <defName>Bullet_AntimatterGrenade_AA</defName>
         <label>launched antimatter grenade</label>
         <graphicData>
             <texPath>AntimatterAnnihilation/Projectiles/AntimatterGrenade</texPath>
@@ -79,7 +79,7 @@
         <thingClass>Projectile_Explosive</thingClass>
         <projectile>
             <speed>50</speed>
-            <damageDef>AnnihilationExplosion</damageDef>
+            <damageDef>AnnihilationExplosion_AA</damageDef>
             <explosionRadius>2</explosionRadius> <!-- Less than regular antimatter grenades -->
             <ai_IsIncendiary>true</ai_IsIncendiary> <!-- Leaving as true since vanilla Smoke Laucher also has a true... They may be a reason for that that I don't want to break -->
         </projectile>

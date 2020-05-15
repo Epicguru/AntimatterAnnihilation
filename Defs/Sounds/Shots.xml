@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Defs>
     <SoundDef>
-        <defName>Shot_AntimatterBlaster</defName>  
+        <defName>Shot_AntimatterBlaster_AA</defName>  
         <context>MapOnly</context>  
         <maxSimultaneous>1</maxSimultaneous>  
         <subSounds>
@@ -17,7 +17,7 @@
     </SoundDef>
 
     <SoundDef>
-        <defName>Melee_GalvaknucklesDischarge</defName>  
+        <defName>Melee_GalvaknucklesDischarge_AA</defName>  
         <context>MapOnly</context>  
         <maxSimultaneous>1</maxSimultaneous>  
         <subSounds>

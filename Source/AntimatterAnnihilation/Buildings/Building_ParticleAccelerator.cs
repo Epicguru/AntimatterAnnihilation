@@ -96,14 +96,14 @@ namespace AntimatterAnnihilation.Buildings
             var zone = new Zone_Stockpile(StorageSettingsPreset.DefaultStockpile, Map.zoneManager);
             zone.settings.filter.SetDisallowAll();
             zone.settings.Priority = StoragePriority.Low;
-            zone.settings.filter.SetAllow(AADefOf.AntimatterCanister, true);
+            zone.settings.filter.SetAllow(AADefOf.AntimatterCanister_AA, true);
             Map.zoneManager.RegisterZone(zone);
             zone.AddCell(OutputPos);
         }
 
         public void OutputAntimatter(int count)
         {
-            Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterCanister);
+            Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterCanister_AA);
             thing.stackCount = count;
 
             GenPlace.TryPlaceThing(thing, OutputPos, Find.CurrentMap, ThingPlaceMode.Near);

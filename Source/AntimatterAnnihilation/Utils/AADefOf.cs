@@ -11,10 +11,9 @@ namespace AntimatterAnnihilation.Utils
             DefOfHelper.EnsureInitializedInCtor(typeof(AADefOf));
         }
 
-        public static DamageDef Annihilate;
-        public static DamageDef EnergyBurn;
-        public static ThingDef AntimatterCanister;
-        public static ThingDef AntimatterComposite;
-        public static ThingDef AA_ScissorBlade;
+        public static DamageDef Annihilate_AA;
+        public static DamageDef EnergyBurn_AA;
+        public static ThingDef AntimatterCanister_AA;
+        public static ThingDef AntimatterComposite_AA;
     }
 }

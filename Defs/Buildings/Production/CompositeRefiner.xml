@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="AAPoweredLarge">
-        <defName>AA_CompositeRefiner</defName>
+        <defName>CompositeRefiner_AA</defName>
         <thingClass>AntimatterAnnihilation.Buildings.Building_CompositeRefiner</thingClass>
         <label>composite refiner</label>
         <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.

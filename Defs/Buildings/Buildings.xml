@@ -53,7 +53,7 @@
     </ThingDef>
 
     <ThingDef ParentName="AAPoweredLarge">
-    <defName>ParticleAccelerator</defName>
+    <defName>ParticleAccelerator_AA</defName>
     <label>particle accelerator</label>
     <thingClass>AntimatterAnnihilation.Buildings.Building_ParticleAccelerator</thingClass>
     <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
@@ -96,7 +96,7 @@
   <!--  -->
 
   <ThingDef ParentName="AAPoweredLarge">
-    <defName>AntimatterReactor</defName>
+    <defName>AntimatterReactor_AA</defName>
     <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterReactor</thingClass>
     <label>antimatter reactor</label>
     <description>The ultimate form of power generation.
@@ -148,7 +148,7 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
-    <defName>AntimatterReactorInjector</defName>
+    <defName>AntimatterReactorInjector_AA</defName>
     <thingClass>AntimatterAnnihilation.Buildings.Building_ReactorInjector</thingClass>
     <label>reactor injector</label>
     <description>Takes in Contained Antimatter and fires it as a beam into an Antimatter Reactor.
@@ -182,7 +182,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <fuelCapacity>20.0</fuelCapacity>
         <fuelFilter>
           <thingDefs>
-            <li>AntimatterCanister</li>
+            <li>AntimatterCanister_AA</li>
           </thingDefs>
         </fuelFilter>
         <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
@@ -196,7 +196,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
-    <defName>AntimatterReactorPowerConverter</defName>
+    <defName>AntimatterReactorPowerConverter_AA</defName>
     <thingClass>AntimatterAnnihilation.Buildings.Building_PowerConverter</thingClass>
     <label>reactor power converter</label>
     <description>Captures the output beam of the Antimatter Reactor and turns it into useable electrical power.</description>
@@ -230,7 +230,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
-    <defName>PowerNetConsole</defName>
+    <defName>PowerNetConsole_AA</defName>
     <thingClass>AntimatterAnnihilation.Buildings.Building_PowerNetConsole</thingClass>
     <label>PowerNet console</label>
     <description>Shows a detailed overview of the power network, showing where power is being used and produced.

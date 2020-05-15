@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AntimatterGunBase">
-        <defName>AntimatterBlaster</defName>
+    <ThingDef ParentName="AntimatterGunBase_AA">
+        <defName>AntimatterBlaster_AA</defName>
         <label>antimatter blaster</label>
         <description>A medium range personal defense weapon, firing antimatter.
 
@@ -22,7 +22,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
         </statBases>
         <costList>
             <Plasteel>30</Plasteel>
-            <AntimatterCanister>1</AntimatterCanister>
+            <AntimatterCanister_AA>1</AntimatterCanister_AA>
             <ComponentIndustrial>5</ComponentIndustrial>
             <ComponentSpacer>1</ComponentSpacer>
         </costList>
@@ -39,10 +39,10 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
             <li>
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>Bullet_Antimatter</defaultProjectile>
+                <defaultProjectile>Bullet_Antimatter_AA</defaultProjectile>
                 <warmupTime>0.65</warmupTime>
                 <range>12.5</range>
-                <soundCast>Shot_AntimatterBlaster</soundCast>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>
                 <muzzleFlashScale>10</muzzleFlashScale>
             </li>

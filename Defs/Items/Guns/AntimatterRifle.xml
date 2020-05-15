@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AntimatterGunBase">
-        <defName>AntimatterRifle</defName>
+    <ThingDef ParentName="AntimatterGunBase_AA">
+        <defName>AntimatterRifle_AA</defName>
         <label>antimatter rifle</label>
         <description>A 2-burst antimatter rifle. High accuracy and damage.
 
@@ -23,7 +23,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
         </statBases>
         <costList>
             <Plasteel>50</Plasteel>
-            <AntimatterCanister>1</AntimatterCanister>
+            <AntimatterCanister_AA>1</AntimatterCanister_AA>
             <ComponentIndustrial>6</ComponentIndustrial>
             <ComponentSpacer>2</ComponentSpacer>
         </costList>
@@ -40,12 +40,12 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
             <li>
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>Bullet_Antimatter</defaultProjectile>
+                <defaultProjectile>Bullet_Antimatter_AA</defaultProjectile>
                 <warmupTime>0.8</warmupTime>
                 <range>27.5</range>
                 <ticksBetweenBurstShots>9</ticksBetweenBurstShots>
                 <burstShotCount>2</burstShotCount>
-                <soundCast>Shot_AntimatterBlaster</soundCast>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>12</muzzleFlashScale>
             </li>

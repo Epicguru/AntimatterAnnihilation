@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AATurret" Name="AntimatterRailgunTurret" Abstract="True"> 
+    <ThingDef ParentName="AATurret" Name="AntimatterRailgunTurret_AA" Abstract="True"> 
         <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>
@@ -40,8 +40,8 @@
         <uiIconScale>0.95</uiIconScale>
     </ThingDef>
 
-    <ThingDef ParentName="AntimatterRailgunTurret">
-        <defName>Turret_AntimatterRailgun</defName>
+    <ThingDef ParentName="AntimatterRailgunTurret_AA">
+        <defName>Turret_AntimatterRailgun_AA</defName>
         <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterRailgun</thingClass>
         <label>antimatter railgun</label>
         <description>A railgun that fires antimatter that causes an annihilation explosion upon impact. Truly devastating.</description>
@@ -51,7 +51,7 @@
         </statBases>
         <costList>
             <Steel>450</Steel>
-            <AntimatterComposite>80</AntimatterComposite>
+            <AntimatterComposite_AA>80</AntimatterComposite_AA>
             <ComponentIndustrial>15</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
         </costList>
@@ -66,7 +66,7 @@
                 <fuelLabel>Antimatter remaining</fuelLabel>
                 <fuelGizmoLabel>Antimatter remaining</fuelGizmoLabel>
                 <outOfFuelMessage>Cannot shoot: Needs antimatter canister refuel</outOfFuelMessage>
-                <fuelFilter><thingDefs><li>AntimatterCanister</li></thingDefs></fuelFilter>
+                <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
                 <fuelCapacity>2</fuelCapacity>       <!-- 20 shots -->
                 <initialFuelPercent>0</initialFuelPercent>
                 <autoRefuelPercent>0.5</autoRefuelPercent>
@@ -78,7 +78,7 @@
             </li>
         </comps>
         <building>
-            <turretGunDef>Gun_AntimatterRailgunTurret</turretGunDef>
+            <turretGunDef>Gun_AntimatterRailgunTurret_AA</turretGunDef>
             <turretBurstCooldownTime>12</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
@@ -87,21 +87,21 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_AntimatterRailgun</defName>
+        <defName>Bullet_AntimatterRailgun_AA</defName>
         <label>antimatter railgun blast</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Big</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-            <damageDef>Annihilate</damageDef>
+            <damageDef>Annihilate_AA</damageDef>
             <damageAmountBase>100</damageAmountBase>
             <speed>200</speed>
         </projectile>
     </ThingDef>
 
     <ThingDef ParentName="BaseWeaponTurret">
-        <defName>Gun_AntimatterRailgunTurret</defName>
+        <defName>Gun_AntimatterRailgunTurret_AA</defName>
         <label>antimatter railgun</label>
         <description>The top part of an antimatter railgun. How did you get this...?</description>
         <graphicData>
@@ -123,7 +123,7 @@
             <li>
                 <!-- <verbClass>Verb_Shoot</verbClass> -->
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
-                <defaultProjectile>Bullet_AntimatterRailgun</defaultProjectile>
+                <defaultProjectile>Bullet_AntimatterRailgun_AA</defaultProjectile>
                 <warmupTime>0</warmupTime>
                 <minRange>8.9</minRange>
                 <range>400</range>
