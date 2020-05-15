@@ -11,3 +11,8 @@ $AntimatterAnnihilation/UI/CompositeRefinerWithItems$
 Once it has started running (as can be seen in the inspection panel), it will take 6 in-game hours to produce an output of 30 antimatter composite.#
 #The output is placed directly below the machine, in it's interaction spot (white circle)#
 $AntimatterAnnihilation/UI/CompositeRefinerWithOutput$
+
+#<b><i>See also:</i></b>#
+@AntimatterComposite_AA@
+@AntimatterCanister_AA@
+@Plasteel@

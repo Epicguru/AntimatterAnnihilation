@@ -55,7 +55,7 @@ namespace InGameWiki
             var old = Verse.Text.Font;
             Verse.Text.Font = FontSize;
 
-            float imageOffset = 0;
+            Vector2 imageOffset = Vector2.zero;
             if (HasImage)
             {
                 if (!AutoFitImage)
@@ -64,7 +64,7 @@ namespace InGameWiki
                     float height = ImageSize.y < 1 ? Image.height * ImageScale : ImageSize.y;
                     Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
                     size += new Vector2(width, height);
-                    imageOffset = width;
+                    imageOffset.x = width;
                 }
                 else
                 {
@@ -76,7 +76,7 @@ namespace InGameWiki
                         float height = Image.height;
                         Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
                         size += new Vector2(width, height);
-                        imageOffset = width;
+                        imageOffset.x = width;
                     }
                     else
                     {
@@ -84,7 +84,7 @@ namespace InGameWiki
                         float height = Image.height * (width / Image.width);
                         Widgets.DrawTextureFitted(new Rect(maxBounds.x, maxBounds.y, width, height), Image, 1f);
                         size += new Vector2(width, height);
-                        imageOffset = width;
+                        imageOffset.x = width;
                     }
                 }
             }
@@ -99,15 +99,16 @@ namespace InGameWiki
                     WikiWindow.CurrentActive?.GoToPage(this.DefForIconAndLabel, true);
                 }
                 size.y += 32;
-                imageOffset = 200;
+                imageOffset.x = 200;
+                imageOffset.y = 6;
             }
 
             if (HasText)
             {
-                float x = maxBounds.x + imageOffset;
+                float x = maxBounds.x + imageOffset.x;
                 float width = maxBounds.xMax - x;
 
-                float startY = maxBounds.y;
+                float startY = maxBounds.y + imageOffset.y;
                 float cacheStartY = startY;
                 Widgets.LongLabel(x, width, Text, ref startY);
                 float change = startY - cacheStartY;

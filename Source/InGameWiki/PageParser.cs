@@ -63,20 +63,30 @@ namespace InGameWiki
         {
             string[] lines = rawText.Split('\n');
 
-            if (lines.Length < 4)
+            if (existing == null && lines.Length < 5)
             {
-                Log.Error("Expected minimum 4 lines for title, icon, background and description.");
+                Log.Error("Expected minimum 5 lines for ID, title, icon, background and description.");
+                return null;
+            }
+            if (existing != null && lines.Length < 1)
+            {
+                Log.Error($"Expected minimum 1 lines for background when appending to Thing {existing.Def.defName}");
                 return null;
             }
 
             WikiPage p = existing ?? new WikiPage();
             if (existing == null)
             {
-                string title = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
-                Texture2D icon = ContentFinder<Texture2D>.Get(lines[1].Trim(), false);
-                Texture2D bg = ContentFinder<Texture2D>.Get(lines[2].Trim(), false);
-                string desc = string.IsNullOrWhiteSpace(lines[3].Trim()) ? null : lines[3].Trim();
+                string id = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
+                string title = string.IsNullOrWhiteSpace(lines[1].Trim()) ? null : lines[1].Trim();
+                Texture2D icon = ContentFinder<Texture2D>.Get(lines[2].Trim(), false);
+                Texture2D bg = ContentFinder<Texture2D>.Get(lines[3].Trim(), false);
+                string desc = string.IsNullOrWhiteSpace(lines[4].Trim()) ? null : lines[4].Trim();
 
+                if (id == null)
+                    Log.Warning($"External wiki page with title {title} has a null ID. It may break things.");
+
+                p.ID = id;
                 p.Title = title;
                 p.Icon = icon;
                 p.ShortDescription = desc;
@@ -90,7 +100,7 @@ namespace InGameWiki
 
             StringBuilder str = new StringBuilder();
             CurrentlyParsing parsing = CurrentlyParsing.None;
-            for (int i = (existing == null ? 4 : 1); i < lines.Length; i++)
+            for (int i = (existing == null ? 5 : 1); i < lines.Length; i++)
             {
                 string line = lines[i];
                 line += '\n';
@@ -121,6 +131,34 @@ namespace InGameWiki
                             Image = loaded,
                             AutoFitImage = true
                         });
+                        continue;
+                    }
+
+                    // Thing links
+                    final = CheckParseChar('@', CurrentlyParsing.ThingDefLink, last, i, c, ref parsing, ref add);
+                    if (final != null)
+                    {
+                        string label = null;
+                        if (final.Contains(':'))
+                        {
+                            var split = final.Split(':');
+                            final = split[0];
+                            label = split[1];
+                        }
+
+                        Def def = ThingDef.Named(final);
+                        if (def != null)
+                        {
+                            p.Elements.Add(new WikiElement()
+                            {
+                                DefForIconAndLabel = def,
+                                Text = label
+                            });
+                        }
+                        else
+                        {
+                            AddText($"<i>MissingDefLink [{final}]</i>", false);
+                        }
                         continue;
                     }
 
@@ -194,7 +232,8 @@ namespace InGameWiki
         {
             None,
             Text,
-            Image
+            Image,
+            ThingDefLink
         }
     }
 }

@@ -76,6 +76,10 @@ namespace InGameWiki
             return p;
         }
 
+        /// <summary>
+        /// Only valid when the page is external (not generated from a ThingDef)
+        /// </summary>
+        public string ID;
         public string Name;
         public string Title;
         public string ShortDescription;
@@ -103,7 +107,7 @@ namespace InGameWiki
             // Background
             if (Background != null)
             {
-                GUI.color = Color.white * 0.45f;
+                GUI.color = Color.white * 0.35f;
                 var coords = CalculateUVCoords(maxBounds, new Rect(0, 0, Background.width, Background.height));
                 GUI.DrawTextureWithTexCoords(maxBounds, Background, coords, true);
                 GUI.color = Color.white;

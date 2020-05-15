@@ -22,6 +22,7 @@ See the in-game wiki for more information and how to use.</description>
             <Steel>150</Steel>
             <Plasteel>20</Plasteel>
             <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <comps>
         <li Class="CompProperties_Flickable"/>

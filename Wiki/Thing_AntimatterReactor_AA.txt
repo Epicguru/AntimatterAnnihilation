@@ -1,10 +1,13 @@
 
 
 #!Setup#
-#There are 3 parts required to a working reactor setup.#
+#There are 3 parts required to a working reactor setup:#
+@AntimatterReactor_AA:(this)@
+@AntimatterReactorInjector_AA@
+@AntimatterReactorPowerConverter_AA@
 #First, you need the Antimatter Reactor itself. It is very large, and consumes a lot of power.
 It can be rotated to be placed vertically or horizontally, it makes no functional difference.#
-#The two tubes coming out of the reactor serve both as input and output. One side must be input, and the other output.
+#The two red tubes on the sides of the reactor serve both as input and output. One side must be input, and the other output.
 You need to build a Reactor Injector and a Reactor Power Converter for input and output, respectively. They should be set up like this:#
 
 $AntimatterAnnihilation/UI/ReactorExampleSetup$
