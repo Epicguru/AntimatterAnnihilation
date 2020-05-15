@@ -70,13 +70,24 @@ namespace InGameWiki
             Widgets.BeginScrollView(pagesArea, ref scroll, new Rect(pagesArea.x, pagesArea.y, pagesArea.width, lastHeight));
             lastHeight = 0;
 
+            // Normalize search string.
+            string searchString = SearchText?.Trim().ToLowerInvariant();
+            bool isSearching = !string.IsNullOrEmpty(searchString);
+
             foreach (var page in Wiki.Pages)
             {
                 if (page == null)
                     continue;
 
+                if (isSearching)
+                {
+                    string pageName = page.Title.Trim().ToLowerInvariant();
+                    if (!pageName.Contains(searchString))
+                        continue;
+                }
+
                 Widgets.ButtonImage(new Rect(pagesArea.x + 4, pagesArea.y + 4 + lastHeight + 5, 24, 24), page.Icon, Color.white, Color.white, false);
-                bool clicked = Widgets.ButtonText(new Rect(pagesArea.x + 28, pagesArea.y + 4 + lastHeight, pagesArea.width - 28 - 4, 40), page.GetDisplayName());
+                bool clicked = Widgets.ButtonText(new Rect(pagesArea.x + 28, pagesArea.y + 4 + lastHeight, pagesArea.width - 28 - 4, 40), page.Title);
                 if (clicked)
                 {
                     CurrentPage = page;

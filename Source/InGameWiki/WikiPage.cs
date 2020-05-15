@@ -80,7 +80,6 @@ namespace InGameWiki
         /// Only valid when the page is external (not generated from a ThingDef)
         /// </summary>
         public string ID;
-        public string Name;
         public string Title;
         public string ShortDescription;
         public Texture2D Icon;
@@ -92,11 +91,6 @@ namespace InGameWiki
         private float lastHeight;
         private Vector2 scroll;
         private Vector2 descScroll;
-
-        public string GetDisplayName()
-        {
-            return Name ?? Title;
-        }
 
         public virtual void Draw(Rect maxBounds)
         {

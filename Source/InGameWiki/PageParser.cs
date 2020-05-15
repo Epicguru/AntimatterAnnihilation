@@ -23,7 +23,7 @@ namespace InGameWiki
                 string nameA = new FileInfo(a).Name;
                 string nameB = new FileInfo(b).Name;
 
-                return string.Compare(nameA, nameB, StringComparison.Ordinal);
+                return -string.Compare(nameA, nameB, StringComparison.InvariantCultureIgnoreCase);
             });
 
             foreach (var file in files)
