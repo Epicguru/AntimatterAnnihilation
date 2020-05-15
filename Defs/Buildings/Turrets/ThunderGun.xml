@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AATurret" Name="ThunderGun" Abstract="True"> 
+    <ThingDef ParentName="AATurret" Name="ThunderGun_AA" Abstract="True"> 
         <!-- <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass> -->
         <thingClass>Building_TurretGun</thingClass>
         <graphicData>
@@ -41,8 +41,8 @@
         <uiIconScale>0.95</uiIconScale>
     </ThingDef>
 
-    <ThingDef ParentName="ThunderGun">
-        <defName>Turret_ThunderGun</defName>
+    <ThingDef ParentName="ThunderGun_AA">
+        <defName>Turret_ThunderGun_AA</defName>
         <thingClass>AntimatterAnnihilation.Buildings.Building_ThunderGun</thingClass>
         <label>thunder gun</label>
         <description>A kinetic weapon firing huge uranum slugs using convetional methods. A dual barrel self-loading system offers excellent rate of fire and large damage.</description>
@@ -81,7 +81,7 @@
             </li>
         </comps>
         <building>
-            <turretGunDef>Gun_ThunderGunTurret</turretGunDef>
+            <turretGunDef>Gun_ThunderGunTurret_AA</turretGunDef>
             <turretBurstCooldownTime>8</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
@@ -90,7 +90,7 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_ThunderGun</defName>
+        <defName>Bullet_ThunderGun_AA</defName>
         <label>thunder gun slug</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Big</texPath>
@@ -104,7 +104,7 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseWeaponTurret">
-        <defName>Gun_ThunderGunTurret</defName>
+        <defName>Gun_ThunderGunTurret_AA</defName>
         <label>thunder gun</label>
         <description>The top part of a thunder gun. How did you get this...?</description>
         <graphicData>
@@ -125,7 +125,7 @@
         <verbs>
             <li>
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
-                <defaultProjectile>Bullet_ThunderGun</defaultProjectile>
+                <defaultProjectile>Bullet_ThunderGun_AA</defaultProjectile>
                 <warmupTime>0</warmupTime>
                 <minRange>6</minRange>
                 <range>55</range>

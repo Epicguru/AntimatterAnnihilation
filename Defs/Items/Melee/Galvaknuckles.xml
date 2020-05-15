@@ -2,7 +2,7 @@
 <Defs>
 
     <ThingDef ParentName="BaseMeleeWeapon_Blunt">
-        <defName>AA_Galvaknuckles</defName>
+        <defName>Galvaknuckles_AA</defName>
         <label>galvaknuckles</label>
         <description>A set of brass knuckles, upgraded with plasteel and equipped with an internal battery that shocks the person hit and causes intense pain but minimal damage.</description>
         <graphicData>
@@ -35,7 +35,7 @@
                 <label>knuckles</label>
                 <labelUsedInLogging>true</labelUsedInLogging>
                 <capacities>
-                    <li>GalvaPainToolCap</li>
+                    <li>GalvaPainToolCap_AA</li>
                 </capacities>
                 <power>7.9</power>
                 <cooldownTime>0.9</cooldownTime>

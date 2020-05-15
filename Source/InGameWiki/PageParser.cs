@@ -23,76 +23,197 @@ namespace InGameWiki
                 string nameA = new FileInfo(a).Name;
                 string nameB = new FileInfo(b).Name;
 
-                return -string.Compare(nameA, nameB, StringComparison.Ordinal);
+                return -string.Compare(nameA, nameB, StringComparison.InvariantCultureIgnoreCase);
             });
 
             foreach (var file in files)
             {
-                var page = Parse(File.ReadAllText(file));
+                var info = new FileInfo(file);
+                string fileName = info.Name;
+                fileName = fileName.Substring(0, fileName.Length - info.Extension.Length);
+                if (fileName.StartsWith("Thing_"))
+                {
+                    string thingDefName = fileName.Substring(6);
+                    var existing = wiki.GetPage(thingDefName);
+                    if (existing != null)
+                    {
+                        Parse(File.ReadAllText(file), existing);
+                        //Log.Message("Added to existing " + file);
+                    }
+                    else
+                    {
+                        Log.Error("Failed to find Thing wiki entry for wiki page: Thing_" + thingDefName);
+                    }
+                    continue;
+                }
+
+                var page = Parse(File.ReadAllText(file), null);
                 if (page == null)
                 {
                     Log.Error($"Failed to load wiki page from {file}");
                     continue;
                 }
 
-                Log.Message("Added " + file);
-                wiki.Pages.Add(page);
+                //Log.Message("Added " + file);
+                wiki.Pages.Insert(0, page);
             }
         }
 
-        public static WikiPage Parse(string rawText)
+        public static WikiPage Parse(string rawText, WikiPage existing)
         {
             string[] lines = rawText.Split('\n');
 
-            if (lines.Length < 4)
+            if (existing == null && lines.Length < 5)
             {
-                Log.Error("Expected minimum 4 lines for title, icon, background and description.");
+                Log.Error("Expected minimum 5 lines for ID, title, icon, background and description.");
+                return null;
+            }
+            if (existing != null && lines.Length < 1)
+            {
+                Log.Error($"Expected minimum 1 lines for background when appending to Thing {existing.Def.defName}");
                 return null;
             }
 
-            string title = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
-            Texture2D icon = ContentFinder<Texture2D>.Get(lines[1].Trim(), false);
-            Texture2D bg = ContentFinder<Texture2D>.Get(lines[2].Trim(), false);
-            string desc = string.IsNullOrWhiteSpace(lines[3].Trim()) ? null : lines[3].Trim();
+            WikiPage p = existing ?? new WikiPage();
+            if (existing == null)
+            {
+                string id = string.IsNullOrWhiteSpace(lines[0].Trim()) ? null : lines[0].Trim();
+                string title = string.IsNullOrWhiteSpace(lines[1].Trim()) ? null : lines[1].Trim();
+                Texture2D icon = ContentFinder<Texture2D>.Get(lines[2].Trim(), false);
+                Texture2D bg = ContentFinder<Texture2D>.Get(lines[3].Trim(), false);
+                string desc = string.IsNullOrWhiteSpace(lines[4].Trim()) ? null : lines[4].Trim();
 
-            WikiPage p = new WikiPage();
-            p.Title = title;
-            p.Icon = icon;
-            p.ShortDescription = desc;
-            p.Background = bg;
+                if (id == null)
+                    Log.Warning($"External wiki page with title {title} has a null ID. It may break things.");
 
-            bool largeText = false;
+                p.ID = id;
+                p.Title = title;
+                p.Icon = icon;
+                p.ShortDescription = desc;
+                p.Background = bg;
+            }
+            else
+            {
+                Texture2D bg = ContentFinder<Texture2D>.Get(lines[0].Trim(), false);
+                p.Background = bg;
+            }
+
             StringBuilder str = new StringBuilder();
-            for (int i = 4; i < lines.Length; i++)
+            CurrentlyParsing parsing = CurrentlyParsing.None;
+            for (int i = (existing == null ? 5 : 1); i < lines.Length; i++)
             {
                 string line = lines[i];
-                if (string.IsNullOrWhiteSpace(line))
-                    continue;
+                line += '\n';
 
-                if (line[0] == '-')
+                char last = char.MinValue;
+                foreach (var c in line)
                 {
-                    AddText(str.ToString(), largeText);
-                    largeText = line.Length >= 2 && line[1] == '-';
-                    str.Clear();
-                    str.Append(line.Substring(largeText ? 2 : 1));
-                }
-                else if(line[0] == '*')
-                {
-                    string imagePath = line.Substring(1).Trim();
-                    Texture2D loaded = ContentFinder<Texture2D>.Get(imagePath, false);
-                    p.Elements.Add(new WikiElement()
+                    int add = 0;
+
+                    // Text
+                    string final = CheckParseChar('#', CurrentlyParsing.Text, last, i, c, ref parsing, ref add);
+                    if(final != null)
                     {
-                        Image = loaded,
-                        AutoFitImage = true
-                    });
+                        if (final.StartsWith("!"))
+                            AddText(final.Substring(1), true);
+                        else
+                            AddText(final, false);
+                        continue;
+                    }
+
+                    // Images
+                    final = CheckParseChar('$', CurrentlyParsing.Image, last, i, c, ref parsing, ref add);
+                    if (final != null)
+                    {
+                        Texture2D loaded = ContentFinder<Texture2D>.Get(final, false);
+                        p.Elements.Add(new WikiElement()
+                        {
+                            Image = loaded,
+                            AutoFitImage = true
+                        });
+                        continue;
+                    }
+
+                    // Thing links
+                    final = CheckParseChar('@', CurrentlyParsing.ThingDefLink, last, i, c, ref parsing, ref add);
+                    if (final != null)
+                    {
+                        string label = null;
+                        if (final.Contains(':'))
+                        {
+                            var split = final.Split(':');
+                            final = split[0];
+                            label = split[1];
+                        }
+
+                        Def def = ThingDef.Named(final);
+                        if (def != null)
+                        {
+                            p.Elements.Add(new WikiElement()
+                            {
+                                DefForIconAndLabel = def,
+                                Text = label
+                            });
+                        }
+                        else
+                        {
+                            AddText($"<i>MissingDefLink [{final}]</i>", false);
+                        }
+                        continue;
+                    }
+
+                    if (add > 0)
+                        str.Append(c);
+                    last = c;
+                }
+            }
+            str.Clear();
+
+            string CheckParseChar(char tag, CurrentlyParsing newState, char last, int i, char c, ref CurrentlyParsing currentParsing, ref int shouldAppend)
+            {
+                if (c != tag)
+                {
+                    if (currentParsing != CurrentlyParsing.None)
+                        shouldAppend++;
+                    return null;
+                }
+
+                if (last == '\\')
+                {
+                    // Escape char. This must be added and the slash removed.
+                    if (currentParsing != CurrentlyParsing.None)
+                    {
+                        str.Remove(str.Length - 1, 1);
+                        shouldAppend++;
+                    }
+                    return null;
+                }
+
+                // This is either an opening or closing tag, either way it should definitely not be added.
+                shouldAppend = -1000;
+
+                if (currentParsing == CurrentlyParsing.None)
+                {
+                    // Start state.
+                    currentParsing = newState;
+                    str.Clear();
+                    return null;
+                }
+                else if (currentParsing == newState)
+                {
+                    // End state.
+                    currentParsing = CurrentlyParsing.None;
+                    string s = str.ToString();
+                    str.Clear();
+                    return s;
                 }
                 else
                 {
-                    str.Append(line);
+                    // Invalid.
+                    Log.Error($"Error parsing wiki on line {i + 1}: got '{c}' which is invalid since {currentParsing} is currently active.");
+                    return null;
                 }
             }
-            AddText(str.ToString(), largeText); // TODO change to allow images and other types.
-            str.Clear();
 
             void AddText(string txt, bool large)
             {
@@ -105,6 +226,14 @@ namespace InGameWiki
             }
 
             return p;
+        }
+
+        public enum CurrentlyParsing
+        {
+            None,
+            Text,
+            Image,
+            ThingDefLink
         }
     }
 }

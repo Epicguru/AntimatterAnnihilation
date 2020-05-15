@@ -2,14 +2,12 @@
 <Defs>
 
     <ThingDef ParentName="AAPoweredLarge">
-        <defName>AA_CompositeRefiner</defName>
+        <defName>CompositeRefiner_AA</defName>
         <thingClass>AntimatterAnnihilation.Buildings.Building_CompositeRefiner</thingClass>
         <label>composite refiner</label>
         <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.
 
-        Requires 2 Input Trays to be built to the left and right of it. One should be configured to store Plasteel, and the other to store Antimatter.
-
-Produces 30 antimatter composite in 6 hours, using 60 plasteel and 1 antimatter canister.</description>
+See the in-game wiki for more information and how to use.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
             <graphicClass>Graphic_Single</graphicClass>
@@ -24,6 +22,7 @@ Produces 30 antimatter composite in 6 hours, using 60 plasteel and 1 antimatter 
             <Steel>150</Steel>
             <Plasteel>20</Plasteel>
             <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
         </costList>
         <comps>
         <li Class="CompProperties_Flickable"/>

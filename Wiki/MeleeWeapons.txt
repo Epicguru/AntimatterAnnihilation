@@ -1,8 +1,21 @@
+MeleeWeapons
 Melee Weapons
 AntimatterAnnihilation/UI/MeleeIcon
 AntimatterAnnihilation/PreRendered/ScissorBladeBG
 An overview of the melee weapons added to the game by this mod.
 
--Most melee weapons added by this mod can be crafted at a smithing table or a fabrication bench once the research is complete.
+#Most melee weapons added by this mod can be crafted at a smithing table or a fabrication bench once the research is complete.
 
-You can also craft vanilla weapons using <i><color=#9534eb>antimatter composite</color></i>, which has very strong damage and defense modifiers.
+You can also craft vanilla weapons using <b><color=\#e7a6ff>antimatter composite</color></b>, which has very strong damage and defense modifiers:#
+@AntimatterComposite_AA@
+#Here is a list of the melee weapons added by this mod, sorted into categories:#
+
+#!Lethal#
+@ScissorBlade_AA@
+@SecretSword_AA@
+
+#!Less Lethal#
+@Galvaknuckles_AA@
+
+#!Utility#
+@ResonatingBlade_AA@

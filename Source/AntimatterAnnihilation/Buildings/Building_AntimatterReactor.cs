@@ -297,7 +297,7 @@ namespace AntimatterAnnihilation.Buildings
 
             foreach (var thing in tempThings)
             {
-                if (thing.def.defName == "AntimatterReactorPowerConverter")
+                if (thing.def.defName == "AntimatterReactorPowerConverter_AA")
                 {
                     var converter = thing as Building_PowerConverter;
                     Vector3 tc = this.TrueCenter();
@@ -325,7 +325,7 @@ namespace AntimatterAnnihilation.Buildings
                 }
 
                 float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
-                thing.TakeDamage(new DamageInfo(AADefOf.EnergyBurn, damage, 15, instigator: this));
+                thing.TakeDamage(new DamageInfo(AADefOf.EnergyBurn_AA, damage, 15, instigator: this));
             }
 
             return i;

@@ -2,14 +2,14 @@
 <Defs>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_Antimatter</defName>
+        <defName>Bullet_Antimatter_AA</defName>
         <label>antimatter charge</label>
         <graphicData>
             <texPath>Things/Projectile/Charge_Small</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <projectile>
-            <damageDef>Annihilate</damageDef>
+            <damageDef>Annihilate_AA</damageDef>
             <damageAmountBase>16</damageAmountBase>
             <armorPenetrationBase>0.35</armorPenetrationBase>
             <speed>65</speed>

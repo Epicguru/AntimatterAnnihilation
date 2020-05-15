@@ -3,17 +3,17 @@
 <Defs>
 
     <ToolCapacityDef>
-        <defName>GalvaPainToolCap</defName>
+        <defName>GalvaPainToolCap_AA</defName>
         <label>punch with galvaknuckles</label>
     </ToolCapacityDef>
 
     <ManeuverDef>
-        <defName>GalvaPainManeuver</defName>
-        <requiredCapacity>GalvaPainToolCap</requiredCapacity>
+        <defName>GalvaPainManeuver_AA</defName>
+        <requiredCapacity>GalvaPainToolCap_AA</requiredCapacity>
         <verb>
             <verbClass>Verb_MeleeAttackDamage</verbClass>
-            <meleeDamageDef>GalvaPain</meleeDamageDef>
-            <soundCast>Melee_GalvaknucklesDischarge</soundCast>
+            <meleeDamageDef>GalvaPain_AA</meleeDamageDef>
+            <soundCast>Melee_GalvaknucklesDischarge_AA</soundCast>
         </verb>
         <logEntryDef>MeleeAttack</logEntryDef>
         <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>

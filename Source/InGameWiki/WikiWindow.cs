@@ -9,19 +9,26 @@ namespace InGameWiki
         {
             if (wiki == null)
                 return null;
+            if (CurrentActive != null)
+            {
+                Log.Message("There is already an open wiki page.");
+                return null;
+            }
 
             var created = new WikiWindow(wiki);
+            CurrentActive = created;
             Find.WindowStack?.Add(created);
 
             return created;
         }
+        public static WikiWindow CurrentActive { get; private set; }
 
         public ModWiki Wiki;
-        public int TopHeight = 40;
+        public int TopHeight = 34;
         public int SearchHeight = 34;
-        public int SideWidth = 220;
+        public int SideWidth = 260;
         public WikiPage CurrentPage { get; set; }
-        public override Vector2 InitialSize => new Vector2(800, 800);
+        public override Vector2 InitialSize => new Vector2(900, 800);
         public string SearchText = "";
 
         private Vector2 scroll;
@@ -63,13 +70,24 @@ namespace InGameWiki
             Widgets.BeginScrollView(pagesArea, ref scroll, new Rect(pagesArea.x, pagesArea.y, pagesArea.width, lastHeight));
             lastHeight = 0;
 
+            // Normalize search string.
+            string searchString = SearchText?.Trim().ToLowerInvariant();
+            bool isSearching = !string.IsNullOrEmpty(searchString);
+
             foreach (var page in Wiki.Pages)
             {
                 if (page == null)
                     continue;
 
+                if (isSearching)
+                {
+                    string pageName = page.Title.Trim().ToLowerInvariant();
+                    if (!pageName.Contains(searchString))
+                        continue;
+                }
+
                 Widgets.ButtonImage(new Rect(pagesArea.x + 4, pagesArea.y + 4 + lastHeight + 5, 24, 24), page.Icon, Color.white, Color.white, false);
-                bool clicked = Widgets.ButtonText(new Rect(pagesArea.x + 28, pagesArea.y + 4 + lastHeight, pagesArea.width - 28 - 4, 40), page.GetDisplayName());
+                bool clicked = Widgets.ButtonText(new Rect(pagesArea.x + 28, pagesArea.y + 4 + lastHeight, pagesArea.width - 28 - 4, 40), page.Title);
                 if (clicked)
                 {
                     CurrentPage = page;
@@ -82,7 +100,34 @@ namespace InGameWiki
 
             // Current page.
             CurrentPage?.Draw(contentArea);
+        }
 
+        public override void PreClose()
+        {
+            CurrentActive = null;
+            base.PreClose();
+        }
+
+        public bool GoToPage(Def def, bool openInspectWindow = false)
+        {
+            if (def == null)
+                return false;
+
+            var page = Wiki.GetPage(def.defName);
+            if (page == null)
+            {
+                if (openInspectWindow)
+                {
+                    ModWiki.OpenInspectWindow(def);
+                    return true;
+                }
+                return false;
+            }
+            else
+            {
+                this.CurrentPage = page;
+                return true;
+            }
         }
     }
 }

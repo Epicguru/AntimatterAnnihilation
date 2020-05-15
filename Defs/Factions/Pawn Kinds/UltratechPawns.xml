@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <PawnKindDef Name="UltratechPawnBase" Abstract="True">
+    <PawnKindDef Name="UltratechPawnBase_AA" Abstract="True">
         <race>Human</race>
-        <defaultFactionType>UltratechEnemy</defaultFactionType>
+        <defaultFactionType>UltratechEnemy_AA</defaultFactionType>
         <chemicalAddictionChance>0.1</chemicalAddictionChance>
         <invNutrition>2.55</invNutrition>
         <itemQuality>Good</itemQuality>
@@ -15,7 +15,7 @@
     </PawnKindDef>
 
     <!-- Soldiers have good chances to have expensive or powerful implants. -->
-    <PawnKindDef Name="UltratechSoldierBase" ParentName="UltratechPawnBase" Abstract="True">
+    <PawnKindDef Name="UltratechSoldierBase_AA" ParentName="UltratechPawnBase_AA" Abstract="True">
         <techHediffsChance>0.15</techHediffsChance>
         <techHediffsMoney>900~1800</techHediffsMoney>
         <techHediffsTags>
@@ -26,7 +26,7 @@
 
     <!-- Basic gunner soldier, has regular (assault rifle, LMG, belts) weapons as well as spacer (antimatter) weapons. 
          Abstract to allow death acidifer version (dlc only?)-->
-    <PawnKindDef Name="UltratechGunnerBase" ParentName="UltratechSoldierBase" Abstract="True">
+    <PawnKindDef Name="UltratechGunnerBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
         <label>ultratech gunner</label>
         <combatPower>120</combatPower>
         <gearHealthRange>0.85~3.8</gearHealthRange>
@@ -64,13 +64,13 @@
     </PawnKindDef>
 
     <!-- Basic gunner implementation -->
-    <PawnKindDef ParentName="UltratechGunnerBase">
-        <defName>UltratechGunner</defName>
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechGunner_AA</defName>
     </PawnKindDef>
 
     <!-- Elite gunner implementation. Has much better guns, gear, bionics.-->
-    <PawnKindDef ParentName="UltratechGunnerBase">
-        <defName>UltratechGunnerAdvanced</defName>
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechGunnerAdvanced_AA</defName>
         <label>ultratech elite gunner</label>
         <combatPower>160</combatPower>
         <gearHealthRange>0.95~4.0</gearHealthRange>
@@ -114,7 +114,7 @@
     </PawnKindDef>
 
     <!-- Basic sniper soldier. Uses only sniper rifles and long range antimatter rifles. Abstract to allow death acidifer version (dlc only?)-->
-    <PawnKindDef Name="UltratechSniperBase" ParentName="UltratechSoldierBase" Abstract="True">
+    <PawnKindDef Name="UltratechSniperBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
         <label>ultratech sniper</label>
         <combatPower>130</combatPower>
         <gearHealthRange>0.7~3.0</gearHealthRange>
@@ -148,12 +148,12 @@
     </PawnKindDef>
 
     <!-- Basic sniper implementation -->
-    <PawnKindDef ParentName="UltratechSniperBase">
-        <defName>UltratechSniper</defName>
+    <PawnKindDef ParentName="UltratechSniperBase_AA">
+        <defName>UltratechSniper_AA</defName>
     </PawnKindDef>
 
     <!-- Basic melee soldier. Uses powerful melee weapons, and has boosted speed due to gear and implants. Abstract to allow death acidifer version (dlc only?)-->
-    <PawnKindDef Name="UltratechMeleeBase" ParentName="UltratechSoldierBase" Abstract="True">
+    <PawnKindDef Name="UltratechMeleeBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
         <label>ultratech slasher</label>
         <combatPower>130</combatPower>
         <gearHealthRange>0.5~2.5</gearHealthRange>
@@ -188,13 +188,13 @@
     </PawnKindDef>
 
     <!-- Basic melee (slasher) implementation -->
-    <PawnKindDef ParentName="UltratechMeleeBase">
-        <defName>UltratechMelee</defName>
+    <PawnKindDef ParentName="UltratechMeleeBase_AA">
+        <defName>UltratechMelee_AA</defName>
     </PawnKindDef>
 
     <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, wepaons. -->
-    <PawnKindDef ParentName="UltratechMeleeBase">
-        <defName>UltratechMeleeAdvanced</defName>
+    <PawnKindDef ParentName="UltratechMeleeBase_AA">
+        <defName>UltratechMeleeAdvanced_AA</defName>
         <label>ultratech elite slasher</label>
         <combatPower>160</combatPower>
         <gearHealthRange>0.7~3.5</gearHealthRange>

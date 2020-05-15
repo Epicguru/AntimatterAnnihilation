@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef Name="ApparelVoidArmorBase" ParentName="ArmorMachineableBase" Abstract="True">
+    <ThingDef Name="ApparelVoidArmorBase_AA" ParentName="ArmorMachineableBase" Abstract="True">
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -43,7 +43,7 @@
         <costList>
             <ComponentSpacer>5</ComponentSpacer>
             <Gold>10</Gold>
-            <AntimatterComposite>60</AntimatterComposite>
+            <AntimatterComposite_AA>60</AntimatterComposite_AA>
             <Uranium>25</Uranium>
         </costList>
         <apparel>
@@ -86,8 +86,8 @@
         </comps>
     </ThingDef>
 
-    <ThingDef ParentName="ApparelVoidArmorBase">
-        <defName>Apparel_VoidArmor</defName>
+    <ThingDef ParentName="ApparelVoidArmorBase_AA">
+        <defName>Apparel_VoidArmor_AA</defName>
         <label>void armor</label>
         <description>A suit made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.</description>
         <apparel>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <FactionDef ParentName="HumanFactionBase" Name="UltratechFactionBase" Abstract="True">
+    <FactionDef ParentName="HumanFactionBase" Name="UltratechFactionBase_AA" Abstract="True">
         <pawnSingular>ultratech member</pawnSingular>
         <pawnsPlural>ultratech memebers</pawnsPlural>
         <categoryTag>Ultratech</categoryTag>
@@ -62,11 +62,11 @@
                 <!-- Normal fights, standard mix -->
                 <kindDef>Combat</kindDef>
                 <options>
-                    <UltratechMelee>5</UltratechMelee>
-                    <UltratechSniper>5</UltratechSniper>
-                    <UltratechGunner>10</UltratechGunner>
-                    <UltratechGunnerAdvanced>12</UltratechGunnerAdvanced>
-                    <UltratechMeleeAdvanced>8</UltratechMeleeAdvanced>
+                    <UltratechMelee_AA>5</UltratechMelee_AA>
+                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechGunner_AA>10</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>12</UltratechGunnerAdvanced_AA>
+                    <UltratechMeleeAdvanced_AA>8</UltratechMeleeAdvanced_AA>
                 </options>
             </li>
             <li>
@@ -79,19 +79,19 @@
                     <Mercenary_Gunner>10</Mercenary_Gunner>
                     <Mercenary_Elite>10</Mercenary_Elite>
                     <Town_Councilman>10</Town_Councilman> -->
-                    <UltratechMelee>10</UltratechMelee>
-                    <UltratechSniper>5</UltratechSniper>
-                    <UltratechGunner>10</UltratechGunner>
-                    <UltratechGunnerAdvanced>8</UltratechGunnerAdvanced>
-                    <UltratechMeleeAdvanced>8</UltratechMeleeAdvanced>
+                    <UltratechMelee_AA>10</UltratechMelee_AA>
+                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechGunner_AA>10</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>8</UltratechGunnerAdvanced_AA>
+                    <UltratechMeleeAdvanced_AA>8</UltratechMeleeAdvanced_AA>
                 </options>
             </li>
         </pawnGroupMakers>
         <settlementTexturePath>AntimatterAnnihilation/UI/FactionIcon</settlementTexturePath>
     </FactionDef>
 
-    <FactionDef ParentName="UltratechFactionBase">
-        <defName>UltratechEnemy</defName>
+    <FactionDef ParentName="UltratechFactionBase_AA">
+        <defName>UltratechEnemy_AA</defName>
         <label>ultratech division</label>
         <description>One of the divisions of the Ultratech conglomerate, a mysterious and powerful technological empire that spans various solar systems.\n\nThey are one of the few groups of humans that understand the secrets of antimatter production and manipulation, and will jealously guard this secret at all costs.\n\nUltratech considers themselves to be above all regular life forms, and will refuse to interact peacefully.\nUltratech outposts exist to conduct research and development, as well as a reminder of who has the real control of this rimworld.</description>
         <colorSpectrum>

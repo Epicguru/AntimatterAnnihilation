@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AntimatterGunBase">
-        <defName>AntimatterSMG</defName>
+    <ThingDef ParentName="AntimatterGunBase_AA">
+        <defName>AntimatterSMG_AA</defName>
         <label>antimatter SMG</label>
         <description>Thanks to advanced heat venting techniques, this SMG fires a large volley of antimatter with respectable precision.
 
@@ -23,7 +23,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
         </statBases>
         <costList>
             <Plasteel>55</Plasteel>
-            <AntimatterCanister>1</AntimatterCanister>
+            <AntimatterCanister_AA>1</AntimatterCanister_AA>
             <ComponentIndustrial>12</ComponentIndustrial>
             <ComponentSpacer>2</ComponentSpacer>
         </costList>
@@ -40,12 +40,12 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
             <li>
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
-                <defaultProjectile>Bullet_LightAntimatter</defaultProjectile>
+                <defaultProjectile>Bullet_LightAntimatter_AA</defaultProjectile>
                 <warmupTime>0.2</warmupTime> <!-- Aim time is very fast, kind of like the Quick Draw mod, but the Ranged Cooldown compensates for this.-->
                 <range>15.5</range>
                 <ticksBetweenBurstShots>5</ticksBetweenBurstShots>
                 <burstShotCount>6</burstShotCount>
-                <soundCast>Shot_AntimatterBlaster</soundCast>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
                 <soundCastTail>GunTail_Light</soundCastTail>
                 <muzzleFlashScale>9</muzzleFlashScale>
             </li>

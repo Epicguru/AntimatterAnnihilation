@@ -1,13 +1,12 @@
 Introduction
-AntimatterAnnihilation/Items/AntimatterCanister
+Introduction
+AntimatterAnnihilation/UI/FactionIcon
 AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
 
---Welcome to Antimatter Annihilation!
+#!Welcome to Antimatter Annihilation!#
 
--This is an end-game mod that adds powerful items, weapons, defences and materials. It also adds a mysterious and powerful new faction, who will try to keep the secret of antimatter technology at any cost.
--This is the in-game wiki. It will guide you through the mod's steps and phases.
+#This is an end-game mod that adds powerful items, weapons, defences and materials. It also adds a mysterious and powerful new faction, who will try to keep the secret of antimatter technology at any cost.#
+#This is the in-game wiki. It will guide you through the mod's steps and phases.#
 
--I recommend reading the <i>What Is Antimatter</i> page for a bit of a lore/science primer before you start.
-Otherwise, to get started see the <i>Getting Started</i> page.
--
-*AntimatterAnnihilation/PreRendered/ReactorWithProps
+#I recommend reading the <i>What Is Antimatter</i> page for a bit of a lore/science primer before you start.
+Otherwise, to get started see the <i>Getting Started</i> page.#
