@@ -72,7 +72,7 @@ namespace InGameWiki
                 p.Elements.Add(research);
             }
 
-            p.Elements.Add(WikiElement.Create("This is a <b>test</b>."));
+            p.Elements.Add(WikiElement.Create($"Def class: {thing.GetType().Name}"));
 
             return p;
         }
