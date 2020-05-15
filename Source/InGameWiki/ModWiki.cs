@@ -12,9 +12,6 @@ namespace InGameWiki
 
         public void GenerateFromMod(Mod mod)
         {
-            string dir = Path.Combine(mod.Content.RootDir, "Wiki");
-            PageParser.AddAllFromDirectory(this, dir);
-
             foreach (var def in mod.Content.AllDefs)
             {
                 if (!(def is ThingDef thingDef))
@@ -27,6 +24,9 @@ namespace InGameWiki
                 var page = WikiPage.CreateFromThingDef(thingDef); 
                 this.Pages.Add(page);
             }
+
+            string dir = Path.Combine(mod.Content.RootDir, "Wiki");
+            PageParser.AddAllFromDirectory(this, dir);
         }
 
         public virtual bool AutogenPageFilter(ThingDef def)
@@ -47,6 +47,19 @@ namespace InGameWiki
                 return false;
 
             return true;
+        }
+
+        public WikiPage GetPage(string defName)
+        {
+            if (defName == null)
+                return null;
+
+            foreach (var page in Pages)
+            {
+                if (page != null && page.ThingDefName == defName)
+                    return page;
+            }
+            return null;
         }
     }
 }

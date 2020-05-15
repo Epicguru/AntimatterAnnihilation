@@ -71,7 +71,7 @@ namespace InGameWiki
                 p.Elements.Add(research);
             }
 
-            p.Elements.Add(WikiElement.Create($"Def class: {thing.GetType().Name}"));
+            p.ThingDefName = thing.defName;
 
             return p;
         }
@@ -81,6 +81,7 @@ namespace InGameWiki
         public string ShortDescription;
         public Texture2D Icon;
         public Texture2D Background;
+        public string ThingDefName;
 
         public List<WikiElement> Elements = new List<WikiElement>();
 
@@ -102,7 +103,7 @@ namespace InGameWiki
             // Background
             if (Background != null)
             {
-                GUI.color = Color.white * 0.6f;
+                GUI.color = Color.white * 0.45f;
                 var coords = CalculateUVCoords(maxBounds, new Rect(0, 0, Background.width, Background.height));
                 GUI.DrawTextureWithTexCoords(maxBounds, Background, coords, true);
                 GUI.Label(new Rect(200, 200, 200, 200), coords.ToString());

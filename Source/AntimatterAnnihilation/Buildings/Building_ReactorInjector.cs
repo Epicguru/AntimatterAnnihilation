@@ -111,7 +111,6 @@ namespace AntimatterAnnihilation.Buildings
 
             Vector3 offset = GetOffset(out float angle);
             Beam = new EnergyBeam(Position.ToVector3() + offset, angle, true);
-            ModCore.Log(Position.ToString());
             Beam.Length = 5;
             if (Rotation == Rot4.South)
             {
@@ -292,7 +291,7 @@ namespace AntimatterAnnihilation.Buildings
                 bool thingIsReactor = thing is Building_AntimatterReactor;
                 float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
                 if (thingIsReactor && isInLine)
-                    damage *= 0.15f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
+                    damage *= 0.05f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
                 thing.TakeDamage(new DamageInfo(AADefOf.Annihilate, damage, 15, instigator: this));
             }
 
