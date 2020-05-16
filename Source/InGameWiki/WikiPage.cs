@@ -79,7 +79,7 @@ namespace InGameWiki
         /// <summary>
         /// Only valid when the page is external (not generated from a ThingDef)
         /// </summary>
-        public string ID;
+        public string ID { get; internal set; }
         public string Title;
         public string ShortDescription;
         public Texture2D Icon;

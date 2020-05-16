@@ -5,17 +5,18 @@ namespace InGameWiki
 {
     public class WikiWindow : Window
     {
-        public static WikiWindow Open(ModWiki wiki)
+        public static WikiWindow Open(ModWiki wiki, WikiPage page = null)
         {
             if (wiki == null)
                 return null;
-            if (CurrentActive != null)
+            if (CurrentActive != null && CurrentActive.Wiki != wiki)
             {
-                Log.Message("There is already an open wiki page.");
-                return null;
+                //Log.Warn("There is already an open wiki page, closing old.");
+                CurrentActive.Close(true);
             }
 
             var created = new WikiWindow(wiki);
+            created.CurrentPage = page;
             CurrentActive = created;
             Find.WindowStack?.Add(created);
 
@@ -61,7 +62,7 @@ namespace InGameWiki
 
             // Title
             Text.Font = GameFont.Medium;
-            Widgets.Label(titleArea, Wiki.ModTitle);
+            Widgets.Label(titleArea, Wiki.WikiTitle);
 
             // Search box.
             SearchText = Widgets.TextField(searchArea, SearchText);

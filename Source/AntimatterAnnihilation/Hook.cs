@@ -42,9 +42,8 @@ namespace AntimatterAnnihilation
                 {
                     if (wiki == null)
                     {
-                        wiki = new ModWiki();
-                        wiki.ModTitle = "Antimatter Annihilation";
-                        wiki.GenerateFromMod(ModCore.Instance);
+                        wiki = ModWiki.Create(ModCore.Instance);
+                        wiki.WikiTitle = "Antimatter Annihilation";
                     }
 
                     WikiWindow.Open(this.wiki);

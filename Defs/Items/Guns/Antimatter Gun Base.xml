@@ -3,11 +3,29 @@
 
     <ThingDef Name="AntimatterGunBase_AA" Abstract="True" ParentName="BaseHumanMakeableGun">
     
-        <techLevel>Spacer</techLevel> <!-- I would rather Ultra tech level, but I don't know the spawn conditions for 'Ultra' raiders (might even be DLC only) -->
+        <techLevel>Spacer</techLevel>
         <soundInteract>Interact_ChargeRifle</soundInteract> <!-- TODO change me for a cusom sound (something like MW night vision power-on :p)-->
         <weaponTags>
             <li>SpacerGun</li>
         </weaponTags>
+        <thingSetMakerTags>
+            <li>RewardStandardLowFreq</li>
+            <li>RewardStandardQualitySuper</li>
+        </thingSetMakerTags>
+
+    </ThingDef>
+
+    <ThingDef Name="AntimatterGunUncraftableBase_AA" Abstract="True" ParentName="BaseGunWithQuality">
+    
+        <techLevel>Ultra</techLevel> <!-- I would rather Ultra tech level, but I don't know the spawn conditions for 'Ultra' raiders (might even be DLC only) -->
+        <soundInteract>Interact_ChargeRifle</soundInteract> <!-- TODO change me for a cusom sound (something like MW night vision power-on :p)-->
+        <weaponTags>
+            <li>UltraGun</li>
+            <li>Gun</li>
+        </weaponTags>
+        <comps>
+            <li Class="CompProperties_BiocodableWeapon"/>
+        </comps>
         <thingSetMakerTags>
             <li>RewardStandardLowFreq</li>
             <li>RewardStandardQualitySuper</li>

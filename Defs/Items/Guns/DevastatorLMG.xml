@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AntimatterGunUncraftableBase_AA">
+        <defName>DevastatorLMG_AA</defName>
+        <label>devastator LMG</label>
+        <description>A heavy antimatter weapon that fires a continuous volley of bullets. Not very accurate, but excellent against crowds of enemies.
+This weapon incorporates archotech technology. Even with a good understanding of Antimatter tech, this is still incredibly advanced, and can't be crafted using any known means.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/DevastatorLMG</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <Mass>4.8</Mass>
+            <AccuracyTouch>0.40</AccuracyTouch>
+            <AccuracyShort>0.45</AccuracyShort>
+            <AccuracyMedium>0.4</AccuracyMedium>
+            <AccuracyLong>0.2</AccuracyLong>
+            <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
+            <MarketValue>3800</MarketValue>
+        </statBases>
+        <equippedAngleOffset>24.6</equippedAngleOffset>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_DevastatorLMG_AA</defaultProjectile>
+                <warmupTime>1.6</warmupTime>
+                <range>25</range>
+                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+                <burstShotCount>16</burstShotCount>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_DevastatorLMG_AA</defName>
+        <label>antimatter charge</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <damageAmountBase>11</damageAmountBase>
+            <armorPenetrationBase>0.65</armorPenetrationBase>
+            <speed>65</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>
