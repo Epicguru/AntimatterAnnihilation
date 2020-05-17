@@ -33,11 +33,15 @@ namespace InGameWiki
         public GameFont FontSize = GameFont.Small;
         public Def DefForIconAndLabel;
 
+        public string PageLink;
+        public (ModWiki wiki, WikiPage page) PageLinkReal;
+        public bool IsLinkBroken { get; private set; }
+
         public bool HasText
         {
             get
             {
-                return !string.IsNullOrWhiteSpace(Text);
+                return !string.IsNullOrWhiteSpace(Text) || PageLink != null;
             }
         }
         public bool HasImage
@@ -105,13 +109,43 @@ namespace InGameWiki
 
             if (HasText)
             {
+                bool isLink = PageLink != null;
+
                 float x = maxBounds.x + imageOffset.x;
                 float width = maxBounds.xMax - x;
 
                 float startY = maxBounds.y + imageOffset.y;
                 float cacheStartY = startY;
-                Widgets.LongLabel(x, width, Text, ref startY);
+
+                if (isLink && PageLinkReal.page == null && !IsLinkBroken)
+                {
+                    var found = ModWiki.TryFindPage(PageLink);
+                    if (found.page == null)
+                    {
+                        IsLinkBroken = true;
+                    }
+                    else
+                    {
+                        PageLinkReal = found;
+                    }
+                }
+
+                string linkText = IsLinkBroken ? $"<color=#ff2b2b><b><i>Link (broken, please report): [{PageLink}]</i></b></color>" : $"<color=#9c9c9c><b><i>Link:</i></b></color>{PageLinkReal.page?.Title}";
+                string txt = isLink ? linkText : Text;
+
+                Widgets.LongLabel(x, width, txt, ref startY);
                 float change = startY - cacheStartY;
+
+                if (isLink)
+                {
+                    Rect bounds = new Rect(x, cacheStartY, width, change);
+                    Widgets.DrawHighlightIfMouseover(bounds);
+                    if (!IsLinkBroken && Widgets.ButtonInvisible(bounds))
+                    {
+                        // Go to link.
+                        ModWiki.OpenPage(PageLinkReal.wiki, PageLinkReal.page);
+                    }
+                }
 
                 size += new Vector2(width, 0);
                 if (size.y < change)

@@ -34,7 +34,7 @@ namespace InGameWiki
                 if (fileName.StartsWith("Thing_"))
                 {
                     string thingDefName = fileName.Substring(6);
-                    var existing = wiki.GetPage(thingDefName);
+                    var existing = wiki.FindPageFromDef(thingDefName);
                     if (existing != null)
                     {
                         Parse(File.ReadAllText(file), existing);
@@ -125,16 +125,41 @@ namespace InGameWiki
                     final = CheckParseChar('$', CurrentlyParsing.Image, last, i, c, ref parsing, ref add);
                     if (final != null)
                     {
+                        Vector2? size = null;
+                        if (final.Contains(':'))
+                        {
+                            var split = final.Split(':');
+                            final = split[0];
+                            if (split[1].Contains(","))
+                            {
+                                bool workedX = float.TryParse(split[1].Split(',')[0], out float x);
+                                bool workedY = float.TryParse(split[1].Split(',')[1], out float y);
+
+                                if (workedX && workedY)
+                                {
+                                    size = new Vector2(x, y);
+                                }
+                                else
+                                {
+                                    Log.Error($"Error in wiki parse: failed to parse Vector2 for image size, '{split[1]}', failed to parse {(workedX ? "y" : "x")} value as a float.");
+                                }
+                            }
+                            else
+                            {
+                                Log.Error($"Error in wiki parse: failed to parse Vector2 for image size, '{split[1]}', expected format 'x, y'.");
+                            }
+                        }
                         Texture2D loaded = ContentFinder<Texture2D>.Get(final, false);
                         p.Elements.Add(new WikiElement()
                         {
                             Image = loaded,
-                            AutoFitImage = true
+                            AutoFitImage = size == null,
+                            ImageSize = size ?? new Vector2(-1, -1)
                         });
                         continue;
                     }
 
-                    // Thing links
+                    // ThingDef links
                     final = CheckParseChar('@', CurrentlyParsing.ThingDefLink, last, i, c, ref parsing, ref add);
                     if (final != null)
                     {
@@ -159,6 +184,17 @@ namespace InGameWiki
                         {
                             AddText($"<i>MissingDefLink [{final}]</i>", false);
                         }
+                        continue;
+                    }
+
+                    // Page links
+                    final = CheckParseChar('~', CurrentlyParsing.PageLink, last, i, c, ref parsing, ref add);
+                    if (final != null)
+                    {
+                        p.Elements.Add(new WikiElement()
+                        {
+                            PageLink = final,
+                        });
                         continue;
                     }
 
@@ -233,7 +269,8 @@ namespace InGameWiki
             None,
             Text,
             Image,
-            ThingDefLink
+            ThingDefLink,
+            PageLink
         }
     }
 }

@@ -92,13 +92,24 @@ namespace InGameWiki
 
             foreach (var wiki in AllWikis)
             {
-                foreach (var page in wiki.Pages)
-                {
-                    if (page.Def == def)
-                    {
-                        return (wiki, page);
-                    }
-                }
+                var found = wiki.FindPageFromDef(def.defName);
+                if (found != null)
+                    return (wiki, found);
+            }
+
+            return (null, null);
+        }
+
+        public static (ModWiki wiki, WikiPage page) TryFindPage(string pageID)
+        {
+            if (pageID == null)
+                return (null, null);
+
+            foreach (var wiki in AllWikis)
+            {
+                var found = wiki.FindPageFromID(pageID);
+                if (found != null)
+                    return (wiki, found);
             }
 
             return (null, null);
@@ -164,7 +175,7 @@ namespace InGameWiki
             return true;
         }
 
-        public WikiPage GetPage(string defName)
+        public WikiPage FindPageFromDef(string defName)
         {
             if (defName == null)
                 return null;
@@ -172,6 +183,19 @@ namespace InGameWiki
             foreach (var page in Pages)
             {
                 if (page != null && page.Def?.defName == defName)
+                    return page;
+            }
+            return null;
+        }
+
+        public WikiPage FindPageFromID(string pageID)
+        {
+            if (pageID == null)
+                return null;
+
+            foreach (var page in Pages)
+            {
+                if (page != null && page.ID == pageID)
                     return page;
             }
             return null;

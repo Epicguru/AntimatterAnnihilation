@@ -1,4 +1,4 @@
-Introduction
+Introduction_AA
 Introduction
 AntimatterAnnihilation/UI/FactionIcon
 AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
@@ -10,3 +10,5 @@ AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
 
 #I recommend reading the <i>What Is Antimatter</i> page for a bit of a lore/science primer before you start.
 Otherwise, to get started see the <i>Getting Started</i> page.#
+~WhatIsAntimatter_AA~
+~GettingStarted_AA~

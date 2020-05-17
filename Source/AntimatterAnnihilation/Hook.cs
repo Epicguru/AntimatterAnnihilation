@@ -1,7 +1,6 @@
-﻿using System;
-using System.IO;
-using AntimatterAnnihilation.Utils;
-using InGameWiki;
+﻿using InGameWiki;
+using RimWorld;
+using System;
 using UnityEngine;
 using Verse;
 using Object = UnityEngine.Object;
@@ -48,10 +47,16 @@ namespace AntimatterAnnihilation
 
                     WikiWindow.Open(this.wiki);
                 }
+
+                if (Find.CurrentMap != null)
+                {
+                    float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
+                    GUILayout.Label("Current map raid points: " + points);
+                }
             }
             catch (Exception e)
             {
-                Log.Error($"GUI draw error: {e}");
+                Log.Warning($"GUI draw error: {e}");
             }
         }
     }

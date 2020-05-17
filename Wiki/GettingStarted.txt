@@ -1,4 +1,4 @@
-GettingStarted
+GettingStarted_AA
 Getting started
 AntimatterAnnihilation/UI/QuestionMark
 AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
@@ -30,6 +30,8 @@ It is also an essential ingredient in many other recipies in this mod.#
 
 #!Craft the guns, swords and turrets!#
 #Once you have antimatter composite and canisters, you can start crafting the guns and advanced melee weapons. Explore the wiki to see all the guns and melee weapons that can be crafted.#
+~MeleeWeapons_AA~
+~RangedWeapons_AA~
 
 #!Challenge the Ultratech faction... If you dare#
 #If you have been playing for a while with this mod, you have probably been raided by an Ultratech division. This faction wants to keep antimatter technology all to themselves, and won't hesitate to destroy you for learning it's secret.

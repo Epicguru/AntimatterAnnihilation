@@ -62,11 +62,11 @@
                 <!-- Normal fights, standard mix -->
                 <kindDef>Combat</kindDef>
                 <options>
-                    <UltratechMelee_AA>5</UltratechMelee_AA>
-                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechMelee_AA>4</UltratechMelee_AA>
+                    <UltratechSniper_AA>6</UltratechSniper_AA>
                     <UltratechGunner_AA>10</UltratechGunner_AA>
-                    <UltratechGunnerAdvanced_AA>12</UltratechGunnerAdvanced_AA>
-                    <UltratechMeleeAdvanced_AA>8</UltratechMeleeAdvanced_AA>
+                    <UltratechGunnerAdvanced_AA>10</UltratechGunnerAdvanced_AA>
+                    <UltratechMeleeAdvanced_AA>2</UltratechMeleeAdvanced_AA>
                 </options>
             </li>
             <li>
@@ -79,11 +79,11 @@
                     <Mercenary_Gunner>10</Mercenary_Gunner>
                     <Mercenary_Elite>10</Mercenary_Elite>
                     <Town_Councilman>10</Town_Councilman> -->
-                    <UltratechMelee_AA>10</UltratechMelee_AA>
-                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechMelee_AA>5</UltratechMelee_AA>
+                    <UltratechSniper_AA>8</UltratechSniper_AA>
                     <UltratechGunner_AA>10</UltratechGunner_AA>
                     <UltratechGunnerAdvanced_AA>8</UltratechGunnerAdvanced_AA>
-                    <UltratechMeleeAdvanced_AA>8</UltratechMeleeAdvanced_AA>
+                    <UltratechMeleeAdvanced_AA>4</UltratechMeleeAdvanced_AA>
                 </options>
             </li>
         </pawnGroupMakers>

@@ -114,7 +114,7 @@ namespace InGameWiki
             if (def == null)
                 return false;
 
-            var page = Wiki.GetPage(def.defName);
+            var page = Wiki.FindPageFromDef(def.defName);
             if (page == null)
             {
                 if (openInspectWindow)

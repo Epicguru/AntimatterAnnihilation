@@ -160,15 +160,12 @@
             <li>IndustrialAdvanced</li>
             <li>IndustrialMilitaryAdvanced</li>
             <li>SpacerMilitary</li>
-        </apparelTags>
-        <apparelRequired>
-            <li>Apparel_ShieldBelt</li>
-        </apparelRequired>
+        </apparelTags>        
         <apparelMoney>900~1700</apparelMoney>
         <apparelAllowHeadgearChance>0.05</apparelAllowHeadgearChance>
-        <weaponMoney>1200~2600</weaponMoney>
+        <weaponMoney>1600~2600</weaponMoney>
         <weaponTags>
-            <li>MedievalMeleeAdvanced</li>
+            <li>IndustrialMeleeAdvanced</li>
             <li>SpacerMeleeAdvanced</li>
         </weaponTags>
         <inventoryOptions>
@@ -199,11 +196,14 @@
         <gearHealthRange>0.7~3.5</gearHealthRange>
         <apparelMoney>2500~4000</apparelMoney>
         <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
-        <weaponMoney>2000~3000</weaponMoney>
+        <weaponMoney>2600~4400</weaponMoney>
         <weaponTags>
-            <li>MedievalMeleeAdvanced</li>
+            <li>IndustrialMeleeAdvanced</li>
             <li>SpacerMeleeAdvanced</li>
         </weaponTags>
+        <apparelRequired>
+            <li>Apparel_ShieldBelt</li>
+        </apparelRequired>
         <techHediffsRequired>
             <li>ArchotechEye</li>
             <li>BionicLeg</li>
@@ -214,7 +214,7 @@
             <subOptionsChooseOne>
                 <li>
                     <thingDef>Silver</thingDef>
-                    <countRange>100~2000</countRange>
+                    <countRange>100~150</countRange>
                 </li>
                 <li>
                     <thingDef>MedicineUltratech</thingDef>
