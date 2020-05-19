@@ -1,4 +1,5 @@
-﻿using AntimatterAnnihilation.Effects;
+﻿using AntimatterAnnihilation.AI;
+using AntimatterAnnihilation.Effects;
 using AntimatterAnnihilation.ThingComps;
 using AntimatterAnnihilation.Utils;
 using RimWorld;
@@ -9,7 +10,7 @@ using Verse;
 namespace AntimatterAnnihilation.Buildings
 {
     [StaticConstructorOnStartup]
-    public class Building_ReactorInjector : Building
+    public class Building_ReactorInjector : Building, IAvoidanceProvider
     {
         private static Graphic normal, running;
 
@@ -84,6 +85,7 @@ namespace AntimatterAnnihilation.Buildings
 
         private long tick;
         private Building_AntimatterReactor lastReactor;
+        private List<(IntVec3 cell, byte weight)> avoidance = new List<(IntVec3 cell, byte weight)>();
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -100,21 +102,65 @@ namespace AntimatterAnnihilation.Buildings
             };
             PowerTraderComp.powerStartedAction += () =>
             {
-                //Log.Message("Power start");
                 CauseRedraw();
             };
             PowerTraderComp.powerStoppedAction += () =>
             {
-                //Log.Message("Power stop");
                 CauseRedraw();
             };
 
             Vector3 offset = GetOffset(out float angle);
-            Beam = new EnergyBeam(Position.ToVector3() + offset, angle, true);
+            Beam = new EnergyBeam(map, Position.ToVector3() + offset, angle, true);
             Beam.Length = 5;
             if (Rotation == Rot4.South)
             {
                 Beam.LengthOffset = 0.25f;
+            }
+
+            // Register with avoidance grid system.
+            var grid = AI_AvoidGrid.Ensure(map);
+            if (!grid.AvoidanceProviders.Contains(this))
+            {
+                grid.AvoidanceProviders.Add(this);
+            }
+        }
+
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.DeSpawn(mode);
+
+            // Remove from avoidance grid system.
+            var grid = AI_AvoidGrid.Ensure(Beam.Map);
+            if (grid.AvoidanceProviders.Contains(this))
+            {
+                grid.AvoidanceProviders.Remove(this);
+            }
+
+            Beam?.Dispose();
+            Beam = null;
+
+            lastReactor?.RemoveInput(this);
+        }
+
+        public override void Tick()
+        {
+            base.Tick();
+
+            if (Beam == null)
+                return;
+
+            Beam.BeamVisible = IsRunning;
+            //CauseRedraw();
+
+            Beam.Tick();
+
+            if (!IsRunning)
+                return;
+
+            tick++;
+            if (tick % UpdateInterval == 0)
+            {
+                Beam.Length = UpdateDamageAndInjection(MaxBeamLength);
             }
         }
 
@@ -150,31 +196,11 @@ namespace AntimatterAnnihilation.Buildings
             return Vector3.zero;
         }
 
-        public override void Tick()
-        {
-            base.Tick();
-
-            if (Beam == null)
-                return;
-
-            Beam.Visible = IsRunning;
-            //CauseRedraw();
-
-            Beam.Tick();
-
-            if (!IsRunning)
-                return;
-
-            tick++;
-            if (tick % UpdateInterval == 0)
-            {
-                Beam.Length = UpdateDamageAndInjection(MaxBeamLength);
-            }
-        }
-
         private List<Thing> tempThings = new List<Thing>();
         public float UpdateDamageAndInjection(float maxDst) // The action is a hacky workaround to not being able to do 'out int realDst'
         {
+            avoidance.Clear();
+
             bool horizontal = Rotation.IsHorizontal;
             IntVec3 basePos = Position;
             var rot = base.Rotation;
@@ -203,6 +229,9 @@ namespace AntimatterAnnihilation.Buildings
             {
                 IntVec3 posLower = basePos + BeamExploreDirection * (int)i;
                 IntVec3 posUpper = basePos + BeamExploreDirection * (int)i + (horizontal ? new IntVec3(0, 0, 1) : new IntVec3(1, 0, 0));
+
+                avoidance.Add((posLower, AI_AvoidGrid.WEIGHT_INJECTOR_BEAM));
+                avoidance.Add((posUpper, AI_AvoidGrid.WEIGHT_INJECTOR_BEAM));
 
                 bool done = false;
                 var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
@@ -298,22 +327,23 @@ namespace AntimatterAnnihilation.Buildings
             return i;
         }
 
-        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
-        {
-            base.DeSpawn(mode);
-
-            Beam?.Dispose();
-            Beam = null;
-
-            lastReactor?.RemoveInput(this);
-        }
-
         public void CauseRedraw(Map map = null)
         {
             if (map == null)
                 map = base.Map;
 
             map?.mapDrawer.MapMeshDirty(base.Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
+        }
+
+        public IEnumerable<(IntVec3 cell, byte weight)> GetAvoidance(Map map)
+        {
+            if (map == null || map != this.Map)
+                yield break;
+
+            foreach (var point in avoidance)
+            {
+                yield return point;
+            }
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using Verse;
 using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Effects
 {
-    public class EnergyBeam : IDisposable
+    public class EnergyBeam : SpawnedEffect
     {
         public Vector3 Position;
-        public bool Visible;
+        public bool BeamVisible;
         public float Length = 1f;
         public float Rotation;
         public float RadiusScale = 1f;
@@ -19,7 +19,7 @@ namespace AntimatterAnnihilation.Effects
         private float currentLength;
         private Transform beam;
 
-        public EnergyBeam(Vector3 pos, float rot, bool isInBeam)
+        public EnergyBeam(Map map, Vector3 pos, float rot, bool isInBeam) : base(map)
         {
             beam = Object.Instantiate(isInBeam ? Content.EnergyBeamInPrefab : Content.EnergyBeamOutPrefab).transform;
             beam.position = pos;
@@ -30,14 +30,16 @@ namespace AntimatterAnnihilation.Effects
             this.Position = pos;
         }
 
-        public void Tick()
+        public override void Tick()
         {
+            base.Tick();
+
             if (beam == null)
                 return;
 
             const float DT = 1f / 60f;
 
-            if (Visible)
+            if (BeamVisible)
             {
                 float tl = Length + LengthOffset;
                 if (currentLength != tl)
@@ -80,7 +82,17 @@ namespace AntimatterAnnihilation.Effects
             beam.localScale = new Vector3(currentRadiusScale, currentLength, currentRadiusScale);
         }
 
-        public void Dispose()
+        public override void Show()
+        {
+            beam.gameObject.SetActive(true);
+        }
+
+        public override void Hide()
+        {
+            beam.gameObject.SetActive(false);
+        }
+
+        public override void Dispose()
         {
             if (beam == null)
                 return;

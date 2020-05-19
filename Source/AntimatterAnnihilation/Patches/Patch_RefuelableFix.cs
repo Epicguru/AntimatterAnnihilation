@@ -5,7 +5,7 @@ using Verse;
 namespace AntimatterAnnihilation.Patches
 {
     [HarmonyPatch(typeof(ThingListGroupHelper), "Includes")]
-    static class RefuelableFix
+    static class Patch_RefuelableFix
     {
         static bool Prefix(ref bool __result, ThingRequestGroup group, ThingDef def)
         {

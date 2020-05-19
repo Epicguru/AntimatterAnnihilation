@@ -77,6 +77,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\AI_AvoidGrid.cs" />
+    <Compile Include="AI\IAvoidanceProvider.cs" />
     <Compile Include="Buildings\AATurretTop.cs" />
     <Compile Include="Buildings\Building_AATurret.cs" />
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
@@ -93,13 +95,15 @@
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Damage\DamageWorker_GalvaPain.cs" />
+    <Compile Include="Effects\SpawnedEffect.cs" />
+    <Compile Include="Patches\Patch_AvoidGrid.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
     <Compile Include="Effects\EnergyBeam.cs" />
     <Compile Include="Hook.cs" />
     <Compile Include="ModCore.cs" />
-    <Compile Include="Patches\RefuelableFix.cs" />
+    <Compile Include="Patches\Patch_RefuelableFix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ThingComps\CompProperties_RefuelableConditional.cs" />
     <Compile Include="ThingComps\CompRefuelableConditional.cs" />
@@ -119,5 +123,6 @@
       <Name>InGameWiki</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

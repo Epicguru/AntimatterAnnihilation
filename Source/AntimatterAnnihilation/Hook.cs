@@ -1,4 +1,5 @@
-﻿using InGameWiki;
+﻿using AntimatterAnnihilation.AI;
+using InGameWiki;
 using RimWorld;
 using System;
 using UnityEngine;
@@ -50,8 +51,18 @@ namespace AntimatterAnnihilation
 
                 if (Find.CurrentMap != null)
                 {
-                    float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
-                    GUILayout.Label("Current map raid points: " + points);
+                    try
+                    {
+                        float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
+                        GUILayout.Label("Current map raid points: " + points);
+                    }
+                    catch { }
+                }
+
+                if (Find.CurrentMap != null)
+                {
+                    var grid = AI_AvoidGrid.Ensure(Find.CurrentMap);
+                    GUILayout.Label("Current map avoidance providers: " + grid.AvoidanceProviders.Count);
                 }
             }
             catch (Exception e)

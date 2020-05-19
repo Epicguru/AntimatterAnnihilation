@@ -13,7 +13,7 @@ namespace AntimatterAnnihilation.UI
     public class UI_PowerNetConsole : Window
     {
         [TweakValue("AntimatterAnnihilation")]
-        public static bool InstantFlickMode = true;
+        public static bool PNC_InstantFlickMode = true;
 
         private static ObjectPool<Category> pool = new ObjectPool<Category>() { CreateFunction = () => new Category() };
         private static FieldInfo wantsToBeOnInfo;
@@ -68,10 +68,10 @@ namespace AntimatterAnnihilation.UI
                 bool currentWantsToBeOn = (bool)wantsToBeOnInfo.GetValue(FlickComp);
                 wantsToBeOnInfo.SetValue(FlickComp, !currentWantsToBeOn);
 
-                if(!InstantFlickMode)
+                if(!PNC_InstantFlickMode)
                     FlickUtility.UpdateFlickDesignation(Thing);
 
-                if(InstantFlickMode)
+                if(PNC_InstantFlickMode)
                     FlickComp.DoFlick();
             }
 
@@ -80,7 +80,7 @@ namespace AntimatterAnnihilation.UI
                 if (FlickComp == null)
                     return false;
 
-                if (InstantFlickMode)
+                if (PNC_InstantFlickMode)
                     return FlickComp.SwitchIsOn;
                 else
                     return (bool)wantsToBeOnInfo.GetValue(FlickComp);

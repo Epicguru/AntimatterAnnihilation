@@ -1,4 +1,5 @@
-﻿using AntimatterAnnihilation.Effects;
+﻿using AntimatterAnnihilation.AI;
+using AntimatterAnnihilation.Effects;
 using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using Verse;
 namespace AntimatterAnnihilation.Buildings
 {
     [StaticConstructorOnStartup]
-    public class Building_AntimatterReactor : Building
+    public class Building_AntimatterReactor : Building, IAvoidanceProvider
     {
         private static Graphic normal, powered, running;
 
@@ -41,7 +42,7 @@ namespace AntimatterAnnihilation.Buildings
                 if (powerOn)
                 {
                     bool isRunning = IsRunning;
-                    EnergyBall.Visible = isRunning;
+                    EnergyBall.BallVisible = isRunning;
 
                     if (isRunning)
                         return running;
@@ -50,7 +51,7 @@ namespace AntimatterAnnihilation.Buildings
                 }
                 else
                 {
-                    EnergyBall.Visible = false;
+                    EnergyBall.BallVisible = false;
                     return normal;
                 }
             }
@@ -68,6 +69,7 @@ namespace AntimatterAnnihilation.Buildings
         public float PawnDamage = 6.5f;
         public int UpdateInterval = 20; // Every 20 ticks, so 3 times a second.
 
+        private List<(IntVec3 cell, byte weight)> avoidance = new List<(IntVec3 cell, byte weight)>();
         private Building_ReactorInjector currentInjector;
         private int injectorRot;
         private int tickCounter;
@@ -77,27 +79,39 @@ namespace AntimatterAnnihilation.Buildings
         {
             base.SpawnSetup(map, respawningAfterLoad);
 
-            //Log.Message("Spawn. After load: " + respawningAfterLoad + ", has power: " + PowerTraderComp.PowerOn);
-
-            EnergyBall = new EnergyBall(Position.ToVector3() + GetEnergyBallOffset(), Rotation.IsHorizontal ? 0f : 90f);
-            EnergyBeam = new EnergyBeam(Position.ToVector3(), 0f, false);
+            EnergyBall = new EnergyBall(map, Position.ToVector3() + GetEnergyBallOffset(), Rotation.IsHorizontal ? 0f : 90f);
+            EnergyBeam = new EnergyBeam(map, Position.ToVector3(), 0f, false);
 
             if (PowerTraderComp.PowerOn)
                 OnPowerStart(map);
             else
                 OnPowerStop(map);
 
-            //var thing = map.thingGrid.ThingAt(Position, ThingCategory.Building);
-            //Log.Message(thing?.ToString() ?? "null");
-
             PowerTraderComp.powerStartedAction += () => OnPowerStart();
             PowerTraderComp.powerStoppedAction += () => OnPowerStop();
+
+            // Register with avoidance grid system.
+            var grid = AI_AvoidGrid.Ensure(map);
+            if (!grid.AvoidanceProviders.Contains(this))
+            {
+                grid.AvoidanceProviders.Add(this);
+            }
         }
 
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
-            EnergyBall.Dispose();
-            EnergyBeam.Dispose();
+            // Remove from avoidance grid system.
+            var grid = AI_AvoidGrid.Ensure(EnergyBall.Map);
+            if (grid.AvoidanceProviders.Contains(this))
+            {
+                grid.AvoidanceProviders.Remove(this);
+            }
+
+            EnergyBall?.Dispose();
+            EnergyBall = null;
+            EnergyBeam?.Dispose();
+            EnergyBeam = null;
+
             base.DeSpawn(mode);
         }
 
@@ -198,16 +212,18 @@ namespace AntimatterAnnihilation.Buildings
         }
 
         private List<Thing> tempThings = new List<Thing>();
-        public float UpdateOutputBeam(float maxDst) // The action is a hacky workaround to not being able to do 'out int realDst'
+        public float UpdateOutputBeam(float maxDst)
         {
+            avoidance.Clear();
+
             bool horizontal = Rotation.IsHorizontal;
 
             if (!IsRunning)
             {
-                EnergyBeam.Visible = false;
+                EnergyBeam.BeamVisible = false;
                 return 0f;
             }
-            EnergyBeam.Visible = true;
+            EnergyBeam.BeamVisible = true;
             IntVec3 beamExploreDirection = IntVec3.Zero;
             switch (injectorRot)
             {
@@ -250,6 +266,9 @@ namespace AntimatterAnnihilation.Buildings
             {
                 IntVec3 posLower = basePos + beamExploreDirection * (int)i;
                 IntVec3 posUpper = basePos + beamExploreDirection * (int)i + (horizontal ? new IntVec3(0, 0, 1) : new IntVec3(1, 0, 0));
+
+                avoidance.Add((posLower, AI_AvoidGrid.WEIGHT_ENERGY_BEAM));
+                avoidance.Add((posUpper, AI_AvoidGrid.WEIGHT_ENERGY_BEAM));
 
                 bool done = false;
                 var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
@@ -336,6 +355,17 @@ namespace AntimatterAnnihilation.Buildings
             foreach (var thing in base.GetGizmos())
             {
                 yield return thing;
+            }
+        }
+
+        public IEnumerable<(IntVec3 cell, byte weight)> GetAvoidance(Map map)
+        {
+            if (map == null || map != this.Map)
+                yield break;
+
+            foreach (var point in avoidance)
+            {
+                yield return point;
             }
         }
     }
