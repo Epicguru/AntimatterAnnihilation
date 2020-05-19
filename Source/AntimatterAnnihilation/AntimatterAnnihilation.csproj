@@ -79,6 +79,7 @@
   <ItemGroup>
     <Compile Include="AI\AI_AvoidGrid.cs" />
     <Compile Include="AI\IAvoidanceProvider.cs" />
+    <Compile Include="Attacks\CustomOrbitalStrike.cs" />
     <Compile Include="Buildings\AATurretTop.cs" />
     <Compile Include="Buildings\Building_AATurret.cs" />
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />

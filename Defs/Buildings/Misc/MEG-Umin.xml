@@ -86,4 +86,17 @@ Firing the beam of energy creates a huge electromagnetic pulse on both the area 
         </verbs>
     </ThingDef>
 
+    <ThingDef ParentName="OrbitalStrikeBase">
+        <defName>CustomOrbitalStrike_AA</defName>
+        <label>power beam</label>
+        <thingClass>AntimatterAnnihilation.Attacks.CustomOrbitalStrike</thingClass>
+        <comps>
+        <li Class="CompProperties_OrbitalBeam">
+            <width>8</width>
+            <color>(255, 205, 195, 242)</color>
+            <sound>OrbitalBeam</sound>
+        </li>
+        </comps>
+    </ThingDef>
+
 </Defs>
