@@ -53,47 +53,46 @@
     </ThingDef>
 
     <ThingDef ParentName="AAPoweredLarge">
-    <defName>ParticleAccelerator_AA</defName>
-    <label>particle accelerator</label>
-    <thingClass>AntimatterAnnihilation.Buildings.Building_ParticleAccelerator</thingClass>
-    <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
-    <graphicData>
-      <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
-      <graphicClass>Graphic_Single</graphicClass>
-      <drawSize>(9,9)</drawSize>
-    </graphicData>
-    <costList>
-      <Steel>650</Steel>
-      <Gold>80</Gold>
-      <Plasteel>150</Plasteel>
-      <ComponentIndustrial>18</ComponentIndustrial>
-      <ComponentSpacer>3</ComponentSpacer>
-    </costList>
-    <hasInteractionCell>True</hasInteractionCell>
-    <interactionCellOffset>(0,0,-5)</interactionCellOffset>
-    <comps>
-      <li Class="CompProperties_Power">
-        <compClass>CompPowerTrader</compClass>
-        <basePowerConsumption>4000</basePowerConsumption>
-      </li>
-      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
-        <fuelConsumptionRate>20</fuelConsumptionRate>
-        <fuelCapacity>60.0</fuelCapacity>
-        <fuelFilter>
-          <thingDefs>
-            <li>Plasteel</li>
-          </thingDefs>
-        </fuelFilter>
-        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
-        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
-        <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
-      </li>
+      <defName>ParticleAccelerator_AA</defName>
+      <label>particle accelerator</label>
+      <thingClass>AntimatterAnnihilation.Buildings.Building_ParticleAccelerator</thingClass>
+      <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
+      <graphicData>
+          <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(9,9)</drawSize>
+      </graphicData>
+      <costList>
+          <Steel>650</Steel>
+          <Gold>80</Gold>
+          <Plasteel>150</Plasteel>
+          <ComponentIndustrial>18</ComponentIndustrial>
+          <ComponentSpacer>3</ComponentSpacer>
+      </costList>
+      <hasInteractionCell>True</hasInteractionCell>
+      <interactionCellOffset>(0,0,-5)</interactionCellOffset>
+      <comps>
+        <li Class="CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>4000</basePowerConsumption>
+        </li>
+        <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+          <fuelConsumptionRate>20</fuelConsumptionRate>
+          <fuelCapacity>60.0</fuelCapacity>
+          <fuelFilter>
+            <thingDefs>
+              <li>Plasteel</li>
+            </thingDefs>
+          </fuelFilter>
+          <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
+        </li>
     </comps>
     <!-- <researchPrerequisites>
       <li>SomeResearch</li>
     </researchPrerequisites> -->
   </ThingDef>
-  <!--  -->
 
   <ThingDef ParentName="AAPoweredLarge">
     <defName>AntimatterReactor_AA</defName>

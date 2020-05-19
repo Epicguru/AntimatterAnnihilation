@@ -85,6 +85,7 @@
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
     <Compile Include="Buildings\Building_CompositeRefiner.cs" />
     <Compile Include="Buildings\Building_InputTray.cs" />
+    <Compile Include="Buildings\Building_Megumin.cs" />
     <Compile Include="Buildings\Building_PowerConverter.cs" />
     <Compile Include="Buildings\Building_ParticleAccelerator.cs" />
     <Compile Include="Buildings\Building_PowerNetConsole.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Buildings\RailgunTop.cs" />
     <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />
+    <Compile Include="Commands\Command_AttackLocation.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Damage\DamageWorker_GalvaPain.cs" />
     <Compile Include="Effects\SpawnedEffect.cs" />
@@ -112,6 +114,7 @@
     <Compile Include="Utils\IResettable.cs" />
     <Compile Include="Utils\ObjectPool.cs" />
     <Compile Include="Utils\RecoilManager.cs" />
+    <Compile Include="Verbs\Verb_Megumin.cs" />
     <Compile Include="Verbs\Verb_Railgun.cs" />
   </ItemGroup>
   <ItemGroup>

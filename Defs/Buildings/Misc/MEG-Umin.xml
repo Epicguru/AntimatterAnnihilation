@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="AAPoweredLarge">
+        <defName>Megumin_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_Megumin</thingClass>
+        <label>M3G_UMIN</label>
+        <description>Fires a beam of energy up to an ancient geostationary satelite, where it is reflected towards a specific coordinate on the planet surface.
+Firing the beam of energy creates a huge electromagnetic pulse on both the area it is fired from and also the area it impacts on, temporarily shutting down all electronics.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/ReactorInjector_east</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <passability>Impassable</passability>
+        <selectable>true</selectable>
+        <size>(2, 2)</size>
+        <building>
+            <turretGunDef>Gun_Megumin_AA</turretGunDef>
+            <turretBurstCooldownTime>0</turretBurstCooldownTime>
+        </building>
+        <costList>
+            <Steel>300</Steel>
+            <AntimatterComposite_AA>60</AntimatterComposite_AA> <!-- TODO require ultratech raider-only drops.-->
+            <ComponentIndustrial>15</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>50</basePowerConsumption> <!-- Changes dynamically in code based on activation state. When active, uses loads of power. -->
+                <transmitsPower>false</transmitsPower>
+            </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+                <fuelConsumptionRate>80000</fuelConsumptionRate> <!-- Changes dynamically in code based on activation state. When active, requires and uses all stored antimatter. -->
+                <fuelCapacity>8.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>AntimatterCanister_AA</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+        </comps>
+        <!-- <researchPrerequisites>
+            <li>SomeResearch</li>
+        </researchPrerequisites> -->
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>Gun_Megumin_AA</defName>
+        <label>M3G_UMIN</label>
+        <description>The firing part of the MEG-Umin defence system. How did you get this...?</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>1</AccuracyTouch>
+            <AccuracyShort>1</AccuracyShort>
+            <AccuracyMedium>1</AccuracyMedium>
+            <AccuracyLong>1</AccuracyLong>
+            <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>300</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>AntimatterAnnihilation.Verbs.Verb_Megumin</verbClass>
+                <requireLineOfSight>false</requireLineOfSight>
+                <hasStandardCommand>true</hasStandardCommand>
+                <warmupTime>5</warmupTime>
+                <ai_AvoidFriendlyFireRadius>15</ai_AvoidFriendlyFireRadius>
+                <range>300</range>
+                <burstShotCount>1</burstShotCount>
+                <soundAiming>OrbitalTargeter_Aiming</soundAiming>
+                <soundCast>OrbitalTargeter_Fire</soundCast>
+                <onlyManualCast>true</onlyManualCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>

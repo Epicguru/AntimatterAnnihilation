@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AATurret" Name="AntimatterRailgunTurret_AA" Abstract="True"> 
+    <ThingDef Name="AntimatterRailgunTurret_AA" ParentName="AATurret" Abstract="True"> 
         <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>

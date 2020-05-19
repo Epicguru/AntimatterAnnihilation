@@ -49,14 +49,10 @@ namespace AntimatterAnnihilation
                     WikiWindow.Open(this.wiki);
                 }
 
-                if (Find.CurrentMap != null)
+                if (Find.CurrentMap != null && Current.ProgramState == ProgramState.Playing)
                 {
-                    try
-                    {
-                        float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
-                        GUILayout.Label("Current map raid points: " + points);
-                    }
-                    catch { }
+                    float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
+                    GUILayout.Label("Current map raid points: " + points);
                 }
 
                 if (Find.CurrentMap != null)
