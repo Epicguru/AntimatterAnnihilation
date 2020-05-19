@@ -13,5 +13,6 @@ You need to build a Reactor Injector and a Reactor Power Converter for input and
 $AntimatterAnnihilation/UI/ReactorExampleSetup$
 
 #The distance between the injector/power converter and the reactor can be whatever you want, within a limit. The injector and power converter can also be touching the reactor if you like.#
-#<b>WARNING</b>: The injector beam and the output beam will both deal large damage to living things. You should use the allowed areas system to prevent your colonists from walking through the beams, or they could be injured or killed!
-Of course, you could also use this to your advantage. Raiders will also avoid the beams, but you could activate the beams once it is too late for them...#
+
+#<b>WARNING</b>: The injector beam and the output beam will both deal large damage to living things. Colonists and raiders will both avoid walking through the beams, but most animals are not intelligent enough to realize the danger.
+You can also supprise raiders by turning on the beams once it is too late for them to avoid being hit by them.#

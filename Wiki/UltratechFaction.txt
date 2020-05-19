@@ -5,8 +5,8 @@ AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
 The Ultratech faction is a new faction added to the world. They are very strong and pose a significant threat, but carry some of the essential items required for advanced crafting and construcion.
 
 #!Who are they?#
-#The Ultratech are an inter-planetary conglomerate that posses the knowlege and technology to manipulate antimatter. All of their members are highly trained and heavily armed, and have orders to destroy anyone
-who has gains knowlege of antimatter technology.#
+#The Ultratech are an inter-planetary conglomerate that posses the knowlege and technology to manipulate antimatter.
+All of their members are highly trained and heavily armed, and have orders to destroy anyone who has gains knowlege of antimatter technology.#
 
 #!How often will they raid me?#
 #The ultratech have the same raid weight as any other faction, but are less likely to send strong raids early-game.

@@ -14,7 +14,7 @@ namespace AntimatterAnnihilation.AI
         public const byte WEIGHT_ENERGY_BEAM = 255;
 
         [TweakValue("AntimatterAnnihilation")]
-        public static bool DoNonDestructiveAvoidance = false;
+        public static bool DoNonDestructiveAvoidance = true;
 
         public static void DoAvoidGrid(Pawn pawn, ref ByteGrid grid)
         {
@@ -119,7 +119,7 @@ namespace AntimatterAnnihilation.AI
             // Take the existing grid and add on our grid if our values are higher.
             // This is very slow if done for every pawn on the map, considering that it runs through every single cell on the map.
 
-            // Therefore it will be a compatibility option only, disabled by default.
+            // Therefore it will be a compatibility option, enabled by default.
 
             if (!existing.MapSizeMatches(this.map))
             {
