@@ -46,7 +46,7 @@
         <thingClass>AntimatterAnnihilation.Buildings.Building_ThunderGun</thingClass>
         <label>thunder gun</label>
         <description>A kinetic weapon firing huge uranum slugs using convetional methods. A dual barrel self-loading system offers excellent rate of fire and large damage.</description>
-        <uiIconPath>Things/Building/Security/TurretAutocannon_MenuIcon</uiIconPath>
+        <uiIconPath>AntimatterAnnihilation/UI/ThunderGunIcon</uiIconPath>
         <statBases>
             <ShootingAccuracyTurret>1.4</ShootingAccuracyTurret>
         </statBases>

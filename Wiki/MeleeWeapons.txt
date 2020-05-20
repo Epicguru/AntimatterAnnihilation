@@ -13,6 +13,7 @@ You can also craft vanilla weapons using <b><color=\#e7a6ff>antimatter composite
 #!Lethal#
 @ScissorBlade_AA@
 @SecretSword_AA@
+@Karambit_AA@
 
 #!Less Lethal#
 @Galvaknuckles_AA@

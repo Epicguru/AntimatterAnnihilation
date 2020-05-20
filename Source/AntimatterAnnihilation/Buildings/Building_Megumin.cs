@@ -248,7 +248,7 @@ namespace AntimatterAnnihilation.Buildings
             status = IsChargingUp ? $"Charging: {WattDaysRequired:F0} watt-days remaining, {(1f - (WattDaysRequired / CHARGE_WATT_DAYS)) * 100f:F0}%." : status;
             if (IsChargingUp && !PowerTrader.PowerOn)
             {
-                status += $"\nNot enough power. Charge rate is set to {ChargeRateComp.Watts:F0} watts.\nTry lowering the charge rate.\nTip: Build at least {Mathf.Ceil(CHARGE_WATT_DAYS/600f):F0} batteries and set charge rate to max.";
+                status += $"\nNot enough power. Charge rate is set to {ChargeRateComp.Watts:F0} watts.\nTry lowering the charge rate.\nTip: Build at least {Mathf.Ceil(CHARGE_WATT_DAYS/600):F0} batteries and set charge rate to max.";
             }
             return base.GetInspectString() + $"\n{status}";
         }

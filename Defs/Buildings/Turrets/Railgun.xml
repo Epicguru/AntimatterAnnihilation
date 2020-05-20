@@ -45,7 +45,7 @@
         <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterRailgun</thingClass>
         <label>antimatter railgun</label>
         <description>A railgun that fires antimatter that causes an annihilation explosion upon impact. Truly devastating.</description>
-        <uiIconPath>Things/Building/Security/TurretAutocannon_MenuIcon</uiIconPath>
+        <uiIconPath>AntimatterAnnihilation/UI/RailgunIcon</uiIconPath>
         <statBases>
             <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
         </statBases>
