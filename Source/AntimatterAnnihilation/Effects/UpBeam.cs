@@ -17,7 +17,6 @@ namespace AntimatterAnnihilation.Effects
         {
             goTrs = Object.Instantiate(Content.UpBeamPrefab).transform;
             goTrs.position = pos;
-            goTrs.localScale = Vector3.zero;
             goTrs.eulerAngles = new Vector3(90f, 0f, 0f);
 
             beam = goTrs.Find("Beam");
@@ -37,16 +36,17 @@ namespace AntimatterAnnihilation.Effects
                 tickTimer--;
             tickTimer = Mathf.Clamp(tickTimer, 0, FadeTicks);
 
-            SetVisScale(tickTimer / (float)FadeTicks);
+            float p = tickTimer / (float) FadeTicks;
+            SetVisScale(p);
         }
 
-        private void SetVisScale(float p)
+        public void SetVisScale(float p)
         {
             p = Mathf.Clamp01(p);
 
             const float BEAM_MAX_HEIGHT = 250f;
-            const float BEAM_MAX_WIDTH = 0.25f;
-            const float MOTE_MAX_SCALE = 3.520297f;
+            const float BEAM_MAX_WIDTH = 0.5f;
+            const float MOTE_MAX_SCALE = 3.8f;
 
             float moteScale = MOTE_MAX_SCALE * p;
             float beamHeight = BEAM_MAX_HEIGHT * p;

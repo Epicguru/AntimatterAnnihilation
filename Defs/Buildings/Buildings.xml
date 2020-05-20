@@ -69,6 +69,7 @@
           <ComponentIndustrial>18</ComponentIndustrial>
           <ComponentSpacer>3</ComponentSpacer>
       </costList>
+      <passability>Impassable</passability>
       <drawOffscreen>true</drawOffscreen>
       <hasInteractionCell>True</hasInteractionCell>
       <interactionCellOffset>(0,0,-5)</interactionCellOffset>
@@ -162,7 +163,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
     </graphicData>
     <rotatable>true</rotatable>
     <defaultPlacingRot>East</defaultPlacingRot>
-    <passability>PassThroughOnly</passability>
+    <passability>Impassable</passability>
     <selectable>true</selectable>
     <size>(2, 3)</size>
     <costList>
@@ -208,7 +209,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
     </graphicData>
     <rotatable>true</rotatable>
     <defaultPlacingRot>West</defaultPlacingRot>
-    <passability>PassThroughOnly</passability>
+    <passability>Impassable</passability>
     <selectable>true</selectable>
     <size>(2, 3)</size>
     <costList>

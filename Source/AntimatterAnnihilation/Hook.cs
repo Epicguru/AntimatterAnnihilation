@@ -1,4 +1,5 @@
 ﻿using AntimatterAnnihilation.AI;
+using AntimatterAnnihilation.Effects;
 using InGameWiki;
 using RimWorld;
 using System;
@@ -31,11 +32,8 @@ namespace AntimatterAnnihilation
                 {
                     Vector3 pos = new Vector3(15, 0, 15);
                     Log.Message("Spawning at " + pos);
-
-                    var beam = Object.Instantiate(Content.EnergyBeamInPrefab).transform;
-                    beam.transform.position = pos;
-                    beam.localScale = Vector3.one;
-                    beam.eulerAngles = new Vector3(90f, 90f, 0f);
+                    var thing = new UpBeam(Find.CurrentMap, pos);
+                    thing.SetVisScale(1f);
                 }
 
                 if (openWiki)
@@ -53,6 +51,7 @@ namespace AntimatterAnnihilation
                 {
                     float points = StorytellerUtility.DefaultThreatPointsNow(Find.CurrentMap);
                     GUILayout.Label("Current map raid points: " + points);
+                    GUILayout.Label("Tick rate: " + Find.TickManager.TickRateMultiplier);
                 }
 
                 if (Find.CurrentMap != null)

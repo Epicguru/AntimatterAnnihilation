@@ -131,6 +131,14 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
+        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        {
+            base.DeSpawn(mode);
+
+            beam?.Dispose();
+            beam = null;
+        }
+
         private void StartAttackSequence(LocalTargetInfo target)
         {
             // Set local target.
@@ -207,6 +215,8 @@ namespace AntimatterAnnihilation.Buildings
         public override void Tick()
         {
             base.Tick();
+
+            beam?.Tick();
 
             if (IsCharging)
             {
