@@ -42,6 +42,11 @@ Firing the beam of energy creates a huge electromagnetic pulse on both the area 
                 </fuelFilter>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_TargetChargeRate">
+                <defaultRate>400000</defaultRate>
+                <rateRange>5000~800000</rateRange>
+                <interval>500</interval>
+            </li>
         </comps>
         <!-- <researchPrerequisites>
             <li>SomeResearch</li>

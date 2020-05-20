@@ -13,6 +13,7 @@ namespace AntimatterAnnihilation
 
         public static Texture2D Expand, Collapse;
         public static Texture2D PowerNetGraph;
+        public static Texture2D PowerLevel;
 
         static Content()
         {
@@ -27,6 +28,7 @@ namespace AntimatterAnnihilation
             Expand = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Expand");
             Collapse = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Collapse");
             PowerNetGraph = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/PowerNetConsole Graph");
+            PowerLevel = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/PowerLevel");
 
             ModCore.Trace("Loaded content.");
         }

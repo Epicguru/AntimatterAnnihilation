@@ -14,14 +14,18 @@ namespace AntimatterAnnihilation.Buildings
 {
     public class Building_Megumin : Building
     {
+        [TweakValue("AntimatterAnnihilation")]
+        public static bool DoMeguminSolarFlare = true;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
-        public static int CHARGE_TICKS = 1276; // Made to correspond to audio queue.
+        public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
         public static float RADIUS = 15;
         public static int DURATION_TICKS = 310;
         public static float EXPLOSION_RADIUS = 18;
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
+        public static float CHARGE_WATT_DAYS = 600 * 4; // Requires 4 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
+        public static float IDLE_WATTS = 50; // Power consumption when not charging.
 
         public CompEquippable GunComp
         {
@@ -33,6 +37,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompEquippable _gunCompEq;
+        public CompPowerTrader PowerTrader
+        {
+            get
+            {
+                if (_compPowerTrader == null)
+                    _compPowerTrader = this.GetComp<CompPowerTrader>();
+                return _compPowerTrader;
+            }
+        }
+        private CompPowerTrader _compPowerTrader;
         public CompRefuelableConditional FuelComp
         {
             get
@@ -43,6 +57,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompRefuelableConditional _compRefuelable;
+        public CompTargetChargeRate ChargeRateComp
+        {
+            get
+            {
+                if (_compChargeRate == null)
+                    _compChargeRate = this.GetComp<CompTargetChargeRate>();
+                return _compChargeRate;
+            }
+        }
+        private CompTargetChargeRate _compChargeRate;
         public Verb AttackVerb
         {
             get
@@ -57,15 +81,23 @@ namespace AntimatterAnnihilation.Buildings
                 return CooldownTicks > 0;
             }
         }
-        public bool IsCharging
+        public bool IsPoweringUp
         {
             get
             {
-                return ChargingTicks < CHARGE_TICKS;
+                return PoweringUpTicks < POWER_UP_TICKS;
+            }
+        }
+        public bool IsChargingUp
+        {
+            get
+            {
+                return WattDaysRequired > 0;
             }
         }
         public int CooldownTicks;
-        public int ChargingTicks;
+        public int PoweringUpTicks;
+        public float WattDaysRequired;
 
         private UpBeam beam;
         private LocalTargetInfo localTarget;
@@ -77,7 +109,7 @@ namespace AntimatterAnnihilation.Buildings
 
             if (!respawningAfterLoad)
             {
-                ChargingTicks = CHARGE_TICKS;
+                PoweringUpTicks = POWER_UP_TICKS;
             }
 
             if (beam == null)
@@ -110,9 +142,13 @@ namespace AntimatterAnnihilation.Buildings
             {
                 cmd.Disable("CannotFire".Translate() + $": Missing antimatter canisters.");
             }
-            else if (IsCharging)
+            else if (IsPoweringUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": Already charging to fire.");
+            }
+            else if (!PowerTrader.PowerOn)
+            {
+                cmd.Disable("CannotFire".Translate() + $": No power.");
             }
 
             yield return cmd;
@@ -145,26 +181,48 @@ namespace AntimatterAnnihilation.Buildings
             this.localTarget = target;
 
             // Enter the charging phase.
-            ChargingTicks = 0;
+            WattDaysRequired = CHARGE_WATT_DAYS;
+        }
 
-            // Remove antimatter fuel.
+        private void StartPowerUpSequence()
+        {
+            // Then enter the powering up phase.
+            PoweringUpTicks = 0;
+
+            // Remove antimatter fuel. At his point the firing cannot be cancelled.
             FuelComp.SetFuelLevel(0);
 
             // Play the long attack sound.
             SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
             soundSustainer = AADefOf.LaserStrike_AA.TrySpawnSustainer(info);
-
-            // Force game to run at 1x speed, so that the audio matches up with the laser beam.
-            // Note that if the player pauses the game at this point, the audio messes up anyway... TODO fix this.
-            // There are mods that disable this forced slow behaviour, so they will make this not work properly but there isn't much I can do about that.
-            //Find.TickManager.slower.SignalForceNormalSpeedShort();
         }
 
         private void StartRealAttack()
         {
+            // Spawn sky beam of death.
             AttackVerb.TryStartCastOn(localTarget);
+
+            // Put on cooldown.
             CooldownTicks = COOLDOWN_TICKS;
+
+            // Delete target position.
             localTarget = null;
+
+            // Spawn a solar flare event on the map that it was fired from.
+            if (DoMeguminSolarFlare)
+            {
+                IncidentParms param = new IncidentParms();
+                param.forced = true;
+                param.target = this.Map;
+
+                bool canFire = AADefOf.SolarFlare.Worker.CanFireNow(param);
+                if (!canFire)
+                    Log.Warning($"SolarFare Worker says that it cannot fire under the current conditions - forcing it to anyway, from M3G_UMIN.");
+
+                bool worked = AADefOf.SolarFlare.Worker.TryExecute(param);
+                if (!worked)
+                    Log.Error($"SolarFare Worker failed to execute (returned false), from M3G_UMIN.");
+            }
         }
 
         private void StartFireLaser()
@@ -186,7 +244,12 @@ namespace AntimatterAnnihilation.Buildings
         public override string GetInspectString()
         {
             string cooldown = IsOnCooldown ? $"Cooldown: {GetCooldownPretty(CooldownTicks)}" : $"Ready to fire";
-            string status = IsCharging ? $"Charging: {ChargingTicks / (float)CHARGE_TICKS * 100f:F0}%" : (FuelComp.FuelPercentOfMax == 1f ? $"{cooldown}" : $"Missing {8 - FuelComp.Fuel} antimatter canisters.");
+            string status = IsPoweringUp ? $"Powering up: {PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}%" : (FuelComp.FuelPercentOfMax == 1f ? $"{cooldown}" : $"Missing {8 - FuelComp.Fuel} antimatter canisters.");
+            status = IsChargingUp ? $"Charging: {WattDaysRequired:F0} watt-days remaining, {(1f - (WattDaysRequired / CHARGE_WATT_DAYS)) * 100f:F0}%." : status;
+            if (IsChargingUp && !PowerTrader.PowerOn)
+            {
+                status += $"\nNot enough power. Charge rate is set to {ChargeRateComp.Watts:F0} watts.\nTry lowering the charge rate.\nTip: Build at least {Mathf.Ceil(CHARGE_WATT_DAYS/600f):F0} batteries and set charge rate to max.";
+            }
             return base.GetInspectString() + $"\n{status}";
         }
 
@@ -195,7 +258,8 @@ namespace AntimatterAnnihilation.Buildings
             base.ExposeData();
             Scribe_TargetInfo.Look(ref localTarget, "localTarget");
             Scribe_Values.Look(ref CooldownTicks, "cooldownTicks");
-            Scribe_Values.Look(ref ChargingTicks, "chargeTicks");
+            Scribe_Values.Look(ref PoweringUpTicks, "powerUpTicks");
+            Scribe_Values.Look(ref WattDaysRequired, "chargingUpTicks");
 
             Scribe_Deep.Look(ref gun, "gun", Array.Empty<object>());
 
@@ -218,30 +282,36 @@ namespace AntimatterAnnihilation.Buildings
 
             beam?.Tick();
 
-            if (IsCharging)
+            if (!IsChargingUp && IsPoweringUp)
             {
-                ChargingTicks++;
-                if(ChargingTicks == TICKS_BEFORE_FIRING_LASER)
+                PoweringUpTicks++;
+                if(PoweringUpTicks == TICKS_BEFORE_FIRING_LASER)
                 {
                     StartFireLaser();
                 }
 
-                if (ChargingTicks == CHARGE_TICKS)
+                if (PoweringUpTicks == POWER_UP_TICKS)
                 {
                     StartRealAttack();
+                }
+            }
+
+            PowerTrader.PowerOutput = IsChargingUp ? -Mathf.Abs(ChargeRateComp.Watts) : -Mathf.Abs(IDLE_WATTS);
+            if (IsChargingUp)
+            {
+                if (PowerTrader.PowerOn)
+                {
+                    WattDaysRequired -= Mathf.Abs(PowerTrader.PowerOutput * CompPower.WattsToWattDaysPerTick); // Turns watts into watt-days per tick.
+                    if (WattDaysRequired <= 0)
+                    {
+                        StartPowerUpSequence();
+                    }
                 }
             }
             if (IsOnCooldown)
             {
                 CooldownTicks--;
             }
-
-            // If charging up or firing, slow down the game to 1x speed to make the audio match up with the visuals.
-            // This forces the player to sit through ~25 seconds of real-time audio, but otherwise the audio doesn't make any sense.
-            //if (isFiringBeam || IsCharging)
-            //{
-            //    Find.TickManager.slower.SignalForceNormalSpeedShort();
-            //}
 
             if (soundSustainer != null)
             {
