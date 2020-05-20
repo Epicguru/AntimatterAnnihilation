@@ -15,7 +15,9 @@ namespace AntimatterAnnihilation.Buildings
     public class Building_Megumin : Building
     {
         [TweakValue("AntimatterAnnihilation")]
-        public static bool DoMeguminSolarFlare = true;
+        public static bool DoSolarFlare = true;
+        [TweakValue("AntimatterAnnihilation", 0f, 1f)]
+        public static float EasterEggChance = 0.1f;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
         public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
@@ -209,7 +211,7 @@ namespace AntimatterAnnihilation.Buildings
             localTarget = null;
 
             // Spawn a solar flare event on the map that it was fired from.
-            if (DoMeguminSolarFlare)
+            if (DoSolarFlare)
             {
                 IncidentParms param = new IncidentParms();
                 param.forced = true;
@@ -234,6 +236,13 @@ namespace AntimatterAnnihilation.Buildings
         {
             beam.IsActive = false;
             soundSustainer?.End();
+        }
+
+        private void DoEasterEgg()
+        {
+            // It's a trash anime btw. Genuine waste of time.
+            // You're better off watching JoJo or Cowboy Bebob or KillLaKill.
+            AADefOf.Explosion_Voice_AA.PlayOneShotOnCamera();
         }
 
         internal void OnStrikeEnd(CustomOrbitalStrike strike)
@@ -285,7 +294,13 @@ namespace AntimatterAnnihilation.Buildings
             if (!IsChargingUp && IsPoweringUp)
             {
                 PoweringUpTicks++;
-                if(PoweringUpTicks == TICKS_BEFORE_FIRING_LASER)
+
+                if (PoweringUpTicks == TICKS_BEFORE_FIRING_LASER - 40 && Rand.Chance(EasterEggChance))
+                {
+                    DoEasterEgg();
+                }
+
+                if (PoweringUpTicks == TICKS_BEFORE_FIRING_LASER)
                 {
                     StartFireLaser();
                 }

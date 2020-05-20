@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Verse;
 
-namespace InGameWiki
+namespace InGameWiki.Internal
 {
     internal static class InspectorPatch
     {

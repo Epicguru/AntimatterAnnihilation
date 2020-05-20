@@ -59,8 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompoundWikiElement.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="InspectorPatch.cs" />
+    <Compile Include="Internal\Extensions.cs" />
+    <Compile Include="Internal\InspectorPatch.cs" />
+    <Compile Include="Internal\UI_ImageInspector.cs" />
     <Compile Include="ModWiki.cs" />
     <Compile Include="PageParser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,5 +73,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

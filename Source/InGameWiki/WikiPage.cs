@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using InGameWiki.Internal;
 using UnityEngine;
 using Verse;
 
@@ -111,9 +112,10 @@ namespace InGameWiki
             bool drawnIcon = Icon != null;
             if (drawnIcon)
             {
-                if (Widgets.ButtonImage(new Rect(maxBounds.x + PADDING, maxBounds.y + PADDING, 128, 128), Icon, Color.white, Color.white * 0.8f, false))
+                // Draws icon and opens zoom view window if clicked.
+                if (Widgets.ButtonImageFitted(new Rect(maxBounds.x + PADDING, maxBounds.y + PADDING, 128, 128), Icon, Color.white, Color.white * 0.8f))
                 {
-                    // TODO bring up larger version of image.
+                    Find.WindowStack?.Add(new UI_ImageInspector(Icon));
                 }
             }
 
@@ -125,7 +127,6 @@ namespace InGameWiki
                 float w = !drawnIcon ? maxBounds.width - PADDING * 2 : maxBounds.width - PADDING * 2 - 128;
                 Widgets.Label(new Rect(x, maxBounds.y + PADDING, w, 34), Title);
             }
-
 
             // Short description.
             if(ShortDescription != null)

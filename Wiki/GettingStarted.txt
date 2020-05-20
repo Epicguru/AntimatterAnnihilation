@@ -38,3 +38,4 @@ It is also an essential ingredient in many other recipies in this mod.#
 #If you have been playing for a while with this mod, you have probably been raided by an Ultratech division. This faction wants to keep antimatter technology all to themselves, and won't hesitate to destroy you for learning it's secret.
 Ultratech fighters carry seriously powerful gear, implants and weapons, and also carry unique uncraftable items.
 Want some more of their tech? Try attacking one of their outposts, if you think that your colonists are up for the challenge. Be warned, Ultratech outposts are very heavily guarded and won't go down without a fight.#
+~UltratechFaction_AA~

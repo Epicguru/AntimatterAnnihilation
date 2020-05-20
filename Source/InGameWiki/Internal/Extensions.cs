@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace InGameWiki
+namespace InGameWiki.Internal
 {
     public static class Extensions
     {

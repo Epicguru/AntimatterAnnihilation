@@ -8,9 +8,9 @@
         <subSounds>
         <li>
             <grains>
-            <li Class="AudioGrain_Folder">
-                <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
-            </li>
+                <li Class="AudioGrain_Folder">
+                    <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
+                </li>
             </grains>      
             <volumeRange>80~80</volumeRange>      
             <pitchRange>0.8516304~1.254348</pitchRange>
@@ -25,12 +25,30 @@
         <subSounds>
         <li>
             <grains>
-            <li Class="AudioGrain_Folder">
-                <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
-            </li>
+                <li Class="AudioGrain_Folder">
+                    <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
+                </li>
             </grains>      
             <volumeRange>90~90</volumeRange>      
             <pitchRange>0.4~0.45</pitchRange>
+        </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Explosion_Voice_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+        <li>
+            <onCamera>true</onCamera>
+            <grains>
+                <li Class="AudioGrain_Folder">
+                    <clipFolderPath>AntimatterAnnihilation/ExplosionVoice</clipFolderPath>
+                </li>
+            </grains>      
+            <volumeRange>100~100</volumeRange>      
+            <pitchRange>1~1</pitchRange>
         </li>
         </subSounds>
     </SoundDef>

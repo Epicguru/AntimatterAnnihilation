@@ -19,6 +19,7 @@ namespace AntimatterAnnihilation.Utils
         public static IncidentDef SolarFlare;
         public static ThingDef Mote_MeguminBeam_AA;
         public static SoundDef Explosion_Antimatter_Large_AA;
+        public static SoundDef Explosion_Voice_AA;
         public static SoundDef LaserStrike_AA;
     }
 }
