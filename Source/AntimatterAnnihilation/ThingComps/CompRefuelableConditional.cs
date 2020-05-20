@@ -1,5 +1,6 @@
 ﻿using RimWorld;
 using System;
+using System.Reflection;
 using Verse;
 
 namespace AntimatterAnnihilation.ThingComps
@@ -10,6 +11,8 @@ namespace AntimatterAnnihilation.ThingComps
     [StaticConstructorOnStartup]
     public class CompRefuelableConditional : CompRefuelable
     {
+        private static FieldInfo fInfo;
+
         public Func<CompRefuelableConditional, bool> FuelConsumeCondition;
         public event Action<CompRefuelableConditional> OnRefueled;
         public event Action<CompRefuelableConditional> OnRunOutOfFuel;
@@ -42,6 +45,14 @@ namespace AntimatterAnnihilation.ThingComps
             }
 
             base.ReceiveCompSignal(signal);
+        }
+
+        public void SetFuelLevel(float fuelLevel)
+        {
+            if (fInfo == null)
+                fInfo = typeof(CompRefuelable).GetField("fuel", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            fInfo.SetValue(this, fuelLevel);
         }
     }
 }

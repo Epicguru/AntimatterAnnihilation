@@ -19,6 +19,10 @@ namespace AntimatterAnnihilation.Verbs
             beam.DamageAmountRange = new IntRange(35, 39); // Applied up to 10 times per tick, that's a lot of damage.
             beam.CorpseDamageAmountRange = new IntRange(10, 15); // Does less damage to corpses, so that there is something left over after the devastation, although this may be OP (killing entire army and keeping their gear).
             beam.StartStrike();
+
+            // Spawn huge explosion once the beam fires.
+            GenExplosion.DoExplosion(this.currentTarget.Cell, this.caster.Map, Building_Megumin.EXPLOSION_RADIUS, AADefOf.EnergyBurn_AA, this.caster, Building_Megumin.EXPLOSION_DAMAGE, Building_Megumin.EXPLOSION_PEN, AADefOf.Explosion_Antimatter_Large_AA);
+
             return true;
         }
 

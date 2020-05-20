@@ -18,4 +18,21 @@
         </subSounds>
     </SoundDef>
 
+    <SoundDef>
+        <defName>Explosion_Antimatter_Large_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+        <li>
+            <grains>
+            <li Class="AudioGrain_Folder">
+                <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
+            </li>
+            </grains>      
+            <volumeRange>90~90</volumeRange>      
+            <pitchRange>0.4~0.45</pitchRange>
+        </li>
+        </subSounds>
+    </SoundDef>
+
 </Defs>

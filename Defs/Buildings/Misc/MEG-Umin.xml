@@ -91,11 +91,14 @@ Firing the beam of energy creates a huge electromagnetic pulse on both the area 
         <label>power beam</label>
         <thingClass>AntimatterAnnihilation.Attacks.CustomOrbitalStrike</thingClass>
         <comps>
-        <li Class="CompProperties_OrbitalBeam">
-            <width>8</width>
-            <color>(255, 205, 195, 242)</color>
-            <sound>OrbitalBeam</sound>
-        </li>
+            <li Class="CompProperties_OrbitalBeam">
+                <width>12</width>
+                <color>(255, 198, 0, 242)</color>
+                <sound>OrbitalBeam</sound>
+            </li>
+            <li Class="CompProperties_CameraShaker">
+                <mag>0.06</mag>
+            </li>
         </comps>
     </ThingDef>
 
