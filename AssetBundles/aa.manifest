@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 384875797
+CRC: 3523691228
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b119182a204ffdd0622c1e96b9d3b850
+    Hash: 43739579bccb7c4c045db2bd28d3c474
   TypeTreeHash:
     serializedVersion: 2
     Hash: 63e4cc610365591972cf0b948686b9f3
@@ -32,6 +32,7 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 Assets:
+- Assets/UpBeam.prefab
 - Assets/Shaders/OuterPrefab.prefab
 - Assets/Shaders/Out Beam.prefab
 - Assets/Shaders/In Beam.prefab

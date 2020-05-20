@@ -14,14 +14,17 @@ namespace AntimatterAnnihilation.Verbs
             beam.instigator = this.caster;
             beam.weaponDef = ((base.EquipmentSource != null) ? base.EquipmentSource.def : null);
             beam.DamageDef = AADefOf.EnergyBurn_AA;
-            beam.UpdatesPerTick = 10;
+            beam.UpdatesPerTick = 18;
             beam.ArmorPen = 0.95f; // To make it viable against mechanoids, who have 200% heat armour.
-            beam.DamageAmountRange = new IntRange(35, 39); // Applied up to 10 times per tick, that's a lot of damage.
+            beam.DamageAmountRange = new IntRange(35, 39); // Applied up to 18 times per tick, that's a lot of damage.
             beam.CorpseDamageAmountRange = new IntRange(10, 15); // Does less damage to corpses, so that there is something left over after the devastation, although this may be OP (killing entire army and keeping their gear).
             beam.StartStrike();
 
             // Spawn huge explosion once the beam fires.
-            GenExplosion.DoExplosion(this.currentTarget.Cell, this.caster.Map, Building_Megumin.EXPLOSION_RADIUS, AADefOf.EnergyBurn_AA, this.caster, Building_Megumin.EXPLOSION_DAMAGE, Building_Megumin.EXPLOSION_PEN, AADefOf.Explosion_Antimatter_Large_AA);
+            GenExplosion.DoExplosion(currentTarget.Cell, caster.Map, Building_Megumin.EXPLOSION_RADIUS, AADefOf.EnergyBurn_AA, caster, Building_Megumin.EXPLOSION_DAMAGE, Building_Megumin.EXPLOSION_PEN, AADefOf.Explosion_Antimatter_Large_AA);
+
+            if(caster != null)
+                beam.OnStrikeOver += ((Building_Megumin)caster).OnStrikeEnd;
 
             return true;
         }

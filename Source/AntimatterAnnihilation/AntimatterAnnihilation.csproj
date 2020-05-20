@@ -99,6 +99,7 @@
     <Compile Include="Content.cs" />
     <Compile Include="Damage\DamageWorker_GalvaPain.cs" />
     <Compile Include="Effects\SpawnedEffect.cs" />
+    <Compile Include="Effects\UpBeam.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />

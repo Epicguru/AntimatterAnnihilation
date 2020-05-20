@@ -28,6 +28,8 @@ namespace AntimatterAnnihilation.Effects
 
             this.Rotation = rot;
             this.Position = pos;
+
+            base.AddRenderers(beam);
         }
 
         public override void Tick()

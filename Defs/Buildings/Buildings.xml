@@ -69,6 +69,7 @@
           <ComponentIndustrial>18</ComponentIndustrial>
           <ComponentSpacer>3</ComponentSpacer>
       </costList>
+      <drawOffscreen>true</drawOffscreen>
       <hasInteractionCell>True</hasInteractionCell>
       <interactionCellOffset>(0,0,-5)</interactionCellOffset>
       <comps>
@@ -111,6 +112,7 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
     <rotatable>true</rotatable>
     <defaultPlacingRot>East</defaultPlacingRot>
     <size>(12, 12)</size>
+    <drawOffscreen>true</drawOffscreen>
     <costList>
       <Steel>1100</Steel>
       <Gold>50</Gold>

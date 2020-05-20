@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <SoundDef>
+        <defName>LaserStrike_AA</defName>  
+        <sustain>true</sustain>
+        <context>MapOnly</context>
+        <maxSimultaneous>2</maxSimultaneous>
+        <priorityMode>PrioritizeNearest</priorityMode>
+        <subSounds>
+            <li>
+                <onCamera>true</onCamera> 
+                <tempoAffectedByGameSpeed>true</tempoAffectedByGameSpeed>     
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>AntimatterAnnihilation/HugeLaserStrike</clipFolderPath>
+                    </li>
+                </grains>
+                <sustainLoop>false</sustainLoop>     
+                <volumeRange>40~40</volumeRange>      
+                <pitchRange>1~1</pitchRange>      
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

@@ -9,6 +9,7 @@ namespace AntimatterAnnihilation
         public static GameObject EnergyBallPrefab;
         public static GameObject EnergyBeamInPrefab;
         public static GameObject EnergyBeamOutPrefab;
+        public static GameObject UpBeamPrefab;
 
         public static Texture2D Expand, Collapse;
         public static Texture2D PowerNetGraph;
@@ -21,6 +22,7 @@ namespace AntimatterAnnihilation
             EnergyBallPrefab = bundle.LoadAsset<GameObject>("OuterPrefab");
             EnergyBeamInPrefab = bundle.LoadAsset<GameObject>("In Beam");
             EnergyBeamOutPrefab = bundle.LoadAsset<GameObject>("Out Beam");
+            UpBeamPrefab = bundle.LoadAsset<GameObject>("UpBeam");
 
             Expand = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Expand");
             Collapse = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Collapse");

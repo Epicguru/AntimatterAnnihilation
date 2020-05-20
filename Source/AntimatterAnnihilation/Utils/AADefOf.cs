@@ -16,6 +16,8 @@ namespace AntimatterAnnihilation.Utils
         public static ThingDef AntimatterCanister_AA;
         public static ThingDef AntimatterComposite_AA;
         public static ThingDef CustomOrbitalStrike_AA;
+        public static ThingDef Mote_MeguminBeam_AA;
         public static SoundDef Explosion_Antimatter_Large_AA;
+        public static SoundDef LaserStrike_AA;
     }
 }

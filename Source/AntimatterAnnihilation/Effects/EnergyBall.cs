@@ -23,6 +23,8 @@ namespace AntimatterAnnihilation.Effects
             ball.position = pos;
             ball.localEulerAngles = new Vector3(0f, rot, 90f);
             ball.localScale = Vector3.zero;
+
+            base.AddRenderers(ball);
         }
 
         public override void Tick()

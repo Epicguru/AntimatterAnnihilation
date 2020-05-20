@@ -7,9 +7,9 @@
         <description>Fires a beam of energy up to an ancient geostationary satelite, where it is reflected towards a specific coordinate on the planet surface.
 Firing the beam of energy creates a huge electromagnetic pulse on both the area it is fired from and also the area it impacts on, temporarily shutting down all electronics.</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Buildings/ReactorInjector_east</texPath>
+            <texPath>AntimatterAnnihilation/Buildings/M3G_UMIN</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(2,2)</drawSize>
+            <drawSize>(2,4)</drawSize>
         </graphicData>
         <rotatable>false</rotatable>
         <passability>Impassable</passability>
@@ -100,6 +100,21 @@ Firing the beam of energy creates a huge electromagnetic pulse on both the area 
                 <mag>0.06</mag>
             </li>
         </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_MeguminBeam_AA</defName>
+        <graphicData>
+            <texPath>Things/Mote/PowerBeam</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <drawOffscreen>true</drawOffscreen>
+        <mote>
+            <fadeInTime>0.5</fadeInTime>
+            <solidTime>4.8</solidTime>
+            <fadeOutTime>1.0</fadeOutTime>
+        </mote>
     </ThingDef>
 
 </Defs>

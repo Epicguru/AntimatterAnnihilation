@@ -1,4 +1,6 @@
-﻿using RimWorld;
+﻿using AntimatterAnnihilation.Utils;
+using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -17,6 +19,7 @@ namespace AntimatterAnnihilation.Attacks
 		private static FieldInfo fieldInfo;
 		private static FieldInfo fieldInfo2;
 
+        public event Action<CustomOrbitalStrike> OnStrikeOver;
         public float Radius = 15f;
         public int UpdatesPerTick = 4;
 		public float ArmorPen = 0.35f;
@@ -27,12 +30,21 @@ namespace AntimatterAnnihilation.Attacks
 		public override void StartStrike()
 		{
 			base.StartStrike();
-			MoteMaker.MakePowerBeamMote(base.Position, base.Map);
+			MakeCustomPowerBeamMote(base.Position, base.Map);
 
             SetAngle(0);
         }
 
-        public void SetAngle(float a)
+        public static void MakeCustomPowerBeamMote(IntVec3 cell, Map map)
+        {
+            Mote mote = (Mote)ThingMaker.MakeThing(AADefOf.Mote_MeguminBeam_AA);
+            mote.exactPosition = cell.ToVector3Shifted();
+            mote.Scale = 90f;
+            mote.rotationRate = 1.2f;
+            GenSpawn.Spawn((Thing)mote, cell, map, WipeMode.Vanish);
+        }
+
+		public void SetAngle(float a)
         {
             // Use reflection to set angle to 0 (straight down.)
             if (fieldInfo == null)
@@ -49,7 +61,10 @@ namespace AntimatterAnnihilation.Attacks
 		{
 			base.Tick();
 			if (base.Destroyed)
+            {
+                OnStrikeOver?.Invoke(this);
                 return;
+			}
 			
 			for (int i = 0; i < UpdatesPerTick; i++)
 			{
