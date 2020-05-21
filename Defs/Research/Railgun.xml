@@ -2,21 +2,22 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>R_ReactorInjector_AA</defName>
-        <label>reactor injector</label>
-        <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
-        <baseCost>1600</baseCost>
-        <techLevel>Spacer</techLevel>
+        <defName>Railgun_AA</defName>
+        <label>antimatter railgun</label>
+        <description>Based on the design of the Thunder Gun, this railgun uses advanced AT fields to accelerate antimatter to the speed of light before launching it towards an unfortunate target.</description>
+        <baseCost>4200</baseCost>
+        <techLevel>Ultra</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
+            <li>ThunderGun_AA</li>
             <li>ATFields_AA</li>
         </prerequisites>        
         <researchViewX>3.00</researchViewX>
-        <researchViewY>1.85</researchViewY>
+        <researchViewY>4.90</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

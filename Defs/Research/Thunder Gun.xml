@@ -2,10 +2,11 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>AntimatterComposite_AA</defName>
-        <label>antimatter composite</label>
-        <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
-        <baseCost>3500</baseCost>
+        <defName>ThunderGun_AA</defName>
+        <label>thunder gun</label>
+        <description>This turret design is stolen straight from the Ultratech faction.
+The turret does not require very advanced materials to construct it, but requires Uranium slugs to be replaced after firing.</description>
+        <baseCost>1400</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -13,10 +14,10 @@
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>ParticleAccelerators_AA</li>
+            <li>R_Turrets_AA</li>
         </prerequisites>        
         <researchViewX>2.00</researchViewX>
-        <researchViewY>1.20</researchViewY>
+        <researchViewY>4.90</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

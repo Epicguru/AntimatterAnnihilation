@@ -85,7 +85,7 @@
             <turretBurstCooldownTime>8</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
-            <li>HeavyTurrets</li>
+            <li>ThunderGun_AA</li>
         </researchPrerequisites>
     </ThingDef>
 

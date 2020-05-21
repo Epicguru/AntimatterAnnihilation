@@ -2,11 +2,11 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>ParticleAccelerators_AA</defName>
-        <label>particle accelerator</label>
-        <description>Research how to build and operate a particle accelerator, which produces Antimatter Canisters.</description>
-        <baseCost>2100</baseCost>
-        <techLevel>Industrial</techLevel>
+        <defName>R_Turrets_AA</defName>
+        <label>turrets</label>
+        <description>Begin researching how antimatter technology can be used to create stationary defences.</description>
+        <baseCost>300</baseCost>
+        <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
@@ -14,9 +14,9 @@
         </requiredResearchFacilities>
         <prerequisites>
             <li>Entry_AA</li>
-        </prerequisites>
+        </prerequisites>        
         <researchViewX>1.00</researchViewX>
-        <researchViewY>2.90</researchViewY>
+        <researchViewY>4.90</researchViewY>
     </ResearchProjectDef>
 
 </Defs>
