@@ -8,6 +8,8 @@ namespace InGameWiki
 {
     public class WikiPage
     {
+        public static bool DebugMode = false;
+
         public static WikiPage CreateFromThingDef(ThingDef thing)
         {
             if (thing == null)
@@ -70,6 +72,17 @@ namespace InGameWiki
                 }
 
                 p.Elements.Add(research);
+            }
+
+            if (DebugMode)
+            {
+                if (thing.weaponTags != null)
+                {
+                    foreach (var tag in thing.weaponTags)
+                    {
+                        p.Elements.Add(new WikiElement() { Text = $"WeaponTag: {tag}" });
+                    }
+                }
             }
 
             p.Def = thing;

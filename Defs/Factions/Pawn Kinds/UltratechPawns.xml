@@ -6,14 +6,14 @@
         <defaultFactionType>UltratechEnemy_AA</defaultFactionType>
         <chemicalAddictionChance>0.1</chemicalAddictionChance>
         <invNutrition>2.55</invNutrition>
-        <itemQuality>Good</itemQuality>
+        <itemQuality>Normal</itemQuality>
         <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
         <maxGenerationAge>55</maxGenerationAge>
         <combatEnhancingDrugsChance>0.25</combatEnhancingDrugsChance>
         <combatEnhancingDrugsCount>0~3</combatEnhancingDrugsCount>
         <biocodeWeaponChance>0.2</biocodeWeaponChance>
         <inventoryOptions>
-            <skipChance>0.9</skipChance> <!-- Chance to have Hyper Components: 1 in 10 -->
+            <skipChance>0.80</skipChance> <!-- Chance to have Hyper Components: 2 in 10 -->
             <subOptionsChooseOne>
                 <li>
                     <thingDef>HyperComponent_AA</thingDef>
@@ -133,9 +133,10 @@
         </apparelTags>
         <apparelMoney>900~1900</apparelMoney>
         <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
-        <weaponMoney>700~2700</weaponMoney>
+        <weaponMoney>2000~4000</weaponMoney>
         <weaponTags>
-            <li>SniperRifle</li> <!-- TODO add antimatter sniper rifle and weapon tag -->
+            <li>SniperRifle</li>
+            <li>SniperRifleSpacer</li>
         </weaponTags>
         <techHediffsRequired>
             <li>BionicEye</li>
