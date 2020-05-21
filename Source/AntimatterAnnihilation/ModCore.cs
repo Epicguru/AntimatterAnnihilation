@@ -10,6 +10,9 @@ namespace AntimatterAnnihilation
     {
         public static ModCore Instance { get; private set; }
 
+        public ModWiki Wiki { get; internal set; }
+        public Harmony HarmonyInstance { get; private set; }
+
         public ModCore(ModContentPack content) : base(content)
         {
             Instance = this;
@@ -18,11 +21,8 @@ namespace AntimatterAnnihilation
             AddHook();
             Trace("Added hook.");
 
-            Harmony harmony = new Harmony("epicguru.AntimatterAnnihilation");
-            harmony.PatchAll();
-            Log($"Patched {harmony.GetPatchedMethods().Count()} methods.");
-
-            ModWiki.Patch(harmony);
+            PatchAll();
+            Log($"Patched {HarmonyInstance.GetPatchedMethods().Count()} methods.");
         }
 
         private void AddHook()
@@ -32,6 +32,12 @@ namespace AntimatterAnnihilation
             Object.DontDestroyOnLoad(go);
 
             go.AddComponent<Hook>();
+        }
+
+        private void PatchAll()
+        {
+            HarmonyInstance = new Harmony("epicguru.AntimatterAnnihilation");
+            HarmonyInstance.PatchAll();
         }
 
         public static void Log(string msg)

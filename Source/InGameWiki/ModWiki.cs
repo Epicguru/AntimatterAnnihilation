@@ -17,8 +17,20 @@ namespace InGameWiki
             }
         }
         private static List<ModWiki> allWikis = new List<ModWiki>();
-        
-        public static void Patch(Harmony harmonyInstance)
+
+        private static bool hasPatched = false;
+
+        internal static void EnsurePatched()
+        {
+            if (hasPatched)
+                return;
+
+            Harmony instance = new Harmony("co.uk.epicguru.ingamewiki");
+            Patch(instance);
+            hasPatched = true;
+        }
+
+        private static void Patch(Harmony harmonyInstance)
         {
             if (harmonyInstance == null)
                 return;
@@ -59,7 +71,7 @@ namespace InGameWiki
             if (canPatch)
             {
                 harmonyInstance.Patch(method, postfix: patch);
-                Log.Message($"Patched dialog window for in-game wiki (caused by {harmonyInstance.Id}).");
+                Log.Message("Patched game for in-game wiki.");
             }
         }
 
@@ -82,6 +94,8 @@ namespace InGameWiki
             wiki.Mod = mod;
 
             allWikis.Add(wiki);
+
+            EnsurePatched();
 
             return wiki;
         }

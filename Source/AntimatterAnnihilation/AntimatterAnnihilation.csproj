@@ -124,6 +124,7 @@
     <Compile Include="Utils\RecoilManager.cs" />
     <Compile Include="Verbs\Verb_Megumin.cs" />
     <Compile Include="Verbs\Verb_Railgun.cs" />
+    <Compile Include="Wiki.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

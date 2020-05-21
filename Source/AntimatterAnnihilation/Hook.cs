@@ -13,8 +13,6 @@ namespace AntimatterAnnihilation
     {
         public static Hook Instance { get; private set; }
 
-        private ModWiki wiki;
-
         private void Awake()
         {
             Instance = this;
@@ -38,13 +36,7 @@ namespace AntimatterAnnihilation
 
                 if (openWiki)
                 {
-                    if (wiki == null)
-                    {
-                        wiki = ModWiki.Create(ModCore.Instance);
-                        wiki.WikiTitle = "Antimatter Annihilation";
-                    }
-
-                    WikiWindow.Open(this.wiki);
+                    WikiWindow.Open(ModCore.Instance.Wiki);
                 }
 
                 if (Find.CurrentMap != null && Current.ProgramState == ProgramState.Playing)

@@ -13,8 +13,9 @@ Others can only be obtained as drops from Ultratech raiders.#
 
 #!Craftable (normal)#
 @AntimatterBlaster_AA@
-@AntimatterRifle_AA@
 @AntimatterSMG_AA@
+@AntimatterRifle_AA@
+@AntimatterSniperRifle_AA@
 
 #!Craftable (explosive)#
 @AntimatterGrenades_AA@
