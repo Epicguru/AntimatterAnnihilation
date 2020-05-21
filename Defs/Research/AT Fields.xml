@@ -2,10 +2,10 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>AntimatterComposite_AA</defName>
-        <label>antimatter composite</label>
-        <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
-        <baseCost>3500</baseCost>
+        <defName>ATFields_AA</defName>
+        <label>advanced AT fields</label>
+        <description>Gain a deeper understanding of AT fields, which allow antimatter to be suspended in a stable manner.</description>
+        <baseCost>1900</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -16,7 +16,7 @@
             <li>ParticleAccelerators_AA</li>
         </prerequisites>        
         <researchViewX>2.00</researchViewX>
-        <researchViewY>1.85</researchViewY>
+        <researchViewY>1.30</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

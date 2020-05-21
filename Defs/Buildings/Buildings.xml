@@ -144,9 +144,9 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
         <glowColor>(51,124,193,255)</glowColor>
       </li>
     </comps>
-    <!-- <researchPrerequisites>
-      <li>SomeResearch</li>
-    </researchPrerequisites> -->
+    <researchPrerequisites>
+      <li>R_Reactor_AA</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
@@ -192,9 +192,9 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
-    <!-- <researchPrerequisites>
-      <li>SomeResearch</li>
-    </researchPrerequisites> -->
+    <researchPrerequisites>
+      <li>R_ReactorInjector_AA</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
@@ -226,9 +226,9 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <transmitsPower>true</transmitsPower>
       </li>
     </comps>
-    <!-- <researchPrerequisites>
-      <li>SomeResearch</li>
-    </researchPrerequisites> -->
+    <researchPrerequisites>
+      <li>R_Reactor_AA</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">

@@ -146,6 +146,10 @@ namespace AntimatterAnnihilation.Buildings
             }
             else if (IsPoweringUp)
             {
+                cmd.Disable("CannotFire".Translate() + $": Already powering up.");
+            }
+            else if (IsChargingUp)
+            {
                 cmd.Disable("CannotFire".Translate() + $": Already charging to fire.");
             }
             else if (!PowerTrader.PowerOn)

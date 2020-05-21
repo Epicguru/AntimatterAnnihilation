@@ -15,10 +15,6 @@
         <prerequisites>
             <li>ParticleAccelerators_AA</li>
         </prerequisites>        
-        <!-- <hiddenPrerequisites>
-            <li>SterileMaterials</li>
-            <li>ComplexFurniture</li>
-        </hiddenPrerequisites> -->
         <researchViewX>2.00</researchViewX>
         <researchViewY>4.15</researchViewY>
     </ResearchProjectDef>

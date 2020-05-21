@@ -12,10 +12,6 @@
         <prerequisites>
             <li>Entry_AA</li>
         </prerequisites>        
-        <!-- <hiddenPrerequisites>
-            <li>SterileMaterials</li>
-            <li>ComplexFurniture</li>
-        </hiddenPrerequisites> -->
         <researchViewX>1.00</researchViewX>
         <researchViewY>0.55</researchViewY>
     </ResearchProjectDef>

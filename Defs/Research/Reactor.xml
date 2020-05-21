@@ -2,10 +2,10 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>RangedMedium_AA</defName>
-        <label>antimatter short range weapons</label>
-        <description>Allows you to craft various short to medium range antimatter guns.</description>
-        <baseCost>2200</baseCost>
+        <defName>R_Reactor_AA</defName>
+        <label>reactor</label>
+        <description>Learn how to construct an Antimatter Reactor, the ultimate source of energy!\nLaser beams included!</description>
+        <baseCost>3600</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
@@ -13,10 +13,10 @@
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>ParticleAccelerators_AA</li>
+            <li>R_ReactorInjector_AA</li>
         </prerequisites>        
-        <researchViewX>2.00</researchViewX>
-        <researchViewY>2.50</researchViewY>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>1.30</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

@@ -16,11 +16,7 @@
         </requiredResearchFacilities>
         <prerequisites>
             <li>MicroelectronicsBasics</li>
-        </prerequisites>        
-        <!-- <hiddenPrerequisites>
-            <li>SterileMaterials</li>
-            <li>ComplexFurniture</li>
-        </hiddenPrerequisites> -->
+        </prerequisites>
         <researchViewX>0.00</researchViewX>
         <researchViewY>1.55</researchViewY>
     </ResearchProjectDef>
