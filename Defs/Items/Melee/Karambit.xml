@@ -25,6 +25,12 @@
             <ComponentIndustrial>2</ComponentIndustrial>
         </costList>
         <equippedAngleOffset>180</equippedAngleOffset>
+        <recipeMaker>
+            <researchPrerequisite>MeleeIndustrialAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+        </recipeMaker>
         <tools>
             <li>
                 <label>handle</label>
@@ -54,11 +60,6 @@
                 <cooldownTime>0.6</cooldownTime>
             </li>
         </tools>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>6</Crafting>
-            </skillRequirements>
-        </recipeMaker>
     </ThingDef>
 
 </Defs>

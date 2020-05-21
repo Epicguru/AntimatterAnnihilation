@@ -2,25 +2,26 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>ParticleAccelerators_AA</defName>
-        <label>particle accelerator</label>
-        <description>Research how to build and operate a particle accelerator, which produces Antimatter Canisters.</description>
-        <baseCost>2100</baseCost>
-        <techLevel>Industrial</techLevel>
+        <defName>MeleeSpacerAdvanced_AA</defName>
+        <label>spacer melee weapons</label>
+        <description>Using antimatter technology and materials allows you to craft even more powerful melee weapons that have special properties.</description>
+        <baseCost>2500</baseCost>
+        <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>Entry_AA</li>
+            <li>MeleeIndustrialAdvanced_AA</li>
+            <li>AntimatterComposite_AA</li>
         </prerequisites>        
         <!-- <hiddenPrerequisites>
             <li>SterileMaterials</li>
             <li>ComplexFurniture</li>
         </hiddenPrerequisites> -->
-        <researchViewX>1.00</researchViewX>
-        <researchViewY>2.55</researchViewY>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>0.55</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

@@ -2,25 +2,25 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>ParticleAccelerators_AA</defName>
-        <label>particle accelerator</label>
-        <description>Research how to build and operate a particle accelerator, which produces Antimatter Canisters.</description>
-        <baseCost>2100</baseCost>
-        <techLevel>Industrial</techLevel>
+        <defName>AntimatterComposite_AA</defName>
+        <label>antimatter composite</label>
+        <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
+        <baseCost>3500</baseCost>
+        <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>Entry_AA</li>
+            <li>ParticleAccelerators_AA</li>
         </prerequisites>        
         <!-- <hiddenPrerequisites>
             <li>SterileMaterials</li>
             <li>ComplexFurniture</li>
         </hiddenPrerequisites> -->
-        <researchViewX>1.00</researchViewX>
-        <researchViewY>2.55</researchViewY>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.85</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

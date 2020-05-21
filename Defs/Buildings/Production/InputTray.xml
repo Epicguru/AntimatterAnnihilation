@@ -46,7 +46,7 @@
         <surfaceType>Item</surfaceType>
         <canOverlapZones>false</canOverlapZones>
         <researchPrerequisites>
-            <!-- <li>ComplexFurniture</li> -->
+            <li>Entry_AA</li>
         </researchPrerequisites>
     </ThingDef>
 

@@ -21,6 +21,7 @@
         <equippedAngleOffset>-30</equippedAngleOffset>
         <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
         <recipeMaker>
+            <researchPrerequisite>MeleeIndustrialAdvanced_AA</researchPrerequisite>
             <skillRequirements>
                 <Crafting>6</Crafting>
             </skillRequirements>

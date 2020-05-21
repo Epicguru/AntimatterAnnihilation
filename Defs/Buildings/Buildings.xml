@@ -258,9 +258,9 @@ Also has the ability to switch machines on or off remotely.</description>
         <transmitsPower>false</transmitsPower>
       </li>
     </comps>
-    <!-- <researchPrerequisites>
-      <li>SomeResearch</li>
-    </researchPrerequisites> -->
+    <researchPrerequisites>
+      <li>Entry_AA</li>
+    </researchPrerequisites>
   </ThingDef>
 
   </Defs>

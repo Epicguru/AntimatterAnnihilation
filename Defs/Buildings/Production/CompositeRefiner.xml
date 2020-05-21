@@ -32,9 +32,9 @@ See the in-game wiki for more information and how to use.</description>
             <transmitsPower>false</transmitsPower>
         </li>
         </comps>
-        <!-- <researchPrerequisites>
-            <li>SomeResearch</li>
-        </researchPrerequisites> -->
+        <researchPrerequisites>
+            <li>AntimatterComposite_AA</li>
+        </researchPrerequisites>
     </ThingDef>
 
 </Defs>

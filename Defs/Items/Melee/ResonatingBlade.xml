@@ -28,6 +28,12 @@
             <ComponentSpacer>6</ComponentSpacer>
         </costList>
         <equippedAngleOffset>0</equippedAngleOffset>
+        <recipeMaker>
+            <researchPrerequisite>MeleeSpacerAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>14</Crafting>
+            </skillRequirements>
+        </recipeMaker>
         <tools>
             <li>
                 <label>handle</label>
@@ -57,11 +63,6 @@
                 <cooldownTime>1.1</cooldownTime>
             </li>
         </tools>
-        <recipeMaker>
-            <skillRequirements>
-                <Crafting>14</Crafting>
-            </skillRequirements>
-        </recipeMaker>
     </ThingDef>
 
 </Defs>
