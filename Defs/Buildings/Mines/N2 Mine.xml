@@ -18,6 +18,9 @@
             <trapPeacefulWildAnimalsSpringChanceFactor>0</trapPeacefulWildAnimalsSpringChanceFactor>
         </building>
         <designationCategory>Antimatter</designationCategory>
+        <researchPrerequisites>
+            <li>AntimatterExplosives_AA</li>
+        </researchPrerequisites>
         <comps>
             <li Class="AntimatterAnnihilation.ThingComps.CompProperties_ExplosiveCustom">
                 <explosiveRadius>16.9</explosiveRadius>

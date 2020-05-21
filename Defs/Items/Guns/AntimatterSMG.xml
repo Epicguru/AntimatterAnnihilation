@@ -28,6 +28,7 @@ Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact 
             <ComponentSpacer>2</ComponentSpacer>
         </costList>
         <recipeMaker>
+            <researchPrerequisite>RangedMedium_AA</researchPrerequisite>
             <skillRequirements>
                 <Crafting>8</Crafting>
                 <Intellectual>4</Intellectual>

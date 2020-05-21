@@ -17,6 +17,7 @@
             <RangedWeapon_Cooldown>6.5</RangedWeapon_Cooldown>
         </statBases>
         <costList>
+            <AntimatterGrenades_AA>1</AntimatterGrenades_AA>
             <AntimatterComposite_AA>70</AntimatterComposite_AA>
             <ComponentIndustrial>6</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
@@ -25,27 +26,28 @@
             <li>GrenadeDestructive</li>
         </weaponTags>
         <recipeMaker>
+            <researchPrerequisite>AntimatterExplosives_AA</researchPrerequisite>
             <skillRequirements>
                 <Crafting>8</Crafting>
                 <Intellectual>4</Intellectual>
             </skillRequirements>
         </recipeMaker>
         <verbs>
-        <li>
-            <verbClass>Verb_Shoot</verbClass>
-            <hasStandardCommand>true</hasStandardCommand>
-            <defaultProjectile>Bullet_AntimatterGrenade_AA</defaultProjectile>
-            <warmupTime>4.5</warmupTime>
-            <range>20</range>
-            <forcedMissRadius>2</forcedMissRadius>
-            <burstShotCount>1</burstShotCount>
-            <soundCast>Shot_IncendiaryLauncher</soundCast>
-            <soundCastTail>GunTail_Medium</soundCastTail>
-            <muzzleFlashScale>14</muzzleFlashScale>
-            <targetParams>
-                <canTargetLocations>true</canTargetLocations>
-            </targetParams>
-        </li>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_AntimatterGrenade_AA</defaultProjectile>
+                <warmupTime>4.5</warmupTime>
+                <range>20</range>
+                <forcedMissRadius>2</forcedMissRadius>
+                <burstShotCount>1</burstShotCount>
+                <soundCast>Shot_IncendiaryLauncher</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>14</muzzleFlashScale>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
         </verbs>
         <tools>
         <li>

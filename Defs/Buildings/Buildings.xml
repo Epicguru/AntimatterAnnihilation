@@ -91,9 +91,9 @@
           <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
         </li>
     </comps>
-    <!-- <researchPrerequisites>
-      <li>SomeResearch</li>
-    </researchPrerequisites> -->
+    <researchPrerequisites>
+      <li>ParticleAccelerators_AA</li>
+    </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">
