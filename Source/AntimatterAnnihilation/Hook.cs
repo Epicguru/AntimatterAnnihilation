@@ -5,7 +5,6 @@ using RimWorld;
 using System;
 using UnityEngine;
 using Verse;
-using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation
 {
@@ -29,7 +28,6 @@ namespace AntimatterAnnihilation
                 if (spawn)
                 {
                     Vector3 pos = new Vector3(15, 0, 15);
-                    Log.Message("Spawning at " + pos);
                     var thing = new UpBeam(Find.CurrentMap, pos);
                     thing.SetVisScale(1f);
                 }

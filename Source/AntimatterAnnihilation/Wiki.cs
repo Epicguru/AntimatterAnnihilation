@@ -14,8 +14,6 @@ namespace AntimatterAnnihilation
 
             // Optional - save a reference to the wiki.
             ModCore.Instance.Wiki = wiki;
-
-            ModCore.Log("Added in-game wiki for Antimatter Annihilation.");
         }
     }
 }
