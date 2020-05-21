@@ -140,10 +140,6 @@ namespace AntimatterAnnihilation.Buildings
             {
                 cmd.Disable("CannotFire".Translate() + $": Weapon is cooling down.");
             }
-            else if (FuelComp.FuelPercentOfMax != 1f)
-            {
-                cmd.Disable("CannotFire".Translate() + $": Missing antimatter canisters.");
-            }
             else if (IsPoweringUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": Already powering up.");
@@ -155,6 +151,14 @@ namespace AntimatterAnnihilation.Buildings
             else if (!PowerTrader.PowerOn)
             {
                 cmd.Disable("CannotFire".Translate() + $": No power.");
+            }
+            else if (FuelComp.FuelPercentOfMax != 1f)
+            {
+                cmd.Disable("CannotFire".Translate() + $": Missing antimatter canisters.");
+            }
+            else if (!HasSkyAccess())
+            {
+                cmd.Disable("CannotFire".Translate() + $": Blocked by roof.");
             }
 
             yield return cmd;
@@ -247,6 +251,23 @@ namespace AntimatterAnnihilation.Buildings
             // It's a trash anime btw. Genuine waste of time.
             // You're better off watching JoJo or Cowboy Bebob or KillLaKill.
             AADefOf.Explosion_Voice_AA.PlayOneShotOnCamera();
+        }
+
+        public bool HasSkyAccess()
+        {
+            IntVec3[] cells = new IntVec3[4];
+            cells[0] = Position;
+            cells[1] = Position + new IntVec3(1, 0, 0);
+            cells[2] = Position + new IntVec3(0, 0, 1);
+            cells[3] = Position + new IntVec3(1, 0, 1);
+
+            foreach (var cell in cells)
+            {
+                if (cell.Roofed(this.Map))
+                    return false;
+            }
+
+            return true;
         }
 
         internal void OnStrikeEnd(CustomOrbitalStrike strike)
