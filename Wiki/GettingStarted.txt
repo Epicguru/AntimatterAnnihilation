@@ -5,7 +5,7 @@ AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
 
 #!Basics#
 #This is a mid to late-game mod. You will need loads of <color=\#8fffff>plasteel</color>, <color=\#e8e8e8>steel</color> and <color=\#ffff5c>power</color>.#
-#To get started, research Particle Accelerators. (WIP - event?)#
+#To get started, research <i><b>Hack Ultratech database</b></i>.#
 
 #!Build a particle accelerator#
 @ParticleAccelerator_AA@
@@ -23,7 +23,7 @@ Check out the PowerNet Console, a small building that allows you to see how powe
 #!Make antimatter composite#
 @AntimatterComposite_AA@
 #Antimatter composite is the ultra-advanced material created using <color=\#8fffff>plasteel</color> and <color=\#e485ff>antimatter canisters</color>.
-Antimatter composite cannot be crafted by a colonist; it is manufactured inside a Composite Refiner. To build this, you will need to research (WIP TODO).#
+Antimatter composite cannot be crafted by a colonist; it is manufactured inside a Composite Refiner. To build this, you will need to research <i><b>Antimatter composite</b></i>.#
 @CompositeRefiner_AA@
 #Antimatter composite can be used to create structures such as walls and doors, weapons such as Longswords or Spears, or defences such as Mini-turrets.
 It is also an essential ingredient in many other recipies in this mod.#

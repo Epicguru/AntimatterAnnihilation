@@ -115,7 +115,7 @@ namespace InGameWiki
             // Background
             if (Background != null)
             {
-                GUI.color = Color.white * 0.35f;
+                GUI.color = Color.white * 0.45f;
                 var coords = CalculateUVCoords(maxBounds, new Rect(0, 0, Background.width, Background.height));
                 GUI.DrawTextureWithTexCoords(maxBounds, Background, coords, true);
                 GUI.color = Color.white;
