@@ -10,5 +10,7 @@ Sound Effects & Music - Freesound.org users:
  -EFlexMusic (Small-ish sci-fi explosion sound (grenades))
  -Tim_Verberne (Coil electrical sound)
  -Sergenious (Electrical discharge sound)
+ -Dasgoat (Distant explosion)
+ -Anomaex (Huge explosion N2 mine)
 
 All sounds used were posted under the Creative Commons or Attribution liscences.

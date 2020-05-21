@@ -23,9 +23,10 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
         <costList>
             <Steel>300</Steel>
             <Uranium>50</Uranium>
-            <AntimatterComposite_AA>80</AntimatterComposite_AA> <!-- TODO require ultratech raider-only drops.-->
+            <AntimatterComposite_AA>80</AntimatterComposite_AA>
+            <HyperComponent_AA>5</HyperComponent_AA>
             <ComponentIndustrial>22</ComponentIndustrial>
-            <ComponentSpacer>10</ComponentSpacer>
+            <ComponentSpacer>8</ComponentSpacer>
         </costList>
         <comps>
             <li Class="CompProperties_Flickable"/>

@@ -93,7 +93,7 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     </injuryProps>
   </HediffDef>
 
-  <DamageDef Name="AnnihilationExplosion">
+  <DamageDef Name="AnnihilationExplosion_AA">
     <defName>AnnihilationExplosion_AA</defName>
     <label>annihilation explosion</label>
     <workerClass>DamageWorker_AddInjury</workerClass>
@@ -117,6 +117,14 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <explosionColorEdge>(0.6, 0.5, 0.4)</explosionColorEdge>
     <soundExplosion>Explosion_Antimatter_AA</soundExplosion>
     <combatLogRules>Damage_Bomb</combatLogRules>
+  </DamageDef>
+
+  <DamageDef ParentName="AnnihilationExplosion_AA">
+    <defName>AnnihilationExplosionHuge_AA</defName>
+    <defaultDamage>120</defaultDamage>
+    <defaultStoppingPower>3</defaultStoppingPower>
+    <defaultArmorPenetration>1.6</defaultArmorPenetration>
+    <soundExplosion>Silent_AA</soundExplosion>
   </DamageDef>
 
   <DamageDef>

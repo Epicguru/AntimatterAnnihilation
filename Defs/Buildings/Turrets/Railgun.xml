@@ -51,7 +51,8 @@
         </statBases>
         <costList>
             <Steel>450</Steel>
-            <AntimatterComposite_AA>80</AntimatterComposite_AA>
+            <AntimatterComposite_AA>60</AntimatterComposite_AA>
+            <HyperComponent_AA>2</HyperComponent_AA>
             <ComponentIndustrial>15</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
         </costList>

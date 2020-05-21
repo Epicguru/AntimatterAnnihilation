@@ -101,7 +101,10 @@
     <Compile Include="Effects\SpawnedEffect.cs" />
     <Compile Include="Effects\UpBeam.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
-    <Compile Include="ThingComps\CompProperties_TargetChargeRate.cs" />
+    <Compile Include="Patches\Patch_CompExplosive.cs" />
+    <Compile Include="ThingComps\CompProperties_TargetChargeRate - Copy.cs" />
+    <Compile Include="ThingComps\CompProperties_ExplosiveCustom.cs" />
+    <Compile Include="ThingComps\CompExplosiveCustom.cs" />
     <Compile Include="ThingComps\CompTargetChargeRate.cs" />
     <Compile Include="UI\UI_CompTargetChargeRate.cs" />
     <Compile Include="Utils\AADefOf.cs" />

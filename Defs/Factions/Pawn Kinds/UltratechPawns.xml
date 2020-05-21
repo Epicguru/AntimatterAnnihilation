@@ -12,6 +12,15 @@
         <combatEnhancingDrugsChance>0.25</combatEnhancingDrugsChance>
         <combatEnhancingDrugsCount>0~3</combatEnhancingDrugsCount>
         <biocodeWeaponChance>0.2</biocodeWeaponChance>
+        <inventoryOptions>
+            <skipChance>0.9</skipChance> <!-- Chance to have Hyper Components: 1 in 10 -->
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>HyperComponent_AA</thingDef>
+                    <countRange>1~1</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
     </PawnKindDef>
 
     <!-- Soldiers have good chances to have expensive or powerful implants. -->
@@ -45,21 +54,21 @@
             <li>MechanoidGunMedium</li>
         </weaponTags>
         <inventoryOptions>
-        <skipChance>0.7</skipChance>
-        <subOptionsChooseOne>
-            <li>
-                <thingDef>Silver</thingDef>
-                <countRange>60~150</countRange>
-            </li>
-            <li>
-                <thingDef>MedicineIndustrial</thingDef>
-                <countRange>0~2</countRange>
-            </li>
-            <li>
-                <thingDef>MedicineUltratech</thingDef>
-                <countRange>0~1</countRange>
-            </li>
-        </subOptionsChooseOne>
+            <skipChance>0.7</skipChance>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>Silver</thingDef>
+                    <countRange>60~150</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineIndustrial</thingDef>
+                    <countRange>0~2</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>0~1</countRange>
+                </li>
+            </subOptionsChooseOne>
         </inventoryOptions>
     </PawnKindDef>
 
@@ -94,21 +103,21 @@
             <li>MechanoidGunMedium</li>
         </weaponTags>
         <inventoryOptions>
-        <skipChance>0.4</skipChance>
-        <subOptionsChooseOne>
-            <li>
-                <thingDef>Silver</thingDef>
-                <countRange>100~200</countRange>
-            </li>
-            <li>
-                <thingDef>MedicineIndustrial</thingDef>
-                <countRange>2~5</countRange>
-            </li>
-            <li>
-                <thingDef>MedicineUltratech</thingDef>
-                <countRange>2~3</countRange>
-            </li>
-        </subOptionsChooseOne>
+            <skipChance>0.4</skipChance>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>Silver</thingDef>
+                    <countRange>100~200</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineIndustrial</thingDef>
+                    <countRange>2~5</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>2~3</countRange>
+                </li>
+            </subOptionsChooseOne>
         </inventoryOptions>
     </PawnKindDef>
 
