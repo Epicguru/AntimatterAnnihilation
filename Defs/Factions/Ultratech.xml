@@ -13,8 +13,8 @@
         <canStageAttacks>true</canStageAttacks>
         <leaderTitle>division leader</leaderTitle>
         <factionIconPath>AntimatterAnnihilation/UI/FactionIcon</factionIconPath>
-        <factionNameMaker>NamerFactionOutlander</factionNameMaker>
-        <settlementNameMaker>NamerSettlementOutlander</settlementNameMaker>
+        <factionNameMaker>NamerFactionUltratech_AA</factionNameMaker>
+        <settlementNameMaker>NamerSettlementUltratech_AA</settlementNameMaker>
         <techLevel>Ultra</techLevel>
         <backstoryFilters>
             <li>
