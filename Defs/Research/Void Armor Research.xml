@@ -2,9 +2,9 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>AntimatterComposite_AA</defName>
-        <label>antimatter composite</label>
-        <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
+        <defName>VoidArmor_AA</defName>
+        <label>void armor</label>
+        <description>Use antimatter composite to create very powerful armor and headgear.</description>
         <baseCost>3500</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
@@ -13,10 +13,10 @@
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>ParticleAccelerators_AA</li>
+            <li>AntimatterComposite_AA</li>
         </prerequisites>        
-        <researchViewX>2.00</researchViewX>
-        <researchViewY>1.05</researchViewY>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>1.00</researchViewY>
     </ResearchProjectDef>
 
 </Defs>
