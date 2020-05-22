@@ -250,7 +250,6 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Vector3 baseOffset = new Vector3(injectorRot == 3 ? -1 : 0, 0f, -1);
                 basePos = new IntVec3(this.TrueCenter() + baseOffset) + beamExploreDirection * 6;
-                Log.Message($"Base pos: {basePos} IntVec({this.TrueCenter()} + {baseOffset}) + {beamExploreDirection * 6}");
                 EnergyBeam.Position = basePos.ToVector3() + new Vector3(injectorRot == 3 ? 1 : 0, 0, 1.25f);
             }
             else 

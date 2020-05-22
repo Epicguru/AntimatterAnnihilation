@@ -14,10 +14,10 @@
             </recipeUsers>
         </recipeMaker>
         <graphicData>
-            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmorHelmet/PowerArmorHelmet</texPath>
+            <texPath>AntimatterAnnihilation/Pawn/VoidHelmet</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <uiIconScale>1.25</uiIconScale>
+        <uiIconScale>1</uiIconScale>
         <tradeTags>
             <li>HiTechArmor</li>
         </tradeTags>
@@ -48,7 +48,7 @@
             <bodyPartGroups>
                 <li>FullHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmorHelmet/PowerArmorHelmet</wornGraphicPath>
+            <wornGraphicPath>AntimatterAnnihilation/Pawn/VoidHelmet</wornGraphicPath>
             <layers>
                 <li>Overhead</li>
             </layers>

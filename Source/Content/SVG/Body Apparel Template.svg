@@ -17,7 +17,7 @@
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="Body Apparel Template.svg"
-   inkscape:export-filename="D:\Steam Games\steamapps\common\RimWorld\Mods\AntimatterAnnihilation\Source\Content\SVG\Helmet Side.png"
+   inkscape:export-filename="D:\Steam Games\steamapps\common\RimWorld\Mods\AntimatterAnnihilation\Source\Content\SVG\Helmet Back.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96">
   <defs
@@ -750,6 +750,16 @@
        x2="384.12097"
        y2="12.530993"
        gradientTransform="matrix(1.5486591,0,0,1.5486591,-240.96648,-6.1773496)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5287"
+       id="linearGradient4848-8-8"
+       x1="388.95407"
+       y1="10.252546"
+       x2="389.04517"
+       y2="2.8332801"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.8058929,0,0,1.8058929,-281.43313,-4.4402868)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -758,9 +768,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="9.153626"
-     inkscape:cx="1348.7051"
-     inkscape:cy="77.028361"
+     inkscape:zoom="4.576813"
+     inkscape:cx="1590.7371"
+     inkscape:cy="115.69219"
      inkscape:document-units="mm"
      inkscape:current-layer="layer4"
      showgrid="true"
@@ -7308,39 +7318,39 @@ ioqK5urq+Za8LP7PUOp/uFuhZLwzg9kAAAAASUVORK5CYII=
        id="path4822"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-xdpi="156.64694"
+       inkscape:export-ydpi="156.64694" />
     <path
        style="fill:url(#radialGradient4864);fill-opacity:1;stroke:#000000;stroke-width:0.32888666px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 388.58607,8.8286716 -1.98167,-0.330279 -1.42272,0.076218 -0.91462,0.4827163 -0.22866,0.9908381 0.53354,0.838401 1.24489,0.355686 1.11787,-0.254061 1.2449,-0.431904 0.66056,-0.482716 0.20325,-0.6859648 z"
        id="path4824"
        inkscape:connector-curvature="0"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-xdpi="156.64694"
+       inkscape:export-ydpi="156.64694" />
     <path
        style="fill:url(#linearGradient4848);fill-opacity:1;stroke:#000000;stroke-width:0.32888666px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 390.41534,6.1356244 -1.70221,4e-7 -0.60975,0.8638076 -0.53354,-0.1524367 -0.33026,0.8638074 -3.02334,0.5335284 0.0508,-1.3465236 2.66762,-2.5406106 1.34652,-0.5843404 2.21034,0.025406 z"
        id="path4826"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccccc"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-xdpi="156.64694"
+       inkscape:export-ydpi="156.64694" />
     <path
        style="fill:url(#linearGradient4856);fill-opacity:1;stroke:#000000;stroke-width:0.32888666px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 390.45346,10.060868 -3.36631,2.096003 0.16241,5.636235 1.1398,1.44413 1.41814,0.311812 z"
        id="path4828"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="cccccc"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-xdpi="156.64694"
+       inkscape:export-ydpi="156.64694" />
     <path
        style="fill:url(#linearGradient4840);fill-opacity:1;stroke:#000000;stroke-width:0.32888666px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 386.63728,18.843783 -0.28692,-7.042595 -0.94003,-0.02541 -0.27946,0.711371 -0.86384,-0.228655 -0.45727,-1.244899 -0.34299,2.502502 z"
        id="path4830"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccc"
-       inkscape:export-xdpi="96"
-       inkscape:export-ydpi="96" />
+       inkscape:export-xdpi="156.64694"
+       inkscape:export-ydpi="156.64694" />
     <path
        style="display:inline;fill:#d3d3d3;fill-opacity:1;stroke:#000000;stroke-width:1.03604567;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 363.50231,17.684679 -5.43285,-1.017512 -6.88715,-1.096094 -2.20721,-3.144808 -0.17087,-6.374477 1.17402,-2.9331053 6.84031,-1.5071878 8.47318,4.988165 z"
@@ -7386,5 +7396,27 @@ ioqK5urq+Za8LP7PUOp/uFuhZLwzg9kAAAAASUVORK5CYII=
        id="path4596-0-8-15-31"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="display:inline;fill:#d3d3d3;fill-opacity:1;stroke:#000000;stroke-width:0.96971256;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 424.22939,17.659157 -3.17844,-0.0096 -3.04472,1.022373 -2.21355,-3.970172 0.21831,-8.3141932 4.36014,-3.4854382 1.4813,-0.7702782 2.53873,-0.072165 z"
+       id="path4822-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="display:inline;opacity:1;fill:#bc98bf;fill-opacity:1;stroke:#000000;stroke-width:0.73254818;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 416.09018,9.6352949 2.91616,0.5413281 2.21475,3.325885 2.64183,0.07948 0.84485,1.34601 -4.42281,-0.192795 -2.09605,-3.335875 -2.17051,-0.414175 z"
+       id="path4596-0-8-15-31-9"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc" />
+    <path
+       style="display:inline;fill:url(#linearGradient4848-8-8);fill-opacity:1;stroke:#000000;stroke-width:0.47780916px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 431.72702,7.4693649 -6.89734,-1.1877427 -0.78956,3.9337728 -1.7815,-0.0056 -1.46853,-1.6927501 -2.42214,0.126652 -1.00114,-0.3790955 -0.008,-1.3423328 4.48554,-3.3858948 1.55701,-0.027246 z"
+       id="path4826-3-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccc"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
   </g>
 </svg>
