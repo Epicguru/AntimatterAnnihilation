@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef Name="ApparelVoidArmorBase_AA" ParentName="ArmorMachineableBase" Abstract="True">
+    <ThingDef Name="ApparelVoidHelmetBase_AA" ParentName="ArmorHelmetMakeableBase" Abstract="True">
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
@@ -14,50 +14,43 @@
             </recipeUsers>
         </recipeMaker>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Pawn/Void_Hulk_south</texPath>
+            <texPath>Things/Pawn/Humanlike/Apparel/PowerArmorHelmet/PowerArmorHelmet</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <generateCommonality>1.5</generateCommonality>
-        <statBases>
-            <WorkToMake>65000</WorkToMake>
-            <MaxHitPoints>450</MaxHitPoints>
-            <Mass>10</Mass>
-            <Flammability>0.4</Flammability>
-            <ArmorRating_Sharp>1.3</ArmorRating_Sharp>
-            <ArmorRating_Blunt>0.8</ArmorRating_Blunt>
-            <ArmorRating_Heat>0.7</ArmorRating_Heat>
-            <Insulation_Cold>38</Insulation_Cold>
-            <Insulation_Heat>12</Insulation_Heat>
-            <EquipDelay>9</EquipDelay>
-        </statBases>
-        <equippedStatOffsets>
-            <MoveSpeed>-0.3</MoveSpeed>
-            <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
-        </equippedStatOffsets>
-        <thingCategories>
-            <li>ApparelArmor</li>
-        </thingCategories>
+        <uiIconScale>1.25</uiIconScale>
         <tradeTags>
             <li>HiTechArmor</li>
         </tradeTags>
+        <generateCommonality>2</generateCommonality>
+        <statBases>
+            <WorkToMake>30000</WorkToMake>
+            <MaxHitPoints>280</MaxHitPoints>
+            <Mass>1.8</Mass>
+            <Flammability>0.4</Flammability>
+            <ArmorRating_Sharp>1.35</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.85</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.7</ArmorRating_Heat>
+            <Insulation_Cold>6</Insulation_Cold>
+            <Insulation_Heat>4</Insulation_Heat>
+            <EquipDelay>3.5</EquipDelay>
+        </statBases>
         <costList>
-            <ComponentSpacer>5</ComponentSpacer>
-            <Gold>10</Gold>
-            <AntimatterComposite_AA>60</AntimatterComposite_AA>
-            <Uranium>25</Uranium>
+            <ComponentSpacer>3</ComponentSpacer>
+            <Gold>6</Gold>
+            <AntimatterComposite_AA>35</AntimatterComposite_AA>
+            <Uranium>10</Uranium>
         </costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.05</MoveSpeed>
+            <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+        </equippedStatOffsets>
         <apparel>
             <bodyPartGroups>
-                <li>Torso</li>
-                <li>Neck</li>
-                <li>Shoulders</li>
-                <li>Arms</li>
-                <li>Legs</li>
+                <li>FullHead</li>
             </bodyPartGroups>
-            <wornGraphicPath>AntimatterAnnihilation/Pawn/Void</wornGraphicPath>
+            <wornGraphicPath>Things/Pawn/Humanlike/Apparel/PowerArmorHelmet/PowerArmorHelmet</wornGraphicPath>
             <layers>
-                <li>Middle</li>
-                <li>Shell</li>
+                <li>Overhead</li>
             </layers>
             <defaultOutfitTags>
                 <li>Soldier</li>
@@ -86,10 +79,10 @@
         </comps>
     </ThingDef>
 
-    <ThingDef ParentName="ApparelVoidArmorBase_AA">
-        <defName>Apparel_VoidArmor_AA</defName>
-        <label>void armor</label>
-        <description>A suit made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.</description>
+    <ThingDef ParentName="ApparelVoidHelmetBase_AA">
+        <defName>Apparel_VoidHelmet_AA</defName>
+        <label>void helmet</label>
+        <description>A helmet made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.</description>
         <apparel>
         <tags>
             <li>SpacerMilitary</li>
@@ -98,4 +91,4 @@
         </apparel>
     </ThingDef>
 
-</Defs>
+  </Defs>
