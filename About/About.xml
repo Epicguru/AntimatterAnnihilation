@@ -32,8 +32,6 @@ See the store page for all plans.
     </li>
   </modDependencies>
   <loadAfter>
-    <li>Ludeon.RimWorld</li>
-    <li>Ludeon.RimWorld.Royalty</li>
-    <li>brrainz.harmony</li>
+    <li>co.uk.epicguru.ingamewiki</li> <!-- Which has to go after Harmony, so that is sorted. -->
   </loadAfter>
 </ModMetaData>
