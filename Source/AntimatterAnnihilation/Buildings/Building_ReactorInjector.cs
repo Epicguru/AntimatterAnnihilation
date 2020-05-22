@@ -321,6 +321,7 @@ namespace AntimatterAnnihilation.Buildings
                 float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
                 if (thingIsReactor && isInLine)
                     damage *= 0.05f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
+
                 thing.TakeDamage(new DamageInfo(AADefOf.Annihilate_AA, damage, 15, instigator: this));
             }
 
