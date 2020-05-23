@@ -10,7 +10,6 @@ namespace AntimatterAnnihilation.Effects
         public Animator Animator;
         public Transform Scale;
         public float Time = 0.7f;
-        public float TickRate = 1f;
         public event Action<ExplosionEffect> Despawn;
 
         private float timer;
@@ -47,10 +46,6 @@ namespace AntimatterAnnihilation.Effects
                 Stop();
                 return;
             }
-
-            Animator.speed = TickRate;
-            var main = ParticleSystem.main;
-            main.simulationSpeed = TickRate;
 
             bool vis = Find.CurrentMap != null && Find.CurrentMap.uniqueID == this.mapID;
             if (gameObject.activeSelf != vis)

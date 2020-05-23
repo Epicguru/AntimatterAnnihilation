@@ -341,7 +341,7 @@ namespace AntimatterAnnihilation.Buildings
             this.burstWarmupTicksLeft = 1;
 		}
 
-		protected LocalTargetInfo TryFindNewTarget()
+        protected LocalTargetInfo TryFindNewTarget()
 		{
 			IAttackTargetSearcher attackTargetSearcher = this.TargSearcher();
 			Faction faction = attackTargetSearcher.Thing.Faction;

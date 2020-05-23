@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation.Effects
@@ -12,15 +11,11 @@ namespace AntimatterAnnihilation.Effects
         public ParticleSystem[] LongParticles;
         public ParticleSystem InParticles;
 
-        public float TickRate = 1f;
-        public event Action<RailgunEffectComp> Despawn;
-
-        private float timeToDespawnAfterFire = 3f;
-        private float timer = 0f;
         private Vector3 endPos;
         private int mapID;
+        private bool hidden;
 
-        public void Setup(Map map, Vector3 start, Vector3 end)
+        public void Setup(Map map)
         {
             // Store map as ID to avoid keeping a reference to it once world is closed to main menu.
             this.mapID = map?.uniqueID ?? -1;
@@ -34,43 +29,18 @@ namespace AntimatterAnnihilation.Effects
                 InParticles = transform.Find("InParticles").GetComponent<ParticleSystem>();
             }
 
-            this.endPos = end;
-            gameObject.SetActive(true);
-
-            transform.localPosition = start;
-            transform.rotation = Quaternion.LookRotation(end - start, Vector3.up);
-            transform.Rotate(new Vector3(-90f, 0f, 0f), Space.Self);
-
-            float length = (start - end).magnitude;
-            BeamScale.localScale = new Vector3(1, length + 3, 1);
-            ParticlesScale.localPosition = new Vector3(0, (length + 3) * -0.5f + 3, 0f);
-            foreach (var part in LongParticles)
-            {
-                var shape = part.shape;
-                var scale = shape.scale;
-                scale.y = length + 3;
-                shape.scale = scale;
-
-                part.Clear(true);
-                part.Play(true);
-            }
-
-            Anim.SetTrigger("Reset");
-            InParticles.Clear(true);
-            InParticles.Play(true);
-            timer = -1f;
+            Hide(true);
         }
 
         public void Fire(float explosionSize)
         {
             Anim.SetTrigger("Shoot");
+            Log.Message("Shoot");
             InParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             foreach (var part in LongParticles)
             {
                 part.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
-
-            timer = timeToDespawnAfterFire;
 
             if (explosionSize > 0)
             {
@@ -97,46 +67,57 @@ namespace AntimatterAnnihilation.Effects
 
         public void Tick()
         {
-            const float DT = 1f / 60f;
-            if (timer > 0)
-            {
-                timer -= DT;
-                if (timer <= 0f)
-                {
-                    Stop();
-                    return;
-                }
-            }
-
-            Anim.speed = TickRate;
-            ChangeSpeed(InParticles);
-            foreach (var part in LongParticles)
-            {
-                ChangeSpeed(part);
-            }
-
             bool vis = Find.CurrentMap != null && Find.CurrentMap.uniqueID == this.mapID;
             if (gameObject.activeSelf != vis)
                 gameObject.SetActive(vis);
-
-            void ChangeSpeed(ParticleSystem s)
-            {
-                var main = s.main;
-                main.simulationSpeed = TickRate;
-            }
         }
 
-        public void Stop()
+        public void Show(Vector3 start, Vector3 end)
         {
-            InParticles.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            if (hidden)
+            {
+                InParticles.Play(true);
+                foreach (var part in LongParticles)
+                {
+                    part.Play(true);
+                }
+            }
+
+            this.endPos = end;
+
+            transform.localPosition = start;
+            transform.rotation = Quaternion.LookRotation(end - start, Vector3.up);
+            transform.Rotate(new Vector3(-90f, 0f, 0f), Space.Self);
+
+            float length = (start - end).magnitude;
+
+            BeamScale.localScale = new Vector3(1, length + 3, 1);
+            ParticlesScale.localPosition = new Vector3(0, (length + 3) * -0.5f + 3, 0f);
             foreach (var part in LongParticles)
             {
-                part.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                var shape = part.shape;
+                var scale = shape.scale;
+                scale.y = length + 3;
+                shape.scale = scale;
             }
-            gameObject.SetActive(false);
-            Despawn?.Invoke(this);
-            Despawn = null;
-            EffectPool<RailgunEffectComp>.Return(this);
+
+            Anim.SetTrigger("Reset"); // Sucks to trigger this every frame but oh well..
+            Log.Message("Reset");
+            hidden = false;
+        }
+
+        public void Hide(bool clear)
+        {
+            if (hidden)
+                return;
+
+            InParticles.Stop(true, clear ? ParticleSystemStopBehavior.StopEmittingAndClear : ParticleSystemStopBehavior.StopEmitting);
+            foreach (var part in LongParticles)
+            {
+                part.Stop(true, clear ? ParticleSystemStopBehavior.StopEmittingAndClear : ParticleSystemStopBehavior.StopEmitting);
+            }
+            Anim.SetTrigger("Reset");
+            hidden = true;
         }
     }
 }

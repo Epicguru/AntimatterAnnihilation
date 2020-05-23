@@ -36,34 +36,17 @@ namespace AntimatterAnnihilation.Effects
         }
     }
 
-    static class RailgunEffectManager
+    static class RailgunEffectSpawner
     {
         public static GameObject Prefab;
-        private static List<RailgunEffectComp> list = new List<RailgunEffectComp>();
 
-        public static RailgunEffectComp Spawn(Map map, Vector3 start, Vector3 end)
+        public static RailgunEffectComp Spawn(Map map)
         {
             var spawned = EffectPool<RailgunEffectComp>.Get(() => Object.Instantiate(Prefab).AddComponent<RailgunEffectComp>());
             Object.DontDestroyOnLoad(spawned.gameObject);
-            spawned.Despawn += (s) =>
-            {
-                list.Remove(s);
-            };
-
-            list.Add(spawned);
-
-            spawned.Setup(map, start, end);
+            spawned.Setup(map);
 
             return spawned;
-        }
-
-        public static void Tick()
-        {
-            for (int i = 0; i < list.Count; i++)
-            {
-                var thing = list[i];
-                thing.Tick();
-            }
         }
     }
 }

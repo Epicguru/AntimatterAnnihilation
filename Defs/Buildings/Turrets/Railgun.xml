@@ -89,15 +89,21 @@
 
     <ThingDef ParentName="BaseBullet">
         <defName>Bullet_AntimatterRailgun_AA</defName>
-        <label>antimatter railgun blast</label>
+        <label>blast</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Big</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
+        <thingClass>Projectile_Explosive</thingClass>
         <projectile>
-            <damageDef>Annihilate_AA</damageDef>
-            <damageAmountBase>100</damageAmountBase>
-            <speed>200</speed>
+            <damageDef>AnnihilationExplosionRailgun_AA</damageDef>
+            <speed>50000</speed> <!-- I am speed. Kerchoo. -->
+            <explosionRadius>7.5</explosionRadius>
+            <flyOverhead>true</flyOverhead>
+            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
+            <soundExplode>MortarBomb_Explode</soundExplode>
+            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
+            <soundAmbient>MortarRound_Ambient</soundAmbient>
         </projectile>
     </ThingDef>
 
@@ -125,9 +131,11 @@
                 <!-- <verbClass>Verb_Shoot</verbClass> -->
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
                 <defaultProjectile>Bullet_AntimatterRailgun_AA</defaultProjectile>
+                <isPrimary>true</isPrimary>
                 <warmupTime>0</warmupTime>
                 <minRange>8.9</minRange>
                 <range>400</range>
+                <ai_AvoidFriendlyFireRadius>9.5</ai_AvoidFriendlyFireRadius>
                 <burstShotCount>1</burstShotCount>
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>

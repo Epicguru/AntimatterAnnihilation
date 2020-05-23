@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AntimatterAnnihilation.Effects;
+using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation
@@ -24,6 +25,8 @@ namespace AntimatterAnnihilation
             EnergyBeamInPrefab = bundle.LoadAsset<GameObject>("In Beam");
             EnergyBeamOutPrefab = bundle.LoadAsset<GameObject>("Out Beam");
             UpBeamPrefab = bundle.LoadAsset<GameObject>("UpBeam");
+            ExplosionEffectManager.Prefab = bundle.LoadAsset<GameObject>("LargeAntimatterExplosion");
+            RailgunEffectSpawner.Prefab = bundle.LoadAsset<GameObject>("RailgunEffect");
 
             Expand = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Expand");
             Collapse = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/Collapse");
