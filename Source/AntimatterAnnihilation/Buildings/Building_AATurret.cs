@@ -15,8 +15,20 @@ namespace AntimatterAnnihilation.Buildings
 	public abstract class Building_AATurret : Building_Turret
     {
         public float ScreenShakeOnShoot { get; set; } = 0f;
+        public bool HasLOS
+        {
+            get
+            {
+				if (!CurrentTarget.IsValid)
+					return false;
 
-		public bool Active
+                bool flag = AttackVerb.TryFindShootLineFromTo(this.Position, CurrentTarget, out _);
+                return flag;
+            }
+        }
+		public bool DoBetterTargetFind { get; protected set; } = true;
+
+        public bool Active
 		{
 			get
 			{
@@ -51,7 +63,7 @@ namespace AntimatterAnnihilation.Buildings
             }
 		}
 
-		private bool WarmingUp
+        private bool WarmingUp
 		{
 			get
 			{
@@ -316,7 +328,16 @@ namespace AntimatterAnnihilation.Buildings
             }
             else
             {
-                this.currentTargetInt = this.TryFindNewTarget();
+				bool allowedToFindNew = true;
+                if (DoBetterTargetFind)
+                {
+					Thing thing = currentTargetInt.Thing;
+					// Allowed to find new target if current target is invalid, destroyed or downed, or line of sight is gone.
+					allowedToFindNew = !isValid || (thing != null && thing.Destroyed) || (thing is Pawn pawn && pawn.Downed) || !HasLOS;
+				}
+
+                if (allowedToFindNew)
+                    this.currentTargetInt = this.TryFindNewTarget();
             }
             if (!isValid && this.currentTargetInt.IsValid)
             {

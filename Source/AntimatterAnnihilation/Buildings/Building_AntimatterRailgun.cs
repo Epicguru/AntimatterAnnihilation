@@ -63,7 +63,7 @@ namespace AntimatterAnnihilation.Buildings
                 return;
 
             // Check if should be charging.
-            bool shouldBeCharging = TargetCurrentlyAimingAt.IsValid && rt.BaseCanShootNow() && base.burstCooldownTicksLeft <= 0;
+            bool shouldBeCharging = TargetCurrentlyAimingAt.IsValid && base.HasLOS && rt.BaseCanShootNow() && base.burstCooldownTicksLeft <= 0;
 
             if (shouldBeCharging)
                 CurrentChargeTicks++;

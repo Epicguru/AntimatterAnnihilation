@@ -35,7 +35,6 @@ namespace AntimatterAnnihilation.Effects
         public void Fire(float explosionSize)
         {
             Anim.SetTrigger("Shoot");
-            Log.Message("Shoot");
             InParticles.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             foreach (var part in LongParticles)
             {
@@ -102,7 +101,6 @@ namespace AntimatterAnnihilation.Effects
             }
 
             Anim.SetTrigger("Reset"); // Sucks to trigger this every frame but oh well..
-            Log.Message("Reset");
             hidden = false;
         }
 
