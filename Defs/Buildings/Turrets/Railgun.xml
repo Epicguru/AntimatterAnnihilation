@@ -68,7 +68,7 @@
                 <fuelGizmoLabel>Antimatter remaining</fuelGizmoLabel>
                 <outOfFuelMessage>Cannot shoot: Needs antimatter canister refuel</outOfFuelMessage>
                 <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
-                <fuelCapacity>2</fuelCapacity>       <!-- 20 shots -->
+                <fuelCapacity>2</fuelCapacity>       <!-- 4 shots at 0.5 each -->
                 <initialFuelPercent>0</initialFuelPercent>
                 <autoRefuelPercent>0.5</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
@@ -132,7 +132,7 @@
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>40</muzzleFlashScale>
-                <consumeFuelPerShot>0.1</consumeFuelPerShot>
+                <consumeFuelPerShot>0.5</consumeFuelPerShot>
                 <targetParams>
                     <canTargetLocations>true</canTargetLocations>
                 </targetParams>
