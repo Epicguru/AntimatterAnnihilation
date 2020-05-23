@@ -98,7 +98,7 @@
         <projectile>
             <damageDef>AnnihilationExplosionRailgun_AA</damageDef>
             <speed>50000</speed> <!-- I am speed. Kerchoo. -->
-            <explosionRadius>7.5</explosionRadius>
+            <explosionRadius>8.5</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
             <soundExplode>MortarBomb_Explode</soundExplode>
@@ -128,8 +128,8 @@
         </statBases>
         <verbs>
             <li>
-                <!-- <verbClass>Verb_Shoot</verbClass> -->
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
+                <forcedMissRadius>0.001</forcedMissRadius>
                 <defaultProjectile>Bullet_AntimatterRailgun_AA</defaultProjectile>
                 <isPrimary>true</isPrimary>
                 <warmupTime>0</warmupTime>

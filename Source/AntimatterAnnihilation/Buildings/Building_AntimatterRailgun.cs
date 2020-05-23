@@ -85,8 +85,9 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Vector3 start = rt.GetMuzzlePos();
                 Vector3 end = TargetCurrentlyAimingAt.CenterVector3;
-                start.y = -5;
-                end.y = -5;
+                const float Y = -2;
+                start.y = Y;
+                end.y = Y;
 
                 if(cooldownTicks == 0)
                     Effect.Show(start, end);
