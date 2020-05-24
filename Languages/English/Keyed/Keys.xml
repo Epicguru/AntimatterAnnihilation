@@ -55,4 +55,9 @@
 <AA.MegReadyToFire>Ready to fire.</AA.MegReadyToFire>
 <AA.MegCooldown>Cooldown: {0}</AA.MegCooldown> <!-- {0} is time period, such as '16 hours' or '5 days' -->
 
+<!-- Particle accelerator -->
+<AA.PAProducing>Producing {0} canisters per day.\n{1} hours until next antimatter canister.</AA.PAProducing>
+<AA.PANotRunningNoPower>Not running: No power</AA.PANotRunningNoPower>
+<AA.PANotRunningNoPlasteel>Not running: No plasteel fuel</AA.PANotRunningNoPlasteel>
+
  </LanguageData>

@@ -111,9 +111,9 @@ namespace AntimatterAnnihilation.Buildings
 
         public override string GetInspectString()
         {
-            string whenRunning = $"\nProducing {ProductionPerDay} canisters per day.\n{(ProductionTickInterval - tickCounter) / 2500f:F1} hours until next antimatter canister.";
-            string whenNotRunning = $"\nNot running: {(!PowerTraderComp.PowerOn ? "No power" : "No plasteel fuel")}";
-            return base.GetInspectString() + (!IsRunning ? whenNotRunning : whenRunning);
+            string whenRunning = "AA.PAProducing".Translate(ProductionPerDay, $"{(ProductionTickInterval - tickCounter) / 2500f:F1}");
+            string whenNotRunning = PowerTraderComp.PowerOn ? "AA.PANotRunningNoPlasteel".Translate() : "AA.PANotRunningNoPower".Translate();
+            return base.GetInspectString() + '\n' + (!IsRunning ? whenNotRunning : whenRunning);
         }
     }
 }
