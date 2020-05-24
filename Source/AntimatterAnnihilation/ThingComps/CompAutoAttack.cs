@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation.ThingComps
@@ -43,6 +42,7 @@ namespace AntimatterAnnihilation.ThingComps
         public override void PostExposeData()
         {
             base.PostExposeData();
+
             Scribe_Values.Look(ref doAutoAttack, "doAutoAttack");
         }
 
@@ -55,15 +55,15 @@ namespace AntimatterAnnihilation.ThingComps
 
         public override IEnumerable<Gizmo> CompGetGizmosExtra()
         {
-            var cmd = new Command_Action();
-            cmd.action = () =>
+            var cmd = new Command_Toggle();
+            cmd.toggleAction = () =>
             {
                 doAutoAttack = !doAutoAttack;
             };
+            cmd.isActive = () => doAutoAttack;
             cmd.defaultLabel = "Toggle Auto Attack";
-            cmd.defaultDesc = $"Toggle whether this {parent.LabelShortCap} will automatically attack enemies";
+            cmd.defaultDesc = $"Toggle whether this {parent.LabelShort} will automatically attack enemies";
             cmd.icon = Content.AutoAttackIcon;
-            cmd.defaultIconColor = doAutoAttack ? Color.green : Color.red;
 
             yield return cmd;
         }

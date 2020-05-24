@@ -39,14 +39,14 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                return this.gun.TryGetComp<CompAutoAttack>();
+                return this.GetComp<CompAutoAttack>();
             }
         }
 		public bool AutoAttackEnabled
 		{
 			get
             {
-                return AutoAttack != null && AutoAttack.AutoAttackEnabled;
+                return AutoAttack == null || AutoAttack.AutoAttackEnabled;
             }
 		}
 		public CompEquippable GunCompEq
@@ -467,15 +467,18 @@ namespace AntimatterAnnihilation.Buildings
 
             stringBuilder.AppendLine("CanFireIn".Translate() + $": {this.burstCooldownTicksLeft.TicksToSeconds():F1} seconds.");
 
-            stringBuilder.Append("Delta to target: ");
-            stringBuilder.AppendLine(top.DeltaToTarget.ToString(CultureInfo.InvariantCulture));
+            if (Prefs.DevMode)
+            {
+                var target = CurrentOrForcedTarget;
+                stringBuilder.Append("Target: ");
+                stringBuilder.AppendLine($"{(target.IsValid ? "valid" : "invalid")}, {target.Label}: {target.ToString()}");
 
-            var target = CurrentOrForcedTarget;
-            stringBuilder.Append("Target: ");
-            stringBuilder.AppendLine($"{(target.IsValid ? "valid" : "invalid")}, {target.Label}: {target.ToString()}");
+                stringBuilder.Append("Top can shoot: ");
+                stringBuilder.AppendLine(top.CanShootNow().ToString());
 
-            stringBuilder.Append("Top can shoot: ");
-            stringBuilder.AppendLine(top.CanShootNow().ToString());
+                stringBuilder.Append("Auto attack: ");
+                stringBuilder.AppendLine(AutoAttackEnabled.ToString());
+            }
 
             CompChangeableProjectile compChangeableProjectile = this.gun.TryGetComp<CompChangeableProjectile>();
 			if (compChangeableProjectile != null)

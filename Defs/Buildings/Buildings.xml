@@ -49,11 +49,6 @@
         <rotatable>false</rotatable>
         <canOverlapZones>false</canOverlapZones>
         <castEdgeShadows>false</castEdgeShadows>
-        <comps>
-          <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
-            <defaultAutoAttack>true</defaultAutoAttack>
-          </li>
-        </comps>
         
     </ThingDef>
 

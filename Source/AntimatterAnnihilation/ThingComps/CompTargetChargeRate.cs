@@ -61,7 +61,7 @@ namespace AntimatterAnnihilation.ThingComps
             Scribe_Values.Look(ref _watts, "rate");
         }
 
-        public override void Initialize(CompProperties _)
+        public override void Initialize(CompProperties props)
         {
             base.Initialize(props);
 

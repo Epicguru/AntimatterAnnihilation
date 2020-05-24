@@ -46,7 +46,7 @@ namespace AntimatterAnnihilation.Buildings
 
         public Vector3 GetMuzzlePos()
         {
-            const float LENGTH = 3.5f;
+            const float LENGTH = 4f;
             Vector3 b = new Vector3(0f, 0f, LENGTH).RotatedBy(base.CurrentRotation);
             return parentTurret.DrawPos + b;
         }
