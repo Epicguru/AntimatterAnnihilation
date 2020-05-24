@@ -118,6 +118,9 @@
     <Compile Include="Effects\SpawnedEffect.cs" />
     <Compile Include="Effects\UpBeam.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
+    <Compile Include="Patches\Patch_BatteryComp_AmountCanAccept.cs" />
+    <Compile Include="Patches\Patch_BatteryComp_SetStoredEnergyPct.cs" />
+    <Compile Include="Patches\Patch_BatteryComp_GetStoredEnergyPct.cs" />
     <Compile Include="Patches\Patch_CompExplosive.cs" />
     <Compile Include="ThingComps\CompGreedyBattery.cs" />
     <Compile Include="ThingComps\CompAutoAttack.cs" />

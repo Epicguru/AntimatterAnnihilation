@@ -17,7 +17,7 @@ namespace AntimatterAnnihilation.Buildings
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
         [TweakValue("AntimatterAnnihilation", 0f, 1f)]
-        public static float EasterEggChance = 0.1f;
+        public static float EasterEggChance = 0.2f;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
         public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
@@ -27,7 +27,6 @@ namespace AntimatterAnnihilation.Buildings
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
         public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
-        public static float IDLE_WATTS = 50; // Power consumption when not charging.
 
         public CompEquippable GunComp
         {
@@ -152,6 +151,21 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             yield return cmd;
+
+            if (IsChargingUp)
+            {
+                var cancel = new Command_Action();
+                cancel.defaultLabel = "Cancel strike";
+                cancel.defaultDesc = "Cancels the M3G_UMIN strike.\nAll charged power is discarded. Only available during charging phase.";
+                cancel.icon = Content.CancelIcon;
+                cancel.defaultIconColor = Color.red;
+                cancel.action = () =>
+                {
+                    localTarget = LocalTargetInfo.Invalid;
+                    IsChargingUp = false;
+                };
+                yield return cancel;
+            }
 
             // Debug gizmos.
             if (Prefs.DevMode)
