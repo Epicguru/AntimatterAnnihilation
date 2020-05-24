@@ -173,10 +173,5 @@ namespace AntimatterAnnihilation.Buildings
 
             return final;
         }
-
-        public override string GetInspectString()
-        {
-            return base.GetInspectString() + $"\n{(CurrentChargeTicks > 0 ? "Charging" : "")}";
-        }
     }
 }

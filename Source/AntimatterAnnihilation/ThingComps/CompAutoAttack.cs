@@ -61,8 +61,9 @@ namespace AntimatterAnnihilation.ThingComps
                 doAutoAttack = !doAutoAttack;
             };
             cmd.isActive = () => doAutoAttack;
-            cmd.defaultLabel = "Toggle Auto Attack";
-            cmd.defaultDesc = $"Toggle whether this {parent.LabelShort} will automatically attack enemies";
+            cmd.defaultLabel = "AA.ToggleAutoAttack".Translate();
+            var name = parent.LabelShort;
+            cmd.defaultDesc = $"AA.ToggleAutoAttackDesc".Translate(name);
             cmd.icon = Content.AutoAttackIcon;
 
             yield return cmd;

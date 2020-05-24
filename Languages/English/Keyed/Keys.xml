@@ -21,4 +21,8 @@
 <AA.Descending>(Des)</AA.Descending>
 <AA.TurnAll>Turn all</AA.TurnAll>  <!-- As in 'turn all' machines on/off. -->
 
+<!-- AutoAttack component -->
+<AA.ToggleAutoAttack>Toggle auto attack</AA.ToggleAutoAttack>
+<AA.ToggleAutoAttackDesc>Toggle whether this {0} will automatically attack enemies</AA.ToggleAutoAttackDesc>
+
  </LanguageData>
