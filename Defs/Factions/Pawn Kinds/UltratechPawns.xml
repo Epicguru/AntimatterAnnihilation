@@ -96,7 +96,7 @@
         </techHediffsRequired>
         <apparelMoney>3000~4500</apparelMoney>
         <apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
-        <weaponMoney>2200~3700</weaponMoney>
+        <weaponMoney>2200~12000</weaponMoney>
         <weaponTags>
             <li>SpacerGun</li>
             <li>UltraGun</li>
