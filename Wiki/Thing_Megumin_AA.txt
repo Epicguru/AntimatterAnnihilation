@@ -8,7 +8,7 @@ Once these conditions are met, simply target the desired area using the button.#
 
 #!Stages#
 #The building has multiple stages before it actually fires:
-  <b>1. Charging:</b> Consumes a lot of power (around 4 batteries worth) in a short amount of time. The rate of power consumption can be configured.
+  <b>1. Charging:</b> Consumes a lot of power (around 5 batteries worth) in a short amount of time.
   <b>2. Powering up:</b> The weapon takes around 20 seconds to charge up to max power before firing the beam.
   <b>3. Firing:</b> Behold, the power of the sun unleashed!
   <b>4. Cooldown:</b> The weapon will now cool down for several days, and can't be fired again until it is completely cool.#

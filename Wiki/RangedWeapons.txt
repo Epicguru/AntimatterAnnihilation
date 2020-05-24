@@ -23,3 +23,4 @@ Others can only be obtained as drops from Ultratech raiders.#
 
 #!Drop only#
 @DevastatorLMG_AA@
+@DevastatorSmartGun_AA@
