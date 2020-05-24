@@ -1,18 +1,21 @@
 ﻿using AntimatterAnnihilation.Effects;
+using AntimatterAnnihilation.Utils;
 using UnityEngine;
 using Verse;
+using Verse.Sound;
 
 namespace AntimatterAnnihilation.Buildings
 {
     [StaticConstructorOnStartup]
     public class Building_AntimatterRailgun : Building_AATurret
     {
-        public static int CHARGE_TICKS = 60 * 3; // Around 3 seconds.
+        public static int CHARGE_TICKS = 280; // Made to match audio clip, around 4.7 seconds.
 
         public int CurrentChargeTicks = 0; // Needs to reach CHARGE_TICKS before it can fire. While charging, has particle effects.
         public RailgunEffectComp Effect { get; private set; }
 
         private int cooldownTicks;
+        private Sustainer soundSustainer;
 
         public Building_AntimatterRailgun()
         {
@@ -69,6 +72,25 @@ namespace AntimatterAnnihilation.Buildings
                 CurrentChargeTicks++;
             else
                 CurrentChargeTicks = -1;
+
+            if (shouldBeCharging && CurrentChargeTicks == 0)
+            {
+                // Start playing audio.
+                SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
+                soundSustainer = AADefOf.RailgunShoot_AA.TrySpawnSustainer(info);
+            }
+            if (!shouldBeCharging && cooldownTicks == 0)
+            {
+                soundSustainer?.End();
+            }
+
+            if (soundSustainer != null)
+            {
+                if (soundSustainer.Ended)
+                    soundSustainer = null;
+                else
+                    soundSustainer.Maintain();
+            }
 
             cooldownTicks--;
             if (cooldownTicks < 0)
