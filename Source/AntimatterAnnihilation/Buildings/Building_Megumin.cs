@@ -131,7 +131,7 @@ namespace AntimatterAnnihilation.Buildings
             cmd.onTargetSelected = StartAttackSequence;
             if (IsOnCooldown)
             {
-                cmd.Disable("CannotFire".Translate() + $": Weapon is cooling down.");
+                cmd.Disable("CannotFire".Translate() + $": Weapon is cooling down ({GetCooldownPretty(CooldownTicks)} left).");
             }
             else if (IsPoweringUp)
             {
