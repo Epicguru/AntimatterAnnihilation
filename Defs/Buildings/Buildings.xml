@@ -49,6 +49,11 @@
         <rotatable>false</rotatable>
         <canOverlapZones>false</canOverlapZones>
         <castEdgeShadows>false</castEdgeShadows>
+        <comps>
+          <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
+            <defaultAutoAttack>true</defaultAutoAttack>
+          </li>
+        </comps>
         
     </ThingDef>
 
@@ -90,10 +95,10 @@
           <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
           <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
         </li>
-    </comps>
-    <researchPrerequisites>
-      <li>ParticleAccelerators_AA</li>
-    </researchPrerequisites>
+      </comps>
+      <researchPrerequisites>
+        <li>ParticleAccelerators_AA</li>
+      </researchPrerequisites>
   </ThingDef>
 
   <ThingDef ParentName="AAPoweredLarge">

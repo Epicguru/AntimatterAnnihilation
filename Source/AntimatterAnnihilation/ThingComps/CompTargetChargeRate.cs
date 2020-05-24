@@ -59,9 +59,12 @@ namespace AntimatterAnnihilation.ThingComps
             base.PostExposeData();
 
             Scribe_Values.Look(ref _watts, "rate");
+        }
 
-            if (Scribe.mode != LoadSaveMode.PostLoadInit)
-                return;
+        public override void Initialize(CompProperties _)
+        {
+            base.Initialize(props);
+
             this._watts = this.Props.defaultRate;
         }
 

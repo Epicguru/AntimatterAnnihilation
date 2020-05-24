@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using AntimatterAnnihilation.ThingComps;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -27,7 +28,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 		public bool DoBetterTargetFind { get; protected set; } = true;
-
         public bool Active
 		{
 			get
@@ -35,7 +35,20 @@ namespace AntimatterAnnihilation.Buildings
 				return (this.powerComp == null || this.powerComp.PowerOn) && (this.dormantComp == null || this.dormantComp.Awake) && (this.initiatableComp == null || this.initiatableComp.Initiated);
 			}
 		}
-
+        public CompAutoAttack AutoAttack
+        {
+            get
+            {
+                return this.gun.TryGetComp<CompAutoAttack>();
+            }
+        }
+		public bool AutoAttackEnabled
+		{
+			get
+            {
+                return AutoAttack != null && AutoAttack.AutoAttackEnabled;
+            }
+		}
 		public CompEquippable GunCompEq
 		{
 			get
@@ -43,16 +56,14 @@ namespace AntimatterAnnihilation.Buildings
 				return this.gun.TryGetComp<CompEquippable>();
 			}
 		}
-
-		public override LocalTargetInfo CurrentTarget
+        public override LocalTargetInfo CurrentTarget
 		{
 			get
 			{
 				return this.currentTargetInt;
 			}
 		}
-
-		public LocalTargetInfo CurrentOrForcedTarget
+        public LocalTargetInfo CurrentOrForcedTarget
 		{
 			get
             {
@@ -62,6 +73,20 @@ namespace AntimatterAnnihilation.Buildings
                 return CurrentTarget;
             }
 		}
+        public override Verb AttackVerb
+		{
+			get
+			{
+				return this.GunCompEq.PrimaryVerb;
+			}
+		}
+        public bool IsMannable
+		{
+			get
+			{
+				return this.mannableComp != null;
+			}
+		}
 
         private bool WarmingUp
 		{
@@ -70,32 +95,14 @@ namespace AntimatterAnnihilation.Buildings
 				return this.burstWarmupTicksLeft > 0;
 			}
 		}
-
-		public override Verb AttackVerb
-		{
-			get
-			{
-				return this.GunCompEq.PrimaryVerb;
-			}
-		}
-
-		public bool IsMannable
-		{
-			get
-			{
-				return this.mannableComp != null;
-			}
-		}
-
-		private bool PlayerControlled
+        private bool PlayerControlled
 		{
 			get
 			{
 				return (base.Faction == Faction.OfPlayer || this.MannedByColonist) && !this.MannedByNonColonist;
 			}
 		}
-
-		private bool CanSetForcedTarget
+        private bool CanSetForcedTarget
 		{
 			get
 			{
@@ -103,8 +110,7 @@ namespace AntimatterAnnihilation.Buildings
 				//return this.mannableComp != null && this.PlayerControlled;
 			}
 		}
-
-		private bool CanToggleHoldFire
+        private bool CanToggleHoldFire
 		{
 			get
 			{
@@ -112,24 +118,21 @@ namespace AntimatterAnnihilation.Buildings
 				//return this.PlayerControlled;
 			}
 		}
-
-		private bool IsMortar
+        private bool IsMortar
 		{
 			get
 			{
 				return this.def.building.IsMortar;
 			}
 		}
-
-		private bool IsMortarOrProjectileFliesOverhead
+        private bool IsMortarOrProjectileFliesOverhead
 		{
 			get
 			{
 				return this.AttackVerb.ProjectileFliesOverhead() || this.IsMortar;
 			}
 		}
-
-		private bool CanExtractShell
+        private bool CanExtractShell
 		{
 			get
 			{
@@ -141,16 +144,14 @@ namespace AntimatterAnnihilation.Buildings
 				return compChangeableProjectile != null && compChangeableProjectile.Loaded;
 			}
 		}
-
-		private bool MannedByColonist
+        private bool MannedByColonist
 		{
 			get
 			{
 				return this.mannableComp != null && this.mannableComp.ManningPawn != null && this.mannableComp.ManningPawn.Faction == Faction.OfPlayer;
 			}
 		}
-
-		private bool MannedByNonColonist
+        private bool MannedByNonColonist
 		{
 			get
 			{
@@ -336,7 +337,7 @@ namespace AntimatterAnnihilation.Buildings
 					allowedToFindNew = !isValid || (thing != null && thing.Destroyed) || (thing is Pawn pawn && pawn.Downed) || !HasLOS;
 				}
 
-                if (allowedToFindNew)
+                if (allowedToFindNew && AutoAttackEnabled)
                     this.currentTargetInt = this.TryFindNewTarget();
             }
             if (!isValid && this.currentTargetInt.IsValid)
