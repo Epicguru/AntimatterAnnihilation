@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+<!-- General -->
+<AA.On>on</AA.On>
+<AA.Off>off</AA.Off>
+<AA.Enabled>enabled</AA.Enabled>
+<AA.Turn>turn</AA.Turn> <!-- As in 'turn' machine on or off. -->
+<AA.Name>name</AA.Name>
+<AA.Power>power</AA.Power>
+
+<!-- PowerNet Console -->
+<AA.PowerNetInfo>PowerNet Info</AA.PowerNetInfo>
+<AA.Watts>KW</AA.Watts>
+<AA.KiloWatts>KW</AA.KiloWatts>
+<AA.MegaWatts>MW</AA.MegaWatts>
+<AA.GigaWatts>GW</AA.GigaWatts>
+<AA.ConsoleNotConnected>Console is not connected to a power network.</AA.ConsoleNotConnected>
+<AA.ConsoleNotPowered>Console does not have power.</AA.ConsoleNotPowered>
+<AA.Ascending>(Asc)</AA.Ascending>
+<AA.Descending>(Des)</AA.Descending>
+<AA.TurnAll>Turn all</AA.TurnAll>  <!-- As in 'turn all' machines on/off. -->
+
+ </LanguageData>

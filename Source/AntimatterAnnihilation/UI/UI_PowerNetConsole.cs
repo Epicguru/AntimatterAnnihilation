@@ -265,7 +265,7 @@ namespace AntimatterAnnihilation.UI
             float itemHeight;
 
             Text.Font = GameFont.Medium;
-            Widgets.Label(GetItemRect(40), "<b>PowerNet Info</b>");
+            Widgets.Label(GetItemRect(40), $"<b>{"AA.PowerNetInfo".Translate()}</b>");
             float totalPower = console.PowerTraderComp.PowerNet.CurrentEnergyGainRate() / CompPower.WattsToWattDaysPerTick;
             string totalPowerText = GetPrettyPower(totalPower);
             if (totalPower > 0)
@@ -278,21 +278,21 @@ namespace AntimatterAnnihilation.UI
 
             if (console?.PowerTraderComp?.PowerNet == null)
             {
-                Widgets.Label(GetItemRect(40), "Console is not connected to a power network.");
+                Widgets.Label(GetItemRect(40), "AA.ConsoleNotConnected".Translate());
                 return;
             }
             if (!console.PowerTraderComp.PowerOn)
             {
-                Widgets.Label(GetItemRect(40), "Console does not have power.");
+                Widgets.Label(GetItemRect(40), "AA.ConsoleNotPowered".Translate());
                 return;
             }
 
             GetItemRect(32);
 
-            string ascDec = Ascending ? "(Asc)" : "(Des)";
+            string ascDec = Ascending ? "AA.Ascending".Translate() : "AA.Descending".Translate();
             isCat = true;
             // Name.
-            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Name</b> {(SortingMode == SortMode.Name ? ascDec : "")}"))
+            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>{"AA.Name".Translate().CapitalizeFirst()}</b> {(SortingMode == SortMode.Name ? ascDec : "")}"))
             {
                 if (SortingMode != SortMode.Name)
                 {
@@ -310,7 +310,7 @@ namespace AntimatterAnnihilation.UI
             }
 
             // Power in/out.
-            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Power</b> {(SortingMode == SortMode.Power ? ascDec : "")}"))
+            if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>{"AA.Power".Translate().CapitalizeFirst()}</b> {(SortingMode == SortMode.Power ? ascDec : "")}"))
             {
                 {
                     if (SortingMode != SortMode.Power)
@@ -330,7 +330,7 @@ namespace AntimatterAnnihilation.UI
             }
 
             // Turn on/off
-            if (Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>Enabled</b> {(SortingMode == SortMode.Enabled ? ascDec : "")}"))
+            if (Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>{"AA.Enabled".Translate().CapitalizeFirst()}</b> {(SortingMode == SortMode.Enabled ? ascDec : "")}"))
             {
                 {
                     if (SortingMode != SortMode.Enabled)
@@ -413,7 +413,7 @@ namespace AntimatterAnnihilation.UI
                     var fr = GetColumnRect();
                     bool on = cat.AreAllEnabled(out int flickable);
 
-                    if (flickable > 0 && Widgets.ButtonText(fr.GetInner(3), $"Turn All {(on ? "Off" : "On")}"))
+                    if (flickable > 0 && Widgets.ButtonText(fr.GetInner(3), $"{"AA.TurnAll".Translate()} {(on ? "AA.Off".Translate() : "AA.On".Translate())}"))
                     {
                         cat.FlickAll(on);
                         Refresh();
@@ -460,7 +460,7 @@ namespace AntimatterAnnihilation.UI
                 var fr = GetColumnRect();
                 if (thing.FlickComp != null)
                 {
-                    if (Widgets.ButtonText(fr.GetInner(3), $"Turn {(thing.IsFlickedOn() ? "Off" : "On")}"))
+                    if (Widgets.ButtonText(fr.GetInner(3), $"{"AA.Turn".Translate().CapitalizeFirst()} {(thing.IsFlickedOn() ? "AA.Off".Translate() : "AA.On".Translate())}"))
                     {
                         thing.Flick();
                     }
@@ -518,19 +518,19 @@ namespace AntimatterAnnihilation.UI
 
             if (watts >= GIGA)
             {
-                retVal += $"{watts / GIGA:N2} GW";
+                retVal += $"{watts / GIGA:N2} {"AA.KiloWatts".Translate()}";
             }
             else if (watts >= MEGA)
             {
-                retVal += $"{watts / MEGA:N2} MW";
+                retVal += $"{watts / MEGA:N2} {"AA.MegaWatts".Translate()}";
             }
             else if (watts >= KILO)
             {
-                retVal += $"{watts / KILO:N1} KW";
+                retVal += $"{watts / KILO:N1} {"AA.GigaWatts".Translate()}";
             }
             else
             {
-                retVal += $"{watts:N0} W";
+                retVal += $"{watts:N0} {"AA.Watts".Translate()}";
             }
 
             return retVal;
