@@ -260,7 +260,6 @@ namespace AntimatterAnnihilation.UI
             }
 
             bool indented = false;
-            bool isCat = false;
             int column = 0;
             float itemHeight;
 
@@ -290,7 +289,7 @@ namespace AntimatterAnnihilation.UI
             GetItemRect(32);
 
             string ascDec = Ascending ? "AA.Ascending".Translate() : "AA.Descending".Translate();
-            isCat = true;
+            var isCat = true;
             // Name.
             if(Widgets.ButtonTextSubtle(GetColumnRect(), $"<b>{"AA.Name".Translate().CapitalizeFirst()}</b> {(SortingMode == SortMode.Name ? ascDec : "")}"))
             {
@@ -348,7 +347,6 @@ namespace AntimatterAnnihilation.UI
                     }
                 }
             }
-            isCat = false;
 
             MoveDown(32 + 10f);
 
@@ -362,7 +360,6 @@ namespace AntimatterAnnihilation.UI
                     indented = false;
                     isCat = true;
                     DrawThing(cat.Things[0]);
-                    isCat = false;
                 }
                 else
                 {
