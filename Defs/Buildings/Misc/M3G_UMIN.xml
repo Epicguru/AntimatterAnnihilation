@@ -30,11 +30,6 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
         </costList>
         <comps>
             <li Class="CompProperties_Flickable"/>
-            <li Class="CompProperties_Power">
-                <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>50</basePowerConsumption> <!-- Changes dynamically in code based on activation state. When active, uses loads of power. -->
-                <transmitsPower>false</transmitsPower>
-            </li>
             <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
                 <fuelConsumptionRate>80000</fuelConsumptionRate> <!-- Changes dynamically in code based on activation state. When active, requires and uses all stored antimatter. -->
                 <fuelCapacity>8.0</fuelCapacity>
@@ -45,10 +40,15 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 </fuelFilter>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
-            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_TargetChargeRate">
-                <defaultRate>400000</defaultRate>
-                <rateRange>5000~800000</rateRange>
-                <interval>500</interval>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_GreedyBattery">
+                <efficiency>1.0</efficiency> <!-- 100% efficient, just so that time calculations are easier for the user, if they want to make them. -->
+                <shortCircuitInRain>false</shortCircuitInRain>
+                <storedEnergyMax>600</storedEnergyMax> <!-- Required when using this component. Does not actually represent real max. -->
+                <transmitsPower>true</transmitsPower>
+
+                <maxPull>500000</maxPull> <!-- 500KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
+                <doSelfDischarge>false</doSelfDischarge>
+                <doInspectorInfo>false</doInspectorInfo>
             </li>
         </comps>
         <researchPrerequisites>
@@ -124,5 +124,69 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
             <fadeOutTime>1.0</fadeOutTime>
         </mote>
     </ThingDef>
+
+    <ThingDef ParentName="BuildingBase">
+    <defName>GreedyBattery</defName>
+    <label>greedy battery</label>
+    <description>Stores electricity for later use. Charged batteries explode when exposed to rain or fire.</description>
+    <thingClass>Building_Battery</thingClass>
+    <graphicData>
+      <texPath>Things/Building/Power/Battery</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+      <damageData>
+        <cornerTL>Damage/Corner</cornerTL>
+        <cornerTR>Damage/Corner</cornerTR>
+        <cornerBL>Damage/Corner</cornerBL>
+        <cornerBR>Damage/Corner</cornerBR>
+      </damageData>
+    </graphicData>
+    <altitudeLayer>Building</altitudeLayer>
+    <passability>PassThroughOnly</passability>
+    <pathCost>70</pathCost>
+    <blockWind>true</blockWind>
+    <castEdgeShadows>true</castEdgeShadows>
+    <fillPercent>0.40</fillPercent>
+    <tickerType>Normal</tickerType>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
+    <statBases>
+      <MaxHitPoints>100</MaxHitPoints>
+      <WorkToBuild>800</WorkToBuild>
+      <Mass>20</Mass>
+      <Flammability>1.0</Flammability>
+      <Beauty>-15</Beauty>
+    </statBases>
+    <size>(1,2)</size>
+    <costList>
+      <Steel>70</Steel>
+      <ComponentIndustrial>2</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_GreedyBattery">
+        <efficiency>0.5</efficiency> <!-- 100% efficient, just so that time calculations are easier for the user, if they want to make them. -->
+        <shortCircuitInRain>false</shortCircuitInRain>
+        <initialEnergyMax>600</initialEnergyMax> <!-- Real max power value. -->
+        <storedEnergyMax>600</storedEnergyMax> <!-- Required when using this component. Does not actually represent real max. -->
+        <transmitsPower>true</transmitsPower>
+
+        <maxPull>100000</maxPull> <!-- 500KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
+        <doSelfDischarge>true</doSelfDischarge>
+        <doInspectorInfo>true</doInspectorInfo>
+      </li>
+      <li Class="CompProperties_Breakdownable"/>
+    </comps>
+    <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    <designationCategory>Power</designationCategory>
+    <staticSunShadowHeight>0.2</staticSunShadowHeight>
+    <constructEffect>ConstructMetal</constructEffect>
+    <designationHotKey>Misc4</designationHotKey>
+    <canOverlapZones>false</canOverlapZones>
+    <researchPrerequisites>
+      <li>Batteries</li>
+    </researchPrerequisites>
+  </ThingDef>
 
 </Defs>
