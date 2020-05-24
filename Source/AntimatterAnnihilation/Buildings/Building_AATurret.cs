@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using AntimatterAnnihilation.ThingComps;
+using RimWorld;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -15,15 +16,39 @@ namespace AntimatterAnnihilation.Buildings
 	public abstract class Building_AATurret : Building_Turret
     {
         public float ScreenShakeOnShoot { get; set; } = 0f;
+        public bool HasLOS
+        {
+            get
+            {
+				if (!CurrentTarget.IsValid)
+					return false;
 
-		public bool Active
+                bool flag = AttackVerb.TryFindShootLineFromTo(this.Position, CurrentTarget, out _);
+                return flag;
+            }
+        }
+		public bool DoBetterTargetFind { get; protected set; } = true;
+        public bool Active
 		{
 			get
 			{
 				return (this.powerComp == null || this.powerComp.PowerOn) && (this.dormantComp == null || this.dormantComp.Awake) && (this.initiatableComp == null || this.initiatableComp.Initiated);
 			}
 		}
-
+        public CompAutoAttack AutoAttack
+        {
+            get
+            {
+                return this.GetComp<CompAutoAttack>();
+            }
+        }
+		public bool AutoAttackEnabled
+		{
+			get
+            {
+                return AutoAttack == null || AutoAttack.AutoAttackEnabled;
+            }
+		}
 		public CompEquippable GunCompEq
 		{
 			get
@@ -31,16 +56,14 @@ namespace AntimatterAnnihilation.Buildings
 				return this.gun.TryGetComp<CompEquippable>();
 			}
 		}
-
-		public override LocalTargetInfo CurrentTarget
+        public override LocalTargetInfo CurrentTarget
 		{
 			get
 			{
 				return this.currentTargetInt;
 			}
 		}
-
-		public LocalTargetInfo CurrentOrForcedTarget
+        public LocalTargetInfo CurrentOrForcedTarget
 		{
 			get
             {
@@ -50,24 +73,14 @@ namespace AntimatterAnnihilation.Buildings
                 return CurrentTarget;
             }
 		}
-
-		private bool WarmingUp
-		{
-			get
-			{
-				return this.burstWarmupTicksLeft > 0;
-			}
-		}
-
-		public override Verb AttackVerb
+        public override Verb AttackVerb
 		{
 			get
 			{
 				return this.GunCompEq.PrimaryVerb;
 			}
 		}
-
-		public bool IsMannable
+        public bool IsMannable
 		{
 			get
 			{
@@ -75,15 +88,21 @@ namespace AntimatterAnnihilation.Buildings
 			}
 		}
 
-		private bool PlayerControlled
+        private bool WarmingUp
+		{
+			get
+			{
+				return this.burstWarmupTicksLeft > 0;
+			}
+		}
+        private bool PlayerControlled
 		{
 			get
 			{
 				return (base.Faction == Faction.OfPlayer || this.MannedByColonist) && !this.MannedByNonColonist;
 			}
 		}
-
-		private bool CanSetForcedTarget
+        private bool CanSetForcedTarget
 		{
 			get
 			{
@@ -91,8 +110,7 @@ namespace AntimatterAnnihilation.Buildings
 				//return this.mannableComp != null && this.PlayerControlled;
 			}
 		}
-
-		private bool CanToggleHoldFire
+        private bool CanToggleHoldFire
 		{
 			get
 			{
@@ -100,24 +118,21 @@ namespace AntimatterAnnihilation.Buildings
 				//return this.PlayerControlled;
 			}
 		}
-
-		private bool IsMortar
+        private bool IsMortar
 		{
 			get
 			{
 				return this.def.building.IsMortar;
 			}
 		}
-
-		private bool IsMortarOrProjectileFliesOverhead
+        private bool IsMortarOrProjectileFliesOverhead
 		{
 			get
 			{
 				return this.AttackVerb.ProjectileFliesOverhead() || this.IsMortar;
 			}
 		}
-
-		private bool CanExtractShell
+        private bool CanExtractShell
 		{
 			get
 			{
@@ -129,16 +144,14 @@ namespace AntimatterAnnihilation.Buildings
 				return compChangeableProjectile != null && compChangeableProjectile.Loaded;
 			}
 		}
-
-		private bool MannedByColonist
+        private bool MannedByColonist
 		{
 			get
 			{
 				return this.mannableComp != null && this.mannableComp.ManningPawn != null && this.mannableComp.ManningPawn.Faction == Faction.OfPlayer;
 			}
 		}
-
-		private bool MannedByNonColonist
+        private bool MannedByNonColonist
 		{
 			get
 			{
@@ -316,7 +329,16 @@ namespace AntimatterAnnihilation.Buildings
             }
             else
             {
-                this.currentTargetInt = this.TryFindNewTarget();
+				bool allowedToFindNew = true;
+                if (DoBetterTargetFind)
+                {
+					Thing thing = currentTargetInt.Thing;
+					// Allowed to find new target if current target is invalid, destroyed or downed, or line of sight is gone.
+					allowedToFindNew = !isValid || (thing != null && thing.Destroyed) || (thing is Pawn pawn && pawn.Downed) || !HasLOS;
+				}
+
+                if (allowedToFindNew && AutoAttackEnabled)
+                    this.currentTargetInt = this.TryFindNewTarget();
             }
             if (!isValid && this.currentTargetInt.IsValid)
             {
@@ -341,7 +363,7 @@ namespace AntimatterAnnihilation.Buildings
             this.burstWarmupTicksLeft = 1;
 		}
 
-		protected LocalTargetInfo TryFindNewTarget()
+        protected LocalTargetInfo TryFindNewTarget()
 		{
 			IAttackTargetSearcher attackTargetSearcher = this.TargSearcher();
 			Faction faction = attackTargetSearcher.Thing.Faction;
@@ -445,15 +467,18 @@ namespace AntimatterAnnihilation.Buildings
 
             stringBuilder.AppendLine("CanFireIn".Translate() + $": {this.burstCooldownTicksLeft.TicksToSeconds():F1} seconds.");
 
-            stringBuilder.Append("Delta to target: ");
-            stringBuilder.AppendLine(top.DeltaToTarget.ToString(CultureInfo.InvariantCulture));
+            if (Prefs.DevMode)
+            {
+                var target = CurrentOrForcedTarget;
+                stringBuilder.Append("Target: ");
+                stringBuilder.AppendLine($"{(target.IsValid ? "valid" : "invalid")}, {target.Label}: {target.ToString()}");
 
-            var target = CurrentOrForcedTarget;
-            stringBuilder.Append("Target: ");
-            stringBuilder.AppendLine($"{(target.IsValid ? "valid" : "invalid")}, {target.Label}: {target.ToString()}");
+                stringBuilder.Append("Top can shoot: ");
+                stringBuilder.AppendLine(top.CanShootNow().ToString());
 
-            stringBuilder.Append("Top can shoot: ");
-            stringBuilder.AppendLine(top.CanShootNow().ToString());
+                stringBuilder.Append("Auto attack: ");
+                stringBuilder.AppendLine(AutoAttackEnabled.ToString());
+            }
 
             CompChangeableProjectile compChangeableProjectile = this.gun.TryGetComp<CompChangeableProjectile>();
 			if (compChangeableProjectile != null)
@@ -603,11 +628,13 @@ namespace AntimatterAnnihilation.Buildings
 		private void ResetForcedTarget()
 		{
 			this.forcedTarget = LocalTargetInfo.Invalid;
+            this.currentTargetInt = LocalTargetInfo.Invalid; // Added to fix railgun still firing after stopping forced attack.
 			this.burstWarmupTicksLeft = 0;
 			if (this.burstCooldownTicksLeft <= 0)
 			{
 				this.TryStartShootSomething(false);
 			}
+
 		}
 
 		private void ResetCurrentTarget()

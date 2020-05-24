@@ -127,6 +127,14 @@ Does not bleed as the flesh is forcefully cauterized. Causes intense pain.</desc
     <soundExplosion>Silent_AA</soundExplosion>
   </DamageDef>
 
+  <DamageDef ParentName="AnnihilationExplosion_AA">
+    <defName>AnnihilationExplosionRailgun_AA</defName>
+    <defaultDamage>220</defaultDamage>
+    <defaultStoppingPower>3</defaultStoppingPower>
+    <defaultArmorPenetration>1.3</defaultArmorPenetration>
+    <soundExplosion>MortarBomb_Explode</soundExplosion> <!-- Change for antimatter explosion sound? -->
+  </DamageDef>
+
   <DamageDef>
     <defName>GalvaPain_AA</defName>
     <label>galvaknuckles pain</label>

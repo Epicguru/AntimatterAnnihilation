@@ -12,5 +12,7 @@ Sound Effects & Music - Freesound.org users:
  -Sergenious (Electrical discharge sound)
  -Dasgoat (Distant explosion)
  -Anomaex (Huge explosion N2 mine)
+ -JavierZumer (Railgun charge)
+ -dpren (Railgun charge/fire, gun shoot sounds)
 
 All sounds used were posted under the Creative Commons or Attribution liscences.

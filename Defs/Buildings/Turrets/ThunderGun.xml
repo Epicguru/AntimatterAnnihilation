@@ -79,6 +79,9 @@
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
             </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
+                <defaultAutoAttack>true</defaultAutoAttack>
+            </li>
         </comps>
         <building>
             <turretGunDef>Gun_ThunderGunTurret_AA</turretGunDef>

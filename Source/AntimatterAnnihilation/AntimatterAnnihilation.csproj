@@ -56,6 +56,10 @@
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.AnimationModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
       <Private>False</Private>
@@ -74,6 +78,10 @@
     </Reference>
     <Reference Include="UnityEngine.InputModule">
       <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.InputModule.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>..\..\..\..\RimWorldWin64_Data\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEngine.UIModule">
@@ -103,11 +111,17 @@
     <Compile Include="Commands\Command_AttackLocation.cs" />
     <Compile Include="Content.cs" />
     <Compile Include="Damage\DamageWorker_GalvaPain.cs" />
+    <Compile Include="Effects\EffectManagers.cs" />
+    <Compile Include="Effects\EffectPool.cs" />
+    <Compile Include="Effects\ExplosionEffect.cs" />
+    <Compile Include="Effects\RailgunEffectComp.cs" />
     <Compile Include="Effects\SpawnedEffect.cs" />
     <Compile Include="Effects\UpBeam.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
     <Compile Include="Patches\Patch_CompExplosive.cs" />
-    <Compile Include="ThingComps\CompProperties_TargetChargeRate - Copy.cs" />
+    <Compile Include="ThingComps\CompAutoAttack.cs" />
+    <Compile Include="ThingComps\CompProperties_AutoAttack.cs" />
+    <Compile Include="ThingComps\CompProperties_TargetChargeRate.cs" />
     <Compile Include="ThingComps\CompProperties_ExplosiveCustom.cs" />
     <Compile Include="ThingComps\CompExplosiveCustom.cs" />
     <Compile Include="ThingComps\CompTargetChargeRate.cs" />
