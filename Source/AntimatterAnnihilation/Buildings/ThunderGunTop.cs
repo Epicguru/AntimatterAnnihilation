@@ -49,12 +49,12 @@ namespace AntimatterAnnihilation.Buildings
 
             Vector3 rightPos = (new Vector3(this.parentTurret.def.building.turretTopOffset.x + SPACING, 0f, this.parentTurret.def.building.turretTopOffset.y - RecoilRight.CurrentRecoil + DEFAULT_FORWARDS)).RotatedBy(this.CurrentRotation);
             Matrix4x4 matrixRight = default(Matrix4x4);
-            matrixRight.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect * 0.5f + rightPos, (this.CurrentRotation + (float)TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
+            matrixRight.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect * 0.5f + rightPos, (this.CurrentRotation + TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
             Graphics.DrawMesh(MeshPool.plane10, matrixRight, BarrelMat, 0);
 
             Vector3 leftPos = (new Vector3(this.parentTurret.def.building.turretTopOffset.x - SPACING, 0f, this.parentTurret.def.building.turretTopOffset.y - RecoilLeft.CurrentRecoil + DEFAULT_FORWARDS)).RotatedBy(this.CurrentRotation);
             Matrix4x4 matrixLeft = default(Matrix4x4);
-            matrixLeft.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect * 0.5f + leftPos, (this.CurrentRotation + (float)TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
+            matrixLeft.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect * 0.5f + leftPos, (this.CurrentRotation + TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
             Graphics.DrawMesh(MeshPool.plane10, matrixLeft, BarrelMat, 0);
 
             base.Draw();
