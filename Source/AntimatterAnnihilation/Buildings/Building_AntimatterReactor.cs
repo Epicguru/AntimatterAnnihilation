@@ -351,14 +351,6 @@ namespace AntimatterAnnihilation.Buildings
             return i;
         }
 
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            foreach (var thing in base.GetGizmos())
-            {
-                yield return thing;
-            }
-        }
-
         public IEnumerable<(IntVec3 cell, byte weight)> GetAvoidance(Map map)
         {
             if (map == null || map != this.Map)

@@ -8,6 +8,8 @@
 <AA.Turn>turn</AA.Turn> <!-- As in 'turn' machine on or off. -->
 <AA.Name>name</AA.Name>
 <AA.Power>power</AA.Power>
+<AA.Antimatter>antimatter</AA.Antimatter>
+<AA.Plasteel>plasteel</AA.Plasteel>
 
 <!-- PowerNet Console -->
 <AA.PowerNetInfo>PowerNet Info</AA.PowerNetInfo>
@@ -24,5 +26,12 @@
 <!-- AutoAttack component -->
 <AA.ToggleAutoAttack>Toggle auto attack</AA.ToggleAutoAttack>
 <AA.ToggleAutoAttackDesc>Toggle whether this {0} will automatically attack enemies</AA.ToggleAutoAttackDesc>
+
+<!-- Composite refiner -->
+<AA.NotEnoughPower>Not enough power.</AA.NotEnoughPower>
+<AA.MissingPlasteel>Missing {0} plasteel.</AA.MissingPlasteel> <!-- For example, 'Missing 10 plasteel' -->
+<AA.MissingAntimatter>Missing {0} antimatter canisters.</AA.MissingAntimatter>
+<AA.RunningInfo>Running: {0} hours until output</AA.RunningInfo>
+<AA.NotRunningInfo>Not running: {0}</AA.NotRunningInfo> <!-- For example, 'Not running: reason' -->
 
  </LanguageData>
