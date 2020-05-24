@@ -628,11 +628,13 @@ namespace AntimatterAnnihilation.Buildings
 		private void ResetForcedTarget()
 		{
 			this.forcedTarget = LocalTargetInfo.Invalid;
+            this.currentTargetInt = LocalTargetInfo.Invalid; // Added to fix railgun still firing after stopping forced attack.
 			this.burstWarmupTicksLeft = 0;
 			if (this.burstCooldownTicksLeft <= 0)
 			{
 				this.TryStartShootSomething(false);
 			}
+
 		}
 
 		private void ResetCurrentTarget()

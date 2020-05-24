@@ -10,6 +10,19 @@ namespace AntimatterAnnihilation.Buildings
     public class Building_AntimatterRailgun : Building_AATurret
     {
         public static int CHARGE_TICKS = 280; // Made to match audio clip, around 4.7 seconds.
+        public static AnimationCurve ParticlesAmountCurve;
+
+        static Building_AntimatterRailgun()
+        {
+            var c = new AnimationCurve();
+
+            c.AddKey(0f, 0f);
+            c.AddKey(0.5f, 1f);
+            c.AddKey(0.85f, 0f);
+            c.AddKey(1f, 0f);
+
+            ParticlesAmountCurve = c;
+        }
 
         public int CurrentChargeTicks = 0; // Needs to reach CHARGE_TICKS before it can fire. While charging, has particle effects.
         public RailgunEffectComp Effect { get; private set; }
@@ -66,7 +79,7 @@ namespace AntimatterAnnihilation.Buildings
                 return;
 
             // Check if should be charging.
-            bool shouldBeCharging = TargetCurrentlyAimingAt.IsValid && base.HasLOS && rt.BaseCanShootNow() && base.burstCooldownTicksLeft <= 0;
+            bool shouldBeCharging = CurrentOrForcedTarget.IsValid && base.HasLOS && rt.BaseCanShootNow() && base.burstCooldownTicksLeft <= 0;
 
             if (shouldBeCharging)
                 CurrentChargeTicks++;
@@ -113,6 +126,8 @@ namespace AntimatterAnnihilation.Buildings
 
                 if(cooldownTicks == 0)
                     Effect.Show(start, end);
+
+                Effect.SetParticleRate(GetCurrentParticleRate());
                 Effect.Tick();
 
                 if (shouldFire)
@@ -128,6 +143,35 @@ namespace AntimatterAnnihilation.Buildings
                 Effect.Hide(false);
             }
 
+        }
+
+        public float DstToTarget()
+        {
+            if (!CurrentOrForcedTarget.IsValid)
+                return 10f;
+
+            Vector3 shooter = Position.ToVector3();
+            shooter.y = 0;
+
+            Vector3 target = CurrentOrForcedTarget.CenterVector3;
+            target.y = 0;
+
+            return (target - shooter).magnitude;
+        }
+
+        public float GetCurrentParticleRate()
+        {
+            const float BASE_PER_METER = 20f / 10f; // Values taken from in Unity test area, just eyeballing it.
+            float dst = DstToTarget();
+
+            float baseRate = BASE_PER_METER * dst;
+
+            float chargeUpNormalizedTime = Mathf.Clamp01((float) CurrentChargeTicks / CHARGE_TICKS);
+            float multiFromCurve = Mathf.Clamp01(ParticlesAmountCurve.Evaluate(chargeUpNormalizedTime));
+
+            float final = baseRate * multiFromCurve;
+
+            return final;
         }
 
         public override string GetInspectString()

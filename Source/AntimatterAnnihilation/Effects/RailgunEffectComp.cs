@@ -71,6 +71,15 @@ namespace AntimatterAnnihilation.Effects
                 gameObject.SetActive(vis);
         }
 
+        public void SetParticleRate(float perSecond)
+        {
+            foreach (var thing in LongParticles)
+            {
+                var em = thing.emission;
+                em.rateOverTime = perSecond;
+            }
+        }
+
         public void Show(Vector3 start, Vector3 end)
         {
             if (hidden)
