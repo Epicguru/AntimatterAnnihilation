@@ -202,13 +202,13 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             updateTick++;
-            if (updateTick % UpdateInterval == 0)
+            if (updateTick % UpdateInterval == 0 && EnergyBeam != null)
             {
                 EnergyBeam.Length = UpdateOutputBeam(16);
             }
 
-            EnergyBall.Tick();
-            EnergyBeam.Tick();
+            EnergyBall?.Tick();
+            EnergyBeam?.Tick();
         }
 
         private List<Thing> tempThings = new List<Thing>();
@@ -248,14 +248,15 @@ namespace AntimatterAnnihilation.Buildings
             IntVec3 basePos;
             if (horizontal)
             {
-                basePos = new IntVec3(this.TrueCenter() - new Vector3(0f, 0f, 0.1f)) + beamExploreDirection * 6;
-                EnergyBeam.Position = basePos.ToVector3() + new Vector3(0, 0, 1.25f);
+                Vector3 baseOffset = new Vector3(injectorRot == 3 ? -1 : 0, 0f, -1);
+                basePos = new IntVec3(this.TrueCenter() + baseOffset) + beamExploreDirection * 6;
+                EnergyBeam.Position = basePos.ToVector3() + new Vector3(injectorRot == 3 ? 1 : 0, 0, 1.25f);
             }
             else 
             {
                 basePos = new IntVec3(this.TrueCenter() - new Vector3(0.1f, 0f, injectorRot == 2 ? 0.1f : 0f)) + beamExploreDirection * 6;
-                EnergyBeam.Position = basePos.ToVector3() + new Vector3(1, 0, 1f + (injectorRot == 2 ? 0.8f : 0f));
-                EnergyBeam.LengthOffset = injectorRot == 2 ? 0.8f : 0f;
+                EnergyBeam.Position = basePos.ToVector3() + new Vector3(1, 0, 1f + (injectorRot == 2 ? 0.8f : 0f) + (injectorRot == 0 ? -1 : 0));
+                EnergyBeam.LengthOffset = (injectorRot == 2 ? 0.8f : 0f) + (injectorRot == 0 ? 0.43f : 0f);
             }
 
             tempThings.Clear();
@@ -348,14 +349,6 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             return i;
-        }
-
-        public override IEnumerable<Gizmo> GetGizmos()
-        {
-            foreach (var thing in base.GetGizmos())
-            {
-                yield return thing;
-            }
         }
 
         public IEnumerable<(IntVec3 cell, byte weight)> GetAvoidance(Map map)

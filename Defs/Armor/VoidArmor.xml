@@ -5,7 +5,7 @@
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-            <researchPrerequisite>PoweredArmor</researchPrerequisite>
+            <researchPrerequisite>VoidArmor_AA</researchPrerequisite>
             <skillRequirements>
                 <Crafting>12</Crafting>
             </skillRequirements>
@@ -28,7 +28,7 @@
             <ArmorRating_Heat>0.7</ArmorRating_Heat>
             <Insulation_Cold>38</Insulation_Cold>
             <Insulation_Heat>12</Insulation_Heat>
-            <EquipDelay>10</EquipDelay>
+            <EquipDelay>9</EquipDelay>
         </statBases>
         <equippedStatOffsets>
             <MoveSpeed>-0.3</MoveSpeed>

@@ -17,7 +17,7 @@ namespace AntimatterAnnihilation.Buildings
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
         [TweakValue("AntimatterAnnihilation", 0f, 1f)]
-        public static float EasterEggChance = 0.1f;
+        public static float EasterEggChance = 0.2f;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
         public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
@@ -26,8 +26,7 @@ namespace AntimatterAnnihilation.Buildings
         public static float EXPLOSION_RADIUS = 18;
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
-        public static float CHARGE_WATT_DAYS = 600 * 4; // Requires 4 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
-        public static float IDLE_WATTS = 50; // Power consumption when not charging.
+        public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
 
         public CompEquippable GunComp
         {
@@ -39,16 +38,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompEquippable _gunCompEq;
-        public CompPowerTrader PowerTrader
+        public CompGreedyBattery BatComp
         {
             get
             {
-                if (_compPowerTrader == null)
-                    _compPowerTrader = this.GetComp<CompPowerTrader>();
-                return _compPowerTrader;
+                if (_batComp == null)
+                    _batComp = this.TryGetComp<CompGreedyBattery>();
+                return _batComp;
             }
         }
-        private CompPowerTrader _compPowerTrader;
+        private CompGreedyBattery _batComp;
         public CompRefuelableConditional FuelComp
         {
             get
@@ -59,16 +58,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompRefuelableConditional _compRefuelable;
-        public CompTargetChargeRate ChargeRateComp
-        {
-            get
-            {
-                if (_compChargeRate == null)
-                    _compChargeRate = this.GetComp<CompTargetChargeRate>();
-                return _compChargeRate;
-            }
-        }
-        private CompTargetChargeRate _compChargeRate;
         public Verb AttackVerb
         {
             get
@@ -94,13 +83,17 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                return WattDaysRequired > 0;
+                return isChargingUp;
+            }
+            protected set
+            {
+                isChargingUp = value;
             }
         }
         public int CooldownTicks;
         public int PoweringUpTicks;
-        public float WattDaysRequired;
 
+        private bool isChargingUp;
         private UpBeam beam;
         private LocalTargetInfo localTarget;
         private Sustainer soundSustainer;
@@ -130,38 +123,49 @@ namespace AntimatterAnnihilation.Buildings
 
             // Attack on local map.
             Command_AttackLocation cmd = new Command_AttackLocation();
-            cmd.defaultLabel = "Strike location";
-            cmd.defaultDesc = "Fires the MEG-Umin at a specific position on this map.";
+            cmd.defaultLabel = "AA.MegStrikeLocation".Translate();
+            cmd.defaultDesc = "AA.MegStrikeLocationDesc".Translate();
             cmd.icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
             cmd.hotKey = KeyBindingDefOf.Misc4;
             cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true};
             cmd.onTargetSelected = StartAttackSequence;
             if (IsOnCooldown)
             {
-                cmd.Disable("CannotFire".Translate() + $": Weapon is cooling down.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
             }
             else if (IsPoweringUp)
             {
-                cmd.Disable("CannotFire".Translate() + $": Already powering up.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
             }
             else if (IsChargingUp)
             {
-                cmd.Disable("CannotFire".Translate() + $": Already charging to fire.");
-            }
-            else if (!PowerTrader.PowerOn)
-            {
-                cmd.Disable("CannotFire".Translate() + $": No power.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
             }
             else if (FuelComp.FuelPercentOfMax != 1f)
             {
-                cmd.Disable("CannotFire".Translate() + $": Missing antimatter canisters.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
             }
             else if (!HasSkyAccess())
             {
-                cmd.Disable("CannotFire".Translate() + $": Blocked by roof.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
             }
 
             yield return cmd;
+
+            if (IsChargingUp)
+            {
+                var cancel = new Command_Action();
+                cancel.defaultLabel = "AA.MegCancelStrike".Translate();
+                cancel.defaultDesc = "AA.MegCancelStrikeDesc".Translate();
+                cancel.icon = Content.CancelIcon;
+                cancel.defaultIconColor = Color.red;
+                cancel.action = () =>
+                {
+                    localTarget = LocalTargetInfo.Invalid;
+                    IsChargingUp = false;
+                };
+                yield return cancel;
+            }
 
             // Debug gizmos.
             if (Prefs.DevMode)
@@ -191,7 +195,7 @@ namespace AntimatterAnnihilation.Buildings
             this.localTarget = target;
 
             // Enter the charging phase.
-            WattDaysRequired = CHARGE_WATT_DAYS;
+            IsChargingUp = true;
         }
 
         private void StartPowerUpSequence()
@@ -270,20 +274,16 @@ namespace AntimatterAnnihilation.Buildings
             return true;
         }
 
-        internal void OnStrikeEnd(CustomOrbitalStrike strike)
+        internal void OnStrikeEnd(CustomOrbitalStrike _)
         {
             StopFireLaser();
         }
 
         public override string GetInspectString()
         {
-            string cooldown = IsOnCooldown ? $"Cooldown: {GetCooldownPretty(CooldownTicks)}" : $"Ready to fire";
-            string status = IsPoweringUp ? $"Powering up: {PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}%" : (FuelComp.FuelPercentOfMax == 1f ? $"{cooldown}" : $"Missing {8 - FuelComp.Fuel} antimatter canisters.");
-            status = IsChargingUp ? $"Charging: {WattDaysRequired:F0} watt-days remaining, {(1f - (WattDaysRequired / CHARGE_WATT_DAYS)) * 100f:F0}%." : status;
-            if (IsChargingUp && !PowerTrader.PowerOn)
-            {
-                status += $"\nNot enough power. Charge rate is set to {ChargeRateComp.Watts:F0} watts.\nTry lowering the charge rate.\nTip: Build at least {Mathf.Ceil(CHARGE_WATT_DAYS/600):F0} batteries and set charge rate to max.";
-            }
+            string cooldown = IsOnCooldown ? "AA.MegCooldown".Translate(GetCooldownPretty(CooldownTicks)) : "AA.MegReadyToFire".Translate();
+            string status = IsPoweringUp ? "AA.MegPoweringUp".Translate($"{PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}").ToString() : FuelComp.FuelPercentOfMax == 1f ? cooldown : "AA.MegMissingXCanisters".Translate(8 - FuelComp.Fuel).ToString();
+            status = IsChargingUp ? "AA.MegCharging".Translate($"{BatComp.WattDaysUntilFull:F0}", $"{BatComp.StoredEnergyPct * 100f:F0}").ToString() : status;
             return base.GetInspectString() + $"\n{status}";
         }
 
@@ -293,7 +293,7 @@ namespace AntimatterAnnihilation.Buildings
             Scribe_TargetInfo.Look(ref localTarget, "localTarget");
             Scribe_Values.Look(ref CooldownTicks, "cooldownTicks");
             Scribe_Values.Look(ref PoweringUpTicks, "powerUpTicks");
-            Scribe_Values.Look(ref WattDaysRequired, "chargingUpTicks");
+            Scribe_Values.Look(ref isChargingUp, "isChargingUp");
 
             Scribe_Deep.Look(ref gun, "gun", Array.Empty<object>());
 
@@ -336,17 +336,20 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
 
-            PowerTrader.PowerOutput = IsChargingUp ? -Mathf.Abs(ChargeRateComp.Watts) : -Mathf.Abs(IDLE_WATTS);
             if (IsChargingUp)
             {
-                if (PowerTrader.PowerOn)
+                BatComp.MaxStoredEnergy = CHARGE_WATT_DAYS;
+                if (Math.Abs(BatComp.StoredEnergyPct - 1f) < 0.005f)
                 {
-                    WattDaysRequired -= Mathf.Abs(PowerTrader.PowerOutput * CompPower.WattsToWattDaysPerTick); // Turns watts into watt-days per tick.
-                    if (WattDaysRequired <= 0)
-                    {
-                        StartPowerUpSequence();
-                    }
+                    // Now full on power!
+                    IsChargingUp = false;
+                    StartPowerUpSequence();
                 }
+            }
+            else
+            {
+                BatComp.SetStoredEnergyPct(0f);
+                BatComp.MaxStoredEnergy = 0;
             }
             if (IsOnCooldown)
             {
@@ -377,15 +380,15 @@ namespace AntimatterAnnihilation.Buildings
 
             if(ticksLeft >= QUADRUM)
             {
-                return $"{ticksLeft / QUADRUM:F1} Quadrums";
+                return $"{ticksLeft / QUADRUM:F1} {"AA.Quadrums".Translate()}";
             }
 
             if (ticksLeft >= DAY)
             {
-                return $"{ticksLeft / DAY:F1} Days";
+                return $"{ticksLeft / DAY:F1} {"AA.Days".Translate()}";
             }
 
-            return $"{ticksLeft / HOUR:F1} Hours";
+            return $"{ticksLeft / HOUR:F1} {"AA.Hours".Translate()}";
         }
 
         public void MakeGun()

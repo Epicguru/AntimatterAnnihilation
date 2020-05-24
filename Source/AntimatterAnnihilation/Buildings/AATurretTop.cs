@@ -1,5 +1,4 @@
-﻿using AntimatterAnnihilation.Verbs;
-using RimWorld;
+﻿using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -63,7 +62,7 @@ namespace AntimatterAnnihilation.Buildings
             LocalTargetInfo currentTarget = parentTurret.CurrentOrForcedTarget;
             if (currentTarget.IsValid)
             {
-                RotateTo(AngleToTarget);
+                RotateTo();
             }
             else
             {
@@ -95,10 +94,15 @@ namespace AntimatterAnnihilation.Buildings
         /// <returns></returns>
         public virtual bool CanShootNow()
         {
+            return IsPointingAtTarget();
+        }
+
+        public bool IsPointingAtTarget()
+        {
             return Mathf.Abs(DeltaToTarget) <= MaxDeltaToFire;
         }
 
-        private void RotateTo(float angle)
+        private void RotateTo()
         {
             const float DT = 1f / 60f;
 
