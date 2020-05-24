@@ -123,31 +123,31 @@ namespace AntimatterAnnihilation.Buildings
 
             // Attack on local map.
             Command_AttackLocation cmd = new Command_AttackLocation();
-            cmd.defaultLabel = "Strike location";
-            cmd.defaultDesc = "Fires the MEG-Umin at a specific position on this map.";
+            cmd.defaultLabel = "AA.MegStrikeLocation".Translate();
+            cmd.defaultDesc = "AA.MegStrikeLocationDesc".Translate();
             cmd.icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
             cmd.hotKey = KeyBindingDefOf.Misc4;
             cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true};
             cmd.onTargetSelected = StartAttackSequence;
             if (IsOnCooldown)
             {
-                cmd.Disable("CannotFire".Translate() + $": Weapon is cooling down ({GetCooldownPretty(CooldownTicks)} left).");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
             }
             else if (IsPoweringUp)
             {
-                cmd.Disable("CannotFire".Translate() + $": Already powering up.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
             }
             else if (IsChargingUp)
             {
-                cmd.Disable("CannotFire".Translate() + $": Already charging to fire.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
             }
             else if (FuelComp.FuelPercentOfMax != 1f)
             {
-                cmd.Disable("CannotFire".Translate() + $": Missing antimatter canisters.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
             }
             else if (!HasSkyAccess())
             {
-                cmd.Disable("CannotFire".Translate() + $": Blocked by roof.");
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
             }
 
             yield return cmd;
@@ -155,8 +155,8 @@ namespace AntimatterAnnihilation.Buildings
             if (IsChargingUp)
             {
                 var cancel = new Command_Action();
-                cancel.defaultLabel = "Cancel strike";
-                cancel.defaultDesc = "Cancels the M3G_UMIN strike.\nAll charged power is discarded. Only available during charging phase.";
+                cancel.defaultLabel = "AA.MegCancelStrike".Translate();
+                cancel.defaultDesc = "AA.MegCancelStrikeDesc".Translate();
                 cancel.icon = Content.CancelIcon;
                 cancel.defaultIconColor = Color.red;
                 cancel.action = () =>
@@ -281,9 +281,9 @@ namespace AntimatterAnnihilation.Buildings
 
         public override string GetInspectString()
         {
-            string cooldown = IsOnCooldown ? $"Cooldown: {GetCooldownPretty(CooldownTicks)}" : $"Ready to fire";
-            string status = IsPoweringUp ? $"Powering up: {PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}%" : (FuelComp.FuelPercentOfMax == 1f ? $"{cooldown}" : $"Missing {8 - FuelComp.Fuel} antimatter canisters.");
-            status = IsChargingUp ? $"Charging: {BatComp.WattDaysUntilFull:F0} watt-days remaining, {BatComp.StoredEnergyPct * 100f:F0}%." : status;
+            string cooldown = IsOnCooldown ? "AA.MegCooldown".Translate(GetCooldownPretty(CooldownTicks)) : "AA.MegReadyToFire".Translate();
+            string status = IsPoweringUp ? "AA.MegPoweringUp".Translate($"{PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}").ToString() : FuelComp.FuelPercentOfMax == 1f ? cooldown : "AA.MegMissingXCanisters".Translate(8 - FuelComp.Fuel).ToString();
+            status = IsChargingUp ? "AA.MegCharging".Translate($"{BatComp.WattDaysUntilFull:F0}", $"{BatComp.StoredEnergyPct * 100f:F0}").ToString() : status;
             return base.GetInspectString() + $"\n{status}";
         }
 
@@ -380,15 +380,15 @@ namespace AntimatterAnnihilation.Buildings
 
             if(ticksLeft >= QUADRUM)
             {
-                return $"{ticksLeft / QUADRUM:F1} Quadrums";
+                return $"{ticksLeft / QUADRUM:F1} {"AA.Quadrums".Translate()}";
             }
 
             if (ticksLeft >= DAY)
             {
-                return $"{ticksLeft / DAY:F1} Days";
+                return $"{ticksLeft / DAY:F1} {"AA.Days".Translate()}";
             }
 
-            return $"{ticksLeft / HOUR:F1} Hours";
+            return $"{ticksLeft / HOUR:F1} {"AA.Hours".Translate()}";
         }
 
         public void MakeGun()

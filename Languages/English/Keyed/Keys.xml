@@ -11,6 +11,11 @@
 <AA.Antimatter>antimatter</AA.Antimatter>
 <AA.Plasteel>plasteel</AA.Plasteel>
 
+<!-- Time -->
+<AA.Hours>hours</AA.Hours>
+<AA.Days>days</AA.Days>
+<AA.Quadrums>quadrums</AA.Quadrums>
+
 <!-- PowerNet Console -->
 <AA.PowerNetInfo>PowerNet Info</AA.PowerNetInfo>
 <AA.Watts>KW</AA.Watts>
@@ -33,5 +38,21 @@
 <AA.MissingAntimatter>Missing {0} antimatter canisters.</AA.MissingAntimatter>
 <AA.RunningInfo>Running: {0} hours until output</AA.RunningInfo>
 <AA.NotRunningInfo>Not running: {0}</AA.NotRunningInfo> <!-- For example, 'Not running: reason' -->
+
+<!-- M3G_UMIN -->
+<AA.MegStrikeLocation>Strike location</AA.MegStrikeLocation>
+<AA.MegStrikeLocationDesc>Fires the M3G_UMIN at a specific position on this map.</AA.MegStrikeLocationDesc>
+<AA.MegCancelStrike>Cancel strike</AA.MegCancelStrike>
+<AA.MegCancelStrikeDesc>Cancels the M3G_UMIN strike.\nAll charged power is discarded. Only available during charging phase.</AA.MegCancelStrikeDesc>
+<AA.MegCoolingDown>Weapon is cooling down ({0} left).</AA.MegCoolingDown> <!-- {0} is time period, such as '16 hours' or '5 days' -->
+<AA.MegPoweringUp>Powering up: {0}%</AA.MegPoweringUp> <!-- {0} is a percentage (0-100) -->
+<AA.MegAlreadyPoweringUp>Already powering up.</AA.MegAlreadyPoweringUp>
+<AA.MegCharging>Charging: {0} watt-days remining, {1}%</AA.MegCharging> <!-- {1} is a percentage (0-100) -->
+<AA.MegAlreadyCharging>Already charging strike.</AA.MegAlreadyCharging>
+<AA.MegMissingCanisters>Missing antimatter canisters.</AA.MegMissingCanisters>
+<AA.MegMissingXCanisters>Missing {0} antimatter canisters.</AA.MegMissingXCanisters>
+<AA.MegBlockedByRoof>Blocked by roof.</AA.MegBlockedByRoof>
+<AA.MegReadyToFire>Ready to fire.</AA.MegReadyToFire>
+<AA.MegCooldown>Cooldown: {0}</AA.MegCooldown> <!-- {0} is time period, such as '16 hours' or '5 days' -->
 
  </LanguageData>
