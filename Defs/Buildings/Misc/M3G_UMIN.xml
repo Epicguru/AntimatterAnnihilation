@@ -40,11 +40,15 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 </fuelFilter>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
-            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_CustomBattery">
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_GreedyBattery">
                 <efficiency>1.0</efficiency> <!-- 100% efficient, just so that time calculations are easier for the user, if they want to make them. -->
                 <shortCircuitInRain>false</shortCircuitInRain>
                 <storedEnergyMax>0</storedEnergyMax> <!-- Will be changed dynamically from code. -->
                 <transmitsPower>true</transmitsPower>
+
+                <maxPull>500000</maxPull> <!-- 500KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
+                <doSelfDischarge>false</doSelfDischarge>
+                <doInspectorInfo>false</doInspectorInfo>
             </li>
         </comps>
         <researchPrerequisites>

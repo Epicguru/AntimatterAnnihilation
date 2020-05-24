@@ -86,6 +86,9 @@ namespace AntimatterAnnihilation.ThingComps
             if (PowerNet?.batteryComps == null)
                 return;
 
+            if (StoredEnergyPct == 1f)
+                return; // No need to pull anything.
+
             var bats = GetPullableBatteries();
 
             if (bats.Count == 0)
@@ -143,6 +146,8 @@ namespace AntimatterAnnihilation.ThingComps
 
         public void SetStoredEnergy(float wattDays)
         {
+            // Uses reflection so it's quite slow. Maybe use Harmony? Is that faster?
+
             if (storedEnergyInfo == null)
             {
                 storedEnergyInfo = typeof(CompPowerBattery).GetField("storedEnergy", BindingFlags.Instance | BindingFlags.NonPublic);
