@@ -64,7 +64,7 @@ This weapon incorporates archotech technology. Even with a good understanding of
         </graphicData>
         <projectile>
             <damageDef>Annihilate_AA</damageDef>
-            <damageAmountBase>6.5</damageAmountBase>
+            <damageAmountBase>6</damageAmountBase>
             <stoppingPower>1.0</stoppingPower>
             <armorPenetrationBase>0.4</armorPenetrationBase>
             <speed>90</speed>
