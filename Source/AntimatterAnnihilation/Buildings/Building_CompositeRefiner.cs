@@ -88,7 +88,6 @@ namespace AntimatterAnnihilation.Buildings
                     CurrentPlasteelCount = 0;
 
                     PlaceOutput(OutputAmount);
-                    Log.Message("Placed output, reset counts.");
                 }
             }
 
@@ -113,8 +112,8 @@ namespace AntimatterAnnihilation.Buildings
                         rt = GetRightTray();
                     }
 
-                    TryGet(lt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterCount);
-                    TryGet(rt, "AntimatterCanister", MissingAntimatter, ref CurrentAntimatterCount);
+                    TryGet(lt, "AntimatterCanister_AA", MissingAntimatter, ref CurrentAntimatterCount);
+                    TryGet(rt, "AntimatterCanister_AA", MissingAntimatter, ref CurrentAntimatterCount);
                 }
             }
         }
@@ -180,13 +179,13 @@ namespace AntimatterAnnihilation.Buildings
         public string GetReasonNotRunning()
         {
             if (!PowerTraderComp.PowerOn)
-                return "Not enough power.";
+                return "AA.NotEnoughPower".Translate();
 
             if (MissingPlasteel > 0)
-                return $"Missing {MissingPlasteel} plasteel.";
+                return "AA.MissingPlasteel".Translate(MissingPlasteel);
 
             if (MissingAntimatter > 0)
-                return $"Missing {MissingAntimatter} antimatter.";
+                return "AA.MissingAntimatter".Translate(MissingAntimatter);
 
             return null;
         }
@@ -194,7 +193,8 @@ namespace AntimatterAnnihilation.Buildings
         public override string GetInspectString()
         {
             string reasonNotRunning = GetReasonNotRunning();
-            return base.GetInspectString() + $"\n{(reasonNotRunning == null ? $"Running: {(TicksToProduceOutput - ProductionTicks)/2500f:F1} hours until output" : $"Not running: {reasonNotRunning}")}\nPlasteel: {CurrentPlasteelCount}/{MaxPlasteel}\nAntimatter: {CurrentAntimatterCount}/{MaxAntimatter}";
+            string hours = $"{(TicksToProduceOutput - ProductionTicks) / 2500f:F1}";
+            return base.GetInspectString() + $"\n{(reasonNotRunning == null ? "AA.RunningInfo".Translate(hours) : "AA.NotRunningInfo".Translate(reasonNotRunning))}\n{"AA.Plasteel".Translate().CapitalizeFirst()}: {CurrentPlasteelCount}/{MaxPlasteel}\n{"AA.Antimatter".Translate().CapitalizeFirst()}: {CurrentAntimatterCount}/{MaxAntimatter}";
         }
     }
 }

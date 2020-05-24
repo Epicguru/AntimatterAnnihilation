@@ -88,8 +88,8 @@ namespace AntimatterAnnihilation.Buildings
                 {
                     UI_PowerNetConsole.Open(this);
                 },
-                defaultLabel = "Open Console",
-                defaultDesc = "Shows detailed information about the connected power network, and allows you to turn power on and off.",
+                defaultLabel = "AA.OpenConsole".Translate(),
+                defaultDesc = "AA.OpenConsoleDesc".Translate(),
                 icon = Content.PowerNetGraph
             };
         }

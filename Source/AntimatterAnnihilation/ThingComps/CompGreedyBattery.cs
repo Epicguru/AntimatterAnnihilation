@@ -132,7 +132,7 @@ namespace AntimatterAnnihilation.ThingComps
                 // In theory this should not be possible, but I'll check anyway for debugging purposes.
                 if (pulled > toPull)
                 {
-                    Log.Warning($"GreedyBattery error: pulled more than was calculated! Wanted {toPull}, ended with {pulled}.");
+                    //Log.Warning($"GreedyBattery error: pulled more than was calculated! Wanted {toPull}, ended with {pulled}.");
                     break;
                 }
             }
