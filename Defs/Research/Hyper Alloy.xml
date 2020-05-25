@@ -2,7 +2,7 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>HyperAlloyResearch_AA</defName>
+        <defName>R_HyperAlloy_AA</defName>
         <label>hyper alloy synthesis</label>
         <description>Data indicates that alloying Antimatter Composite with other dense metals could produce a material of extreme strength and versatility.\nDoing so will require a specialized production facility.</description>
         <baseCost>5500</baseCost>
@@ -13,10 +13,10 @@
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>AntimatterCompositeResearch_AA</li>
+            <li>R_AntimatterComposite_AA</li>
         </prerequisites>        
-        <researchViewX>2.00</researchViewX>
-        <researchViewY>1.05</researchViewY>
+        <researchViewX>5.00</researchViewX>
+        <researchViewY>0.60</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

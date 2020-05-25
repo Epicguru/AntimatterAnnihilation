@@ -33,7 +33,7 @@ See the in-game wiki for more information and how to use.</description>
         </li>
         </comps>
         <researchPrerequisites>
-            <li>AntimatterComposite_AA</li>
+            <li>R_AntimatterComposite_AA</li>
         </researchPrerequisites>
     </ThingDef>
 

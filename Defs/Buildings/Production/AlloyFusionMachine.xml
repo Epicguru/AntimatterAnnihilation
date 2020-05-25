@@ -13,6 +13,7 @@ See the in-game wiki for more information and how to use.</description>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(3,3)</drawSize>
         </graphicData>
+        <drawerType>RealtimeOnly</drawerType>
         <passability>PassThroughOnly</passability>
         <selectable>true</selectable>
         <size>(3, 3)</size>

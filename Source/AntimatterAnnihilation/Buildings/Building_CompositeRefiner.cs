@@ -4,7 +4,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_CompositeRefiner : Building_Storage
+    public class Building_CompositeRefiner : Building
     {
         public CompPowerTrader PowerTraderComp
         {
