@@ -16,6 +16,7 @@ This material has the ability to cause microscopic annihilation reactions when t
         <soundDrop>Metal_Drop</soundDrop>
         <useHitPoints>false</useHitPoints>
         <healthAffectsPrice>false</healthAffectsPrice>
+        <tradeability>Sellable</tradeability>
         <statBases>
             <MarketValue>26</MarketValue>
             <Mass>0.6</Mass>
