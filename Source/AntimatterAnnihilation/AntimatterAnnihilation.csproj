@@ -96,6 +96,7 @@
     <Compile Include="Buildings\Building_AATurret.cs" />
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_AlloyFusionMachine.cs" />
     <Compile Include="Buildings\Building_CompositeRefiner.cs" />
     <Compile Include="Buildings\Building_InputTray.cs" />
     <Compile Include="Buildings\Building_Megumin.cs" />
