@@ -54,6 +54,9 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
         <researchPrerequisites>
             <li>R_Megumin_AA</li>
         </researchPrerequisites>
+        <placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
     </ThingDef>
 
     <ThingDef ParentName="BaseWeaponTurret">
