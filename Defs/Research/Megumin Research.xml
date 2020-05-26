@@ -10,6 +10,10 @@ Hyper components will be required to create and maintain an AT field going from 
         <techLevel>Ultra</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <discoveredLetterTitle>M3G_UMIN</discoveredLetterTitle>
+        <discoveredLetterText>You can now construct the M3G_UMIN, once you aquire enough Hyper Components.
+The M3G_UMIN will not automatically attack enemies, because it is too destructive. It uses antimatter canisters to fire, and has a very long cooldown.
+Don't target anything near something you care about loosing!</discoveredLetterText>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>

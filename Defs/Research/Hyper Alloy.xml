@@ -8,6 +8,10 @@
         <baseCost>5500</baseCost>
         <techLevel>Ultra</techLevel>
         <tab>Antimatter</tab>
+        <discoveredLetterTitle>About hyper alloy</discoveredLetterTitle>
+        <discoveredLetterText>Your research has lead you to the discovery of Hyper Alloy, an alloy of gold, uranium and antimatter composite.
+Data suggests that it will have incredible properties that would make it far superior to any alternative in terms of strength and versatility.
+In order to manufacture it, a special facility will be needed.</discoveredLetterText>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
         <requiredResearchFacilities>
             <li>MultiAnalyzer</li>
