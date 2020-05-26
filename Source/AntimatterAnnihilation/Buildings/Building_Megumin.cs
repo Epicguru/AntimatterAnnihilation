@@ -93,6 +93,7 @@ namespace AntimatterAnnihilation.Buildings
         public int CooldownTicks;
         public int PoweringUpTicks;
 
+        private IntVec3 lastKnownThingLoc; // Used to prevent bugs where target is destroyed and laser does not spawn.
         private bool isChargingUp;
         private UpBeam beam;
         private LocalTargetInfo localTarget;
@@ -191,8 +192,15 @@ namespace AntimatterAnnihilation.Buildings
 
         private void StartAttackSequence(LocalTargetInfo target)
         {
+            if (!target.IsValid)
+            {
+                Log.Error($"Tried to start M3G_UMIN attack with invalid target {target}.");
+                return;
+            }
+
             // Set local target.
             this.localTarget = target;
+            lastKnownThingLoc = target.Cell;
 
             // Enter the charging phase.
             IsChargingUp = true;
@@ -213,6 +221,12 @@ namespace AntimatterAnnihilation.Buildings
 
         private void StartRealAttack()
         {
+            // Make sure that the local target is completely valid: it is possible that thing is destroyed and Target.IsValid is still true.
+            if (localTarget.HasThing && localTarget.ThingDestroyed)
+            {
+                Log.Warning($"M3G_UMIN appears to have been targeting a Thing but that Thing was destroyed. Using last known location: {lastKnownThingLoc}");
+                localTarget = new LocalTargetInfo(lastKnownThingLoc);
+            }
             // Spawn sky beam of death.
             AttackVerb.TryStartCastOn(localTarget);
 
@@ -221,6 +235,7 @@ namespace AntimatterAnnihilation.Buildings
 
             // Delete target position.
             localTarget = null;
+            lastKnownThingLoc = IntVec3.Zero;
 
             // Spawn a solar flare event on the map that it was fired from.
             if (DoSolarFlare)
@@ -294,6 +309,7 @@ namespace AntimatterAnnihilation.Buildings
             Scribe_Values.Look(ref CooldownTicks, "cooldownTicks");
             Scribe_Values.Look(ref PoweringUpTicks, "powerUpTicks");
             Scribe_Values.Look(ref isChargingUp, "isChargingUp");
+            Scribe_Values.Look(ref lastKnownThingLoc, "lastKnownThingLoc");
 
             Scribe_Deep.Look(ref gun, "gun", Array.Empty<object>());
 
@@ -313,6 +329,9 @@ namespace AntimatterAnnihilation.Buildings
         public override void Tick()
         {
             base.Tick();
+
+            if (localTarget != null && localTarget.HasThing && !localTarget.ThingDestroyed)
+                lastKnownThingLoc = localTarget.Cell;
 
             beam?.Tick();
 
