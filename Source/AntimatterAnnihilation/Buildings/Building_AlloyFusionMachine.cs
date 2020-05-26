@@ -20,6 +20,8 @@ namespace AntimatterAnnihilation.Buildings
         public const int COMPOSITE_PER_HYPER = 3;
         public const int URANIUM_PER_HYPER = 2;
 
+        public const float POWER_DRAW_ACTIVE = 4500;
+
         public const int MAX_GOLD_STORED = GOLD_PER_HYPER * 4;
         public const int MAX_COMPOSITE_STORED = COMPOSITE_PER_HYPER * 4;
         public const int MAX_URANIUM_STORED = URANIUM_PER_HYPER * 4;
@@ -140,6 +142,9 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             tickCount++;
+
+            // Change power draw based on active status.
+            PowerTraderComp.PowerOutput = this.IsActive ? -POWER_DRAW_ACTIVE : PowerTraderComp.Props.basePowerConsumption;
 
             // Update active/running state.
             IsActive = true; // Assume running for now.
