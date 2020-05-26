@@ -1,10 +1,11 @@
-﻿using RimWorld;
+﻿using System.Collections.Generic;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_AlloyFusionMachine : Building
+    public class Building_AlloyFusionMachine : Building_TrayPuller
     {
         #region Static stuff
         public static int TICKS_PER_FRAME = 3;
@@ -33,7 +34,7 @@ namespace AntimatterAnnihilation.Buildings
             get
             {
                 if (_powerTraderComp == null)
-                    this._powerTraderComp = base.GetComp<CompPowerTrader>();
+                    this._powerTraderComp = GetComp<CompPowerTrader>();
                 return _powerTraderComp;
             }
         }
@@ -63,11 +64,30 @@ namespace AntimatterAnnihilation.Buildings
         private bool isActiveInt = true;
         private int frameNumber;
         private long tickCount;
+        private int outputSide;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref isActiveInt, "isFusionActive");
+            Scribe_Values.Look(ref outputSide, "outputSide");
+        }
+
+        public string RotToCardinalString(int rot)
+        {
+            switch (rot)
+            {
+                case 0:
+                    return "AA.North".Translate();
+                case 1:
+                    return "AA.East".Translate();
+                case 2:
+                    return "AA.South".Translate();
+                case 3:
+                    return "AA.West".Translate();
+                default:
+                    return $"Unknown rotation: {rot}";
+            }
         }
 
         public override void Tick()
@@ -98,6 +118,32 @@ namespace AntimatterAnnihilation.Buildings
                 if (frameNumber >= FRAME_COUNT)
                     frameNumber = 0;
             }
+        }
+
+        public override string GetInspectString()
+        {
+            string cardRot = RotToCardinalString(outputSide).CapitalizeFirst();
+            return base.GetInspectString() + $"\n{"AA.AFMOutputSide".Translate(cardRot)}";
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var gizmo in base.GetGizmos())
+                yield return gizmo;
+
+            var cmd = new Command_Action();
+            cmd.defaultLabel = "AA.AFMChangeOutputSide".Translate();
+            cmd.defaultDesc = "AA.AFMChangeOutputSideDesc".Translate();
+            cmd.icon = Content.ArrowIcon;
+            cmd.iconAngle = outputSide * 90f;
+            cmd.action = () =>
+            {
+                outputSide++;
+                if (outputSide >= 4)
+                    outputSide = 0;
+            };
+
+            yield return cmd;
         }
     }
 }
