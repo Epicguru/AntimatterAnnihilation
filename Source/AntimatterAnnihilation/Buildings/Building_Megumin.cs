@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Buildings
 {
@@ -98,6 +99,7 @@ namespace AntimatterAnnihilation.Buildings
         private UpBeam beam;
         private LocalTargetInfo localTarget;
         private Sustainer soundSustainer;
+        private ParticleSystem chargeEffect;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -113,6 +115,16 @@ namespace AntimatterAnnihilation.Buildings
                 beam = new UpBeam(map, this.TrueCenter() + new Vector3(0f, 0f, 1.2f));
                 beam.IsActive = false;
             }
+
+            if(chargeEffect == null)
+            {
+                chargeEffect = Object.Instantiate(Content.MeguminChargePrefab).GetComponent<ParticleSystem>();
+                chargeEffect.transform.position = this.TrueCenter() + new Vector3(0f, 0f, 1.1f);
+                chargeEffect.transform.eulerAngles = new Vector3(90f, 0f, 0f);
+            }
+
+            if (!IsPoweringUp)
+                chargeEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -217,6 +229,9 @@ namespace AntimatterAnnihilation.Buildings
             // Play the long attack sound.
             SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
             soundSustainer = AADefOf.LaserStrike_AA.TrySpawnSustainer(info);
+
+            // Do particle effects.
+            chargeEffect?.Play(true);
         }
 
         private void StartRealAttack()
@@ -229,6 +244,8 @@ namespace AntimatterAnnihilation.Buildings
             }
             // Spawn sky beam of death.
             AttackVerb.TryStartCastOn(localTarget);
+
+            chargeEffect?.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
             // Put on cooldown.
             CooldownTicks = COOLDOWN_TICKS;
@@ -246,11 +263,11 @@ namespace AntimatterAnnihilation.Buildings
 
                 bool canFire = AADefOf.SolarFlare.Worker.CanFireNow(param);
                 if (!canFire)
-                    Log.Warning($"SolarFare Worker says that it cannot fire under the current conditions - forcing it to anyway, from M3G_UMIN.");
+                    Log.Warning("SolarFare Worker says that it cannot fire under the current conditions - forcing it to anyway, from M3G_UMIN.");
 
                 bool worked = AADefOf.SolarFlare.Worker.TryExecute(param);
                 if (!worked)
-                    Log.Error($"SolarFare Worker failed to execute (returned false), from M3G_UMIN.");
+                    Log.Error("SolarFare Worker failed to execute (returned false), from M3G_UMIN.");
             }
         }
 

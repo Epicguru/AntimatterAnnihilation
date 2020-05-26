@@ -11,6 +11,7 @@ namespace AntimatterAnnihilation
         public static GameObject EnergyBeamInPrefab;
         public static GameObject EnergyBeamOutPrefab;
         public static GameObject UpBeamPrefab;
+        public static GameObject MeguminChargePrefab;
 
         public static Texture2D Expand, Collapse;
         public static Texture2D PowerNetGraph;
@@ -26,6 +27,7 @@ namespace AntimatterAnnihilation
             EnergyBeamInPrefab = bundle.LoadAsset<GameObject>("In Beam");
             EnergyBeamOutPrefab = bundle.LoadAsset<GameObject>("Out Beam");
             UpBeamPrefab = bundle.LoadAsset<GameObject>("UpBeam");
+            MeguminChargePrefab = bundle.LoadAsset<GameObject>("MegCharge");
             ExplosionEffectManager.Prefab = bundle.LoadAsset<GameObject>("LargeAntimatterExplosion");
             RailgunEffectSpawner.Prefab = bundle.LoadAsset<GameObject>("RailgunEffect");
 
