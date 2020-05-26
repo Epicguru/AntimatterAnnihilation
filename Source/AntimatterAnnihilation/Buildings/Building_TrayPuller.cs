@@ -4,20 +4,31 @@ namespace AntimatterAnnihilation.Buildings
 {
     public abstract class Building_TrayPuller : Building
     {
-        public void TryGet(Building_InputTray tray, string defName, int amount, ref int counter)
+        public int TryPullFromTray(Building_InputTray tray, string defName, int amount)
         {
             if (amount <= 0)
-                return;
+                return 0;
             if (tray == null)
-                return;
+                return 0;
             if (defName == null)
-                return;
+                return 0;
 
-            var removed = tray.TryRemove(defName, amount);
+            var removed = tray.TryPull(defName, amount);
             if (removed > 0)
             {
-                counter += removed;
+                return removed;
             }
+            return 0;
+        }
+
+        public bool TrayHasItem(Building_InputTray tray, string defName, int minAmount)
+        {
+            if (tray == null)
+                return false;
+            if (defName == null)
+                return false;
+
+            return tray.HasItem(defName, minAmount);
         }
 
         public virtual Building_InputTray GetTray(IntVec3 offset)

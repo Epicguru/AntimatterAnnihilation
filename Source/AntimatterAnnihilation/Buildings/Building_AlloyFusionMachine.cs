@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using AntimatterAnnihilation.Utils;
 using RimWorld;
 using UnityEngine;
 using Verse;
@@ -7,10 +9,20 @@ namespace AntimatterAnnihilation.Buildings
 {
     public class Building_AlloyFusionMachine : Building_TrayPuller
     {
-        #region Static stuff
-        public static int TICKS_PER_FRAME = 3;
-        public static int FRAME_COUNT = 20;
-        public static int FRAME_STEP = 3;
+        public const int TICKS_PER_FRAME = 3;
+        public const int FRAME_COUNT = 20;
+        public const int FRAME_STEP = 3;
+
+        public const int PULL_INTERVAL = 120;
+        public const int TICKS_PER_HYPER = 2500; // 1 hour.
+
+        public const int GOLD_PER_HYPER = 6;
+        public const int COMPOSITE_PER_HYPER = 3;
+        public const int URANIUM_PER_HYPER = 2;
+
+        public const int MAX_GOLD_STORED = GOLD_PER_HYPER * 4;
+        public const int MAX_COMPOSITE_STORED = COMPOSITE_PER_HYPER * 4;
+        public const int MAX_URANIUM_STORED = URANIUM_PER_HYPER * 4;
 
         private static Graphic[] activeGraphics;
 
@@ -27,8 +39,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
-        #endregion
-
         public CompPowerTrader PowerTraderComp
         {
             get
@@ -39,7 +49,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompPowerTrader _powerTraderComp;
-
         public override Graphic Graphic
         {
             get
@@ -47,7 +56,6 @@ namespace AntimatterAnnihilation.Buildings
                 return activeGraphic ?? base.DefaultGraphic;
             }
         }
-
         public bool IsActive
         {
             get
@@ -59,18 +67,50 @@ namespace AntimatterAnnihilation.Buildings
                 isActiveInt = value;
             }
         }
+        public int GoldToFill
+        {
+            get
+            {
+                return MAX_GOLD_STORED - storedGold;
+            }
+        }
+        public int CompositeToFill
+        {
+            get
+            {
+                return MAX_COMPOSITE_STORED - storedComposite;
+            }
+        }
+        public int UraniumToFill
+        {
+            get
+            {
+                return MAX_URANIUM_STORED - storedUranium;
+            }
+        }
 
         private Graphic activeGraphic;
         private bool isActiveInt = true;
         private int frameNumber;
         private long tickCount;
         private int outputSide;
+        private int storedComposite;
+        private int storedGold;
+        private int storedUranium;
+        private bool hasError;
+        private string errorThingKey;
+        private byte reasonNotRunning;
+        private int ticksUntilOutput = -1;
 
         public override void ExposeData()
         {
             base.ExposeData();
             Scribe_Values.Look(ref isActiveInt, "isFusionActive");
             Scribe_Values.Look(ref outputSide, "outputSide");
+            Scribe_Values.Look(ref storedComposite, "storedComposite");
+            Scribe_Values.Look(ref storedGold, "storedGold");
+            Scribe_Values.Look(ref storedUranium, "storedUranium");
+            Scribe_Values.Look(ref ticksUntilOutput, "ticksUntilOutput", -1);
         }
 
         public string RotToCardinalString(int rot)
@@ -99,17 +139,76 @@ namespace AntimatterAnnihilation.Buildings
                 LoadGraphics(this);
             }
 
-            if (IsActive)
+            // Update active/running state.
+            IsActive = true; // Assume running for now.
+            reasonNotRunning = 0;
+            if (!PowerTraderComp.PowerOn)
             {
-                activeGraphic = activeGraphics[frameNumber];
+                reasonNotRunning = 1;
+                IsActive = false;
             }
-            else
+            else if (storedGold < GOLD_PER_HYPER || storedComposite < COMPOSITE_PER_HYPER || storedUranium < URANIUM_PER_HYPER)
+            {
+                reasonNotRunning = 2;
+                IsActive = false;
+            }
+
+            // Pull resources as long as there is power.
+            if (tickCount % PULL_INTERVAL == 0 && PowerTraderComp.PowerOn)
+            {
+                hasError = false;
+                storedUranium += TryPullFromAll("Uranium", UraniumToFill, out bool err);
+                if (err)
+                {
+                    hasError = true;
+                    errorThingKey = "AA.Uranium";
+                }
+                storedGold += TryPullFromAll("Gold", GoldToFill, out err);
+                if (err)
+                {
+                    hasError = true;
+                    errorThingKey = "AA.Gold";
+                }
+                storedComposite += TryPullFromAll("AntimatterComposite_AA", CompositeToFill, out err);
+                if (err)
+                {
+                    hasError = true;
+                    errorThingKey = "AA.AntimatterComposite";
+                }
+            }
+
+            if (!IsActive)
             {
                 frameNumber = 0;
                 activeGraphic = base.DefaultGraphic;
+                hasError = false;
                 return;
             }
+            // All active stuff below.
 
+            if (ticksUntilOutput < 0)
+            {
+                ticksUntilOutput = TICKS_PER_HYPER;
+            }
+            if (ticksUntilOutput > 0)
+            {
+                ticksUntilOutput--;
+                if(ticksUntilOutput == 0)
+                {
+                    // Give output.
+                    PlaceOutput(1);
+
+                    // Remove internal resources.
+                    storedComposite -= COMPOSITE_PER_HYPER;
+                    storedGold -= GOLD_PER_HYPER;
+                    storedUranium -= URANIUM_PER_HYPER;
+
+                    // Flag timer to be reset.
+                    ticksUntilOutput = -1;
+                }
+            }
+
+            activeGraphic = activeGraphics[frameNumber];
             tickCount++;
 
             if (tickCount % TICKS_PER_FRAME == 0)
@@ -120,10 +219,100 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
+        public int TryPullFromAll(string defName, int count, out bool hasInOutputSpot)
+        {
+            if (string.IsNullOrEmpty(defName))
+                throw new ArgumentNullException(nameof(defName));
+
+            hasInOutputSpot = false;
+            if (count <= 0)
+            {
+                return 0;
+            }
+
+            int remaining = count;
+            for (int i = 0; i < 4; i++)
+            {
+                var tray = GetTray(GetSpotOffset(i));
+                if (tray == null)
+                    continue;
+
+                if (i == outputSide)
+                {
+                    // Give player a warning if there is an input item in the output slot.
+                    if(TrayHasItem(tray, defName, 0))
+                    {
+                        Log.Message($"Side {i} has {defName}");
+                        hasInOutputSpot = true;
+                    }
+                    // Don't pull from output side tray.
+                    continue;
+                }
+
+                int pulled = TryPullFromTray(tray, defName, remaining);
+                remaining -= pulled;
+                if (remaining <= 0)
+                    break;
+            }
+
+            int totalGot = count - remaining;
+            return totalGot;
+        }
+
+        public void PlaceOutput(int count)
+        {
+            if (count <= 0)
+                return;
+
+            Thing thing = ThingMaker.MakeThing(AADefOf.HyperAlloy_AA);
+            thing.stackCount = count;
+
+            GenPlace.TryPlaceThing(thing, this.Position + GetSpotOffset(outputSide), Find.CurrentMap, ThingPlaceMode.Near);
+        }
+
+        public IntVec3 GetSpotOffset(int rot)
+        {
+            switch (rot)
+            {
+                case 0:
+                    return IntVec3.North * 2;
+                case 1:
+                    return IntVec3.East * 2;
+                case 2:
+                    return IntVec3.South * 2;
+                case 3:
+                    return IntVec3.West * 2;
+                default:
+                    return IntVec3.Zero;
+            }
+        }
+
         public override string GetInspectString()
         {
             string cardRot = RotToCardinalString(outputSide).CapitalizeFirst();
-            return base.GetInspectString() + $"\n{"AA.AFMOutputSide".Translate(cardRot)}";
+            string runningStatus;
+
+            if (IsActive)
+            {
+                runningStatus = "AA.AFMRunning".Translate((ticksUntilOutput / 2500f).ToString("F2"));
+            }
+            else
+            {
+                switch (reasonNotRunning)
+                {
+                    case 1:
+                        runningStatus = "AA.AFMNotRunningNoPower".Translate();
+                        break;
+                    case 2:
+                        runningStatus = "AA.AFMNotRunningMissingStuff".Translate(GOLD_PER_HYPER, COMPOSITE_PER_HYPER, URANIUM_PER_HYPER);
+                        break;
+                    default:
+                        runningStatus = "Not Running: Reason unknown.";
+                        break;
+                }
+            }
+
+            return base.GetInspectString() + $"\n{runningStatus}\n{"AA.AFMStoredAmount".Translate(storedGold, MAX_GOLD_STORED, storedComposite, MAX_COMPOSITE_STORED, storedUranium, MAX_URANIUM_STORED)}{(hasError ? $"\n<color=red>{"AA.AFMSlotError".Translate(errorThingKey.Translate().CapitalizeFirst(), cardRot)}</color>" : "")}\n{"AA.AFMOutputSide".Translate(cardRot)}";
         }
 
         public override IEnumerable<Gizmo> GetGizmos()

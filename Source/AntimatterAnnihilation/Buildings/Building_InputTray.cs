@@ -9,7 +9,23 @@ namespace AntimatterAnnihilation.Buildings
     {
         private static List<Thing> bin = new List<Thing>();
 
-        public int TryRemove(string thingDefName, int count)
+        public bool HasItem(string thingDefName, int minCount)
+        {
+            if (thingDefName == null)
+                return false;
+
+            foreach (var thing in base.slotGroup.HeldThings)
+            {
+                if (thing.def.defName == thingDefName && !thing.Destroyed)
+                {
+                    if (thing.stackCount >= minCount)
+                        return true;
+                }
+            }
+            return false;
+        }
+
+        public int TryPull(string thingDefName, int count)
         {
             if (count <= 0)
                 return 0;
