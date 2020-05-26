@@ -139,6 +139,8 @@ namespace AntimatterAnnihilation.Buildings
                 LoadGraphics(this);
             }
 
+            tickCount++;
+
             // Update active/running state.
             IsActive = true; // Assume running for now.
             reasonNotRunning = 0;
@@ -209,7 +211,6 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             activeGraphic = activeGraphics[frameNumber];
-            tickCount++;
 
             if (tickCount % TICKS_PER_FRAME == 0)
             {
@@ -242,7 +243,6 @@ namespace AntimatterAnnihilation.Buildings
                     // Give player a warning if there is an input item in the output slot.
                     if(TrayHasItem(tray, defName, 0))
                     {
-                        Log.Message($"Side {i} has {defName}");
                         hasInOutputSpot = true;
                     }
                     // Don't pull from output side tray.
