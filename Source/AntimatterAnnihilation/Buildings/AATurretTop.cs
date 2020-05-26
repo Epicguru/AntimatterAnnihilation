@@ -19,7 +19,11 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                return (parentTurret.CurrentOrForcedTarget.Cell.ToVector3Shifted() - parentTurret.DrawPos).AngleFlat();
+                Vector3 targetPos = parentTurret.CurrentOrForcedTarget.CenterVector3;
+                targetPos.y = 0f;
+                Vector3 drawPos = parentTurret.DrawPos;
+                drawPos.y = 0f;
+                return (targetPos - drawPos).AngleFlat();
             }
         }
         public Vector3 LocalDrawOffset { get; protected set; }
