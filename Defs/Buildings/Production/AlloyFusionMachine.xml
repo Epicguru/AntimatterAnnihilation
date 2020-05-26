@@ -23,13 +23,17 @@ See the in-game wiki for more information and how to use.</description>
             <ComponentSpacer>8</ComponentSpacer>
             <HyperComponent_AA>4</HyperComponent_AA>
         </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
         <comps>
-        <li Class="CompProperties_Flickable"/>
-        <li Class="CompProperties_Power">
-            <compClass>CompPowerTrader</compClass>
-            <basePowerConsumption>300</basePowerConsumption>
-            <transmitsPower>false</transmitsPower>
-        </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>300</basePowerConsumption>
+                <transmitsPower>false</transmitsPower>
+            </li>
         </comps>
         <researchPrerequisites>
             <li>R_HyperAlloy_AA</li>

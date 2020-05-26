@@ -24,13 +24,17 @@ See the in-game wiki for more information and how to use.</description>
             <ComponentIndustrial>6</ComponentIndustrial>
             <ComponentSpacer>1</ComponentSpacer>
         </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
         <comps>
-        <li Class="CompProperties_Flickable"/>
-        <li Class="CompProperties_Power">
-            <compClass>CompPowerTrader</compClass>
-            <basePowerConsumption>1500</basePowerConsumption>
-            <transmitsPower>false</transmitsPower>
-        </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>1500</basePowerConsumption>
+                <transmitsPower>false</transmitsPower>
+            </li>
         </comps>
         <researchPrerequisites>
             <li>R_AntimatterComposite_AA</li>

@@ -161,6 +161,10 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(2,3)</drawSize>
     </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
     <rotatable>true</rotatable>
     <defaultPlacingRot>East</defaultPlacingRot>
     <passability>Impassable</passability>
@@ -207,6 +211,10 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(2,3)</drawSize>
     </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
     <rotatable>true</rotatable>
     <defaultPlacingRot>West</defaultPlacingRot>
     <passability>Impassable</passability>
@@ -242,6 +250,10 @@ Also has the ability to switch machines on or off remotely.</description>
       <graphicClass>Graphic_Multi</graphicClass>
       <drawSize>(1,1)</drawSize>
     </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
     <rotatable>true</rotatable>
     <defaultPlacingRot>South</defaultPlacingRot>
     <passability>PassThroughOnly</passability>
