@@ -96,6 +96,7 @@
     <Compile Include="Buildings\Building_AATurret.cs" />
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_AlloyFusionMachine.cs" />
     <Compile Include="Buildings\Building_CompositeRefiner.cs" />
     <Compile Include="Buildings\Building_InputTray.cs" />
     <Compile Include="Buildings\Building_Megumin.cs" />
@@ -104,6 +105,7 @@
     <Compile Include="Buildings\Building_PowerNetConsole.cs" />
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
     <Compile Include="Buildings\Building_ThunderGun.cs" />
+    <Compile Include="Buildings\Building_TrayPuller.cs" />
     <Compile Include="Buildings\RailgunTop.cs" />
     <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />

@@ -2,7 +2,7 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>VoidArmor_AA</defName>
+        <defName>R_VoidArmor_AA</defName>
         <label>void armor</label>
         <description>Use antimatter composite to create very powerful armor and headgear.</description>
         <baseCost>3500</baseCost>
@@ -13,10 +13,10 @@
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>AntimatterComposite_AA</li>
+            <li>R_AntimatterComposite_AA</li>
         </prerequisites>        
         <researchViewX>4.00</researchViewX>
-        <researchViewY>1.00</researchViewY>
+        <researchViewY>1.15</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

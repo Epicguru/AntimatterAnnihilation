@@ -2,7 +2,7 @@
 <Defs>
 
     <ResearchProjectDef>
-        <defName>AntimatterComposite_AA</defName>
+        <defName>R_AntimatterComposite_AA</defName>
         <label>antimatter composite</label>
         <description>By combining Plasteel and Antimatter Canisters you can create Antimatter Composite, a super-durable material that is used to create many powerful weapons and buildings.</description>
         <baseCost>3500</baseCost>

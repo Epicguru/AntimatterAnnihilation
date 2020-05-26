@@ -15,6 +15,7 @@ namespace AntimatterAnnihilation.Utils
         public static DamageDef EnergyBurn_AA;
         public static ThingDef AntimatterCanister_AA;
         public static ThingDef AntimatterComposite_AA;
+        public static ThingDef HyperAlloy_AA;
         public static ThingDef CustomOrbitalStrike_AA;
         public static IncidentDef SolarFlare;
         public static ThingDef Mote_MeguminBeam_AA;

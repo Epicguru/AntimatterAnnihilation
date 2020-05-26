@@ -19,7 +19,7 @@
         <constructEffect>ConstructMetal</constructEffect>
         <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
         <researchPrerequisites>
-            <!-- <li>SterileMaterials</li> TODO!! --> 
+            <li>R_HyperAlloy_AA</li>
         </researchPrerequisites>
     </TerrainDef>
 
