@@ -16,7 +16,7 @@
         <castEdgeShadows>true</castEdgeShadows>
         <pathCost>70</pathCost>
         <costList>
-            <Steel>25</Steel>
+            <Steel>20</Steel>
         </costList>
         <statBases>
             <MaxHitPoints>140</MaxHitPoints>

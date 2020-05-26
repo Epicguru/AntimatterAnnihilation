@@ -28,6 +28,10 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
             <ComponentIndustrial>22</ComponentIndustrial>
             <ComponentSpacer>8</ComponentSpacer>
         </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
         <comps>
             <li Class="CompProperties_Flickable"/>
             <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
