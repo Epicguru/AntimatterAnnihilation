@@ -12,11 +12,35 @@ namespace AntimatterAnnihilation.UI
 {
     public class UI_PowerNetConsole : Window
     {
-        [TweakValue("AntimatterAnnihilation")]
-        public static bool PNC_InstantFlickMode = true;
+        public static bool InstantFlickActive
+        {
+            get
+            {
+                if (AADefOf.InstantFlick_AA == null)
+                {
+                    Log.Error("Failed to get ref to research project.");
+                    return false;
+                }
+
+                return AADefOf.InstantFlick_AA.IsFinished;
+            }
+        }
 
         private static ObjectPool<Category> pool = new ObjectPool<Category>() { CreateFunction = () => new Category() };
-        private static FieldInfo wantsToBeOnInfo;
+        private static FieldInfo WantsToBeOnInfo
+        {
+            get
+            {
+
+                if (fieldInt == null)
+                {
+                    fieldInt = typeof(CompFlickable).GetField("wantSwitchOn", BindingFlags.Instance | BindingFlags.NonPublic);
+                }
+                return fieldInt;
+            }
+        }
+        private static FieldInfo fieldInt;
+
 
         public static UI_PowerNetConsole Open(Building_PowerNetConsole cons)
         {
@@ -60,19 +84,17 @@ namespace AntimatterAnnihilation.UI
                 if (FlickComp == null)
                     return;
 
-                if (wantsToBeOnInfo == null)
+                bool currentWantsToBeOn = (bool)WantsToBeOnInfo.GetValue(FlickComp);
+                WantsToBeOnInfo.SetValue(FlickComp, !currentWantsToBeOn);
+
+                if (InstantFlickActive)
                 {
-                    wantsToBeOnInfo = typeof(CompFlickable).GetField("wantSwitchOn", BindingFlags.Instance | BindingFlags.NonPublic);
-                }
-
-                bool currentWantsToBeOn = (bool)wantsToBeOnInfo.GetValue(FlickComp);
-                wantsToBeOnInfo.SetValue(FlickComp, !currentWantsToBeOn);
-
-                if(!PNC_InstantFlickMode)
-                    FlickUtility.UpdateFlickDesignation(Thing);
-
-                if(PNC_InstantFlickMode)
                     FlickComp.DoFlick();
+                }
+                else
+                {
+                    FlickUtility.UpdateFlickDesignation(Thing);
+                }
             }
 
             public bool IsFlickedOn()
@@ -80,10 +102,10 @@ namespace AntimatterAnnihilation.UI
                 if (FlickComp == null)
                     return false;
 
-                if (PNC_InstantFlickMode)
+                if (InstantFlickActive)
                     return FlickComp.SwitchIsOn;
                 else
-                    return (bool)wantsToBeOnInfo.GetValue(FlickComp);
+                    return (bool)WantsToBeOnInfo.GetValue(FlickComp);
             }
         }
         public override Vector2 InitialSize => new Vector2(620, 650);
@@ -272,6 +294,13 @@ namespace AntimatterAnnihilation.UI
             if (totalPower < 0)
                 totalPowerText = $"<color=red>{totalPowerText}</color>";
             Widgets.Label(new Rect(inRect.x + 200, inRect.y, 200, 32), totalPowerText);
+
+            if (InstantFlickActive)
+            {
+                string flickActiveText = $"<color=yellow>{"AA.InstantFlickActive".Translate()}</color>";
+                var flickActiveSize = Text.CalcSize(flickActiveText);
+                Widgets.Label(new Rect(inRect.xMax - flickActiveSize.x - 5, inRect.y, flickActiveSize.x, 32), flickActiveText);
+            }
             MoveDown(45);
             Text.Font = GameFont.Small;
 
@@ -589,9 +618,11 @@ namespace AntimatterAnnihilation.UI
                     if (fc == null)
                         continue;
 
-                    if (startingState && fc.SwitchIsOn)
+                    bool currentState = InstantFlickActive ? fc.SwitchIsOn : (bool)WantsToBeOnInfo.GetValue(fc);
+
+                    if (startingState && currentState)
                         thing.Flick();
-                    else if (!startingState && !fc.SwitchIsOn)
+                    else if (!startingState && !currentState)
                         thing.Flick();
                 }
             }

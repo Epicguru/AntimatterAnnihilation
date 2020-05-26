@@ -31,6 +31,7 @@
 <AA.OpenConsole>Open console</AA.OpenConsole>
 <AA.OpenConsoleDesc>Shows detailed information about the connected power network, and allows you to turn power on and off.</AA.OpenConsoleDesc>
 <AA.PowerNetInfo>PowerNet Info</AA.PowerNetInfo>
+<AA.InstantFlickActive>Instant flick active!</AA.InstantFlickActive>
 <AA.Watts>KW</AA.Watts>
 <AA.KiloWatts>KW</AA.KiloWatts>
 <AA.MegaWatts>MW</AA.MegaWatts>
