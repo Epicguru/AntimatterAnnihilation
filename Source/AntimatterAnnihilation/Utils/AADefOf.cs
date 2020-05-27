@@ -24,5 +24,7 @@ namespace AntimatterAnnihilation.Utils
         public static SoundDef LaserStrike_AA;
         public static SoundDef RailgunShoot_AA;
         public static ResearchProjectDef InstantFlick_AA;
+        public static ThingDef Mote_LargeMuzzleFlash_AA;
+        public static ThingDef Mote_LargeMuzzleFlashFast_AA;
     }
 }

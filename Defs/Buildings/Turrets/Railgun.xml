@@ -14,7 +14,7 @@
         <size>(5,5)</size>
         <statBases>
             <MaxHitPoints>800</MaxHitPoints>
-            <Flammability>0.6</Flammability>
+            <Flammability>0.5</Flammability>
             <WorkToBuild>15000</WorkToBuild>
             <Mass>400</Mass>
             <Beauty>-25</Beauty>
@@ -112,7 +112,7 @@
 
     <ThingDef ParentName="BaseWeaponTurret">
         <defName>Gun_AntimatterRailgunTurret_AA</defName>
-        <label>antimatter railgun</label>
+        <label>blast</label> <!-- Called blast due to the way that combat logs are generated. Since it spawns an explosion, the instigator is the turret gun, resulting in wierd logs. -->
         <description>The top part of an antimatter railgun. How did you get this...?</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>

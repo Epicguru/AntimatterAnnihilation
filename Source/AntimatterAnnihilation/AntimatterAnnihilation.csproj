@@ -104,9 +104,11 @@
     <Compile Include="Buildings\Building_ParticleAccelerator.cs" />
     <Compile Include="Buildings\Building_PowerNetConsole.cs" />
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
+    <Compile Include="Buildings\Building_MBD.cs" />
     <Compile Include="Buildings\Building_ThunderGun.cs" />
     <Compile Include="Buildings\Building_TrayPuller.cs" />
     <Compile Include="Buildings\RailgunTop.cs" />
+    <Compile Include="Buildings\MBDTop.cs" />
     <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Commands\Command_AttackLocation.cs" />

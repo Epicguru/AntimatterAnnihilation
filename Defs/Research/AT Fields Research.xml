@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>ATFields_AA</defName>
+        <label>advanced AT fields</label>
+        <description>Gain a deeper understanding of AT fields, which allow antimatter to be suspended in a stable manner.</description>
+        <baseCost>1900</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ParticleAccelerators_AA</li>
+        </prerequisites>        
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.85</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

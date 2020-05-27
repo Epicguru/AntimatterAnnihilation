@@ -87,6 +87,13 @@ namespace AntimatterAnnihilation.Buildings
 				return this.mannableComp != null;
 			}
 		}
+        public bool IsInBurst
+        {
+			get
+            {
+                return isInBurst;
+            }
+        }
 
         private bool WarmingUp
 		{
@@ -160,6 +167,7 @@ namespace AntimatterAnnihilation.Buildings
 		}
 
         private StringBuilder stringBuilder = new StringBuilder();
+        private bool isInBurst;
 
         public Building_AATurret()
         {
@@ -204,6 +212,7 @@ namespace AntimatterAnnihilation.Buildings
 			Scribe_Values.Look(ref this.burstWarmupTicksLeft, "burstWarmupTicksLeft", 0, false);
 
             Scribe_Values.Look(ref this.top.curRotationInt, "aa_turretTopRot");
+            Scribe_Values.Look(ref isInBurst, "aa_isInBurst");
 
             Scribe_TargetInfo.Look(ref this.currentTargetInt, "currentTarget");
 			Scribe_Values.Look(ref this.holdFire, "holdFire", false, false);
@@ -213,7 +222,12 @@ namespace AntimatterAnnihilation.Buildings
 			{
 				this.UpdateGunVerbs();
 			}
-		}
+
+            if (top != null)
+                top.ExposeData();
+            else
+                Log.Error("Could not expose data for turret top: turret top is null.");
+        }
 
 		public override bool ClaimableBy(Faction by)
 		{
@@ -429,11 +443,18 @@ namespace AntimatterAnnihilation.Buildings
 		{
 			this.AttackVerb.TryStartCastOn(this.CurrentTarget, false, true);
 			base.OnAttackedTarget(this.CurrentTarget);
-		}
+            //if (isInBurst)
+            //    Log.Error("BeginBurst() but isInBurst was true?!");
+			isInBurst = true;
+        }
 
 		protected void BurstComplete()
 		{
 			this.burstCooldownTicksLeft = this.BurstCooldownTime().SecondsToTicks();
+            //if (!isInBurst)
+            //    Log.Error("BurstComplete() but isInBurst was false?!");
+
+			isInBurst = false;
 		}
 
 		protected float BurstCooldownTime()

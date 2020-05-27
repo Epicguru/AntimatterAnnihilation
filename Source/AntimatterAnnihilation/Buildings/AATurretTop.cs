@@ -82,7 +82,7 @@ namespace AntimatterAnnihilation.Buildings
             Vector3 b = (new Vector3(this.parentTurret.def.building.turretTopOffset.x, 0f, this.parentTurret.def.building.turretTopOffset.y) + LocalDrawOffset).RotatedBy(this.CurrentRotation);
             float turretTopDrawSize = this.parentTurret.def.building.turretTopDrawSize;
             Matrix4x4 matrix = default(Matrix4x4);
-            matrix.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect + b, (this.CurrentRotation + (float)TurretTop.ArtworkRotation).ToQuat(), new Vector3(turretTopDrawSize, 1f, turretTopDrawSize));
+            matrix.SetTRS(this.parentTurret.DrawPos + b + Altitudes.AltIncVect, (this.CurrentRotation + (float)TurretTop.ArtworkRotation).ToQuat(), new Vector3(turretTopDrawSize, 1f, turretTopDrawSize));
             Graphics.DrawMesh(MeshPool.plane10, matrix, this.parentTurret.def.building.turretTopMat, 0);
         }
 
@@ -119,6 +119,11 @@ namespace AntimatterAnnihilation.Buildings
             {
                 CurrentRotation -= Mathf.Min(-delta, DT * RotationSpeed);
             }
+        }
+
+        public virtual void ExposeData()
+        {
+
         }
     }
 
