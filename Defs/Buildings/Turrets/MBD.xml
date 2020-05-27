@@ -30,7 +30,7 @@
         <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
-            <turretTopDrawSize>2</turretTopDrawSize>
+            <turretTopDrawSize>4.4</turretTopDrawSize>
             <turretTopOffset>(0, 0)</turretTopOffset>
         </building>
         <placeWorkers>
@@ -103,7 +103,7 @@ It's multi-barrel destruction.</description>
         <thingClass>Projectile_Explosive</thingClass>
         <projectile>
             <damageDef>AnnihilationExplosionMBD_AA</damageDef>
-            <speed>2000</speed> <!-- Speedy boy. -->
+            <speed>120</speed> <!-- Speedy boy. -->
             <explosionRadius>1.5</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
@@ -127,7 +127,7 @@ It's multi-barrel destruction.</description>
             <AccuracyShort>0.75</AccuracyShort>
             <AccuracyMedium>0.85</AccuracyMedium>
             <AccuracyLong>0.6</AccuracyLong>
-            <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+            <RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>200</Mass>
             <Flammability>0</Flammability>

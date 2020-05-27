@@ -138,7 +138,7 @@ namespace AntimatterAnnihilation.Buildings
 
         public void OnPowerStop(Map map = null)
         {
-            Log.Message("Power stopped...");
+            //Log.Message("Power stopped...");
             CauseRedraw(map);
         }
 
