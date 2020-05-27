@@ -1,35 +1,36 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef Name="AntimatterRailgunTurret_AA" ParentName="AATurret" Abstract="True"> 
-        <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass>
+    <ThingDef ParentName="AATurret" Name="MBD_AA" Abstract="True"> 
+        <!-- <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass> -->
+        <thingClass>Building_TurretGun</thingClass>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>
             <graphicClass>Graphic_Single</graphicClass>
-            <drawSize>(5, 5)</drawSize>
+            <drawSize>(3, 3)</drawSize>
         </graphicData>    
         <altitudeLayer>Building</altitudeLayer>
         <stealable>false</stealable>
         <rotatable>false</rotatable>
-        <size>(5,5)</size>
+        <size>(3,3)</size>
         <statBases>
-            <MaxHitPoints>800</MaxHitPoints>
-            <Flammability>0.5</Flammability>
-            <WorkToBuild>15000</WorkToBuild>
-            <Mass>400</Mass>
-            <Beauty>-25</Beauty>
+            <MaxHitPoints>650</MaxHitPoints>
+            <Flammability>0.2</Flammability>
+            <WorkToBuild>9000</WorkToBuild>
+            <Mass>220</Mass>
+            <Beauty>-20</Beauty>
         </statBases>
         <tickerType>Normal</tickerType>
         <passability>PassThroughOnly</passability>
-        <pathCost>150</pathCost>
-        <fillPercent>0.8</fillPercent>
+        <pathCost>120</pathCost>
+        <fillPercent>0.7</fillPercent>
         <hasTooltip>true</hasTooltip>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Antimatter</designationCategory>
-        <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+        <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
-            <turretTopDrawSize>9</turretTopDrawSize>
+            <turretTopDrawSize>2</turretTopDrawSize>
             <turretTopOffset>(0, 0)</turretTopOffset>
         </building>
         <placeWorkers>
@@ -40,35 +41,37 @@
         <uiIconScale>0.95</uiIconScale>
     </ThingDef>
 
-    <ThingDef ParentName="AntimatterRailgunTurret_AA">
-        <defName>Turret_AntimatterRailgun_AA</defName>
-        <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterRailgun</thingClass>
-        <label>antimatter railgun</label>
-        <description>A railgun that fires antimatter that causes an annihilation explosion upon impact. Truly devastating.</description>
-        <uiIconPath>AntimatterAnnihilation/UI/RailgunIcon</uiIconPath>
+    <ThingDef ParentName="MBD_AA">
+        <defName>Turret_MBD_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_MBD</thingClass>
+        <label>MBD</label>
+        <description>An antimatter cannon with rotary barrels delivering huge damage with a high rate of fire.
+It's multi-barrel destruction.</description>
+        <uiIconPath>AntimatterAnnihilation/UI/MBDIcon</uiIconPath>
         <statBases>
-            <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret> <!-- like level 8 human shooter -->
+            <ShootingAccuracyTurret>1.4</ShootingAccuracyTurret>
         </statBases>
         <costList>
-            <Steel>450</Steel>
-            <AntimatterComposite_AA>60</AntimatterComposite_AA>
-            <HyperComponent_AA>2</HyperComponent_AA>
-            <ComponentIndustrial>15</ComponentIndustrial>
+            <Steel>250</Steel>
+            <ComponentIndustrial>12</ComponentIndustrial>
             <ComponentSpacer>4</ComponentSpacer>
+            <AntimatterComposite_AA>50</AntimatterComposite_AA>
+            <HyperComponent_AA>1</HyperComponent_AA>
         </costList>
         <comps>
             <li Class="CompProperties_Forbiddable"/>
             <li Class="CompProperties_Power">
                 <compClass>CompPowerTrader</compClass>
-                <basePowerConsumption>450</basePowerConsumption>
+                <basePowerConsumption>300</basePowerConsumption>
             </li>
             <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
             <li Class="CompProperties_Refuelable">
                 <fuelLabel>Antimatter remaining</fuelLabel>
                 <fuelGizmoLabel>Antimatter remaining</fuelGizmoLabel>
                 <outOfFuelMessage>Cannot shoot: Needs antimatter canister refuel</outOfFuelMessage>
                 <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
-                <fuelCapacity>2</fuelCapacity>       <!-- 4 shots at 0.5 each -->
+                <fuelCapacity>2</fuelCapacity>
                 <initialFuelPercent>0</initialFuelPercent>
                 <autoRefuelPercent>0.5</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
@@ -78,20 +81,20 @@
                 <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>
             </li>
             <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
-                <defaultAutoAttack>false</defaultAutoAttack>
+                <defaultAutoAttack>true</defaultAutoAttack>
             </li>
         </comps>
         <building>
-            <turretGunDef>Gun_AntimatterRailgunTurret_AA</turretGunDef>
-            <turretBurstCooldownTime>12</turretBurstCooldownTime>
+            <turretGunDef>Gun_MBDTurret_AA</turretGunDef>
+            <turretBurstCooldownTime>7</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
-            <li>Railgun_AA</li>
+            <li>R_MBD_AA</li>
         </researchPrerequisites>
     </ThingDef>
 
     <ThingDef ParentName="BaseBullet">
-        <defName>Bullet_AntimatterRailgun_AA</defName>
+        <defName>Bullet_MBD_AA</defName>
         <label>blast</label>
         <graphicData>
             <texPath>Things/Projectile/Bullet_Big</texPath>
@@ -99,9 +102,9 @@
         </graphicData>
         <thingClass>Projectile_Explosive</thingClass>
         <projectile>
-            <damageDef>AnnihilationExplosionRailgun_AA</damageDef>
-            <speed>50000</speed> <!-- I am speed. Kerchoo. -->
-            <explosionRadius>8.5</explosionRadius>
+            <damageDef>AnnihilationExplosionMBD_AA</damageDef>
+            <speed>2000</speed> <!-- Speedy boy. -->
+            <explosionRadius>1.5</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
             <soundExplode>MortarBomb_Explode</soundExplode>
@@ -111,39 +114,40 @@
     </ThingDef>
 
     <ThingDef ParentName="BaseWeaponTurret">
-        <defName>Gun_AntimatterRailgunTurret_AA</defName>
-        <label>antimatter railgun</label>
-        <description>The top part of an antimatter railgun. How did you get this...?</description>
+        <defName>Gun_MBDTurret_AA</defName>
+        <label>MBD gun</label>
+        <description>The top part of the MBD. How did you get this...?</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>
+            <texPath>AntimatterAnnihilation/Buildings/MBDTop</texPath>
             <graphicClass>Graphic_Single</graphicClass>
             <drawSize>(2,2)</drawSize>
         </graphicData>
         <statBases>
-            <AccuracyTouch>0.9</AccuracyTouch>
-            <AccuracyShort>0.98</AccuracyShort>
-            <AccuracyMedium>0.98</AccuracyMedium>
-            <AccuracyLong>0.95</AccuracyLong>
-            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+            <AccuracyTouch>0.5</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.85</AccuracyMedium>
+            <AccuracyLong>0.6</AccuracyLong>
+            <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
             <DeteriorationRate>0</DeteriorationRate>
-            <Mass>300</Mass>
+            <Mass>200</Mass>
             <Flammability>0</Flammability>
         </statBases>
         <verbs>
             <li>
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
-                <forcedMissRadius>0.001</forcedMissRadius>
-                <defaultProjectile>Bullet_AntimatterRailgun_AA</defaultProjectile>
+                <forcedMissRadius>2</forcedMissRadius>
+                <defaultProjectile>Bullet_MBD_AA</defaultProjectile>
                 <isPrimary>true</isPrimary>
                 <warmupTime>0</warmupTime>
-                <minRange>8.9</minRange>
-                <range>400</range>
+                <minRange>4</minRange>
+                <range>55</range>
                 <ai_AvoidFriendlyFireRadius>9.5</ai_AvoidFriendlyFireRadius>
-                <burstShotCount>1</burstShotCount>
+                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                <burstShotCount>12</burstShotCount>
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>40</muzzleFlashScale>
-                <consumeFuelPerShot>0.5</consumeFuelPerShot>
+                <consumeFuelPerShot>0.02</consumeFuelPerShot>
                 <targetParams>
                     <canTargetLocations>true</canTargetLocations>
                 </targetParams>
