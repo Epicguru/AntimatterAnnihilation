@@ -35,7 +35,7 @@ namespace AntimatterAnnihilation.Buildings
 
             const float DT = 1f / 60f;
             const float BARRELS_VEL = -2880f;
-            const float BARRELS_VEL_DECAY = 0.98f;
+            const float BARRELS_VEL_DECAY = 0.99f;
 
             if (parentTurret.IsInBurst)
             {

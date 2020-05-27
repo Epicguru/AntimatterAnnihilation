@@ -17,10 +17,10 @@ In order to manufacture it, a special facility will be needed.</discoveredLetter
             <li>MultiAnalyzer</li>
         </requiredResearchFacilities>
         <prerequisites>
-            <li>R_AntimatterComposite_AA</li>
+            <li>R_HyperComponents_AA</li>
         </prerequisites>        
-        <researchViewX>5.00</researchViewX>
-        <researchViewY>0.60</researchViewY>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>2.50</researchViewY>
     </ResearchProjectDef>
 
 </Defs>
