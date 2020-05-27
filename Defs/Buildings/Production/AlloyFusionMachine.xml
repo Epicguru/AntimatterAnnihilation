@@ -35,6 +35,7 @@ See the in-game wiki for more information and how to use.</description>
                 <transmitsPower>false</transmitsPower>
             </li>
         </comps>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
         <researchPrerequisites>
             <li>R_HyperAlloy_AA</li>
         </researchPrerequisites>

@@ -36,6 +36,7 @@ See the in-game wiki for more information and how to use.</description>
                 <transmitsPower>false</transmitsPower>
             </li>
         </comps>
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
         <researchPrerequisites>
             <li>R_AntimatterComposite_AA</li>
         </researchPrerequisites>

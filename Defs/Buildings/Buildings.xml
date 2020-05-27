@@ -38,7 +38,7 @@
         <building>
             <ai_chillDestination>false</ai_chillDestination>
         </building>
-        <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
     </ThingDef>
 
     <ThingDef Name="AATurret" ParentName="AABuildingBase" Abstract="True">
@@ -144,6 +144,7 @@ Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter 
         <glowColor>(51,124,193,255)</glowColor>
       </li>
     </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <researchPrerequisites>
       <li>R_Reactor_AA</li>
     </researchPrerequisites>
@@ -196,6 +197,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
       </li>
     </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <researchPrerequisites>
       <li>R_ReactorInjector_AA</li>
     </researchPrerequisites>
@@ -234,6 +236,7 @@ If the beam is fired without a reactor to collect it, the fired anti-matter will
         <transmitsPower>true</transmitsPower>
       </li>
     </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
     <researchPrerequisites>
       <li>R_Reactor_AA</li>
     </researchPrerequisites>
@@ -270,6 +273,7 @@ Also has the ability to switch machines on or off remotely.</description>
         <transmitsPower>false</transmitsPower>
       </li>
     </comps>
+    <constructionSkillPrerequisite>2</constructionSkillPrerequisite>
     <researchPrerequisites>
       <li>Entry_AA</li>
     </researchPrerequisites>
