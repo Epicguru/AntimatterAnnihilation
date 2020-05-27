@@ -1,7 +1,10 @@
-GettingStarted_AA
-Getting started
-AntimatterAnnihilation/UI/QuestionMark
-AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+ID: GettingStarted_AA
+Title: Getting started
+Icon: AntimatterAnnihilation/UI/QuestionMark
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+RequiredResearch: Entry_AA
+
+ENDTAGS
 
 #!Basics#
 #This is a mid to late-game mod. You will need loads of <color=\#8fffff>plasteel</color>, <color=\#e8e8e8>steel</color> and <color=\#ffff5c>power</color>.#

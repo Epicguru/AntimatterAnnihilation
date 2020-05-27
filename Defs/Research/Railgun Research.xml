@@ -19,10 +19,10 @@ You will need to aquire Hyper Components to build them.</discoveredLetterText>
         </requiredResearchFacilities>
         <prerequisites>
             <li>ThunderGun_AA</li>
-            <li>ATFields_AA</li>
+            <li>R_HyperComponents_AA</li>
         </prerequisites>        
-        <researchViewX>3.00</researchViewX>
-        <researchViewY>3.95</researchViewY>
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>3.85</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

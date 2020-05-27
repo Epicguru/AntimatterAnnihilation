@@ -19,7 +19,7 @@ Using hyper components allows for incredibly accurate control over channeling an
             <li>ThunderGun_AA</li>
         </prerequisites>        
         <researchViewX>3.00</researchViewX>
-        <researchViewY>4.90</researchViewY>
+        <researchViewY>5.05</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

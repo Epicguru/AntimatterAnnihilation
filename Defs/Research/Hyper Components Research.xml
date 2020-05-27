@@ -23,7 +23,7 @@ Ultratech raiders will ocasionally carry them, and you can also attack Ultratech
             <li>ATFields_AA</li>
         </prerequisites>        
         <researchViewX>3.00</researchViewX>
-        <researchViewY>2.80</researchViewY>
+        <researchViewY>3.15</researchViewY>
     </ResearchProjectDef>
 
 </Defs>

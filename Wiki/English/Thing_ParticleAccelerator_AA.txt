@@ -1,4 +1,3 @@
-
 #!How to set up#
 #Simply build it somewhere in your colony, ideally in a place where it won't be destroyed by raiders.
 Your colonists will automatically haul Plasteel to fuel the accelerator once it has been built.#

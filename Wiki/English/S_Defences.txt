@@ -1,13 +1,17 @@
-Defences_AA
-Defences
-AntimatterAnnihilation/UI/ThunderGunIcon
-AntimatterAnnihilation/PreRendered/TurretsBG
-An overview of the stationary defences added by the mod.
+ID: Defences_AA
+Title: Defences
+Icon: AntimatterAnnihilation/UI/ThunderGunIcon
+Background: AntimatterAnnihilation/PreRendered/TurretsBG
+Description: An overview of the stationary defences added by the mod.
+RequiredResearch: R_Turrets_AA
+
+ENDTAGS
 
 #!Turrets#
 #In order to build the turrets, you will need plasteel, advanced components and sometimes antimatter composite. You will also need to do research for each turret type.#
 #Here is a list of the turrets added by this mod:#
 @Turret_ThunderGun_AA@
+@Turret_MBD_AA@
 @Turret_AntimatterRailgun_AA@
 
 #!Special#

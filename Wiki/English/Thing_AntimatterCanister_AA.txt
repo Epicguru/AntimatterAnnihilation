@@ -1,3 +1,5 @@
+RequiredResearch:ParticleAccelerators_AA
+ENDTAGS
 
 #!How to produce#
 #Antimatter canisters are created in Particle Accelerators:#

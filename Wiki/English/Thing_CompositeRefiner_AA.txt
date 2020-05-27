@@ -1,4 +1,3 @@
-
 #!How to set up#
 #2 <color=\#e0d290>Input Trays</color> must be built next to the Composite Refiner, as shown here:#
 $AntimatterAnnihilation/UI/CompositeRefinerTrays$
