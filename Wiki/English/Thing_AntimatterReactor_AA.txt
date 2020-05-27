@@ -1,5 +1,3 @@
-
-
 #!Setup#
 #There are 3 parts required to a working reactor setup:#
 @AntimatterReactor_AA:(this)@

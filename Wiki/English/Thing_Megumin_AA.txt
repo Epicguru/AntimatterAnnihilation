@@ -1,4 +1,3 @@
-
 #!How it works#
 #It must not be under a roof, and it must have power and antimatter canisters stored in it.
 Once these conditions are met, simply target the desired area using the button.#

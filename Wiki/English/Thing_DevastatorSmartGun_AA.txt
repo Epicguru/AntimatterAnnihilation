@@ -1,0 +1,4 @@
+AlwaysSpoiler:true
+ENDTAGS
+
+#This gun cannot be crafted, and is only available as a rare drop from Ultratech raiders.#

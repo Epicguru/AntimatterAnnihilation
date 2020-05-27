@@ -1,8 +1,11 @@
-UltratechFaction_AA
-Ultratech Faction
-AntimatterAnnihilation/UI/FactionIcon
-AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
-The Ultratech faction is a new faction added to the world. They are very strong and pose a significant threat, but carry some of the essential items required for advanced crafting and construcion.
+ID: UltratechFaction_AA
+Title: Ultratech Faction
+Icon: AntimatterAnnihilation/UI/FactionIcon
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+Description: The Ultratech faction is a new faction added to the world. They are very strong and pose a significant threat, but carry some of the essential items required for advanced crafting and construcion.
+RequiredResearch: Entry_AA
+
+ENDTAGS
 
 #!Who are they?#
 #The Ultratech are an inter-planetary conglomerate that posses the knowlege and technology to manipulate antimatter.

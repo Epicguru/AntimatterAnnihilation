@@ -1,0 +1,4 @@
+RequiredResearch:R_HyperComponents_AA
+ENDTAGS
+
+#This component cannot be crafted, and is only available as a rare drop from Ultratech raiders.#

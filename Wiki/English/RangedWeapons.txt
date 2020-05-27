@@ -1,8 +1,11 @@
-RangedWeapons_AA
-Ranged Weapons
-AntimatterAnnihilation/UI/RangedIcon
-AntimatterAnnihilation/PreRendered/RangedBG
-An overview of the ranged weapons added to the game by this mod.
+ID: RangedWeapons_AA
+Title: Ranged Weapons
+Icon: AntimatterAnnihilation/UI/RangedIcon
+Background: AntimatterAnnihilation/PreRendered/RangedBG
+Description: An overview of the ranged weapons added to the game by this mod.
+RequiredResearch: RangedMedium_AA
+
+ENDTAGS
 
 $AntimatterAnnihilation/UI/ExampleColonists:256,256$
 
