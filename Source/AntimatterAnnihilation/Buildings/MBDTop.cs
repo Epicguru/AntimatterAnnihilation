@@ -1,4 +1,5 @@
-﻿using RimWorld;
+﻿using AntimatterAnnihilation.Utils;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
@@ -6,6 +7,11 @@ namespace AntimatterAnnihilation.Buildings
 {
     public class MBDTop : AATurretTop
     {
+        const float RATIO = 31f / 280f;
+        const float HEIGHT = 2.5f;
+        const float WIDTH = HEIGHT * RATIO;
+        const float DEFAULT_FORWARDS = 1.7f;
+
         public static Material BarrelMat;
 
         public float BarrelRotation;
@@ -66,10 +72,7 @@ namespace AntimatterAnnihilation.Buildings
 
         private void DrawBarrel(float angle, float radius)
         {
-            const float RATIO = 31f / 280f;
-            const float HEIGHT = 2.5f;
-            const float WIDTH = HEIGHT * RATIO;
-            const float DEFAULT_FORWARDS = 1.7f;
+           
 
             angle = angle % 360f;
             float rads = angle * Mathf.Deg2Rad;
@@ -82,11 +85,30 @@ namespace AntimatterAnnihilation.Buildings
             // -- Barrels (+0.1 to +0.9f) --
             // -- Base --
 
-            Vector3 rightPos = (new Vector3(this.parentTurret.def.building.turretTopOffset.x + horizontalOffset, 0f, this.parentTurret.def.building.turretTopOffset.y + DEFAULT_FORWARDS)).RotatedBy(this.CurrentRotation);
+            Vector3 drawPos = (new Vector3(this.parentTurret.def.building.turretTopOffset.x + horizontalOffset, 0f, this.parentTurret.def.building.turretTopOffset.y + DEFAULT_FORWARDS)).RotatedBy(this.CurrentRotation);
             Matrix4x4 matrixRight = default(Matrix4x4);
             float heightIncrease = 0.5f + (0.4f * verticalOffset);
-            matrixRight.SetTRS(this.parentTurret.DrawPos + (Altitudes.AltIncVect * heightIncrease) + rightPos, (this.CurrentRotation + TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
+            matrixRight.SetTRS(this.parentTurret.DrawPos + (Altitudes.AltIncVect * heightIncrease) + drawPos, (this.CurrentRotation + TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
             Graphics.DrawMesh(MeshPool.plane10, matrixRight, BarrelMat, 0);
+        }
+
+        public override void OnShoot()
+        {
+            base.OnShoot();
+
+            Vector3 drawPos = this.parentTurret.DrawPos + (new Vector3(this.parentTurret.def.building.turretTopOffset.x, 0f, this.parentTurret.def.building.turretTopOffset.y + DEFAULT_FORWARDS + 2f)).RotatedBy(this.CurrentRotation);
+            drawPos.y = AltitudeLayer.MoteOverhead.AltitudeFor();
+
+            DoMuzzleFlash(drawPos);
+        }
+
+        private void DoMuzzleFlash(Vector3 pos)
+        {
+            Mote mote = (Mote)ThingMaker.MakeThing(AADefOf.Mote_LargeMuzzleFlashFast_AA, null);
+            mote.Scale = 2.3f;
+            mote.exactRotation = base.CurrentRotation;
+            mote.exactPosition = pos;
+            GenSpawn.Spawn(mote, base.parentTurret.Position, base.parentTurret.Map, WipeMode.Vanish);
         }
     }
 }

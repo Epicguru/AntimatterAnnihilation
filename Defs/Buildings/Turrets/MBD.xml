@@ -86,7 +86,7 @@ It's multi-barrel destruction.</description>
         </comps>
         <building>
             <turretGunDef>Gun_MBDTurret_AA</turretGunDef>
-            <turretBurstCooldownTime>7</turretBurstCooldownTime>
+            <turretBurstCooldownTime>5.5</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
             <li>R_MBD_AA</li>
@@ -127,7 +127,6 @@ It's multi-barrel destruction.</description>
             <AccuracyShort>0.75</AccuracyShort>
             <AccuracyMedium>0.85</AccuracyMedium>
             <AccuracyLong>0.6</AccuracyLong>
-            <RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>200</Mass>
             <Flammability>0</Flammability>

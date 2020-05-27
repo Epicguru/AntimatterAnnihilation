@@ -7,6 +7,12 @@ namespace AntimatterAnnihilation.Buildings
 {
     public class ThunderGunTop : AATurretTop
     {
+        const float RATIO = 57f / 257f;
+        const float HEIGHT = 2.5f;
+        const float WIDTH = HEIGHT * RATIO;
+        const float SPACING = 0.36f;
+        const float DEFAULT_FORWARDS = 1.35f;
+
         public static Material BarrelMat;
 
         public RecoilManager RecoilLeft, RecoilRight;
@@ -41,12 +47,6 @@ namespace AntimatterAnnihilation.Buildings
                 BarrelMat = MaterialPool.MatFrom("AntimatterAnnihilation/Buildings/ThunderGunBarrel");
             }
 
-            const float RATIO = 57f / 257f;
-            const float HEIGHT = 2.5f;
-            const float WIDTH = HEIGHT * RATIO;
-            const float SPACING = 0.36f;
-            const float DEFAULT_FORWARDS = 1.35f;
-
             Vector3 rightPos = (new Vector3(this.parentTurret.def.building.turretTopOffset.x + SPACING, 0f, this.parentTurret.def.building.turretTopOffset.y - RecoilRight.CurrentRecoil + DEFAULT_FORWARDS)).RotatedBy(this.CurrentRotation);
             Matrix4x4 matrixRight = default(Matrix4x4);
             matrixRight.SetTRS(this.parentTurret.DrawPos + Altitudes.AltIncVect * 0.5f + rightPos, (this.CurrentRotation + TurretTop.ArtworkRotation).ToQuat(), new Vector3(HEIGHT, 1f, WIDTH));
@@ -60,6 +60,23 @@ namespace AntimatterAnnihilation.Buildings
             base.Draw();
         }
 
+        public Vector3 GetMuzzlePos(bool left)
+        {
+            const float OFFSET = -0.55f;
+            if (left)
+            {
+                var vec = this.parentTurret.DrawPos + (new Vector3(this.parentTurret.def.building.turretTopOffset.x - SPACING, 0f, this.parentTurret.def.building.turretTopOffset.y - RecoilLeft.CurrentRecoil + DEFAULT_FORWARDS + HEIGHT + OFFSET)).RotatedBy(this.CurrentRotation);
+                vec.y = AltitudeLayer.MoteOverhead.AltitudeFor();
+                return vec;
+            }
+            else
+            {
+                var vec = this.parentTurret.DrawPos + (new Vector3(this.parentTurret.def.building.turretTopOffset.x + SPACING, 0f, this.parentTurret.def.building.turretTopOffset.y - RecoilRight.CurrentRecoil + DEFAULT_FORWARDS + HEIGHT + OFFSET)).RotatedBy(this.CurrentRotation);
+                vec.y = AltitudeLayer.MoteOverhead.AltitudeFor();
+                return vec;
+            }
+        }
+
         public override void OnShoot()
         {
             ShootFlipFlop++;
@@ -69,6 +86,17 @@ namespace AntimatterAnnihilation.Buildings
                 RecoilLeft.AddRecoil(25f);
             else
                 RecoilRight.AddRecoil(25f);
+
+            DoMuzzleFlash(GetMuzzlePos(left));
+        }
+
+        private void DoMuzzleFlash(Vector3 pos)
+        {
+            Mote mote = (Mote)ThingMaker.MakeThing(AADefOf.Mote_LargeMuzzleFlash_AA, null);
+            mote.Scale = 2.6f;
+            mote.exactRotation = base.CurrentRotation;
+            mote.exactPosition = pos;
+            GenSpawn.Spawn(mote, base.parentTurret.Position, base.parentTurret.Map, WipeMode.Vanish);
         }
     }
 }

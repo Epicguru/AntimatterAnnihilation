@@ -8,7 +8,7 @@
         <baseCost>3600</baseCost>
         <techLevel>Ultra</techLevel>
         <tab>Antimatter</tab>
-        <discoveredLetterTitle>Antimatter railgun</discoveredLetterTitle>
+        <discoveredLetterTitle>MBD</discoveredLetterTitle>
         <discoveredLetterText>You now understand how to construct multi-barreled antimatter cannons.
 Using hyper components allows for incredibly accurate control over channeling and flow of antimatter in a multi-barrel system, resulting in a blazing rate of fire and a huge damage output.</discoveredLetterText>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
