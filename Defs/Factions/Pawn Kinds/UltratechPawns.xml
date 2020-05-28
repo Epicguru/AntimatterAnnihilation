@@ -9,11 +9,11 @@
         <itemQuality>Normal</itemQuality>
         <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
         <maxGenerationAge>55</maxGenerationAge>
-        <combatEnhancingDrugsChance>0.25</combatEnhancingDrugsChance>
-        <combatEnhancingDrugsCount>0~3</combatEnhancingDrugsCount>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <combatEnhancingDrugsCount>0~1</combatEnhancingDrugsCount>
         <biocodeWeaponChance>0.2</biocodeWeaponChance>
         <inventoryOptions>
-            <skipChance>0.80</skipChance> <!-- Chance to have Hyper Components: 2 in 10 -->
+            <!-- <skipChance>0</skipChance> Chance to have Hyper Components: 2 in 10 -->
             <subOptionsChooseOne>
                 <li>
                     <thingDef>HyperComponent_AA</thingDef>
@@ -159,6 +159,42 @@
     <!-- Basic sniper implementation -->
     <PawnKindDef ParentName="UltratechSniperBase_AA">
         <defName>UltratechSniper_AA</defName>
+    </PawnKindDef>
+
+    <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles.-->
+    <PawnKindDef ParentName="UltratechSniperBase_AA">
+        <defName>UltratechSniperAdvanced_AA</defName>
+        <label>ultratech elite sniper</label>
+        <combatPower>155</combatPower>
+        <gearHealthRange>0.7~3.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <apparelMoney>1200~2500</apparelMoney>
+        <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+        <weaponMoney>3500~7000</weaponMoney>
+        <weaponTags>
+            <li>SniperRifleSpacer</li>
+            <li>SniperRifleUltra</li>
+        </weaponTags>
+        <techHediffsRequired>
+            <li>ArchotechEye</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <skipChance>0.7</skipChance>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>Silver</thingDef>
+                    <countRange>90~260</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>0~1</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
     </PawnKindDef>
 
     <!-- Basic melee soldier. Uses powerful melee weapons, and has boosted speed due to gear and implants. Abstract to allow death acidifer version (dlc only?)-->

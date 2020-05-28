@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-    <ThingDef ParentName="AntimatterGunBase_AA">
+    <ThingDef ParentName="AntimatterGunUncraftableBase_AA">
         <defName>DevastatorSniperRifle_AA</defName>
         <label>devastator sniper rifle</label>
         <description>A heavy antimatter weapon that deals huge damage over very long ranges.
 This weapon incorporates archotech technology. Even with a good understanding of Antimatter tech, this is still incredibly advanced, and can't be crafted using any known means.</description>
         <graphicData>
-            <texPath>AntimatterAnnihilation/Weapons/AntimatterSniperRifle</texPath>
+            <texPath>AntimatterAnnihilation/Weapons/DSR</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
         <equippedAngleOffset>33.5</equippedAngleOffset>
         <weaponTags>
-            <li>SniperRifleSpacer</li>
+            <li>SniperRifleUltra</li>
         </weaponTags>
         <statBases>
-            <WorkToMake>55000</WorkToMake>
-            <Mass>3.9</Mass>
+            <Mass>7</Mass>
             <AccuracyTouch>0.5</AccuracyTouch>
             <AccuracyShort>0.6</AccuracyShort>
             <AccuracyMedium>0.9</AccuracyMedium>
@@ -29,9 +28,9 @@ This weapon incorporates archotech technology. Even with a good understanding of
                 <verbClass>Verb_Shoot</verbClass>
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>Bullet_DevastatorSniperRifle_AA</defaultProjectile>
-                <warmupTime>2.5</warmupTime>
+                <warmupTime>3.5</warmupTime>
                 <range>65</range>
-                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
+                <soundCast>Shot_HeavySniper_AA</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>12</muzzleFlashScale>
             </li>
@@ -67,9 +66,9 @@ This weapon incorporates archotech technology. Even with a good understanding of
         <projectile>
             <damageDef>Annihilate_AA</damageDef>
             <stoppingPower>3</stoppingPower>
-            <damageAmountBase>35</damageAmountBase>
+            <damageAmountBase>55</damageAmountBase>
             <armorPenetrationBase>0.85</armorPenetrationBase>
-            <speed>75</speed>
+            <speed>200</speed>
         </projectile>
     </ThingDef>
 

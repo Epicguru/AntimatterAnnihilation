@@ -63,10 +63,11 @@
                 <kindDef>Combat</kindDef>
                 <options>
                     <UltratechMelee_AA>4</UltratechMelee_AA>
-                    <UltratechSniper_AA>6</UltratechSniper_AA>
-                    <UltratechGunner_AA>10</UltratechGunner_AA>
-                    <UltratechGunnerAdvanced_AA>10</UltratechGunnerAdvanced_AA>
                     <UltratechMeleeAdvanced_AA>2</UltratechMeleeAdvanced_AA>
+                    <UltratechSniper_AA>6</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>4</UltratechSniperAdvanced_AA>
+                    <UltratechGunner_AA>10</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>8</UltratechGunnerAdvanced_AA>
                 </options>
             </li>
             <li>
@@ -81,6 +82,7 @@
                     <Town_Councilman>10</Town_Councilman> -->
                     <UltratechMelee_AA>5</UltratechMelee_AA>
                     <UltratechSniper_AA>8</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>4</UltratechSniperAdvanced_AA>
                     <UltratechGunner_AA>10</UltratechGunner_AA>
                     <UltratechGunnerAdvanced_AA>8</UltratechGunnerAdvanced_AA>
                     <UltratechMeleeAdvanced_AA>4</UltratechMeleeAdvanced_AA>
