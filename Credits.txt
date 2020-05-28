@@ -14,5 +14,6 @@ Sound Effects & Music - Freesound.org users:
  -Anomaex (Huge explosion N2 mine)
  -JavierZumer (Railgun charge)
  -dpren (Railgun charge/fire, gun shoot sounds)
+ -SuperPhat (Devastator sniper rifle)
 
 All sounds used were posted under the Creative Commons or Attribution liscences.
