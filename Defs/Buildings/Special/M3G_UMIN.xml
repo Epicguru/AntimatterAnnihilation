@@ -54,6 +54,10 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 <doSelfDischarge>false</doSelfDischarge>
                 <doInspectorInfo>false</doInspectorInfo>
             </li>
+            <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
+                <glowRadius>9</glowRadius>
+                <glowColor>(255,232,142,255)</glowColor>
+            </li>
         </comps>
         <researchPrerequisites>
             <li>R_Megumin_AA</li>

@@ -7,7 +7,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_AlloyFusionMachine : Building_TrayPuller
+    public class Building_AlloyFusionMachine : Building_TrayPuller, IConditionalGlower
     {
         public const int TICKS_PER_FRAME = 3;
         public const int FRAME_COUNT = 20;
@@ -43,6 +43,17 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
+        public CompGlower CompGlower
+        {
+            get
+            {
+                if (_compGlower == null)
+                    _compGlower = this.TryGetComp<CompGlower>();
+
+                return _compGlower;
+            }
+        }
+        private CompGlower _compGlower;
         public CompPowerTrader PowerTraderComp
         {
             get
@@ -90,6 +101,13 @@ namespace AntimatterAnnihilation.Buildings
             get
             {
                 return MAX_URANIUM_STORED - storedUranium;
+            }
+        }
+        public bool ShouldBeGlowingNow
+        {
+            get
+            {
+                return IsActive;
             }
         }
 
@@ -146,7 +164,12 @@ namespace AntimatterAnnihilation.Buildings
             UpdatePowerDraw();
 
             // Update active/running state.
+            bool oldActive = this.IsActive;
             UpdateActiveState();
+            if (oldActive != this.IsActive)
+            {
+                CompGlower?.ReceiveCompSignal("PowerTurnedOn"); // Obviously the power hasn't actually just been turned on, but it's just a way to trigger UpdateLit to be called.
+            }
 
             // Pull resources as long as there is power.
             UpdatePullResources();

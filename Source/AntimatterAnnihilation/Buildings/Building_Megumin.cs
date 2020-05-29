@@ -13,7 +13,7 @@ using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_Megumin : Building
+    public class Building_Megumin : Building, IConditionalGlower
     {
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
@@ -29,6 +29,13 @@ namespace AntimatterAnnihilation.Buildings
         public static float EXPLOSION_PEN = 0.7f;
         public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
 
+        public bool ShouldBeGlowingNow
+        {
+            get
+            {
+                return IsPoweringUp;
+            }
+        }
         public CompEquippable GunComp
         {
             get
@@ -59,6 +66,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompRefuelableConditional _compRefuelable;
+        public CompGlower CompGlower
+        {
+            get
+            {
+                if (_compGlower == null)
+                    this._compGlower = base.GetComp<CompGlower>();
+                return _compGlower;
+            }
+        }
+        private CompGlower _compGlower;
         public Verb AttackVerb
         {
             get
@@ -232,6 +249,9 @@ namespace AntimatterAnnihilation.Buildings
 
             // Do particle effects.
             chargeEffect?.Play(true);
+
+            // Enable glow start.
+            CompGlower?.ReceiveCompSignal("PowerTurnedOn");
         }
 
         private void StartRealAttack()
@@ -280,6 +300,9 @@ namespace AntimatterAnnihilation.Buildings
         {
             beam.IsActive = false;
             soundSustainer?.End();
+
+            // Turn off glow.
+            CompGlower?.ReceiveCompSignal("PowerTurnedOn");
         }
 
         private void DoEasterEgg()
