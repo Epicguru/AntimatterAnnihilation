@@ -72,8 +72,6 @@ namespace AntimatterAnnihilation.Buildings
 
         private void DrawBarrel(float angle, float radius)
         {
-           
-
             angle = angle % 360f;
             float rads = angle * Mathf.Deg2Rad;
 
