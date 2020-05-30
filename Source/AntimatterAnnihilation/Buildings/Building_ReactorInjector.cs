@@ -6,7 +6,6 @@ using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
-using Verse.Noise;
 using Verse.Sound;
 
 namespace AntimatterAnnihilation.Buildings
@@ -78,7 +77,7 @@ namespace AntimatterAnnihilation.Buildings
         }
         public EnergyBeam Beam { get; private set; }
         public IntVec3 BeamExploreDirection { get; private set; }
-        public byte PowerMode;
+        public int PowerMode;
 
         public float FuelBurnRate
         {
