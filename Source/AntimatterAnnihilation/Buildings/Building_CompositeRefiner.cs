@@ -4,8 +4,16 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_CompositeRefiner : Building_TrayPuller
+    public class Building_CompositeRefiner : Building_TrayPuller, IConditionalGlower
     {
+        public bool ShouldBeGlowingNow
+        {
+            get
+            {
+                return GetShouldBeRunning();
+            }
+        }
+
         public CompPowerTrader PowerTraderComp
         {
             get
@@ -16,6 +24,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompPowerTrader _powerTraderComp;
+        public CompGlower CompGlower
+        {
+            get
+            {
+                if (_compGlower == null)
+                    this._compGlower = base.GetComp<CompGlower>();
+                return _compGlower;
+            }
+        }
+        private CompGlower _compGlower;
         public IntVec3 OutputPos
         {
             get
@@ -50,6 +68,7 @@ namespace AntimatterAnnihilation.Buildings
         public int ProductionTicks;
 
         private ulong tickCount;
+        private bool lastFrameRunning;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -90,6 +109,12 @@ namespace AntimatterAnnihilation.Buildings
                     PlaceOutput(OutputAmount);
                 }
             }
+
+            if (lastFrameRunning != isRunning)
+            {
+                CompGlower?.ReceiveCompSignal("PowerTurnedOn"); // Obviously the power hasn't actually just been turned on, but it's just a way to trigger UpdateLit to be called.
+            }
+            lastFrameRunning = isRunning;
 
             if (tickCount % 120 == 0 && PowerTraderComp.PowerOn)
             {

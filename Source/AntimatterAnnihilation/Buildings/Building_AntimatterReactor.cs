@@ -68,9 +68,9 @@ namespace AntimatterAnnihilation.Buildings
         public float BuildingDamage = 25;
         public float PawnDamage = 6.5f;
         public int UpdateInterval = 20; // Every 20 ticks, so 3 times a second.
+        public Building_ReactorInjector CurrentInjector { get; private set; }
 
         private List<(IntVec3 cell, byte weight)> avoidance = new List<(IntVec3 cell, byte weight)>();
-        private Building_ReactorInjector currentInjector;
         private int injectorRot;
         private int tickCounter;
         private long updateTick;
@@ -155,13 +155,13 @@ namespace AntimatterAnnihilation.Buildings
             // Assumes that the injector is valid (correct side, aligned properly).
 
             tickCounter = 0;
-            if (currentInjector != null && currentInjector != injector)
+            if (CurrentInjector != null && CurrentInjector != injector)
             {
                 // Two injectors?!
                 // TODO handle (explode?)
             }
 
-            currentInjector = injector;
+            CurrentInjector = injector;
             this.injectorRot = injRot;
             tickCounter = 0;
             if (!IsRunning)
@@ -173,10 +173,10 @@ namespace AntimatterAnnihilation.Buildings
 
         public void RemoveInput(Building_ReactorInjector injector)
         {
-            if (currentInjector != injector)
+            if (CurrentInjector != injector)
                 return;
 
-            currentInjector = null;
+            CurrentInjector = null;
 
             if (IsRunning)
             {
@@ -189,14 +189,14 @@ namespace AntimatterAnnihilation.Buildings
         {
             base.Tick();
 
-            if(tickCounter < TicksToShutdownWithNoInput && currentInjector != null)
+            if(tickCounter < TicksToShutdownWithNoInput && CurrentInjector != null)
                 tickCounter++;
-            if (tickCounter == TicksToShutdownWithNoInput)
+            if (tickCounter >= TicksToShutdownWithNoInput)
             {
                 if (IsRunning)
                 {
                     IsRunning = false;
-                    currentInjector = null;
+                    CurrentInjector = null;
                     CauseRedraw();
                 }
             }

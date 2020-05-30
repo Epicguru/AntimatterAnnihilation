@@ -121,6 +121,7 @@
     <Compile Include="Effects\RailgunEffectComp.cs" />
     <Compile Include="Effects\SpawnedEffect.cs" />
     <Compile Include="Effects\UpBeam.cs" />
+    <Compile Include="Patches\Patch_CompGlower.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
     <Compile Include="Patches\Patch_BatteryComp_AmountCanAccept.cs" />
     <Compile Include="Patches\Patch_BatteryComp_SetStoredEnergyPct.cs" />
@@ -144,6 +145,7 @@
     <Compile Include="ThingComps\CompRefuelableConditional.cs" />
     <Compile Include="UI\UI_PowerNetConsole.cs" />
     <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\IConditionalGlower.cs" />
     <Compile Include="Utils\IResettable.cs" />
     <Compile Include="Utils\ObjectPool.cs" />
     <Compile Include="Utils\RecoilManager.cs" />

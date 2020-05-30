@@ -35,6 +35,10 @@ See the in-game wiki for more information and how to use.</description>
                 <basePowerConsumption>1500</basePowerConsumption>
                 <transmitsPower>false</transmitsPower>
             </li>
+            <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
+                <glowRadius>5</glowRadius>
+                <glowColor>(245,198,255,255)</glowColor>
+            </li>
         </comps>
         <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
         <researchPrerequisites>
