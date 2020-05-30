@@ -6,6 +6,7 @@ using RimWorld;
 using System.Collections.Generic;
 using UnityEngine;
 using Verse;
+using Verse.Noise;
 
 namespace AntimatterAnnihilation.Buildings
 {
@@ -76,6 +77,43 @@ namespace AntimatterAnnihilation.Buildings
         }
         public EnergyBeam Beam { get; private set; }
         public IntVec3 BeamExploreDirection { get; private set; }
+        public byte PowerMode;
+
+        public float FuelBurnRate
+        {
+            get
+            {
+                switch (PowerMode)
+                {
+                    case 0:
+                        return 1.5f;
+                    case 1:
+                        return 2f;
+                    case 2:
+                        return 4f;
+                    default:
+                        return 1.5f;
+                }
+            }
+        }
+
+        public float PowerOutputMultiplier
+        {
+            get
+            {
+                switch (PowerMode)
+                {
+                    case 0:
+                        return 1f; // 30 KW, 1.5 fuel per day.
+                    case 1:
+                        return 1.5f; // 45 KW, 2 fuel per day (more efficient, but uses all the fuel 1 accelerator produces so no extra).
+                    case 2:
+                        return 4f; // 120 KW, 4 fuel per day (the most efficient, but requires at least 2 accelerators).
+                    default:
+                        return 1f;
+                }
+            }
+        }
 
         public int MaxBeamLength = 10;
 
@@ -149,6 +187,7 @@ namespace AntimatterAnnihilation.Buildings
             if (Beam == null)
                 return;
 
+            FuelComp.CustomFuelBurnRate = FuelBurnRate;
             Beam.BeamVisible = IsRunning;
             //CauseRedraw();
 
@@ -162,6 +201,39 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Beam.Length = UpdateDamageAndInjection(MaxBeamLength);
             }
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+
+            Scribe_Values.Look(ref PowerMode, "injectorPowerMode");
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var g in base.GetGizmos())
+            {
+                yield return g;
+            }
+
+            var cmd2 = new Command_Action();
+            cmd2.defaultLabel = "AA.RIPowerLevel".Translate();
+            cmd2.defaultDesc = "AA.RIPowerLevelDesc".Translate($"{PowerOutputMultiplier*100:F0}", $"{FuelBurnRate:F1}");
+            cmd2.icon = PowerMode == 2 ? Content.PowerLevelHigh : PowerMode == 1 ? Content.PowerLevelMedium : Content.PowerLevelLow;
+            cmd2.action = () =>
+            {
+                PowerMode++;
+                if (PowerMode >= 3)
+                    PowerMode = 0;
+            };
+
+            yield return cmd2;
+        }
+
+        public override string GetInspectString()
+        {
+            return base.GetInspectString() + $"\n{"AA.RIPowerLevelDesc".Translate($"{PowerOutputMultiplier * 100:F0}", $"{FuelBurnRate:F1}")}";
         }
 
         private Vector3 GetOffset(out float angle)
@@ -197,7 +269,7 @@ namespace AntimatterAnnihilation.Buildings
         }
 
         private List<Thing> tempThings = new List<Thing>();
-        public float UpdateDamageAndInjection(float maxDst) // The action is a hacky workaround to not being able to do 'out int realDst'
+        public float UpdateDamageAndInjection(float maxDst)
         {
             avoidance.Clear();
 

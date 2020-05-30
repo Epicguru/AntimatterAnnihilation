@@ -6,6 +6,19 @@ namespace AntimatterAnnihilation.Buildings
     [StaticConstructorOnStartup]
     public class Building_PowerConverter : Building
     {
+        public static float BasePowerOutput = 30000;
+        public static float PowerOutputMulti { get; set; } = 1f;
+
+        private float PowerOutput
+        {
+            get
+            {
+                float reactorMulti = this.CurrentReactor?.CurrentInjector?.PowerOutputMultiplier ?? 1f;
+
+                return BasePowerOutput * PowerOutputMulti * reactorMulti;
+            }
+        }
+
         private static Graphic normal, running;
         private const int MAX_TICKS_SINCE_INPUT = 30;
 
@@ -38,34 +51,43 @@ namespace AntimatterAnnihilation.Buildings
                 return ticksSinceHasInput < MAX_TICKS_SINCE_INPUT;
             }
         }
+        public Building_AntimatterReactor CurrentReactor { get; private set; }
 
         private int ticksSinceHasInput;
 
         public override void Tick()
         {
+            if (CurrentReactor != null && CurrentReactor.Destroyed)
+                CurrentReactor = null;
+
             if (ticksSinceHasInput < MAX_TICKS_SINCE_INPUT)
             {
                 ticksSinceHasInput++;
             }
-            else if (ticksSinceHasInput != 69420)
+            else 
             {
-                ticksSinceHasInput = 69420;
-                CauseRedraw();
+                CurrentReactor = null;
+                if (ticksSinceHasInput != 69420)
+                {
+                    ticksSinceHasInput = 69420;
+                    CauseRedraw();
+                }
             }
 
             var trader = PowerComp as CompPowerTrader;
-            trader.PowerOutput = HasInput ? 30000 : 0;
+            trader.PowerOutput = HasInput ? (PowerOutput) : 0;
 
             base.Tick();
         }
 
         public void GiveInput(Building_AntimatterReactor r)
         {
+            ticksSinceHasInput = 0;
+            CurrentReactor = r;
             if (!HasInput)
             {
                 CauseRedraw();
             }
-            ticksSinceHasInput = 0;
         }
 
         public void CauseRedraw(Map map = null)

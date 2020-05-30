@@ -5,6 +5,8 @@
 <AA.On>on</AA.On>
 <AA.Off>off</AA.Off>
 <AA.Enabled>enabled</AA.Enabled>
+<AA.Active>active</AA.Active>
+<AA.NotActive>not active</AA.NotActive>
 <AA.Turn>turn</AA.Turn> <!-- As in 'turn' machine on or off. -->
 <AA.Name>name</AA.Name>
 <AA.Power>power</AA.Power>
@@ -85,5 +87,9 @@
 <AA.AFMNotRunningMissingStuff>Not running: Required min. {0} gold, {1} composite, {2} uranium.</AA.AFMNotRunningMissingStuff>
 <AA.AFMPowerLevel>Change power level</AA.AFMPowerLevel>
 <AA.AFMPowerLevelDesc>Current power level: {0}% speed, uses {1} watts.\nChange in power level only takes effect once the current alloy is completed.</AA.AFMPowerLevelDesc>
+
+<!-- Reactor injector -->
+<AA.RIPowerLevel>Change power level</AA.RIPowerLevel>
+<AA.RIPowerLevelDesc>Current power level: {0}%, consumes {1} canisters per day.</AA.RIPowerLevelDesc>
 
  </LanguageData>
