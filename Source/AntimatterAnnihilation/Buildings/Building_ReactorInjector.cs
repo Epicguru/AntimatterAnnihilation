@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Noise;
+using Verse.Sound;
 
 namespace AntimatterAnnihilation.Buildings
 {
@@ -124,6 +125,7 @@ namespace AntimatterAnnihilation.Buildings
         private long tick;
         private Building_AntimatterReactor lastReactor;
         private List<(IntVec3 cell, byte weight)> avoidance = new List<(IntVec3 cell, byte weight)>();
+        private Sustainer humSustainer;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -190,6 +192,20 @@ namespace AntimatterAnnihilation.Buildings
             FuelComp.CustomFuelBurnRate = FuelBurnRate;
             Beam.BeamVisible = IsRunning;
             //CauseRedraw();
+
+            if (IsRunning)
+            {
+                if (humSustainer != null && humSustainer.Ended)
+                    humSustainer = null;
+
+                if (humSustainer == null)
+                {
+                    SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
+                    humSustainer = AADefOf.LaserHum_AA.TrySpawnSustainer(info);
+                }
+                
+                humSustainer?.Maintain();
+            }
 
             Beam.Tick();
 

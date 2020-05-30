@@ -45,4 +45,22 @@
         </subSounds>
     </SoundDef>
 
+    <SoundDef>
+        <defName>LaserHum_AA</defName>  
+        <sustain>true</sustain>  
+        <context>MapOnly</context>
+        <priorityMode>PrioritizeNearest</priorityMode>  
+        <subSounds>
+            <li>
+                <grains>
+                <li Class="AudioGrain_Clip">
+                    <clipPath>AntimatterAnnihilation/LaserHum</clipPath>
+                </li>
+                </grains>      
+                <volumeRange>18</volumeRange>      
+                <distRange>10~40</distRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
 </Defs>
