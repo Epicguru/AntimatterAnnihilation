@@ -23,6 +23,8 @@ namespace AntimatterAnnihilation
 
             PatchAll();
             Log($"Patched {HarmonyInstance.GetPatchedMethods().Count()} methods.");
+
+            GetSettings<Settings>(); // Required.
         }
 
         private void AddHook()
@@ -49,6 +51,16 @@ namespace AntimatterAnnihilation
         public static void Trace(string msg)
         {
             Verse.Log.Message(msg ?? "<null>");
+        }
+
+        public override string SettingsCategory()
+        {
+            return "Antimatter Annihilation";
+        }
+
+        public override void DoSettingsWindowContents(Rect inRect)
+        {
+            Settings.DoWindow(inRect);
         }
     }
 }

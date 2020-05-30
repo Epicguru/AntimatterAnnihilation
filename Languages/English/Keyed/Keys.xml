@@ -29,6 +29,11 @@
 <AA.Days>days</AA.Days>
 <AA.Quadrums>quadrums</AA.Quadrums>
 
+<!-- Settings -->
+<AA.PowerGenMulti>Power generation multiplier: {0}%</AA.PowerGenMulti>
+<AA.FuelConsumeRate>Fuel consumption multiplier: {0}%</AA.FuelConsumeRate>
+<AA.EnableEasterEggs>Enable easter eggs:</AA.EnableEasterEggs>
+
 <!-- PowerNet Console -->
 <AA.OpenConsole>Open console</AA.OpenConsole>
 <AA.OpenConsoleDesc>Shows detailed information about the connected power network, and allows you to turn power on and off.</AA.OpenConsoleDesc>

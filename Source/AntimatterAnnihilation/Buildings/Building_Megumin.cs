@@ -307,6 +307,9 @@ namespace AntimatterAnnihilation.Buildings
 
         private void DoEasterEgg()
         {
+            if (!Settings.EnableEasterEggs)
+                return;
+
             // It's a trash anime btw. Genuine waste of time.
             // You're better off watching JoJo or Cowboy Bebob or KillLaKill.
             AADefOf.Explosion_Voice_AA.PlayOneShotOnCamera();

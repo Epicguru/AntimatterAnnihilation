@@ -83,17 +83,24 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
+                float b;
                 switch (PowerMode)
                 {
                     case 0:
-                        return 1.5f;
+                        b = 1.5f;
+                        break;
                     case 1:
-                        return 2f;
+                        b = 2f;
+                        break;
                     case 2:
-                        return 4f;
+                        b = 4f;
+                        break;
                     default:
-                        return 1.5f;
+                        b = 1.5f;
+                        break;
                 }
+
+                return b * Settings.FuelConsumeRate;
             }
         }
 
@@ -101,17 +108,24 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
+                float b;
                 switch (PowerMode)
                 {
                     case 0:
-                        return 1f; // 30 KW, 1.5 fuel per day.
+                        b = 1f; // 30 KW, 1.5 fuel per day.
+                        break;
                     case 1:
-                        return 1.5f; // 45 KW, 2 fuel per day (more efficient, but uses all the fuel 1 accelerator produces so no extra).
+                        b = 1.5f; // 45 KW, 2 fuel per day (more efficient, but uses all the fuel 1 accelerator produces so no extra).
+                        break;
                     case 2:
-                        return 4f; // 120 KW, 4 fuel per day (the most efficient, but requires at least 2 accelerators).
+                        b = 4f; // 120 KW, 4 fuel per day (the most efficient, but requires at least 2 accelerators).
+                        break;
                     default:
-                        return 1f;
+                        b = 1f;
+                        break;
                 }
+
+                return b * Settings.PowerGenMulti;
             }
         }
 
