@@ -92,4 +92,11 @@
 <AA.RIPowerLevel>Change power level</AA.RIPowerLevel>
 <AA.RIPowerLevelDesc>Current power level: {0}%, consumes {1} canisters per day.</AA.RIPowerLevelDesc>
 
+<!-- Input tray -->
+<AA.SetTrayFor>Set for {0}</AA.SetTrayFor>
+<AA.SetTrayForDesc>Configures this tray to store {0} with an 'important' priority.</AA.SetTrayForDesc>
+<AA.TrayCurrentlyStored>Configured to store: {0}</AA.TrayCurrentlyStored>
+<AA.TrayStoredNothing>Nothing</AA.TrayStoredNothing>
+<AA.TrayStoredMultiple>Multiple</AA.TrayStoredMultiple>
+
  </LanguageData>

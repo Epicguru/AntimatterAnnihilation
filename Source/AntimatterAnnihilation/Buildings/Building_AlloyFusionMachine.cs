@@ -115,7 +115,7 @@ namespace AntimatterAnnihilation.Buildings
         private bool isActiveInt = true;
         private int frameNumber;
         private long tickCount;
-        private int outputSide;
+        private int outputSide = 2;
         private int storedComposite;
         private int storedGold;
         private int storedUranium;
@@ -129,7 +129,7 @@ namespace AntimatterAnnihilation.Buildings
         {
             base.ExposeData();
             Scribe_Values.Look(ref isActiveInt, "isFusionActive");
-            Scribe_Values.Look(ref outputSide, "outputSide");
+            Scribe_Values.Look(ref outputSide, "outputSide", 2);
             Scribe_Values.Look(ref storedComposite, "storedComposite");
             Scribe_Values.Look(ref storedGold, "storedGold");
             Scribe_Values.Look(ref storedUranium, "storedUranium");

@@ -1,0 +1,25 @@
+#!How to set up#
+
+#At least 3 <color=\#e0d290>Input Trays</color> must be built around the Alloy Fusion Machine, as shown here:#
+$AntimatterAnnihilation/UI/AlloyMachine$
+
+#One of the trays must be configured to store gold, another to store antimatter composite and the last one to store uranium.
+You can quickly configure the trays by using the buttons, as shown here:#
+$AntimatterAnnihilation/UI/AlloyTraySetup$
+
+#Finally, the output side must be configured.
+By clicking the <i>Change output side</i> button on the machine, you can change which direction the Hyper Alloy will be placed in.#
+$AntimatterAnnihilation/UI/AlloyOutputSetup$
+#The output side does not require a tray, but you can place one down for aesthetic purposes if you want.#
+
+#!How it works#
+#This machine will automatically pull gold, uranium and antimatter composite.
+Once it has the minumum amount of each stored in it's internal buffer, it will start producing hyper alloy.
+Once it has started running (it will begin to glow and do an animation), it will take by default 1 in-game hour to produce 1 hyper alloy.
+This time can be reduced by increasing the Power Level of the machine, which also increases the amount of power it uses.#
+
+#<b><i>See also:</i></b>#
+@HyperAlloy_AA@
+@AntimatterComposite_AA@
+@Gold@
+@Uranium@
