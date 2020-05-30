@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AntimatterGunUncraftableBase_AA">
+        <defName>DevastatorSmartGun_AA</defName>
+        <label>devastator smart gun</label>
+        <description>A heavy antimatter weapon that uses archotech technology to increase shooting accuracy far beyond human capabilities. Fires a large burst.
+This weapon incorporates archotech technology. Even with a good understanding of Antimatter tech, this is still incredibly advanced, and can't be crafted using any known means.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/DevastatorSmartGun</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <statBases>
+            <Mass>4.8</Mass>
+            <AccuracyTouch>0.75</AccuracyTouch>
+            <AccuracyShort>0.9</AccuracyShort>
+            <AccuracyMedium>0.8</AccuracyMedium>
+            <AccuracyLong>0.7</AccuracyLong>
+            <RangedWeapon_Cooldown>2.5</RangedWeapon_Cooldown>
+            <MarketValue>5200</MarketValue>
+        </statBases>
+        <equippedAngleOffset>0</equippedAngleOffset>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_DevastatorSmartGun_AA</defaultProjectile>
+                <warmupTime>1.7</warmupTime>
+                <range>23.9</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>12</burstShotCount>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
+                <soundCastTail>GunTail_Medium</soundCastTail>
+                <muzzleFlashScale>8</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_DevastatorSmartGun_AA</defName>
+        <label>antimatter charge</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <damageAmountBase>6</damageAmountBase>
+            <stoppingPower>1.0</stoppingPower>
+            <armorPenetrationBase>0.4</armorPenetrationBase>
+            <speed>90</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

@@ -1,0 +1,29 @@
+ID: RangedWeapons_AA
+Title: Ranged Weapons
+Icon: AntimatterAnnihilation/UI/RangedIcon
+Background: AntimatterAnnihilation/PreRendered/RangedBG
+Description: An overview of the ranged weapons added to the game by this mod.
+RequiredResearch: RangedMedium_AA
+
+ENDTAGS
+
+$AntimatterAnnihilation/UI/ExampleColonists:256,256$
+
+#Most ranged weapons in this mod require <color=\#e485ff>antimatter canisters</color> or <color=\#ac54e3>antimatter composite</color> to craft.
+Others can only be obtained as drops from Ultratech raiders.#
+
+#Most ranged weapons are crafted at either the Smithing table or the Fabrication bench.#
+
+#!Craftable (normal)#
+@AntimatterBlaster_AA@
+@AntimatterSMG_AA@
+@AntimatterRifle_AA@
+@AntimatterSniperRifle_AA@
+
+#!Craftable (explosive)#
+@AntimatterGrenades_AA@
+@AntimatterGrenadeLauncher_AA@
+
+#!Drop only#
+@DevastatorLMG_AA@
+@DevastatorSmartGun_AA@

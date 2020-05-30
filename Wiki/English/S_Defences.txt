@@ -1,0 +1,25 @@
+ID: Defences_AA
+Title: Defences
+Icon: AntimatterAnnihilation/UI/ThunderGunIcon
+Background: AntimatterAnnihilation/PreRendered/TurretsBG
+Description: An overview of the stationary defences added by the mod.
+RequiredResearch: R_Turrets_AA
+
+ENDTAGS
+
+#!Turrets#
+#In order to build the turrets, you will need plasteel, advanced components and sometimes antimatter composite. You will also need to do research for each turret type.#
+#Here is a list of the turrets added by this mod:#
+@Turret_ThunderGun_AA@
+@Turret_MBD_AA@
+@Turret_AntimatterRailgun_AA@
+
+#!Special#
+#There are some special, extremely powerful (honestly they are OP) defeces added by this mod. These are either un-buildable or are built using rare drops from Ultratech raiders.#
+#Here is a list of the special defences added by this mod:#
+@Megumin_AA@
+
+#!Makeshift#
+#You can use the Reactor injector beam as a weapon, if you get creative with it's placement.#
+@AntimatterReactorInjector_AA@
+@AntimatterReactor_AA:(for more info on the antimatter reactor)@

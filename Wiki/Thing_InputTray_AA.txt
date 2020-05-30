@@ -1,3 +1,0 @@
-
-#Used to input materials into various machines:#
-@CompositeRefiner_AA@

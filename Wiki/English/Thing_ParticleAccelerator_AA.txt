@@ -1,0 +1,7 @@
+#!How to set up#
+#Simply build it somewhere in your colony, ideally in a place where it won't be destroyed by raiders.
+Your colonists will automatically haul Plasteel to fuel the accelerator once it has been built.#
+
+#!How it works#
+#It needs a constant supply of power and plasteel. It will output 1 antimatter canister every 12 in-game hours, at the cost of 10 plasteel each.
+The output is dumped on to the floor on the bottom edge of the accelerator, where the interaction spot is.#

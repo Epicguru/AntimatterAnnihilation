@@ -10,6 +10,13 @@ namespace AntimatterAnnihilation
         {
             // Create wiki here since defs is now loaded.
             var wiki = ModWiki.Create(ModCore.Instance);
+
+            if (wiki == null)
+            {
+                Log.Error("Wiki creation failed");
+                return;
+            }
+
             wiki.WikiTitle = "Antimatter Annihilation";
 
             // Optional - save a reference to the wiki.

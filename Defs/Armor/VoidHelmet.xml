@@ -5,7 +5,7 @@
         <techLevel>Spacer</techLevel>
         <recipeMaker>
             <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
-            <researchPrerequisite>VoidArmor_AA</researchPrerequisite>
+            <researchPrerequisite>R_VoidArmor_AA</researchPrerequisite>
             <skillRequirements>
                 <Crafting>12</Crafting>
             </skillRequirements>

@@ -9,17 +9,17 @@
         <itemQuality>Normal</itemQuality>
         <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
         <maxGenerationAge>55</maxGenerationAge>
-        <combatEnhancingDrugsChance>0.25</combatEnhancingDrugsChance>
-        <combatEnhancingDrugsCount>0~3</combatEnhancingDrugsCount>
+        <combatEnhancingDrugsChance>0.15</combatEnhancingDrugsChance>
+        <combatEnhancingDrugsCount>0~1</combatEnhancingDrugsCount>
         <biocodeWeaponChance>0.2</biocodeWeaponChance>
         <inventoryOptions>
-            <skipChance>0.80</skipChance> <!-- Chance to have Hyper Components: 2 in 10 -->
-            <subOptionsChooseOne>
+            <subOptionsTakeAll>
                 <li>
+                    <skipChance>0.8</skipChance> <!-- All raiders have a 20% chance to carry hyper components -->
                     <thingDef>HyperComponent_AA</thingDef>
                     <countRange>1~1</countRange>
                 </li>
-            </subOptionsChooseOne>
+            </subOptionsTakeAll>
         </inventoryOptions>
     </PawnKindDef>
 
@@ -54,19 +54,21 @@
             <li>MechanoidGunMedium</li>
         </weaponTags>
         <inventoryOptions>
-            <skipChance>0.7</skipChance>
             <subOptionsChooseOne>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>Silver</thingDef>
                     <countRange>60~150</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineIndustrial</thingDef>
-                    <countRange>0~2</countRange>
+                    <countRange>1~2</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineUltratech</thingDef>
-                    <countRange>0~1</countRange>
+                    <countRange>1~2</countRange>
                 </li>
             </subOptionsChooseOne>
         </inventoryOptions>
@@ -96,24 +98,26 @@
         </techHediffsRequired>
         <apparelMoney>3000~4500</apparelMoney>
         <apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
-        <weaponMoney>2200~3700</weaponMoney>
+        <weaponMoney>2200~12000</weaponMoney>
         <weaponTags>
             <li>SpacerGun</li>
             <li>UltraGun</li>
             <li>MechanoidGunMedium</li>
         </weaponTags>
         <inventoryOptions>
-            <skipChance>0.4</skipChance>
             <subOptionsChooseOne>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>Silver</thingDef>
                     <countRange>100~200</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineIndustrial</thingDef>
                     <countRange>2~5</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineUltratech</thingDef>
                     <countRange>2~3</countRange>
                 </li>
@@ -142,15 +146,16 @@
             <li>BionicEye</li>
         </techHediffsRequired>
         <inventoryOptions>
-            <skipChance>0.7</skipChance>
             <subOptionsChooseOne>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>Silver</thingDef>
                     <countRange>80~250</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineUltratech</thingDef>
-                    <countRange>0~1</countRange>
+                    <countRange>1~2</countRange>
                 </li>
             </subOptionsChooseOne>
         </inventoryOptions>
@@ -159,6 +164,43 @@
     <!-- Basic sniper implementation -->
     <PawnKindDef ParentName="UltratechSniperBase_AA">
         <defName>UltratechSniper_AA</defName>
+    </PawnKindDef>
+
+    <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles.-->
+    <PawnKindDef ParentName="UltratechSniperBase_AA">
+        <defName>UltratechSniperAdvanced_AA</defName>
+        <label>ultratech elite sniper</label>
+        <combatPower>155</combatPower>
+        <gearHealthRange>0.7~3.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <apparelMoney>1200~2500</apparelMoney>
+        <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+        <weaponMoney>3500~7000</weaponMoney>
+        <weaponTags>
+            <li>SniperRifleSpacer</li>
+            <li>SniperRifleUltra</li>
+        </weaponTags>
+        <techHediffsRequired>
+            <li>ArchotechEye</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>90~260</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
     </PawnKindDef>
 
     <!-- Basic melee soldier. Uses powerful melee weapons, and has boosted speed due to gear and implants. Abstract to allow death acidifer version (dlc only?)-->
@@ -179,15 +221,16 @@
             <li>SpacerMeleeAdvanced</li>
         </weaponTags>
         <inventoryOptions>
-            <skipChance>0.7</skipChance>
             <subOptionsChooseOne>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>Silver</thingDef>
                     <countRange>80~250</countRange>
                 </li>
                 <li>
+                    <skipChance>0.5</skipChance>
                     <thingDef>MedicineUltratech</thingDef>
-                    <countRange>0~1</countRange>
+                    <countRange>1~2</countRange>
                 </li>
             </subOptionsChooseOne>
         </inventoryOptions>
@@ -220,7 +263,6 @@
             <li>BionicLeg</li>
         </techHediffsRequired>
         <inventoryOptions>
-            <skipChance>0.4</skipChance>
             <subOptionsChooseOne>
                 <li>
                     <thingDef>Silver</thingDef>

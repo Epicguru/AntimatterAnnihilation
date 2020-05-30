@@ -76,58 +76,58 @@
     <None Include="Assets\Shaders\ParticleUnlit.shader" />
     <None Include="Assets\Shaders\BeamShader.shader" />
     <Reference Include="Unity.Timeline.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.Runtime">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AssetBundleBrowser.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.AssetBundleBrowser.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualStudio.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.ShaderGraph.Editor">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.ShaderGraph.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.RenderPipelines.Core.ShaderLibrary">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.RenderPipelines.Core.ShaderLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Dev/Unity/RimVibes Bundles/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>D:/Steam Games/steamapps/common/RimWorld/Mods/AntimatterAnnihilation/Source/Content/Unity/RimVibes Bundles/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity Installs/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

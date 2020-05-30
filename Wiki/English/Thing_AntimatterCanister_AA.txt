@@ -1,0 +1,7 @@
+RequiredResearch:ParticleAccelerators_AA
+ENDTAGS
+
+#!How to produce#
+#Antimatter canisters are created in Particle Accelerators:#
+@ParticleAccelerator_AA@
+#Antimatter canisters can not be bought from vanilla traders, but can be sold for a nice profit.#

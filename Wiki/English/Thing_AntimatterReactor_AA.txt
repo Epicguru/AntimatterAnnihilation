@@ -1,0 +1,16 @@
+#!Setup#
+#There are 3 parts required to a working reactor setup:#
+@AntimatterReactor_AA:(this)@
+@AntimatterReactorInjector_AA@
+@AntimatterReactorPowerConverter_AA@
+#First, you need the Antimatter Reactor itself. It is very large, and consumes a lot of power.
+It can be rotated to be placed vertically or horizontally, it makes no functional difference.#
+#The two red tubes on the sides of the reactor serve both as input and output. One side must be input, and the other output.
+You need to build a Reactor Injector and a Reactor Power Converter for input and output, respectively. They should be set up like this:#
+
+$AntimatterAnnihilation/UI/ReactorExampleSetup$
+
+#The distance between the injector/power converter and the reactor can be whatever you want, within a limit. The injector and power converter can also be touching the reactor if you like.#
+
+#<b>WARNING</b>: The injector beam and the output beam will both deal large damage to living things. Colonists and raiders will both avoid walking through the beams, but most animals are not intelligent enough to realize the danger.
+You can also supprise raiders by turning on the beams once it is too late for them to avoid being hit by them.#

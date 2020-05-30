@@ -14,13 +14,13 @@
         <statBases>
             <WorkToMake>35000</WorkToMake>
             <Mass>4.5</Mass>
-            <RangedWeapon_Cooldown>6.5</RangedWeapon_Cooldown>
+            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
         </statBases>
         <costList>
             <AntimatterGrenades_AA>1</AntimatterGrenades_AA>
             <AntimatterComposite_AA>70</AntimatterComposite_AA>
             <ComponentIndustrial>6</ComponentIndustrial>
-            <ComponentSpacer>4</ComponentSpacer>
+            <ComponentSpacer>3</ComponentSpacer>
         </costList>
         <weaponTags>
             <li>GrenadeDestructive</li>
@@ -38,8 +38,8 @@
                 <hasStandardCommand>true</hasStandardCommand>
                 <defaultProjectile>Bullet_AntimatterGrenade_AA</defaultProjectile>
                 <warmupTime>4.5</warmupTime>
-                <range>20</range>
-                <forcedMissRadius>2</forcedMissRadius>
+                <range>23.9</range>
+                <forcedMissRadius>1</forcedMissRadius>
                 <burstShotCount>1</burstShotCount>
                 <soundCast>Shot_IncendiaryLauncher</soundCast>
                 <soundCastTail>GunTail_Medium</soundCastTail>

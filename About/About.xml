@@ -8,14 +8,16 @@
   </supportedVersions>
   <url>https://github.com/Epicguru/AntimatterAnnihilation</url>
   <description>
-&lt;size=24&gt;Adds many high tech items, weapons and materials to the game. Weild the technology that glitterworlds could only dream of.&lt;/size&gt;
+&lt;size=24&gt;Adds many high tech items, weapons and materials to the game.&lt;/size&gt;
 Adds many items, weapons, defences, utility buildings, and a new powerful faction that all revolve around Antimatter technology.
-This is an end-game mod: you will require loads of resources, highly skilled colonists and lots of research to unlock the secrets of antimatter. However, once you do, you can challenge even the power of the Ultratech faction, who will attack you to take back the technology that they consider theirs.
 
 This is a mod that is intended to expand the end-game, adding new goals that are challenging but rewarding, and also to increase the difficulty of late game by sending harder raiders.
+This mod also features a fully developed in-game wiki that serves as a guide and also a little extra lore and pretty pictures.
+
+Should be loaded far down as possible, and always after Harmony, In-Game wiki and Core.
 
 This is a WIP mod. There may be bugs and things may break. Please report bugs on the steam page or on Github, providing as much detail as possible, thanks.
-See the store page for all plans.
+See the store page for all plans, and don't hesitate to suggest new features or changes.
   </description>
   <modDependencies>
     <li>

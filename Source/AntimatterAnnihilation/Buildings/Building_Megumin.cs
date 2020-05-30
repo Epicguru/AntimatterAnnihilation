@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
+using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_Megumin : Building
+    public class Building_Megumin : Building, IConditionalGlower
     {
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
@@ -28,6 +29,13 @@ namespace AntimatterAnnihilation.Buildings
         public static float EXPLOSION_PEN = 0.7f;
         public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
 
+        public bool ShouldBeGlowingNow
+        {
+            get
+            {
+                return IsPoweringUp;
+            }
+        }
         public CompEquippable GunComp
         {
             get
@@ -58,6 +66,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompRefuelableConditional _compRefuelable;
+        public CompGlower CompGlower
+        {
+            get
+            {
+                if (_compGlower == null)
+                    this._compGlower = base.GetComp<CompGlower>();
+                return _compGlower;
+            }
+        }
+        private CompGlower _compGlower;
         public Verb AttackVerb
         {
             get
@@ -93,10 +111,12 @@ namespace AntimatterAnnihilation.Buildings
         public int CooldownTicks;
         public int PoweringUpTicks;
 
+        private IntVec3 lastKnownThingLoc; // Used to prevent bugs where target is destroyed and laser does not spawn.
         private bool isChargingUp;
         private UpBeam beam;
         private LocalTargetInfo localTarget;
         private Sustainer soundSustainer;
+        private ParticleSystem chargeEffect;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -112,6 +132,16 @@ namespace AntimatterAnnihilation.Buildings
                 beam = new UpBeam(map, this.TrueCenter() + new Vector3(0f, 0f, 1.2f));
                 beam.IsActive = false;
             }
+
+            if(chargeEffect == null)
+            {
+                chargeEffect = Object.Instantiate(Content.MeguminChargePrefab).GetComponent<ParticleSystem>();
+                chargeEffect.transform.position = this.TrueCenter() + new Vector3(0f, 0f, 1.1f);
+                chargeEffect.transform.eulerAngles = new Vector3(90f, 0f, 0f);
+            }
+
+            if (!IsPoweringUp)
+                chargeEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
         }
 
         public override IEnumerable<Gizmo> GetGizmos()
@@ -191,8 +221,15 @@ namespace AntimatterAnnihilation.Buildings
 
         private void StartAttackSequence(LocalTargetInfo target)
         {
+            if (!target.IsValid)
+            {
+                Log.Error($"Tried to start M3G_UMIN attack with invalid target {target}.");
+                return;
+            }
+
             // Set local target.
             this.localTarget = target;
+            lastKnownThingLoc = target.Cell;
 
             // Enter the charging phase.
             IsChargingUp = true;
@@ -209,18 +246,33 @@ namespace AntimatterAnnihilation.Buildings
             // Play the long attack sound.
             SoundInfo info = SoundInfo.InMap(this, MaintenanceType.PerTick);
             soundSustainer = AADefOf.LaserStrike_AA.TrySpawnSustainer(info);
+
+            // Do particle effects.
+            chargeEffect?.Play(true);
+
+            // Enable glow start.
+            CompGlower?.ReceiveCompSignal("PowerTurnedOn");
         }
 
         private void StartRealAttack()
         {
+            // Make sure that the local target is completely valid: it is possible that thing is destroyed and Target.IsValid is still true.
+            if (localTarget.HasThing && localTarget.ThingDestroyed)
+            {
+                Log.Warning($"M3G_UMIN appears to have been targeting a Thing but that Thing was destroyed. Using last known location: {lastKnownThingLoc}");
+                localTarget = new LocalTargetInfo(lastKnownThingLoc);
+            }
             // Spawn sky beam of death.
             AttackVerb.TryStartCastOn(localTarget);
+
+            chargeEffect?.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
             // Put on cooldown.
             CooldownTicks = COOLDOWN_TICKS;
 
             // Delete target position.
             localTarget = null;
+            lastKnownThingLoc = IntVec3.Zero;
 
             // Spawn a solar flare event on the map that it was fired from.
             if (DoSolarFlare)
@@ -231,11 +283,11 @@ namespace AntimatterAnnihilation.Buildings
 
                 bool canFire = AADefOf.SolarFlare.Worker.CanFireNow(param);
                 if (!canFire)
-                    Log.Warning($"SolarFare Worker says that it cannot fire under the current conditions - forcing it to anyway, from M3G_UMIN.");
+                    Log.Warning("SolarFare Worker says that it cannot fire under the current conditions - forcing it to anyway, from M3G_UMIN.");
 
                 bool worked = AADefOf.SolarFlare.Worker.TryExecute(param);
                 if (!worked)
-                    Log.Error($"SolarFare Worker failed to execute (returned false), from M3G_UMIN.");
+                    Log.Error("SolarFare Worker failed to execute (returned false), from M3G_UMIN.");
             }
         }
 
@@ -248,10 +300,16 @@ namespace AntimatterAnnihilation.Buildings
         {
             beam.IsActive = false;
             soundSustainer?.End();
+
+            // Turn off glow.
+            CompGlower?.ReceiveCompSignal("PowerTurnedOn");
         }
 
         private void DoEasterEgg()
         {
+            if (!Settings.EnableEasterEggs)
+                return;
+
             // It's a trash anime btw. Genuine waste of time.
             // You're better off watching JoJo or Cowboy Bebob or KillLaKill.
             AADefOf.Explosion_Voice_AA.PlayOneShotOnCamera();
@@ -294,6 +352,7 @@ namespace AntimatterAnnihilation.Buildings
             Scribe_Values.Look(ref CooldownTicks, "cooldownTicks");
             Scribe_Values.Look(ref PoweringUpTicks, "powerUpTicks");
             Scribe_Values.Look(ref isChargingUp, "isChargingUp");
+            Scribe_Values.Look(ref lastKnownThingLoc, "lastKnownThingLoc");
 
             Scribe_Deep.Look(ref gun, "gun", Array.Empty<object>());
 
@@ -313,6 +372,9 @@ namespace AntimatterAnnihilation.Buildings
         public override void Tick()
         {
             base.Tick();
+
+            if (localTarget != null && localTarget.HasThing && !localTarget.ThingDestroyed)
+                lastKnownThingLoc = localTarget.Cell;
 
             beam?.Tick();
 

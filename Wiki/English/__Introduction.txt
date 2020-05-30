@@ -1,0 +1,16 @@
+ID: Introduction_AA
+Title: Introduction
+Icon: AntimatterAnnihilation/UI/FactionIcon
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+
+ENDTAGS
+
+#!Welcome to Antimatter Annihilation!#
+
+#This is an end-game mod that adds powerful items, weapons, defences and materials. It also adds a mysterious and powerful new faction, who will try to keep the secret of antimatter technology at any cost.#
+#This is the in-game wiki. It will give additional information about items and buildings. By default, pages are hidden to avoid 'spoilers'. This can be disabled if you want to see the entire contents of this mod.#
+
+#I recommend reading the <i>What Is Antimatter</i> page for a bit of a lore/science primer before you start.#
+~WhatIsAntimatter_AA~
+
+#The first step in this mod is researching <i><b>Hack Ultratech database</b></i>.#

@@ -62,28 +62,27 @@
                 <!-- Normal fights, standard mix -->
                 <kindDef>Combat</kindDef>
                 <options>
-                    <UltratechMelee_AA>4</UltratechMelee_AA>
-                    <UltratechSniper_AA>6</UltratechSniper_AA>
-                    <UltratechGunner_AA>10</UltratechGunner_AA>
-                    <UltratechGunnerAdvanced_AA>10</UltratechGunnerAdvanced_AA>
-                    <UltratechMeleeAdvanced_AA>2</UltratechMeleeAdvanced_AA>
+                    <UltratechMelee_AA>2</UltratechMelee_AA>
+                    <UltratechMeleeAdvanced_AA>1</UltratechMeleeAdvanced_AA>
+
+                    <UltratechSniper_AA>2</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>1</UltratechSniperAdvanced_AA>
+
+                    <UltratechGunner_AA>8</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>5</UltratechGunnerAdvanced_AA>
                 </options>
             </li>
             <li>
                 <kindDef>Settlement</kindDef>
                 <options>
-                    <!-- <Villager>10</Villager>
-                    <Town_Guard>10</Town_Guard>
-                    <Grenadier_Destructive>1.5</Grenadier_Destructive>
-                    <Mercenary_Slasher>7</Mercenary_Slasher>
-                    <Mercenary_Gunner>10</Mercenary_Gunner>
-                    <Mercenary_Elite>10</Mercenary_Elite>
-                    <Town_Councilman>10</Town_Councilman> -->
-                    <UltratechMelee_AA>5</UltratechMelee_AA>
-                    <UltratechSniper_AA>8</UltratechSniper_AA>
-                    <UltratechGunner_AA>10</UltratechGunner_AA>
-                    <UltratechGunnerAdvanced_AA>8</UltratechGunnerAdvanced_AA>
-                    <UltratechMeleeAdvanced_AA>4</UltratechMeleeAdvanced_AA>
+                    <UltratechMelee_AA>3</UltratechMelee_AA>
+                    <UltratechMeleeAdvanced_AA>2</UltratechMeleeAdvanced_AA>
+
+                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>3</UltratechSniperAdvanced_AA>
+                    
+                    <UltratechGunner_AA>5</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>9</UltratechGunnerAdvanced_AA>
                 </options>
             </li>
         </pawnGroupMakers>

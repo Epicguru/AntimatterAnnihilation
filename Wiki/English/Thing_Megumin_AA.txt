@@ -1,0 +1,13 @@
+#!How it works#
+#It must not be under a roof, and it must have power and antimatter canisters stored in it.
+Once these conditions are met, simply target the desired area using the button.#
+
+#<color=\#C1AB00><b><i>WARNING 1:</i></b></color> This packs a serious punch. Any colonists or buildings caught in the blast area will almost certainly be destroyed. Don't attack anything near your base!
+<color=\#C1AB00><b><i>WARNING 2:</i></b></color> Firing this weapon causes shuts down all electronics on the map. This can leave your base undefended, so think about when you activate this.#
+
+#!Stages#
+#The building has multiple stages before it actually fires:
+  <b>1. Charging:</b> Consumes a lot of power (around 5 batteries worth) in a short amount of time.
+  <b>2. Powering up:</b> The weapon takes around 20 seconds to charge up to max power before firing the beam.
+  <b>3. Firing:</b> Behold, the power of the sun unleashed!
+  <b>4. Cooldown:</b> The weapon will now cool down for several days, and can't be fired again until it is completely cool.#

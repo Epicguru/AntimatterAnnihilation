@@ -4,8 +4,16 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_CompositeRefiner : Building_Storage
+    public class Building_CompositeRefiner : Building_TrayPuller, IConditionalGlower
     {
+        public bool ShouldBeGlowingNow
+        {
+            get
+            {
+                return GetShouldBeRunning();
+            }
+        }
+
         public CompPowerTrader PowerTraderComp
         {
             get
@@ -16,6 +24,16 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompPowerTrader _powerTraderComp;
+        public CompGlower CompGlower
+        {
+            get
+            {
+                if (_compGlower == null)
+                    this._compGlower = base.GetComp<CompGlower>();
+                return _compGlower;
+            }
+        }
+        private CompGlower _compGlower;
         public IntVec3 OutputPos
         {
             get
@@ -50,6 +68,7 @@ namespace AntimatterAnnihilation.Buildings
         public int ProductionTicks;
 
         private ulong tickCount;
+        private bool lastFrameRunning;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -91,7 +110,13 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
 
-            if (tickCount % 120 == 0)
+            if (lastFrameRunning != isRunning)
+            {
+                CompGlower?.ReceiveCompSignal("PowerTurnedOn"); // Obviously the power hasn't actually just been turned on, but it's just a way to trigger UpdateLit to be called.
+            }
+            lastFrameRunning = isRunning;
+
+            if (tickCount % 120 == 0 && PowerTraderComp.PowerOn)
             {
                 Building_InputTray lt = null;
                 Building_InputTray rt = null;
@@ -100,8 +125,8 @@ namespace AntimatterAnnihilation.Buildings
                     lt = GetLeftTray();
                     rt = GetRightTray();
 
-                    TryGet(rt, "Plasteel", MissingPlasteel, ref CurrentPlasteelCount);
-                    TryGet(lt, "Plasteel", MissingPlasteel, ref CurrentPlasteelCount);
+                    CurrentPlasteelCount += TryPullFromTray(rt, "Plasteel", MissingPlasteel);
+                    CurrentPlasteelCount += TryPullFromTray(lt, "Plasteel", MissingPlasteel);
                 }
 
                 if (MissingAntimatter != 0)
@@ -112,8 +137,8 @@ namespace AntimatterAnnihilation.Buildings
                         rt = GetRightTray();
                     }
 
-                    TryGet(lt, "AntimatterCanister_AA", MissingAntimatter, ref CurrentAntimatterCount);
-                    TryGet(rt, "AntimatterCanister_AA", MissingAntimatter, ref CurrentAntimatterCount);
+                    CurrentAntimatterCount += TryPullFromTray(lt, "AntimatterCanister_AA", MissingAntimatter);
+                    CurrentAntimatterCount += TryPullFromTray(rt, "AntimatterCanister_AA", MissingAntimatter);
                 }
             }
         }
@@ -127,22 +152,6 @@ namespace AntimatterAnnihilation.Buildings
             thing.stackCount = count;
 
             GenPlace.TryPlaceThing(thing, OutputPos, Find.CurrentMap, ThingPlaceMode.Near);
-        }
-
-        public void TryGet(Building_InputTray tray, string defName, int amount, ref int counter)
-        {
-            if (amount <= 0)
-                return;
-            if (tray == null)
-                return;
-            if (defName == null)
-                return;
-
-            var removed = tray.TryRemove(defName, amount);
-            if (removed > 0)
-            {
-                counter += removed;
-            }
         }
 
         public override void ExposeData()
@@ -162,13 +171,6 @@ namespace AntimatterAnnihilation.Buildings
         public Building_InputTray GetRightTray()
         {
             return GetTray(new IntVec3(2, 0, 0));
-        }
-
-        public Building_InputTray GetTray(IntVec3 offset)
-        {
-            var thing = Map?.thingGrid.ThingAt(base.Position + offset, ThingCategory.Building);
-
-            return thing as Building_InputTray;
         }
 
         public bool GetShouldBeRunning()

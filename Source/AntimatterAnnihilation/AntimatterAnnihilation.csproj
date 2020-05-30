@@ -40,7 +40,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Lib.InGameWiki, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lib.InGameWiki.1.0.0\lib\net472\net472\Lib.InGameWiki.dll</HintPath>
+      <HintPath>..\packages\Lib.InGameWiki.1.2.0\lib\net472\net472\Lib.InGameWiki.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="System" />
@@ -97,6 +97,7 @@
     <Compile Include="Buildings\Building_AATurret.cs" />
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
+    <Compile Include="Buildings\Building_AlloyFusionMachine.cs" />
     <Compile Include="Buildings\Building_CompositeRefiner.cs" />
     <Compile Include="Buildings\Building_InputTray.cs" />
     <Compile Include="Buildings\Building_Megumin.cs" />
@@ -104,8 +105,11 @@
     <Compile Include="Buildings\Building_ParticleAccelerator.cs" />
     <Compile Include="Buildings\Building_PowerNetConsole.cs" />
     <Compile Include="Buildings\Building_ReactorInjector.cs" />
+    <Compile Include="Buildings\Building_MBD.cs" />
     <Compile Include="Buildings\Building_ThunderGun.cs" />
+    <Compile Include="Buildings\Building_TrayPuller.cs" />
     <Compile Include="Buildings\RailgunTop.cs" />
+    <Compile Include="Buildings\MBDTop.cs" />
     <Compile Include="Buildings\ThunderGunTop.cs" />
     <Compile Include="BundleFinder.cs" />
     <Compile Include="Commands\Command_AttackLocation.cs" />
@@ -117,11 +121,13 @@
     <Compile Include="Effects\RailgunEffectComp.cs" />
     <Compile Include="Effects\SpawnedEffect.cs" />
     <Compile Include="Effects\UpBeam.cs" />
+    <Compile Include="Patches\Patch_CompGlower.cs" />
     <Compile Include="Patches\Patch_AvoidGrid.cs" />
     <Compile Include="Patches\Patch_BatteryComp_AmountCanAccept.cs" />
     <Compile Include="Patches\Patch_BatteryComp_SetStoredEnergyPct.cs" />
     <Compile Include="Patches\Patch_BatteryComp_GetStoredEnergyPct.cs" />
     <Compile Include="Patches\Patch_CompExplosive.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="ThingComps\CompGreedyBattery.cs" />
     <Compile Include="ThingComps\CompAutoAttack.cs" />
     <Compile Include="ThingComps\CompProperties_GreedyBattery.cs" />
@@ -140,6 +146,7 @@
     <Compile Include="ThingComps\CompRefuelableConditional.cs" />
     <Compile Include="UI\UI_PowerNetConsole.cs" />
     <Compile Include="Utils\Extensions.cs" />
+    <Compile Include="Utils\IConditionalGlower.cs" />
     <Compile Include="Utils\IResettable.cs" />
     <Compile Include="Utils\ObjectPool.cs" />
     <Compile Include="Utils\RecoilManager.cs" />

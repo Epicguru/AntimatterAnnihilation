@@ -27,7 +27,7 @@
         <hasTooltip>true</hasTooltip>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Antimatter</designationCategory>
-        <constructionSkillPrerequisite>11</constructionSkillPrerequisite>
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
             <turretTopDrawSize>2</turretTopDrawSize>

@@ -1,0 +1,44 @@
+ID: GettingStarted_AA
+Title: Getting started
+Icon: AntimatterAnnihilation/UI/QuestionMark
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+RequiredResearch: Entry_AA
+
+ENDTAGS
+
+#!Basics#
+#This is a mid to late-game mod. You will need loads of <color=\#8fffff>plasteel</color>, <color=\#e8e8e8>steel</color> and <color=\#ffff5c>power</color>.#
+#To get started, research <i><b>Hack Ultratech database</b></i>.#
+
+#!Build a particle accelerator#
+@ParticleAccelerator_AA@
+#Once you have a particle accelerator, you will start accumulating <color=\#e485ff>antimatter canisters</color>.
+These canisters can be used to make weapons, armour, defences, and the <color=\#ac54e3>antimatter composite</color> material.
+Read below for more info.#
+
+#!Make some of the mid-game items#
+#Most things in this mod are late-game and very expensive, but not all. Take a look at the Galvaknuckles for a useful melee weapon that will down enemies:#
+@Galvaknuckles_AA@
+#Tired of running out of power and not knowing what is consuming all that power?
+Check out the PowerNet Console, a small building that allows you to see how power is consumed and produced in your colony, as well as instantly turn on or off devices.#
+@PowerNetConsole_AA@
+
+#!Make antimatter composite#
+@AntimatterComposite_AA@
+#Antimatter composite is the ultra-advanced material created using <color=\#8fffff>plasteel</color> and <color=\#e485ff>antimatter canisters</color>.
+Antimatter composite cannot be crafted by a colonist; it is manufactured inside a Composite Refiner. To build this, you will need to research <i><b>Antimatter composite</b></i>.#
+@CompositeRefiner_AA@
+#Antimatter composite can be used to create structures such as walls and doors, weapons such as Longswords or Spears, or defences such as Mini-turrets.
+It is also an essential ingredient in many other recipies in this mod.#
+
+#!Craft the guns, swords and turrets!#
+#Once you have antimatter composite and canisters, you can start crafting the guns and advanced melee weapons. Explore the wiki to see all the guns and melee weapons that can be crafted.#
+~MeleeWeapons_AA~
+~RangedWeapons_AA~
+~Defences_AA~
+
+#!Challenge the Ultratech faction... If you dare#
+#If you have been playing for a while with this mod, you have probably been raided by an Ultratech division. This faction wants to keep antimatter technology all to themselves, and won't hesitate to destroy you for learning it's secret.
+Ultratech fighters carry seriously powerful gear, implants and weapons, and also carry unique uncraftable items.
+Want some more of their tech? Try attacking one of their outposts, if you think that your colonists are up for the challenge. Be warned, Ultratech outposts are very heavily guarded and won't go down without a fight.#
+~UltratechFaction_AA~

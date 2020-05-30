@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1684284641
+CRC: 3074336766
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 44b8a3b422ac272c36304d8eb1af96f9
+    Hash: 5b9c09cc23f32928bf42d0bfd3732f87
   TypeTreeHash:
     serializedVersion: 2
     Hash: fb95f860f6de44335a97c1723d17ea56
@@ -44,6 +44,7 @@ ClassTypes:
 Assets:
 - Assets/UpBeam.prefab
 - Assets/Shaders/OuterPrefab.prefab
+- Assets/MegCharge.prefab
 - Assets/Shaders/Out Beam.prefab
 - Assets/RailgunEffect.prefab
 - Assets/Shaders/In Beam.prefab

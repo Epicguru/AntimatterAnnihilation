@@ -18,6 +18,15 @@ namespace AntimatterAnnihilation.ThingComps
         public event Action<CompRefuelableConditional> OnRunOutOfFuel;
 
         public bool IsConditionPassed { get; private set; }
+        public float CustomFuelBurnRate { get; set; } = 0f;
+
+        public float RealFuelConsumeRate
+        {
+            get
+            {
+                return CustomFuelBurnRate > 0f ? CustomFuelBurnRate : Props.fuelConsumptionRate;
+            }
+        }
 
         public override void CompTick()
         {
@@ -27,7 +36,14 @@ namespace AntimatterAnnihilation.ThingComps
             if (consume)
             {
                 // Base tick consumes fuel using default conditions (must be switched on).
-                base.CompTick();
+                if (CustomFuelBurnRate <= 0f)
+                {
+                    base.CompTick();
+                }
+                else
+                {
+                    base.ConsumeFuel(CustomFuelBurnRate / 60000f);
+                }
             }
         }
 
@@ -53,6 +69,22 @@ namespace AntimatterAnnihilation.ThingComps
                 fInfo = typeof(CompRefuelable).GetField("fuel", BindingFlags.Instance | BindingFlags.NonPublic);
 
             fInfo.SetValue(this, fuelLevel);
+        }
+
+        public override string CompInspectStringExtra()
+        {
+            string str = Props.FuelLabel + ": " + Fuel.ToStringDecimalIfSmall() + " / " + Props.fuelCapacity.ToStringDecimalIfSmall();
+            if (!Props.consumeFuelOnlyWhenUsed && HasFuel)
+            {
+                float daysRemaining = Fuel / RealFuelConsumeRate;
+                int ticksRemaining = (int)(daysRemaining * 60000);
+                str = str + " (" + ticksRemaining.ToStringTicksToPeriod() + ")";
+            }
+            if (!HasFuel && !Props.outOfFuelMessage.NullOrEmpty())
+                str += $"\n{Props.outOfFuelMessage} ({GetFuelCountToFullyRefuel()}x {Props.fuelFilter.AnyAllowedDef.label})";
+            if (Props.targetFuelLevelConfigurable)
+                str = str + ("\n" + "ConfiguredTargetFuelLevel".Translate(TargetFuelLevel.ToStringDecimalIfSmall()));
+            return str;
         }
     }
 }

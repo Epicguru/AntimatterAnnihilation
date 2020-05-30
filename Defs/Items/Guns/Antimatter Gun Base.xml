@@ -21,7 +21,6 @@
         <soundInteract>Interact_ChargeRifle</soundInteract> <!-- TODO change me for a cusom sound (something like MW night vision power-on :p)-->
         <weaponTags>
             <li>UltraGun</li>
-            <li>Gun</li>
         </weaponTags>
         <comps>
             <li Class="CompProperties_BiocodableWeapon"/>

@@ -1,0 +1,18 @@
+ID: WhatIsAntimatter_AA
+Title: What is antimatter?
+Icon: AntimatterAnnihilation/Items/AntimatterCanister
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+
+ENDTAGS
+
+#!What is it?#
+#<b>Antimatter is the opposite of regular matter</b>. For every particle, there is an anti-particle that has the <i>same mass</i> but <i>opposite charge</i>.#
+#When matter and antimatter come into contact, a reaction known as <i><color=\#db63d7>annihilation</color></i> occurs. The two particles are destroyed and a certain amount of energy is released, based on the equation <i>E=mc²</i>.#
+
+#!How do I make it?#
+#To create and store antimatter, you will need a <i><color=\#3468eb>particle accelerator</color></i>. This machine requires a lot of power and a constant supply of Plasteel, and will produce Antimatter Canisters.
+Research <i><b>Hack Ultratech database</b></i> and then <i><b>Particle accelerators</b></i> to get started.#
+
+#!What is it used for?#
+#Antimatter canisters can be used to create certain items and weapons.
+It is also used to create <i><color=\#9534eb>antimatter composite</color></i> by combining the canisters with Plasteel in a <i><color=\#34dceb>Composite Refiner</color></i>.#

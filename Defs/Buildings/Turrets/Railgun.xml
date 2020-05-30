@@ -14,7 +14,7 @@
         <size>(5,5)</size>
         <statBases>
             <MaxHitPoints>800</MaxHitPoints>
-            <Flammability>0.6</Flammability>
+            <Flammability>0.5</Flammability>
             <WorkToBuild>15000</WorkToBuild>
             <Mass>400</Mass>
             <Beauty>-25</Beauty>
@@ -26,7 +26,7 @@
         <hasTooltip>true</hasTooltip>
         <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
         <designationCategory>Antimatter</designationCategory>
-        <constructionSkillPrerequisite>12</constructionSkillPrerequisite>
+        <constructionSkillPrerequisite>14</constructionSkillPrerequisite>
         <building>
             <ai_combatDangerous>true</ai_combatDangerous>
             <turretTopDrawSize>9</turretTopDrawSize>
@@ -112,7 +112,7 @@
 
     <ThingDef ParentName="BaseWeaponTurret">
         <defName>Gun_AntimatterRailgunTurret_AA</defName>
-        <label>antimatter railgun</label>
+        <label>railgun</label>
         <description>The top part of an antimatter railgun. How did you get this...?</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>

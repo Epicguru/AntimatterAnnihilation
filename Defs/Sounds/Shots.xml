@@ -3,7 +3,7 @@
     <SoundDef>
         <defName>Shot_AntimatterBlaster_AA</defName>  
         <context>MapOnly</context>  
-        <maxSimultaneous>1</maxSimultaneous>  
+        <maxSimultaneous>2</maxSimultaneous>  
         <subSounds>
             <li>
                 <grains>
@@ -12,6 +12,22 @@
                     </li>
                 </grains>
                 <pitchRange>0.88~1</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Shot_HeavySniper_AA</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>2</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/HeavySniper</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.95~1</pitchRange>   
             </li>
         </subSounds>
     </SoundDef>

@@ -1,0 +1,22 @@
+ID: UltratechFaction_AA
+Title: Ultratech Faction
+Icon: AntimatterAnnihilation/UI/FactionIcon
+Background: AntimatterAnnihilation/PreRendered/ReactorWithPropsBG
+Description: The Ultratech faction is a new faction added to the world. They are very strong and pose a significant threat, but carry some of the essential items required for advanced crafting and construcion.
+RequiredResearch: Entry_AA
+
+ENDTAGS
+
+#!Who are they?#
+#The Ultratech are an inter-planetary conglomerate that posses the knowlege and technology to manipulate antimatter.
+All of their members are highly trained and heavily armed, and have orders to destroy anyone who has gains knowlege of antimatter technology.#
+
+$AntimatterAnnihilation/UI/UltratechPawns$
+
+#!How often will they raid me?#
+#The ultratech have the same raid weight as any other faction, but are less likely to send strong raids early-game.
+If you get tired of waiting for them to attack you, take the fight to them. The Ultratech outposts are heavily guarded but also give the rare tech drops required for advanced crafting.#
+
+#!How do I defend against them?#
+#Ultratech raiders will generally have more powerful gear and weapons than your colonists. Because of this, it is unwise to face them head-on. Instead, try to use traps and turrets to distract and wound them.
+Having a mod such as Embrasures can greatly help your defence if you are stuggling.#

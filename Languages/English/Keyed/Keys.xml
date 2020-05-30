@@ -5,21 +5,40 @@
 <AA.On>on</AA.On>
 <AA.Off>off</AA.Off>
 <AA.Enabled>enabled</AA.Enabled>
+<AA.Active>active</AA.Active>
+<AA.NotActive>not active</AA.NotActive>
 <AA.Turn>turn</AA.Turn> <!-- As in 'turn' machine on or off. -->
 <AA.Name>name</AA.Name>
 <AA.Power>power</AA.Power>
+
+<!-- Material names -->
 <AA.Antimatter>antimatter</AA.Antimatter>
+<AA.AntimatterComposite>antimatter composite</AA.AntimatterComposite>
+<AA.Gold>gold</AA.Gold>
+<AA.Uranium>uranium</AA.Uranium>
 <AA.Plasteel>plasteel</AA.Plasteel>
+
+<!-- Cardinal directions -->
+<AA.North>north</AA.North>
+<AA.East>east</AA.East>
+<AA.South>south</AA.South>
+<AA.West>west</AA.West>
 
 <!-- Time -->
 <AA.Hours>hours</AA.Hours>
 <AA.Days>days</AA.Days>
 <AA.Quadrums>quadrums</AA.Quadrums>
 
+<!-- Settings -->
+<AA.PowerGenMulti>Power generation multiplier: {0}%</AA.PowerGenMulti>
+<AA.FuelConsumeRate>Fuel consumption multiplier: {0}%</AA.FuelConsumeRate>
+<AA.EnableEasterEggs>Enable easter eggs:</AA.EnableEasterEggs>
+
 <!-- PowerNet Console -->
 <AA.OpenConsole>Open console</AA.OpenConsole>
 <AA.OpenConsoleDesc>Shows detailed information about the connected power network, and allows you to turn power on and off.</AA.OpenConsoleDesc>
 <AA.PowerNetInfo>PowerNet Info</AA.PowerNetInfo>
+<AA.InstantFlickActive>Instant flick active!</AA.InstantFlickActive>
 <AA.Watts>KW</AA.Watts>
 <AA.KiloWatts>KW</AA.KiloWatts>
 <AA.MegaWatts>MW</AA.MegaWatts>
@@ -32,7 +51,7 @@
 
 <!-- AutoAttack component -->
 <AA.ToggleAutoAttack>Toggle auto attack</AA.ToggleAutoAttack>
-<AA.ToggleAutoAttackDesc>Toggle whether this {0} will automatically attack enemies</AA.ToggleAutoAttackDesc>
+<AA.ToggleAutoAttackDesc>Toggle whether this {0} will automatically attack enemies.</AA.ToggleAutoAttackDesc>
 
 <!-- Composite refiner -->
 <AA.NotEnoughPower>Not enough power.</AA.NotEnoughPower>
@@ -61,5 +80,28 @@
 <AA.PAProducing>Producing {0} canisters per day.\n{1} hours until next antimatter canister.</AA.PAProducing>
 <AA.PANotRunningNoPower>Not running: No power</AA.PANotRunningNoPower>
 <AA.PANotRunningNoPlasteel>Not running: No plasteel fuel</AA.PANotRunningNoPlasteel>
+
+<!-- Alloy Fusion Machine -->
+<AA.AFMOutputSide>Output side: {0}</AA.AFMOutputSide> <!-- {0} is a cardinal direction such as 'North' -->
+<AA.AFMChangeOutputSide>Change output side</AA.AFMChangeOutputSide>
+<AA.AFMChangeOutputSideDesc>Change the side where the output goes. The inputs go on the 3 other sides.</AA.AFMChangeOutputSideDesc>
+<AA.AFMSlotError>{0} is in the output spot ({1}), move it to an input spot or change the output direction.</AA.AFMSlotError> <!-- {0} is thing name, {1} is cardinal direction -->
+<AA.AFMStoredAmount>Stored: {0}/{1} gold, {2}/{3} antimatter composite, {4}/{5} uranium.</AA.AFMStoredAmount>
+<AA.AFMRunning>Running: {0} hours until output.</AA.AFMRunning>
+<AA.AFMNotRunningNoPower>Not running: No power.</AA.AFMNotRunningNoPower>
+<AA.AFMNotRunningMissingStuff>Not running: Required min. {0} gold, {1} composite, {2} uranium.</AA.AFMNotRunningMissingStuff>
+<AA.AFMPowerLevel>Change power level</AA.AFMPowerLevel>
+<AA.AFMPowerLevelDesc>Current power level: {0}% speed, uses {1} watts.\nChange in power level only takes effect once the current alloy is completed.</AA.AFMPowerLevelDesc>
+
+<!-- Reactor injector -->
+<AA.RIPowerLevel>Change power level</AA.RIPowerLevel>
+<AA.RIPowerLevelDesc>Current power level: {0}%, consumes {1} canisters per day.</AA.RIPowerLevelDesc>
+
+<!-- Input tray -->
+<AA.SetTrayFor>Set for {0}</AA.SetTrayFor>
+<AA.SetTrayForDesc>Configures this tray to store {0} with an 'important' priority.</AA.SetTrayForDesc>
+<AA.TrayCurrentlyStored>Configured to store: {0}</AA.TrayCurrentlyStored>
+<AA.TrayStoredNothing>Nothing</AA.TrayStoredNothing>
+<AA.TrayStoredMultiple>Multiple</AA.TrayStoredMultiple>
 
  </LanguageData>
