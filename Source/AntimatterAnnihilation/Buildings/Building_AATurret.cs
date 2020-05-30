@@ -1,4 +1,5 @@
 ﻿using AntimatterAnnihilation.ThingComps;
+using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System;
 using System.Collections.Generic;
@@ -329,7 +330,18 @@ namespace AntimatterAnnihilation.Buildings
             }
 		}
 
-        protected void TryStartShootSomething(bool canBeginBurstImmediately)
+		public override void PreApplyDamage(ref DamageInfo dinfo, out bool absorbed)
+		{
+            if (dinfo.Def == AADefOf.AnnihilationExplosionRailgun_AA || dinfo.Def == AADefOf.AnnihilationExplosion_AA)
+            {
+                //Log.Message($"This {this.LabelCap} took Annihilate explosion damage, reducing to 50%");
+                dinfo.SetAmount(dinfo.Amount * 0.5f);
+            }
+
+			base.PreApplyDamage(ref dinfo, out absorbed);
+		}
+
+		protected void TryStartShootSomething(bool canBeginBurstImmediately)
 		{
             if (!base.Spawned || (this.holdFire && this.CanToggleHoldFire) || (this.AttackVerb.ProjectileFliesOverhead() && base.Map.roofGrid.Roofed(base.Position)) || !this.AttackVerb.Available())
             {

@@ -217,7 +217,11 @@ namespace AntimatterAnnihilation.Buildings
                     humSustainer = AADefOf.LaserHum_AA.TrySpawnSustainer(info);
                 }
                 
-                humSustainer?.Maintain();
+                if(humSustainer != null)
+                {
+                    humSustainer.info.volumeFactor = Settings.InjectorHumVolume;
+                    humSustainer.Maintain();
+                }
             }
 
             Beam.Tick();

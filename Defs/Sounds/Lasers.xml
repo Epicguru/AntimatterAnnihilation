@@ -57,8 +57,8 @@
                     <clipPath>AntimatterAnnihilation/LaserHum</clipPath>
                 </li>
                 </grains>      
-                <volumeRange>18</volumeRange>      
-                <distRange>10~40</distRange>
+                <volumeRange>14</volumeRange>      
+                <distRange>10~35</distRange>
             </li>
         </subSounds>
     </SoundDef>

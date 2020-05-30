@@ -19,6 +19,8 @@ namespace AntimatterAnnihilation
 
         private void OnGUI()
         {
+            return;
+
             try
             {
                 GUILayout.Space(120);

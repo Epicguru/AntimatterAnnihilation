@@ -7,27 +7,33 @@ namespace AntimatterAnnihilation
     {
         public static float PowerGenMulti = 1f;
         public static float FuelConsumeRate = 1f;
+        public static float InjectorHumVolume = 1f;
         public static bool EnableEasterEggs = true;
 
         public override void ExposeData()
         {
             Scribe_Values.Look(ref PowerGenMulti, "PowerGenMulti", 1f);
             Scribe_Values.Look(ref FuelConsumeRate, "FuelConsumeRate", 1f);
+            Scribe_Values.Look(ref InjectorHumVolume, "InjectorHumVolume", 1f);
             Scribe_Values.Look(ref EnableEasterEggs, "EnableEasterEggs", true);
         }
 
         public static void DoWindow(Rect window)
         {
+            DoLabel("AA.InjectorVolume".Translate($"{InjectorHumVolume * 100f:F0}"));
+            InjectorHumVolume = Widgets.HorizontalSlider(new Rect(window.x, window.y, window.width * 0.5f, 32), InjectorHumVolume, 0f, 1f, leftAlignedLabel: "0%", rightAlignedLabel: "100%", roundTo: 0.05f);
+            MoveDown(32 + 5f);
+
             DoLabel("AA.PowerGenMulti".Translate($"{PowerGenMulti*100f:F0}"));
             PowerGenMulti = Widgets.HorizontalSlider(new Rect(window.x, window.y, window.width * 0.5f, 32), PowerGenMulti, 0.1f, 5f, leftAlignedLabel: "10%", rightAlignedLabel: "500%", roundTo: 0.05f);
-            MoveDown(32 + 10f);
+            MoveDown(32 + 5f);
 
             DoLabel("AA.FuelConsumeRate".Translate($"{FuelConsumeRate * 100f:F0}"));
             FuelConsumeRate = Widgets.HorizontalSlider(new Rect(window.x, window.y, window.width * 0.5f, 32), FuelConsumeRate, 0.05f, 5f, leftAlignedLabel: "5%", rightAlignedLabel: "500%", roundTo: 0.05f);
-            MoveDown(32 + 10f);
+            MoveDown(32 + 5f);
 
             Widgets.CheckboxLabeled(new Rect(window.x, window.y, 350, 32), "AA.EnableEasterEggs".Translate(), ref EnableEasterEggs, placeCheckboxNearText: true);
-            MoveDown(32 + 10f);
+            MoveDown(32 + 5f);
 
             void DoLabel(string label)
             {
