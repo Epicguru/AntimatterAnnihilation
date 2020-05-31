@@ -98,6 +98,7 @@
     <Compile Include="Buildings\Building_AntimatterRailgun.cs" />
     <Compile Include="Buildings\Building_AntimatterReactor.cs" />
     <Compile Include="Buildings\Building_AlloyFusionMachine.cs" />
+    <Compile Include="Buildings\Building_AutoCrafter.cs" />
     <Compile Include="Buildings\Building_CompositeRefiner.cs" />
     <Compile Include="Buildings\Building_InputTray.cs" />
     <Compile Include="Buildings\Building_Megumin.cs" />
@@ -134,6 +135,8 @@
     <Compile Include="ThingComps\CompProperties_AutoAttack.cs" />
     <Compile Include="ThingComps\CompProperties_ExplosiveCustom.cs" />
     <Compile Include="ThingComps\CompExplosiveCustom.cs" />
+    <Compile Include="ThingComps\CompProperties_RefuelableSpecial.cs" />
+    <Compile Include="ThingComps\CompRefuelableSpecial.cs" />
     <Compile Include="Utils\AADefOf.cs" />
     <Compile Include="Damage\DamageWorker_Annihilate.cs" />
     <Compile Include="Effects\EnergyBall.cs" />
