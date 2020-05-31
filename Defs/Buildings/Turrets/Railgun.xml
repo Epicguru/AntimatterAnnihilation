@@ -13,7 +13,7 @@
         <rotatable>false</rotatable>
         <size>(5,5)</size>
         <statBases>
-            <MaxHitPoints>800</MaxHitPoints>
+            <MaxHitPoints>1400</MaxHitPoints>
             <Flammability>0.5</Flammability>
             <WorkToBuild>15000</WorkToBuild>
             <Mass>400</Mass>
@@ -101,7 +101,7 @@
         <projectile>
             <damageDef>AnnihilationExplosionRailgun_AA</damageDef>
             <speed>50000</speed> <!-- I am speed. Kerchoo. -->
-            <explosionRadius>8.5</explosionRadius>
+            <explosionRadius>7.5</explosionRadius>
             <flyOverhead>true</flyOverhead>
             <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
             <soundExplode>MortarBomb_Explode</soundExplode>

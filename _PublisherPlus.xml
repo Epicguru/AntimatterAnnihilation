@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+  <Excluded>
+    <exclude>D:\Steam Games\steamapps\common\RimWorld\Mods\AntimatterAnnihilation\.git</exclude>
+    <exclude>D:\Steam Games\steamapps\common\RimWorld\Mods\AntimatterAnnihilation\Source</exclude>
+  </Excluded>
+</Configuration>

@@ -32,6 +32,7 @@
 <!-- Settings -->
 <AA.PowerGenMulti>Power generation multiplier: {0}%</AA.PowerGenMulti>
 <AA.FuelConsumeRate>Fuel consumption multiplier: {0}%</AA.FuelConsumeRate>
+<AA.InjectorVolume>Injector hum volume: {0}%</AA.InjectorVolume>
 <AA.EnableEasterEggs>Enable easter eggs:</AA.EnableEasterEggs>
 
 <!-- PowerNet Console -->

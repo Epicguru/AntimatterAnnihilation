@@ -13,6 +13,8 @@ namespace AntimatterAnnihilation.Utils
 
         public static DamageDef Annihilate_AA;
         public static DamageDef EnergyBurn_AA;
+        public static DamageDef AnnihilationExplosion_AA;
+        public static DamageDef AnnihilationExplosionRailgun_AA;
 
         public static ThingDef Mote_MeguminBeam_AA;
 
