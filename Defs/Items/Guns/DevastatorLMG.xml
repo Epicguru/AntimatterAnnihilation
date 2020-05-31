@@ -27,8 +27,8 @@ This weapon incorporates archotech technology. Even with a good understanding of
                 <defaultProjectile>Bullet_DevastatorLMG_AA</defaultProjectile>
                 <warmupTime>1.6</warmupTime>
                 <range>25</range>
-                <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-                <burstShotCount>16</burstShotCount>
+                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+                <burstShotCount>14</burstShotCount>
                 <soundCast>Shot_AntimatterBlaster_AA</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>12</muzzleFlashScale>
@@ -64,10 +64,10 @@ This weapon incorporates archotech technology. Even with a good understanding of
         </graphicData>
         <projectile>
             <damageDef>Annihilate_AA</damageDef>
-            <damageAmountBase>11</damageAmountBase>
+            <damageAmountBase>14</damageAmountBase>
             <stoppingPower>1.5</stoppingPower>
-            <armorPenetrationBase>0.65</armorPenetrationBase>
-            <speed>65</speed>
+            <armorPenetrationBase>0.95</armorPenetrationBase>
+            <speed>90</speed>
         </projectile>
     </ThingDef>
 
