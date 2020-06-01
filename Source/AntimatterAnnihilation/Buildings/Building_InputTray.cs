@@ -127,7 +127,7 @@ namespace AntimatterAnnihilation.Buildings
             int count = s.filter.AllowedDefCount;
 
             string stored = count == 0 ? (string)"AA.TrayStoredNothing".Translate() : count == 1 ? s.filter.Summary.CapitalizeFirst() : (string)"AA.TrayStoredMultiple".Translate();
-            return "AA.TrayCurrentlyStored".Translate(stored);
+            return "AA.TrayCurrentlyStored".Translate(stored) + "\n[LEGACY] You should deconstruct this, it isn't used in the mod anymore.";
         }
     }
 }

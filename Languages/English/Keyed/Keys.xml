@@ -85,7 +85,7 @@
 <!-- Alloy Fusion Machine -->
 <AA.AFMOutputSide>Output side: {0}</AA.AFMOutputSide> <!-- {0} is a cardinal direction such as 'North' -->
 <AA.AFMChangeOutputSide>Change output side</AA.AFMChangeOutputSide>
-<AA.AFMChangeOutputSideDesc>Change the side where the output goes. The inputs go on the 3 other sides.</AA.AFMChangeOutputSideDesc>
+<AA.AFMChangeOutputSideDesc>Change the side where the output goes.</AA.AFMChangeOutputSideDesc>
 <AA.AFMRunning>Running: {0} hours until output.</AA.AFMRunning>
 <AA.AFMNotRunningNoPower>Not running: No power.</AA.AFMNotRunningNoPower>
 <AA.AFMNotRunningMissingStuff>Not running: Required min. {0} gold, {1} composite, {2} uranium.</AA.AFMNotRunningMissingStuff>
