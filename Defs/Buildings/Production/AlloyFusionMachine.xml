@@ -38,6 +38,46 @@ See the in-game wiki for more information and how to use.</description>
                 <glowRadius>6</glowRadius>
                 <glowColor>(255,248,214,255)</glowColor>
             </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>1</id>
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <fuelPriority>0</fuelPriority>
+                <fuelCapacity>40</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>2</id>
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <fuelPriority>1</fuelPriority>
+                <fuelCapacity>30</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>AntimatterComposite_AA</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>3</id>
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <fuelPriority>2</fuelPriority>
+                <fuelCapacity>20</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
         </comps>
         <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
         <researchPrerequisites>
