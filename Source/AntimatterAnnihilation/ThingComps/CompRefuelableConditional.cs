@@ -68,6 +68,9 @@ namespace AntimatterAnnihilation.ThingComps
             if (fuelLevel == this.Fuel)
                 return;
 
+            if (fuelLevel <= 0)
+                fuelLevel = 0f;
+
             if (fInfo == null)
                 fInfo = typeof(CompRefuelable).GetField("fuel", BindingFlags.Instance | BindingFlags.NonPublic);
 

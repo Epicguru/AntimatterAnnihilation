@@ -1,19 +1,21 @@
 ﻿using AntimatterAnnihilation.ThingComps;
+using RimWorld;
 using System.Collections.Generic;
 using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_AutoCrafter : Building
+    public abstract class Building_MultiRefuelable : Building
     {
-        private static List<CompRefuelableSpecial> tempComps = new List<CompRefuelableSpecial>();
+        private static List<CompRefuelableMulti> tempComps = new List<CompRefuelableMulti>();
 
-        public int ShuffleInterval = 0;
-        public CompRefuelableSpecial[] RefuelComps { get; protected set; }
+        public int ShuffleInterval = 5;
+        public bool AllowAutoRefuelToggle = true;
+        public CompRefuelableMulti[] RefuelComps { get; protected set; }
 
         private long tick;
 
-        public Building_AutoCrafter()
+        public Building_MultiRefuelable()
         {
             
         }
@@ -29,11 +31,11 @@ namespace AntimatterAnnihilation.Buildings
 
             foreach (var comp in base.AllComps)
             {
-                if (comp is CompRefuelableSpecial s)
+                if (comp is CompRefuelableMulti s)
                     tempComps.Add(s);
             }
 
-            RefuelComps = new CompRefuelableSpecial[tempComps.Count];
+            RefuelComps = new CompRefuelableMulti[tempComps.Count];
             for (int i = 0; i < RefuelComps.Length; i++)
             {
                 RefuelComps[i] = tempComps[i];
@@ -46,17 +48,17 @@ namespace AntimatterAnnihilation.Buildings
             tempComps.Clear();
         }
 
-        public virtual bool MeetsRefuelCondition(CompRefuelableSpecial s)
+        public virtual bool MeetsRefuelCondition(CompRefuelableMulti s)
         {
             return s.FuelPercentOfMax < 0.99999f;
         }
 
-        public virtual float GetFuelPriority(CompRefuelableSpecial s)
+        public virtual float GetFuelPriority(CompRefuelableMulti s)
         {
             return s.FuelPriority;
         }
 
-        public CompRefuelableSpecial GetFuelComp(int id)
+        public CompRefuelableMulti GetFuelComp(int id)
         {
             foreach (var comp in RefuelComps)
             {
@@ -79,7 +81,7 @@ namespace AntimatterAnnihilation.Buildings
             if (RefuelComps == null)
                 return;
 
-            CompRefuelableSpecial toPutFirst = null;
+            CompRefuelableMulti toPutFirst = null;
             float lowest = float.MaxValue;
             foreach (var s in RefuelComps)
             {
@@ -116,6 +118,35 @@ namespace AntimatterAnnihilation.Buildings
 
             base.AllComps.Remove(toPutFirst);
             base.AllComps.Insert(targetPos, toPutFirst); // This makes rimworld treat this as 'THE' refuelable comp, even though there are others.
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var g in base.GetGizmos())
+                yield return g;
+
+            if (RefuelComps == null || RefuelComps.Length == 0)
+                yield break;
+
+            if (AllowAutoRefuelToggle)
+            {
+                bool areEnabled = RefuelComps[0].allowAutoRefuel;
+                yield return new Command_Toggle
+                {
+                    defaultLabel = "CommandToggleAllowAutoRefuel".Translate(),
+                    defaultDesc = "CommandToggleAllowAutoRefuelDesc".Translate(),
+                    hotKey = KeyBindingDefOf.Command_ItemForbid,
+                    icon = areEnabled ? TexCommand.ForbidOff : TexCommand.ForbidOn,
+                    isActive = () => areEnabled,
+                    toggleAction = () =>
+                    {
+                        foreach (var comp in RefuelComps)
+                        {
+                            comp.allowAutoRefuel = !comp.allowAutoRefuel;
+                        }
+                    }
+                };
+            }
         }
     }
 }

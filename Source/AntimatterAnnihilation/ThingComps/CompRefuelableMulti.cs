@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using RimWorld;
 using Verse;
 
 namespace AntimatterAnnihilation.ThingComps
@@ -8,13 +9,13 @@ namespace AntimatterAnnihilation.ThingComps
     /// Version of conditional refuelable that is designed to be shuffled within the component list to trick rimworld into accepting multiple refuelable components.
     /// </summary>
     [StaticConstructorOnStartup]
-    public class CompRefuelableSpecial : CompRefuelableConditional
+    public class CompRefuelableMulti : CompRefuelableConditional
     {
         public int Id
         {
             get
             {
-                return (Props as CompProperties_RefuelableSpecial).id;
+                return (Props as CompProperties_RefuelableMulti).id;
             }
         }
 
@@ -44,7 +45,7 @@ namespace AntimatterAnnihilation.ThingComps
         {
             get
             {
-                return (Props as CompProperties_RefuelableSpecial).fuelPriority;
+                return (Props as CompProperties_RefuelableMulti).fuelPriority;
             }
         }
 
@@ -70,6 +71,7 @@ namespace AntimatterAnnihilation.ThingComps
             //Scribe_Values.Look<float>(ref this.configuredTargetFuelLevel, "configuredTargetFuelLevel", -1f, false);
 
             Scribe_Values.Look(ref allowAutoRefuel, $"allowAutoRefuel_{Id}");
+
             if (Scribe.mode == LoadSaveMode.PostLoadInit && !this.Props.showAllowAutoRefuelToggle)
             {
                 this.allowAutoRefuel = this.Props.initialAllowAutoRefuel;
