@@ -2,6 +2,7 @@
 using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System;
+using System.Collections.Generic;
 using Verse;
 
 namespace AntimatterAnnihilation.Buildings
@@ -43,7 +44,27 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                IntVec3 pos = this.Position + new IntVec3(0, 0, -5);
+                IntVec3 dir;
+                switch (outputRotation)
+                {
+                    case 0:
+                        dir = IntVec3.North;
+                        break;
+                    case 1:
+                        dir = IntVec3.East;
+                        break;
+                    case 2:
+                        dir = IntVec3.South;
+                        break;
+                    case 3:
+                        dir = IntVec3.West;
+                        break;
+                    default:
+                        dir = IntVec3.South;
+                        break;
+                }
+
+                IntVec3 pos = Position + dir * 5;
                 return pos;
             }
         }
@@ -55,16 +76,13 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
+        private int outputRotation = 2;
+
         private int tickCounter;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             base.SpawnSetup(map, respawningAfterLoad);
-
-            if (!respawningAfterLoad)
-            {
-                CreateZone();
-            }
 
             FuelComp.FuelConsumeCondition = _ => PowerTraderComp.PowerOn;
         }
@@ -74,6 +92,7 @@ namespace AntimatterAnnihilation.Buildings
             base.ExposeData();
 
             Scribe_Values.Look(ref tickCounter, "canisterProductionTick");
+            Scribe_Values.Look(ref outputRotation, "outputRotation", 2);
         }
 
         public override void Tick()
@@ -91,16 +110,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
-        private void CreateZone()
-        {
-            var zone = new Zone_Stockpile(StorageSettingsPreset.DefaultStockpile, Map.zoneManager);
-            zone.settings.filter.SetDisallowAll();
-            zone.settings.Priority = StoragePriority.Low;
-            zone.settings.filter.SetAllow(AADefOf.AntimatterCanister_AA, true);
-            Map.zoneManager.RegisterZone(zone);
-            zone.AddCell(OutputPos);
-        }
-
         public void OutputAntimatter(int count)
         {
             Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterCanister_AA);
@@ -114,6 +123,26 @@ namespace AntimatterAnnihilation.Buildings
             string whenRunning = "AA.PAProducing".Translate(ProductionPerDay, $"{(ProductionTickInterval - tickCounter) / 2500f:F1}");
             string whenNotRunning = PowerTraderComp.PowerOn ? "AA.PANotRunningNoPlasteel".Translate() : "AA.PANotRunningNoPower".Translate();
             return base.GetInspectString() + '\n' + (!IsRunning ? whenNotRunning : whenRunning);
+        }
+
+        public override IEnumerable<Gizmo> GetGizmos()
+        {
+            foreach (var g in base.GetGizmos())
+                yield return g;
+
+            var cmd = new Command_Action();
+            cmd.defaultLabel = "AA.AFMChangeOutputSide".Translate();
+            cmd.defaultDesc = "AA.AFMChangeOutputSideDesc".Translate();
+            cmd.icon = Content.ArrowIcon;
+            cmd.iconAngle = outputRotation * 90f;
+            cmd.action = () =>
+            {
+                outputRotation++;
+                if (outputRotation >= 4)
+                    outputRotation = 0;
+            };
+
+            yield return cmd;
         }
     }
 }
