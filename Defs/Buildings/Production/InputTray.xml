@@ -2,8 +2,8 @@
 <Defs>
     <ThingDef ParentName="AABuildingBase">
         <defName>InputTray_AA</defName>
-        <label>input tray</label>
-        <description>A spacial container to store materials for a nearby machine to use.</description>
+        <label>input tray (legacy)</label>
+        <description>No longer used in this mod: machines now use a more simple refueling system.\nYou should deconstruct this to get steel back.</description>
         <thingClass>AntimatterAnnihilation.Buildings.Building_InputTray</thingClass>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/InputTray</texPath>
@@ -46,7 +46,7 @@
         <surfaceType>Item</surfaceType>
         <canOverlapZones>false</canOverlapZones>
         <researchPrerequisites>
-            <li>Entry_AA</li>
+            <li>R_Megumin_AA</li> <!-- Just so it doesn't show up for as long as possible. Not sure how to completely hide it from the player. -->
         </researchPrerequisites>
     </ThingDef>
 

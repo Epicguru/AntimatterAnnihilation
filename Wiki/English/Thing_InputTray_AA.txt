@@ -1,3 +1,7 @@
-#Used to input materials into various machines:#
-@CompositeRefiner_AA@
-@AlloyFusionMachine_AA@
+AlwaysSpoiler:true
+
+ENDTAGS
+
+#!LEGACY:#
+#No longer used in this mod. It has been made redundant by a more simplified refueling system on the machines.#
+#You should deconstruct this to get some steel back.#

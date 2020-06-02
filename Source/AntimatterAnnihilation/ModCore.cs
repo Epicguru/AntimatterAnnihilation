@@ -44,8 +44,7 @@ namespace AntimatterAnnihilation
 
         public static void Log(string msg)
         {
-          Verse.Log.Message(msg ?? "<null>");
-
+            Verse.Log.Message(msg ?? "<null>");
         }
 
         public static void Trace(string msg)

@@ -4,4 +4,4 @@ Your colonists will automatically haul Plasteel to fuel the accelerator once it 
 
 #!How it works#
 #It needs a constant supply of power and plasteel. It will output 1 antimatter canister every 12 in-game hours, at the cost of 10 plasteel each.
-The output is dumped on to the floor on the bottom edge of the accelerator, where the interaction spot is.#
+The output is dumped on the floor on one of the sides of the accelerator. This side can be configured using the 'Change output side' button.#

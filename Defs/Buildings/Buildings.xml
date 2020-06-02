@@ -71,8 +71,6 @@
       </costList>
       <passability>Impassable</passability>
       <drawOffscreen>true</drawOffscreen>
-      <hasInteractionCell>True</hasInteractionCell>
-      <interactionCellOffset>(0,0,-5)</interactionCellOffset>
       <comps>
         <li Class="CompProperties_Flickable"/>
         <li Class="CompProperties_Power">

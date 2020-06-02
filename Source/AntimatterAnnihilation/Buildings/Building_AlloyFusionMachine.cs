@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using AntimatterAnnihilation.ThingComps;
 using AntimatterAnnihilation.Utils;
 using RimWorld;
 using UnityEngine;
@@ -7,7 +8,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
-    public class Building_AlloyFusionMachine : Building_TrayPuller, IConditionalGlower
+    public class Building_AlloyFusionMachine : Building_MultiRefuelable, IConditionalGlower
     {
         public const int TICKS_PER_FRAME = 3;
         public const int FRAME_COUNT = 20;
@@ -23,10 +24,6 @@ namespace AntimatterAnnihilation.Buildings
         public const float POWER_DRAW_NORMAL = 4500; // 1x speed
         public const float POWER_DRAW_OVERCLOCKED = POWER_DRAW_NORMAL * 2 + 1000; // 2x speed
         public const float POWER_DRAW_INSANITY = POWER_DRAW_NORMAL * 4 + 5000; // 4x speed
-
-        public const int MAX_GOLD_STORED = GOLD_PER_HYPER * 4;
-        public const int MAX_COMPOSITE_STORED = COMPOSITE_PER_HYPER * 4;
-        public const int MAX_URANIUM_STORED = URANIUM_PER_HYPER * 4;
 
         private static Graphic[] activeGraphics;
 
@@ -86,21 +83,45 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                return MAX_GOLD_STORED - storedGold;
+                var f = GetFuelComp(1);
+                return (int)(f.Props.fuelCapacity - f.Fuel);
             }
         }
         public int CompositeToFill
         {
             get
             {
-                return MAX_COMPOSITE_STORED - storedComposite;
+                var f = GetFuelComp(2);
+                return (int)(f.Props.fuelCapacity - f.Fuel);
             }
         }
         public int UraniumToFill
         {
             get
             {
-                return MAX_URANIUM_STORED - storedUranium;
+                var f = GetFuelComp(3);
+                return (int)(f.Props.fuelCapacity - f.Fuel);
+            }
+        }
+        public int StoredGold
+        {
+            get
+            {
+                return (int) GetFuelComp(1).Fuel;
+            }
+        }
+        public int StoredComposite
+        {
+            get
+            {
+                return (int)GetFuelComp(2).Fuel;
+            }
+        }
+        public int StoredUranium
+        {
+            get
+            {
+                return (int)GetFuelComp(3).Fuel;
             }
         }
         public bool ShouldBeGlowingNow
@@ -116,11 +137,6 @@ namespace AntimatterAnnihilation.Buildings
         private int frameNumber;
         private long tickCount;
         private int outputSide = 2;
-        private int storedComposite;
-        private int storedGold;
-        private int storedUranium;
-        private bool hasError;
-        private string errorThingKey;
         private byte reasonNotRunning;
         private int ticksUntilOutput = -1;
         private int powerMode;
@@ -130,9 +146,6 @@ namespace AntimatterAnnihilation.Buildings
             base.ExposeData();
             Scribe_Values.Look(ref isActiveInt, "isFusionActive");
             Scribe_Values.Look(ref outputSide, "outputSide", 2);
-            Scribe_Values.Look(ref storedComposite, "storedComposite");
-            Scribe_Values.Look(ref storedGold, "storedGold");
-            Scribe_Values.Look(ref storedUranium, "storedUranium");
             Scribe_Values.Look(ref ticksUntilOutput, "ticksUntilOutput", -1);
             Scribe_Values.Look(ref powerMode, "powerMode");
         }
@@ -171,14 +184,10 @@ namespace AntimatterAnnihilation.Buildings
                 CompGlower?.ReceiveCompSignal("PowerTurnedOn"); // Obviously the power hasn't actually just been turned on, but it's just a way to trigger UpdateLit to be called.
             }
 
-            // Pull resources as long as there is power.
-            UpdatePullResources();
-
             if (!IsActive)
             {
                 frameNumber = 0;
                 activeGraphic = base.DefaultGraphic;
-                hasError = false;
                 return;
             }
 
@@ -227,32 +236,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
-        private void UpdatePullResources()
-        {
-            if (tickCount % PULL_INTERVAL == 0 && PowerTraderComp.PowerOn)
-            {
-                hasError = false;
-                storedUranium += TryPullFromAll("Uranium", UraniumToFill, out bool err);
-                if (err)
-                {
-                    hasError = true;
-                    errorThingKey = "AA.Uranium";
-                }
-                storedGold += TryPullFromAll("Gold", GoldToFill, out err);
-                if (err)
-                {
-                    hasError = true;
-                    errorThingKey = "AA.Gold";
-                }
-                storedComposite += TryPullFromAll("AntimatterComposite_AA", CompositeToFill, out err);
-                if (err)
-                {
-                    hasError = true;
-                    errorThingKey = "AA.AntimatterComposite";
-                }
-            }
-        }
-
         private void UpdateActiveState()
         {
             IsActive = true; // Assume running for now.
@@ -262,7 +245,7 @@ namespace AntimatterAnnihilation.Buildings
                 reasonNotRunning = 1;
                 IsActive = false;
             }
-            else if (storedGold < GOLD_PER_HYPER || storedComposite < COMPOSITE_PER_HYPER || storedUranium < URANIUM_PER_HYPER)
+            else if (StoredGold < GOLD_PER_HYPER || StoredComposite < COMPOSITE_PER_HYPER || StoredUranium < URANIUM_PER_HYPER)
             {
                 reasonNotRunning = 2;
                 IsActive = false;
@@ -284,13 +267,18 @@ namespace AntimatterAnnihilation.Buildings
                     PlaceOutput(1);
 
                     // Remove internal resources.
-                    storedComposite -= COMPOSITE_PER_HYPER;
-                    storedGold -= GOLD_PER_HYPER;
-                    storedUranium -= URANIUM_PER_HYPER;
+                    SubtractFuel(GetFuelComp(1), GOLD_PER_HYPER);
+                    SubtractFuel(GetFuelComp(2), COMPOSITE_PER_HYPER);
+                    SubtractFuel(GetFuelComp(3), URANIUM_PER_HYPER);
 
                     // Flag timer to be reset.
                     ticksUntilOutput = -1;
                 }
+            }
+
+            void SubtractFuel(CompRefuelableMulti f, float amountLess)
+            {
+                f.SetFuelLevel(f.Fuel - amountLess);
             }
         }
 
@@ -308,45 +296,6 @@ namespace AntimatterAnnihilation.Buildings
                 if (frameNumber >= FRAME_COUNT)
                     frameNumber = 0;
             }
-        }
-
-        public int TryPullFromAll(string defName, int count, out bool hasInOutputSpot)
-        {
-            if (string.IsNullOrEmpty(defName))
-                throw new ArgumentNullException(nameof(defName));
-
-            hasInOutputSpot = false;
-            if (count <= 0)
-            {
-                return 0;
-            }
-
-            int remaining = count;
-            for (int i = 0; i < 4; i++)
-            {
-                var tray = GetTray(GetSpotOffset(i));
-                if (tray == null)
-                    continue;
-
-                if (i == outputSide)
-                {
-                    // Give player a warning if there is an input item in the output slot.
-                    if(TrayHasItem(tray, defName, 0))
-                    {
-                        hasInOutputSpot = true;
-                    }
-                    // Don't pull from output side tray.
-                    continue;
-                }
-
-                int pulled = TryPullFromTray(tray, defName, remaining);
-                remaining -= pulled;
-                if (remaining <= 0)
-                    break;
-            }
-
-            int totalGot = count - remaining;
-            return totalGot;
         }
 
         public void PlaceOutput(int count)
@@ -402,7 +351,7 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
 
-            return base.GetInspectString() + $"\n{runningStatus}\n{"AA.AFMStoredAmount".Translate(storedGold, MAX_GOLD_STORED, storedComposite, MAX_COMPOSITE_STORED, storedUranium, MAX_URANIUM_STORED)}{(hasError ? $"\n<color=red>{"AA.AFMSlotError".Translate(errorThingKey.Translate().CapitalizeFirst(), cardRot)}</color>" : "")}\n{"AA.AFMOutputSide".Translate(cardRot)}";
+            return base.GetInspectString() + $"\n{runningStatus}\n{"AA.AFMOutputSide".Translate(cardRot)}";
         }
 
         public override IEnumerable<Gizmo> GetGizmos()

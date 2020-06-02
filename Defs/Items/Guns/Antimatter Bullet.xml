@@ -11,7 +11,7 @@
         <projectile>
             <damageDef>Annihilate_AA</damageDef>
             <damageAmountBase>16</damageAmountBase>
-            <armorPenetrationBase>0.35</armorPenetrationBase>
+            <armorPenetrationBase>0.48</armorPenetrationBase>
             <speed>65</speed>
             <stoppingPower>1.0</stoppingPower>
         </projectile>
