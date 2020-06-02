@@ -10,14 +10,16 @@
 See the in-game wiki for more information and how to use.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
-            <graphicClass>Graphic_Single</graphicClass>
+            <graphicClass>Graphic_Multi</graphicClass>
             <drawSize>(3,2)</drawSize>
         </graphicData>
         <passability>PassThroughOnly</passability>
         <selectable>true</selectable>
         <size>(3, 2)</size>
         <hasInteractionCell>True</hasInteractionCell>
-        <interactionCellOffset>(0,0,-1)</interactionCellOffset>
+        <interactionCellOffset>(0,0,2)</interactionCellOffset>
+        <rotatable>true</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
         <costList>
             <Steel>150</Steel>
             <Plasteel>20</Plasteel>

@@ -38,8 +38,8 @@ namespace AntimatterAnnihilation.Buildings
         {
             get
             {
-                IntVec3 pos = this.Position + new IntVec3(0, 0, -1);
-                return pos;
+                //IntVec3 pos = this.Position + base.Rotation.FacingCell;
+                return InteractionCell;
             }
         }
 

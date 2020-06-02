@@ -18,6 +18,7 @@ namespace AntimatterAnnihilation.Utils
 
         public static ThingDef Mote_MeguminBeam_AA;
 
+        public static ThingDef CompositeRefiner_AA;
         public static ThingDef AntimatterCanister_AA;
         public static ThingDef AntimatterComposite_AA;
         public static ThingDef HyperAlloy_AA;

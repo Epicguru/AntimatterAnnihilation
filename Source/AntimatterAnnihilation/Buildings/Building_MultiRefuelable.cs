@@ -12,6 +12,7 @@ namespace AntimatterAnnihilation.Buildings
         public int ShuffleInterval = 5;
         public bool AllowAutoRefuelToggle = true;
         public CompRefuelableMulti[] RefuelComps { get; protected set; }
+        public bool MissingComps { get; private set; }
 
         private long tick;
 
@@ -22,8 +23,6 @@ namespace AntimatterAnnihilation.Buildings
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
-            base.SpawnSetup(map, respawningAfterLoad);
-
             if (RefuelComps != null)
                 return;
 
@@ -46,6 +45,15 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             tempComps.Clear();
+
+            Log.Message($"RefuelComps: {RefuelComps.Length}");
+            if (RefuelComps == null || RefuelComps.Length == 0)
+            {
+                Log.Error($"Missing refuel comps on this {this.LabelCap}.");
+                MissingComps = true;
+            }
+
+            base.SpawnSetup(map, respawningAfterLoad);
         }
 
         public virtual bool MeetsRefuelCondition(CompRefuelableMulti s)
