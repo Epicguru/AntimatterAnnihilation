@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- General -->
+  <AA.On>开启</AA.On>
+  <AA.Off>关闭</AA.Off>
+  <AA.Enabled>启用</AA.Enabled>
+  <AA.Active>有效的</AA.Active>
+  <AA.NotActive>无效的</AA.NotActive>
+  <AA.Turn>转换</AA.Turn>  <!-- As in 'turn' machine on or off. -->
+  <AA.Name>名称</AA.Name>
+  <AA.Power>电力</AA.Power>
+
+  <!-- Material names -->
+  <AA.Antimatter>反物质</AA.Antimatter>
+  <AA.AntimatterComposite>反物质复合材料</AA.AntimatterComposite>
+  <AA.Gold>黄金</AA.Gold>
+  <AA.Uranium>铀</AA.Uranium>
+  <AA.Plasteel>玻璃钢</AA.Plasteel>
+
+  <!-- Cardinal directions -->
+  <AA.North>北</AA.North>
+  <AA.East>东</AA.East>
+  <AA.South>南</AA.South>
+  <AA.West>西</AA.West>
+
+  <!-- Time -->
+  <AA.Hours>小时</AA.Hours>
+  <AA.Days>天</AA.Days>
+  <AA.Quadrums>quadrums</AA.Quadrums>
+
+  <!-- Settings -->
+  <AA.PowerGenMulti>发电乘数: {0}%</AA.PowerGenMulti>
+  <AA.FuelConsumeRate>燃料消耗乘数: {0}%</AA.FuelConsumeRate>
+  <AA.InjectorVolume>注入器喷射乘数: {0}%</AA.InjectorVolume>
+  <AA.EnableEasterEggs>复活彩蛋:</AA.EnableEasterEggs>
+
+  <!-- PowerNet Console -->
+  <AA.OpenConsole>打开控制台</AA.OpenConsole>
+  <AA.OpenConsoleDesc>显示已连接的电网的详细信息，并允许您打开和关闭电源。</AA.OpenConsoleDesc>
+  <AA.PowerNetInfo>电网信息</AA.PowerNetInfo>
+  <AA.InstantFlickActive>Instant flick active!</AA.InstantFlickActive>
+  <AA.Watts>KW</AA.Watts>
+  <AA.KiloWatts>KW</AA.KiloWatts>
+  <AA.MegaWatts>MW</AA.MegaWatts>
+  <AA.GigaWatts>GW</AA.GigaWatts>
+  <AA.ConsoleNotConnected>控制台未连接到电源网络。</AA.ConsoleNotConnected>
+  <AA.ConsoleNotPowered>控制台没有电源。</AA.ConsoleNotPowered>
+  <AA.Ascending>(控制)</AA.Ascending>
+  <AA.Descending>(Des)</AA.Descending>
+  <AA.TurnAll>把所有</AA.TurnAll>  <!-- As in 'turn all' machines on/off. -->
+
+  <!-- AutoAttack component -->
+  <AA.ToggleAutoAttack>切换自动攻击</AA.ToggleAutoAttack>
+  <AA.ToggleAutoAttackDesc>切换此 {0} 是否会自动攻击敌人。</AA.ToggleAutoAttackDesc>
+
+  <!-- Composite refiner -->
+  <AA.NotEnoughPower>没有足够的电力。</AA.NotEnoughPower>
+  <AA.MissingPlasteel>缺少 {0} 的玻璃钢。</AA.MissingPlasteel>  <!-- For example, 'Missing 10 plasteel' -->
+  <AA.MissingAntimatter>缺少 {0} 反物质罐。</AA.MissingAntimatter>
+  <AA.RunningInfo>运行中: {0} 小时后输出。</AA.RunningInfo>
+  <AA.NotRunningInfo>未运行: {0}</AA.NotRunningInfo>  <!-- For example, 'Not running: reason' -->
+
+  <!-- M3G_UMIN -->
+  <AA.MegStrikeLocation>发射的位置</AA.MegStrikeLocation>
+  <AA.MegStrikeLocationDesc>在地图上的特定位置发射M3G_UMIN。</AA.MegStrikeLocationDesc>
+  <AA.MegCancelStrike>取消射击</AA.MegCancelStrike>
+  <AA.MegCancelStrikeDesc>取消M3G_UMIN射击。\n所有充电电源被切断。只能在充电阶段使用。</AA.MegCancelStrikeDesc>
+  <AA.MegCoolingDown>武器正在冷却 ({0} 剩余).</AA.MegCoolingDown>  <!-- {0} is time period, such as '16 hours' or '5 days' -->
+  <AA.MegPoweringUp>能量提升中: {0}%</AA.MegPoweringUp>  <!-- {0} is a percentage (0-100) -->
+  <AA.MegAlreadyPoweringUp>已经充能.</AA.MegAlreadyPoweringUp>
+  <AA.MegCharging>充电: {0} 瓦数提醒, {1}%</AA.MegCharging>  <!-- {1} is a percentage (0-100) -->
+  <AA.MegAlreadyCharging>Already charging strike.</AA.MegAlreadyCharging>
+  <AA.MegMissingCanisters>缺少反物质罐.</AA.MegMissingCanisters>
+  <AA.MegMissingXCanisters>缺少 {0} 反物质罐.</AA.MegMissingXCanisters>
+  <AA.MegBlockedByRoof>被屋顶阻挡.</AA.MegBlockedByRoof>
+  <AA.MegReadyToFire>准备开火.</AA.MegReadyToFire>
+  <AA.MegCooldown>冷却: {0}</AA.MegCooldown>  <!-- {0} is time period, such as '16 hours' or '5 days' -->
+
+  <!-- Particle accelerator -->
+  <AA.PAProducing>生产 {0} 个反物质罐每天.\n{1} 小时距离下一个反物质罐出产.</AA.PAProducing>
+  <AA.PANotRunningNoPower>未运行:没有电源</AA.PANotRunningNoPower>
+  <AA.PANotRunningNoPlasteel>未运行: 没有玻璃钢</AA.PANotRunningNoPlasteel>
+
+  <!-- Alloy Fusion Machine -->
+  <AA.AFMOutputSide>输出端: {0}</AA.AFMOutputSide>  <!-- {0} is a cardinal direction such as 'North' -->
+  <AA.AFMChangeOutputSide>改变输出端</AA.AFMChangeOutputSide>
+  <AA.AFMChangeOutputSideDesc>改变输出方向.</AA.AFMChangeOutputSideDesc>
+  <AA.AFMRunning>运行中: {0} 小时候输出.</AA.AFMRunning>
+  <AA.AFMNotRunningNoPower>未运行: 没有电源.</AA.AFMNotRunningNoPower>
+  <AA.AFMNotRunningMissingStuff>未运行: 最低需要 {0} 单位黄金, {1} 单位复合材料, {2} 单位铀.</AA.AFMNotRunningMissingStuff>
+  <AA.AFMPowerLevel>改变功率</AA.AFMPowerLevel>
+  <AA.AFMPowerLevelDesc>改变功率: {0}% 速度,使用 {1} 瓦特.\n只有在生产完当前单位后生效。</AA.AFMPowerLevelDesc>
+
+  <!-- Reactor injector -->
+  <AA.RIPowerLevel>改变功率</AA.RIPowerLevel>
+  <AA.RIPowerLevelDesc>当前功率水平: {0}%, 每天消耗 {1} 反物质罐.</AA.RIPowerLevelDesc>
+
+  <!-- Input tray -->
+  <AA.SetTrayFor>为 {0}</AA.SetTrayFor>
+  <AA.SetTrayForDesc>配置此托盘以存储具有“重要”优先级的 {0} .</AA.SetTrayForDesc>
+  <AA.TrayCurrentlyStored>配置存储为: {0}</AA.TrayCurrentlyStored>
+  <AA.TrayStoredNothing>无</AA.TrayStoredNothing>
+  <AA.TrayStoredMultiple>多个</AA.TrayStoredMultiple>
+
+</LanguageData>

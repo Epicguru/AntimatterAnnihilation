@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ParticleAccelerator_AA.label>粒子加速器</ParticleAccelerator_AA.label>
+  <ParticleAccelerator_AA.description>粒子加速器会将电子从玻璃钢中剥离并将它们加速到光速。当这些电子碰撞时，它们就会产生少量的反物质，在反物质反应堆中使用。</ParticleAccelerator_AA.description>
+  <ParticleAccelerator_AA_Blueprint.label>粒子加速器(蓝图)</ParticleAccelerator_AA_Blueprint.label>
+  <ParticleAccelerator_AA_Frame.label>粒子加速器(建筑)</ParticleAccelerator_AA_Frame.label>
+  <ParticleAccelerator_AA_Frame.description>粒子加速器会将电子从玻璃钢中剥离并将它们加速到光速。当这些电子碰撞时，它们就会产生少量的反物质，在反物质反应堆中使用。</ParticleAccelerator_AA_Frame.description>
+
+  <AntimatterReactor_AA.label>反物质反应堆</AntimatterReactor_AA.label>
+  <AntimatterReactor_AA.description>发电建筑的最终形式。反物质与普通物质发生反应，产生巨大的能量。一个超强大的能量场包含了大量的能量和辐射，并将其与外界隔离，这使得在周围工作是非常安全的。需要一个反应器注入器来注入反物质，以及一个反应器功率转换器来捕获输出光束并将其转换为电能。</AntimatterReactor_AA.description>
+  <AntimatterReactor_AA_Blueprint.label>反物质反应堆(蓝图)</AntimatterReactor_AA_Blueprint.label>
+  <AntimatterReactor_AA_Frame.label>反物质反应堆(建筑)</AntimatterReactor_AA_Frame.label>
+  <AntimatterReactor_AA_Frame.description>发电建筑的最终形式。反物质与普通物质发生反应，产生巨大的能量。一个超强大的能量场包含了大量的能量和辐射，并将其与外界隔离，这使得在周围工作是非常安全的。需要一个反应器注入器来注入反物质，以及一个反应器功率转换器来捕获输出光束并将其转换为电能。</AntimatterReactor_AA_Frame.description>
+
+  <AntimatterReactorInjector_AA.label>反应堆注入器</AntimatterReactorInjector_AA.label>
+  <AntimatterReactorInjector_AA.description>吸收所包含的反物质，并以光束的形式发射到反物质反应堆中。这种光束之所以成为可能，要归功于一个圆柱形的力场，它既排斥普通物质，又限制反物质，使得一个原本不可能存在的悬浮状的空间可以在半空中产生。如果光束在没有反应堆收集它的情况下发射，被发射的反物质与任何物质接触后就会发生湮灭，并迅速摧毁它。这可能是一堵墙，一个敌人或你的殖民者，所以万分小心…</AntimatterReactorInjector_AA.description>
+  <AntimatterReactorInjector_AA_Blueprint.label>反应堆注入器(蓝图)</AntimatterReactorInjector_AA_Blueprint.label>
+  <AntimatterReactorInjector_AA_Blueprint_Install.label>反应堆注入器(蓝图)</AntimatterReactorInjector_AA_Blueprint_Install.label>
+  <AntimatterReactorInjector_AA_Frame.label>反应堆注入器(建筑)</AntimatterReactorInjector_AA_Frame.label>
+  <AntimatterReactorInjector_AA_Frame.description>吸收所包含的反物质，并以光束的形式发射到反物质反应堆中。这种光束之所以成为可能，要归功于一个圆柱形的力场，它既排斥普通物质，又限制反物质，使得一个原本不可能存在的悬浮状的空间可以在半空中产生。如果光束在没有反应堆收集它的情况下发射，被发射的反物质与任何物质接触后就会发生湮灭，并迅速摧毁它。这可能是一堵墙，一个敌人或你的殖民者，所以万分小心…</AntimatterReactorInjector_AA_Frame.description>
+
+  <AntimatterReactorPowerConverter_AA.label>反应堆功率转换器</AntimatterReactorPowerConverter_AA.label>
+  <AntimatterReactorPowerConverter_AA.description>捕获反物质反应堆的输出光束，并将其转换成可用的电力。</AntimatterReactorPowerConverter_AA.description>
+  <AntimatterReactorPowerConverter_AA_Blueprint.label>反应堆功率转换器(蓝图)</AntimatterReactorPowerConverter_AA_Blueprint.label>
+  <AntimatterReactorPowerConverter_AA_Blueprint_Install.label>反应堆功率转换器(蓝图)</AntimatterReactorPowerConverter_AA_Blueprint_Install.label>
+  <AntimatterReactorPowerConverter_AA_Frame.label>反应堆功率转换器(建筑)</AntimatterReactorPowerConverter_AA_Frame.label>
+  <AntimatterReactorPowerConverter_AA_Frame.description>捕获反物质反应堆的输出光束，并将其转换成可用的电力。</AntimatterReactorPowerConverter_AA_Frame.description>
+
+  <PowerNetConsole_AA.label>电网控制台</PowerNetConsole_AA.label>
+  <PowerNetConsole_AA.description>显示电力网络的详细概述，显示电力在哪里使用和生产。还具有远程开关机器的能力。</PowerNetConsole_AA.description>
+  <PowerNetConsole_AA_Blueprint.label>电网控制台(蓝图)</PowerNetConsole_AA_Blueprint.label>
+  <PowerNetConsole_AA_Blueprint_Install.label>电网控制台(蓝图)</PowerNetConsole_AA_Blueprint_Install.label>
+  <PowerNetConsole_AA_Frame.label>电网控制台(建筑)</PowerNetConsole_AA_Frame.label>
+  <PowerNetConsole_AA_Frame.description>显示电力网络的详细概述，显示电力在哪里使用和生产。还具有远程开关机器的能力。</PowerNetConsole_AA_Frame.description>
+
+
+</LanguageData>
