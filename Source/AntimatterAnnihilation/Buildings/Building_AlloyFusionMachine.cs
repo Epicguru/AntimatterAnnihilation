@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using AntimatterAnnihilation.ThingComps;
+﻿using AntimatterAnnihilation.ThingComps;
 using AntimatterAnnihilation.Utils;
 using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
