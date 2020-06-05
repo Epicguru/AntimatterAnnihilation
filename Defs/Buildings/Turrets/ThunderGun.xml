@@ -48,7 +48,7 @@
         <description>A kinetic weapon firing huge uranum slugs using convetional methods. A dual barrel self-loading system offers excellent rate of fire and large damage.</description>
         <uiIconPath>AntimatterAnnihilation/UI/ThunderGunIcon</uiIconPath>
         <statBases>
-            <ShootingAccuracyTurret>1.4</ShootingAccuracyTurret>
+            <ShootingAccuracyTurret>0.995</ShootingAccuracyTurret>
         </statBases>
         <costList>
             <Steel>350</Steel>
@@ -70,7 +70,7 @@
                 <outOfFuelMessage>Cannot shoot: No slugs</outOfFuelMessage>
                 <fuelFilter><thingDefs><li>Uranium</li></thingDefs></fuelFilter>
                 <fuelCapacity>50</fuelCapacity>
-                <fuelMultiplier>0.25</fuelMultiplier>
+                <fuelMultiplier>0.5</fuelMultiplier>
                 <initialFuelPercent>1</initialFuelPercent>
                 <autoRefuelPercent>0.5</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
@@ -103,6 +103,7 @@
             <damageDef>Bullet</damageDef>
             <damageAmountBase>25</damageAmountBase>
             <speed>140</speed>
+            <armorPenetrationBase>0.65</armorPenetrationBase>
         </projectile>
     </ThingDef>
 

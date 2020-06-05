@@ -5,7 +5,7 @@
         <defName>MeleeSpacerAdvanced_AA</defName>
         <label>spacer melee weapons</label>
         <description>Using antimatter technology and materials allows you to craft even more powerful melee weapons that have special properties.</description>
-        <baseCost>2500</baseCost>
+        <baseCost>2600</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

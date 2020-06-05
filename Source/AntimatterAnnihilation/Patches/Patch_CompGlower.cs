@@ -1,4 +1,5 @@
-﻿using AntimatterAnnihilation.Utils;
+﻿using System;
+using AntimatterAnnihilation.Utils;
 using HarmonyLib;
 using Verse;
 
@@ -13,7 +14,15 @@ namespace AntimatterAnnihilation.Patches
             var ins = __instance;
             if (ins.parent is IConditionalGlower c)
             {
-                __result = c.ShouldBeGlowingNow;
+                try
+                {
+                    __result = c.ShouldBeGlowingNow;
+                }
+                catch (Exception e)
+                {
+                    Log.Error($"Exception during conditional glower patch processing: {e}");
+                    return false;
+                }
                 return false;
             }
 

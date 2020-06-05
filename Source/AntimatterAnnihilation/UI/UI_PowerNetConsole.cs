@@ -544,7 +544,7 @@ namespace AntimatterAnnihilation.UI
 
             if (watts >= GIGA)
             {
-                retVal += $"{watts / GIGA:N2} {"AA.KiloWatts".Translate()}";
+                retVal += $"{watts / GIGA:N2} {"AA.GigaWatts".Translate()}";
             }
             else if (watts >= MEGA)
             {
@@ -552,7 +552,7 @@ namespace AntimatterAnnihilation.UI
             }
             else if (watts >= KILO)
             {
-                retVal += $"{watts / KILO:N1} {"AA.GigaWatts".Translate()}";
+                retVal += $"{watts / KILO:N1} {"AA.KiloWatts".Translate()}";
             }
             else
             {

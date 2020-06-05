@@ -15,7 +15,7 @@ It can be used to construct and craft things that were previously only theoretic
         <healthAffectsPrice>false</healthAffectsPrice>
         <stackLimit>16</stackLimit>
         <statBases>
-            <MarketValue>140</MarketValue>
+            <MarketValue>350</MarketValue>
             <Mass>0.8</Mass>
             <Beauty>3</Beauty>
         </statBases>

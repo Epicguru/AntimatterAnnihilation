@@ -1,4 +1,5 @@
-﻿using AntimatterAnnihilation.Utils;
+﻿using System;
+using AntimatterAnnihilation.Utils;
 using RimWorld;
 using Verse;
 
@@ -45,34 +46,6 @@ namespace AntimatterAnnihilation.Buildings
 
         // Recipe: 60 plasteel + 1 canister is 30 antimatter composite.
 
-        public float CurrentPlasteelCount
-        {
-            get
-            {
-                return GetFuelComp(1).Fuel;
-            }
-        }
-        public float CurrentAntimatterCount
-        {
-            get
-            {
-                return GetFuelComp(2).Fuel;
-            }
-        }
-        public float MaxPlasteel
-        {
-            get
-            {
-                return GetFuelComp(1).Props.fuelCapacity;
-            }
-        }
-        public float MaxAntimatter
-        {
-            get
-            {
-                return GetFuelComp(2).Props.fuelCapacity;
-            }
-        }
         public float MissingPlasteel
         {
             get
@@ -96,26 +69,6 @@ namespace AntimatterAnnihilation.Buildings
         public int ProductionTicks;
 
         private bool lastFrameRunning;
-
-        public override void SpawnSetup(Map map, bool respawningAfterLoad)
-        {
-            base.SpawnSetup(map, respawningAfterLoad);
-
-            if (!respawningAfterLoad)
-            {
-                CreateZone();
-            }
-        }
-
-        private void CreateZone()
-        {
-            var zone = new Zone_Stockpile(StorageSettingsPreset.DefaultStockpile, Map.zoneManager);
-            zone.settings.filter.SetDisallowAll();
-            zone.settings.Priority = StoragePriority.Low;
-            zone.settings.filter.SetAllow(AADefOf.AntimatterComposite_AA, true);
-            Map.zoneManager.RegisterZone(zone);
-            zone.AddCell(OutputPos);
-        }
 
         public override void Tick()
         {
@@ -152,7 +105,7 @@ namespace AntimatterAnnihilation.Buildings
             Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterComposite_AA);
             thing.stackCount = count;
 
-            GenPlace.TryPlaceThing(thing, OutputPos, Find.CurrentMap, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(thing, OutputPos, this.Map, ThingPlaceMode.Near);
         }
 
         public override void ExposeData()

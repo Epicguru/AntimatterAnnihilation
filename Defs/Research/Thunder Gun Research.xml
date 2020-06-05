@@ -6,7 +6,7 @@
         <label>thunder gun</label>
         <description>This turret design is stolen straight from the Ultratech faction.
 The turret does not require very advanced materials to construct it, but requires Uranium slugs to be replaced after firing.</description>
-        <baseCost>1400</baseCost>
+        <baseCost>1800</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
