@@ -20,6 +20,10 @@
             <Mass>220</Mass>
             <Beauty>-20</Beauty>
         </statBases>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
         <tickerType>Normal</tickerType>
         <passability>PassThroughOnly</passability>
         <pathCost>120</pathCost>
@@ -73,9 +77,10 @@ It's multi-barrel destruction.</description>
                 <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
                 <fuelCapacity>2</fuelCapacity>
                 <initialFuelPercent>0</initialFuelPercent>
-                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <autoRefuelPercent>0.8</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
                 <minimumFueledThreshold>0.1</minimumFueledThreshold>
+                <fuelMultiplier>1</fuelMultiplier>
                 <factorByDifficulty>false</factorByDifficulty>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>
@@ -102,7 +107,7 @@ It's multi-barrel destruction.</description>
         </graphicData>
         <projectile>
             <damageDef>Annihilate_AA</damageDef>
-            <damageAmountBase>7</damageAmountBase>
+            <damageAmountBase>8</damageAmountBase>
             <speed>200</speed> <!-- Speedy boy. -->
             <armorPenetrationBase>1.5</armorPenetrationBase>
         </projectile>
@@ -139,7 +144,7 @@ It's multi-barrel destruction.</description>
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>40</muzzleFlashScale>
-                <consumeFuelPerShot>0.02</consumeFuelPerShot>
+                <consumeFuelPerShot>0.00390625</consumeFuelPerShot> <!-- 16 bursts of 16 bullets. -->
             </li>
         </verbs>
     </ThingDef>
