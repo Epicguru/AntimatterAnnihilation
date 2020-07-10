@@ -7,6 +7,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
+    [StaticConstructorOnStartup]
     public class Building_AlloyFusionMachine : Building_MultiRefuelable, IConditionalGlower
     {
         public const int TICKS_PER_FRAME = 3;
