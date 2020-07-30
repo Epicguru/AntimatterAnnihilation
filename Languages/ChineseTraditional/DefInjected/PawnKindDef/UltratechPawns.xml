@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Basic gunner implementation -->
+
+  <UltratechGunner_AA.label>奧創科技槍手</UltratechGunner_AA.label>
+  <UltratechGunner_AA.labelPlural>奧創科技槍手</UltratechGunner_AA.labelPlural>
+
+
+  <!-- Elite gunner implementation. Has much better guns, gear, bionics. -->
+
+  <UltratechGunnerAdvanced_AA.label>奧創科技精銳槍手</UltratechGunnerAdvanced_AA.label>
+  <UltratechGunnerAdvanced_AA.labelPlural>奧創科技精銳槍手</UltratechGunnerAdvanced_AA.labelPlural>
+
+
+  <!-- Basic sniper implementation -->
+
+  <UltratechSniper_AA.label>奧創科技狙擊手</UltratechSniper_AA.label>
+  <UltratechSniper_AA.labelPlural>奧創科技狙擊手</UltratechSniper_AA.labelPlural>
+
+
+  <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles. -->
+
+  <UltratechSniperAdvanced_AA.label>奧創科技精銳狙擊手</UltratechSniperAdvanced_AA.label>
+  <UltratechSniperAdvanced_AA.labelPlural>奧創科技精銳狙擊手</UltratechSniperAdvanced_AA.labelPlural>
+
+
+  <!-- Basic melee (slasher) implementation -->
+
+  <UltratechMelee_AA.label>奧創科技切割者</UltratechMelee_AA.label>
+  <UltratechMelee_AA.labelPlural>奧創科技切割者</UltratechMelee_AA.labelPlural>
+
+
+  <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, wepaons. -->
+
+  <UltratechMeleeAdvanced_AA.label>奧創科技精銳切割者</UltratechMeleeAdvanced_AA.label>
+  <UltratechMeleeAdvanced_AA.labelPlural>奧創科技精銳切割者</UltratechMeleeAdvanced_AA.labelPlural>
+
+
+</LanguageData>

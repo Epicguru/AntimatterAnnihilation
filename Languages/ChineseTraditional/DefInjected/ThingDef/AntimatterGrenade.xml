@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterGrenades_AA.label>反物質手榴彈</AntimatterGrenades_AA.label>
+  <AntimatterGrenades_AA.description>手榴彈中含有微量的反物質，如果與環境接觸，會產生巨大的爆炸能量和輻射。</AntimatterGrenades_AA.description>
+  <AntimatterGrenades_AA.verbs.0.label>投擲反物質手榴彈</AntimatterGrenades_AA.verbs.0.label>
+
+  <Proj_GrenadeAntimatter_AA.label>反物質手榴彈</Proj_GrenadeAntimatter_AA.label>
+
+
+</LanguageData>

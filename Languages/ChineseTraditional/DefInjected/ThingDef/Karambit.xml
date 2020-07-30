@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Karambit_AA.label>虎爪刀</Karambit_AA.label>
+  <Karambit_AA.description>這是一款單手彎刀，專為近距離格鬥而設計，擁有非常快的攻擊速度，但是每擊的傷害相對較低。</Karambit_AA.description>
+  <Karambit_AA.tools.0.label>刀柄</Karambit_AA.tools.0.label>
+  <Karambit_AA.tools.1.label>刀尖</Karambit_AA.tools.1.label>
+  <Karambit_AA.tools.2.label>刀刃</Karambit_AA.tools.2.label>
+
+
+</LanguageData>

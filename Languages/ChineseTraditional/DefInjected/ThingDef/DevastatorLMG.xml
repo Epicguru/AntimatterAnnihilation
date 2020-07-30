@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorLMG_AA.label>破壞者輕機槍</DevastatorLMG_AA.label>
+  <DevastatorLMG_AA.description>一種能連續發射子彈的重型反物質武器。雖然不是很準確，但在對付成群的敵人時非常出色。這種武器結合了尖端科技。即使我們對反物質技術有了很好的理解，但這種武器仍然是難以置信的先進，並且不能使用任何已知的方法來制造。</DevastatorLMG_AA.description>
+  <DevastatorLMG_AA.tools.0.label>槍托</DevastatorLMG_AA.tools.0.label>
+  <DevastatorLMG_AA.tools.1.label>槍管</DevastatorLMG_AA.tools.1.label>
+
+  <Bullet_DevastatorLMG_AA.label>反物質彈</Bullet_DevastatorLMG_AA.label>
+
+
+</LanguageData>

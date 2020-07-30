@@ -6,6 +6,7 @@ using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -28,6 +29,7 @@ namespace AntimatterAnnihilation.Buildings
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
         public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
+        public static int WORLD_MAP_RANGE = 90;
 
         public bool ShouldBeGlowingNow
         {
@@ -157,30 +159,52 @@ namespace AntimatterAnnihilation.Buildings
             cmd.defaultDesc = "AA.MegStrikeLocationDesc".Translate();
             cmd.icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
             cmd.hotKey = KeyBindingDefOf.Misc4;
-            cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true};
+            cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true };
             cmd.onTargetSelected = StartAttackSequence;
+
+            // Attack on world map.
+            Command_Action cmd2 = new Command_Action();
+            cmd2.defaultLabel = "AA.MegStrikeWorld".Translate();
+            cmd2.defaultDesc = "AA.MegStrikeWorldDesc".Translate();
+            cmd2.action = () =>
+            {
+                Log.Message("Starting world targeting...");
+                Find.WorldSelector.ClearSelection();
+                CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
+                Find.WorldTargeter.BeginTargeting(ChoseWorldTarget, false, Content.AutoAttackIcon, true, delegate
+                {
+                    GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
+                });
+            };
+
             if (IsOnCooldown)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
             }
             else if (IsPoweringUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
             }
             else if (IsChargingUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
             }
             else if (FuelComp.FuelPercentOfMax != 1f)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
             }
             else if (!HasSkyAccess())
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
             }
 
             yield return cmd;
+            yield return cmd2;
 
             if (IsChargingUp)
             {
@@ -211,7 +235,47 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
-        public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
+        private bool ChoseWorldTarget(GlobalTargetInfo target)
+        {
+            //Building_Railgun.<> c__DisplayClass14_0 CS$<> 8__locals1 = new Building_Railgun.<> c__DisplayClass14_0();
+            //CS$<> 8__locals1.<> 4__this = this;
+            //if (!target.IsValid)
+            //{
+            //    Messages.Message("MessageRailgunTargetInvalid".Translate(), MessageTypeDefOf.RejectInput, true);
+            //    return false;
+            //}
+            //if (Find.WorldGrid.TraversalDistanceBetween(base.Map.Tile, target.Tile, true, 2147483647) > this.WorldRange)
+            //{
+            //    Messages.Message("MessageTargetBeyondMaximumRange".Translate(), this, MessageTypeDefOf.RejectInput, true);
+            //    return false;
+            //}
+            //MapParent mapParent = target.WorldObject as MapParent;
+            //if (mapParent == null || !mapParent.HasMap)
+            //{
+            //    Messages.Message("MessageRailgunNeedsMap".Translate(), MessageTypeDefOf.RejectInput, true);
+            //    return false;
+            //}
+            //if (mapParent.Map == base.Map)
+            //{
+            //    Messages.Message("MessageRailgunCantTargetMyMap".Translate(), MessageTypeDefOf.RejectInput, true);
+            //    return false;
+            //}
+            //CS$<> 8__locals1.myMap = base.Map;
+            //CS$<> 8__locals1.map = mapParent.Map;
+            //Current.Game.CurrentMap = CS$<> 8__locals1.map;
+            //Find.Targeter.BeginTargeting(Building_Railgun.ForFireMission(), delegate (LocalTargetInfo x)
+            //{
+            //    foreach (Building_Railgun building_Railgun in CS$<> 8__locals1.<> 4__this.selectedRailguns)
+
+            //    {
+            //        building_Railgun.FireMission(CS$<> 8__locals1.map.Tile, x, CS$<> 8__locals1.map.uniqueID);
+            //    }
+            //}, null, new Action(CS$<>8__locals1.<ChoseWorldTarget>g__ActionWhenFinished|0), Building_Railgun.FireMissionTex);
+            Messages.Message("Not working yet.", MessageTypeDefOf.RejectInput, true);
+            return true;
+        }
+
+    public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn(mode);
 

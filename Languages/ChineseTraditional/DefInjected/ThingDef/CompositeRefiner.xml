@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompositeRefiner_AA.label>複合精煉</CompositeRefiner_AA.label>
+  <CompositeRefiner_AA.description>從反物質和塑鋼中創造出先進的反物質複合材料。有關更多信息和使用方法，請參見遊戲內wiki。</CompositeRefiner_AA.description>
+  <CompositeRefiner_AA_Blueprint.label>複合精煉器(藍圖)</CompositeRefiner_AA_Blueprint.label>
+  <CompositeRefiner_AA_Blueprint_Install.label>複合精煉器(藍圖)</CompositeRefiner_AA_Blueprint_Install.label>
+  <CompositeRefiner_AA_Frame.label>複合精煉器(建築)</CompositeRefiner_AA_Frame.label>
+  <CompositeRefiner_AA_Frame.description>反物質和塑鋼中創造出先進的反物質複合材料。有關更多信息和使用方法，請參見遊戲內wiki。</CompositeRefiner_AA_Frame.description>
+
+
+</LanguageData>

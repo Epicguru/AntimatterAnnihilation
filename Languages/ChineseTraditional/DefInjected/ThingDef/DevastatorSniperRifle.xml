@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorSniperRifle_AA.label>破壞者狙擊步槍</DevastatorSniperRifle_AA.label>
+  <DevastatorSniperRifle_AA.description>一種重型反物質武器，能在很長的距離內造成巨大的傷害。這種武器結合了尖端科技。即使我們對反物質技術有了很好的理解，這仍然是難以置信的先進，並且不能使用任何已知的方法來制造。</DevastatorSniperRifle_AA.description>
+  <DevastatorSniperRifle_AA.tools.0.label>槍托</DevastatorSniperRifle_AA.tools.0.label>
+  <DevastatorSniperRifle_AA.tools.1.label>槍管</DevastatorSniperRifle_AA.tools.1.label>
+
+  <Bullet_DevastatorSniperRifle_AA.label>反物質彈</Bullet_DevastatorSniperRifle_AA.label>
+
+
+</LanguageData>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ScissorBlade_AA.label>剪刃長刀</ScissorBlade_AA.label>
+  <ScissorBlade_AA.description>擁有獨特的長刀刃，樣似半把剪刀。擁有非常高的利刃傷害和護甲穿透，也可以進行快速的鈍器攻擊。漆成紅色就不會搞丟了</ScissorBlade_AA.description>
+  <ScissorBlade_AA.tools.0.label>刀柄</ScissorBlade_AA.tools.0.label>
+  <ScissorBlade_AA.tools.1.label>刀尖</ScissorBlade_AA.tools.1.label>
+  <ScissorBlade_AA.tools.2.label>刀刃</ScissorBlade_AA.tools.2.label>
+
+
+</LanguageData>

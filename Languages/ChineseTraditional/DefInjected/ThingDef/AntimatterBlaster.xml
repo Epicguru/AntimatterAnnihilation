@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterBlaster_AA.label>反物質微型衝鋒槍</AntimatterBlaster_AA.label>
+  <AntimatterBlaster_AA.description>中程個人防禦武器，發射反物質。\n發射含有少量反物質的球型AT力場。AT力場一經碰撞就會溶解，釋出其中的反物質並在周圍的環境中引起互毀反應。</AntimatterBlaster_AA.description>
+  <AntimatterBlaster_AA.tools.0.label>槍托</AntimatterBlaster_AA.tools.0.label>
+  <AntimatterBlaster_AA.tools.1.label>槍管</AntimatterBlaster_AA.tools.1.label>
+
+
+</LanguageData>
