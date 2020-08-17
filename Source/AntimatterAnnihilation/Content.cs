@@ -16,7 +16,7 @@ namespace AntimatterAnnihilation
         public static Texture2D Expand, Collapse;
         public static Texture2D PowerNetGraph;
         public static Texture2D PowerLevelLow, PowerLevelMedium, PowerLevelHigh;
-        public static Texture2D AutoAttackIcon, CancelIcon, ArrowIcon;
+        public static Texture2D AutoAttackIcon, CancelIcon, ArrowIcon, GlobalStrikeIcon;
 
         static Content()
         {
@@ -40,6 +40,7 @@ namespace AntimatterAnnihilation
             AutoAttackIcon = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/AutoAttackIcon");
             CancelIcon = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/CancelIcon");
             ArrowIcon = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/ArrowIcon");
+            GlobalStrikeIcon = ContentFinder<Texture2D>.Get("AntimatterAnnihilation/UI/GlobalStrikeIcon");
 
             ModCore.Trace("Loaded content.");
         }

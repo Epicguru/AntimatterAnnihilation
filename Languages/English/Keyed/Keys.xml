@@ -62,8 +62,10 @@
 <AA.NotRunningInfo>Not running: {0}</AA.NotRunningInfo> <!-- For example, 'Not running: reason' -->
 
 <!-- M3G_UMIN -->
-<AA.MegStrikeLocation>Strike location</AA.MegStrikeLocation>
+<AA.MegStrikeLocation>Strike local position</AA.MegStrikeLocation>
+<AA.MegStrikeWorld>Strike world position</AA.MegStrikeWorld>
 <AA.MegStrikeLocationDesc>Fires the M3G_UMIN at a specific position on this map.</AA.MegStrikeLocationDesc>
+<AA.MegStrikeWorldDesc>Fires the M3G_UMIN at a specific position in the world.</AA.MegStrikeWorldDesc>
 <AA.MegCancelStrike>Cancel strike</AA.MegCancelStrike>
 <AA.MegCancelStrikeDesc>Cancels the M3G_UMIN strike.\nAll charged power is discarded. Only available during charging phase.</AA.MegCancelStrikeDesc>
 <AA.MegCoolingDown>Weapon is cooling down ({0} left).</AA.MegCoolingDown> <!-- {0} is time period, such as '16 hours' or '5 days' -->
@@ -76,6 +78,10 @@
 <AA.MegBlockedByRoof>Blocked by roof.</AA.MegBlockedByRoof>
 <AA.MegReadyToFire>Ready to fire.</AA.MegReadyToFire>
 <AA.MegCooldown>Cooldown: {0}</AA.MegCooldown> <!-- {0} is time period, such as '16 hours' or '5 days' -->
+<AA.MegInvalidWorldTarget>Invalid target position.</AA.MegInvalidWorldTarget>
+<AA.MegOutOfRange>Target is out of range.</AA.MegOutOfRange>
+<AA.MegNeedsMap>Target map is not loaded. You must load the map before firing at it. You should attack it with a caravan, for example.</AA.MegNeedsMap>
+<AA.MegCantTargetSelf>Can't target self: to target a position on the home map, use the 'Strike local position' option instead.</AA.MegCantTargetSelf>
 
 <!-- Particle accelerator -->
 <AA.PAProducing>Producing {0} canisters per day.\n{1} hours until next antimatter canister.</AA.PAProducing>
