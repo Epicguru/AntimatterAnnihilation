@@ -12,10 +12,10 @@ This weapon incorporates archotech technology. Even with a good understanding of
         </graphicData>
         <statBases>
             <Mass>4.8</Mass>
-            <AccuracyTouch>0.40</AccuracyTouch>
-            <AccuracyShort>0.45</AccuracyShort>
-            <AccuracyMedium>0.4</AccuracyMedium>
-            <AccuracyLong>0.2</AccuracyLong>
+            <AccuracyTouch>0.45</AccuracyTouch>
+            <AccuracyShort>0.55</AccuracyShort>
+            <AccuracyMedium>0.65</AccuracyMedium>
+            <AccuracyLong>0.3</AccuracyLong>
             <RangedWeapon_Cooldown>2</RangedWeapon_Cooldown>
             <MarketValue>3800</MarketValue>
         </statBases>

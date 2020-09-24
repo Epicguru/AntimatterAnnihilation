@@ -5,6 +5,7 @@
   <author>Epicguru (James B)</author>
   <supportedVersions>
     <li>1.1</li>
+    <li>1.2</li>
   </supportedVersions>
   <url>https://github.com/Epicguru/AntimatterAnnihilation</url>
   <description>
@@ -14,9 +15,11 @@ Adds many items, weapons, defences, utility buildings, and a new powerful factio
 This is a mod that is intended to expand the end-game, adding new goals that are challenging but rewarding, and also to increase the difficulty of late game by sending harder raiders.
 This mod also features a fully developed in-game wiki that serves as a guide and also a little extra lore and pretty pictures.
 
-Should be loaded far down as possible, and always after Harmony, In-Game wiki and Core.
+Should be loaded far down as possible, and always after Harmony, In-Game wiki (optional) and Core.
 
-This is a WIP mod. There may be bugs and things may break. Please report bugs on the steam page or on Github, providing as much detail as possible, thanks.
+To access the in-game wiki, you must also install the In-Game Wiki mod from steam. It should be loaded before this mod.
+
+Please report any bugs on the steam page or on Github, providing as much detail as possible, thanks.
 See the store page for all plans, and don't hesitate to suggest new features or changes.
   </description>
   <modDependencies>
@@ -25,12 +28,6 @@ See the store page for all plans, and don't hesitate to suggest new features or 
       <displayName>Harmony</displayName>
       <steamWorkshopUrl>steam://url/CommunityFilePage/2009463077</steamWorkshopUrl>
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-    </li>
-    <li>
-      <packageId>co.uk.epicguru.ingamewiki</packageId>
-      <displayName>In-game wiki</displayName>
-      <steamWorkshopUrl>steam://url/CommunityFilePage/2113685739</steamWorkshopUrl>
-      <downloadUrl>https://github.com/Epicguru/InGameWiki/releases/latest</downloadUrl>
     </li>
   </modDependencies>
   <loadAfter>

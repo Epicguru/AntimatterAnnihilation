@@ -70,9 +70,9 @@
                 <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
                 <fuelCapacity>2</fuelCapacity>       <!-- 4 shots at 0.5 each -->
                 <initialFuelPercent>0</initialFuelPercent>
-                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <autoRefuelPercent>0.7499</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
-                <minimumFueledThreshold>0.1</minimumFueledThreshold>
+                <minimumFueledThreshold>0.499</minimumFueledThreshold>
                 <factorByDifficulty>false</factorByDifficulty>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>

@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Turret_MBD_AA.label>MBD</Turret_MBD_AA.label>
+  <Turret_MBD_AA.description>反物質加農炮與旋轉炮管的組合，能夠提供巨大的傷害與非常快的射速。</Turret_MBD_AA.description>
+
+  <Bullet_MBD_AA.label>爆炸</Bullet_MBD_AA.label>
+
+  <Gun_MBDTurret_AA.label>MBD加農炮</Gun_MBDTurret_AA.label>
+  <Gun_MBDTurret_AA.description>MBD的頂部模塊。你怎麽弄到這個…?</Gun_MBDTurret_AA.description>
+
+
+</LanguageData>

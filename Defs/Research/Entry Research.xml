@@ -5,7 +5,7 @@
         <defName>Entry_AA</defName>
         <label>hack Ultratech database</label>
         <description>Using your multi-analyzer and long range comms equipment, attempt to gain access to the Ultratech faction's database.</description>
-        <baseCost>500</baseCost>
+        <baseCost>2500</baseCost>
         <techLevel>Industrial</techLevel>
         <tab>Antimatter</tab>
         <discoveredLetterTitle>Antimatter technology unlocked!</discoveredLetterTitle>

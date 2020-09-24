@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Annihilate_AA.label>湮滅</Annihilate_AA.label>
+  <Annihilate_AA.deathMessage>{0} 被湮滅了。</Annihilate_AA.deathMessage>
+
+  <EnergyBurn_AA.label>能量燃燒</EnergyBurn_AA.label>
+  <EnergyBurn_AA.deathMessage>{0} 死於能量灼燒。</EnergyBurn_AA.deathMessage>
+
+  <AnnihilationExplosion_AA.label>湮滅爆炸</AnnihilationExplosion_AA.label>
+  <AnnihilationExplosion_AA.deathMessage>{0} 死於湮滅爆炸。</AnnihilationExplosion_AA.deathMessage>
+
+  <AnnihilationExplosionHuge_AA.label>湮滅爆炸</AnnihilationExplosionHuge_AA.label>
+  <AnnihilationExplosionHuge_AA.deathMessage>{0} 死於湮滅爆炸。</AnnihilationExplosionHuge_AA.deathMessage>
+
+  <AnnihilationExplosionRailgun_AA.label>湮滅爆炸</AnnihilationExplosionRailgun_AA.label>
+  <AnnihilationExplosionRailgun_AA.deathMessage>{0} 死於湮滅爆炸。</AnnihilationExplosionRailgun_AA.deathMessage>
+
+  <AnnihilationExplosionMBD_AA.label>湮滅爆炸</AnnihilationExplosionMBD_AA.label>
+  <AnnihilationExplosionMBD_AA.deathMessage>{0} 死於湮滅爆炸。</AnnihilationExplosionMBD_AA.deathMessage>
+
+  <GalvaPain_AA.label>電擊拳套瘀傷</GalvaPain_AA.label>
+  <GalvaPain_AA.deathMessage>{0} 被殺死了。</GalvaPain_AA.deathMessage>
+
+
+</LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterBlaster_AA.label>反物质微型冲锋枪</AntimatterBlaster_AA.label>
+  <AntimatterBlaster_AA.description>中程个人防御武器，发射反物质。在一个球形的力场中点燃少量的反物质。反物质一经碰撞就会溶解，暴露在周围的环境中并引起湮灭反应。</AntimatterBlaster_AA.description>
+  <AntimatterBlaster_AA.tools.0.label>枪托</AntimatterBlaster_AA.tools.0.label>
+  <AntimatterBlaster_AA.tools.1.label>枪管</AntimatterBlaster_AA.tools.1.label>
+
+
+</LanguageData>

@@ -9,7 +9,22 @@ namespace AntimatterAnnihilation.Verbs
     {
         protected override bool TryCastShot()
         {
-            CustomOrbitalStrike beam = (CustomOrbitalStrike)GenSpawn.Spawn(AADefOf.CustomOrbitalStrike_AA, this.currentTarget.Cell, this.caster.Map, WipeMode.Vanish);
+            Building_Megumin meg = this.caster as Building_Megumin;
+            if (meg == null)
+                Log.Error("Verb_Megumin used by a caster that is not a Building_Megumin?");
+
+            Map map = meg.TargetMap;
+            if (map == null)
+            {
+                Log.Error("Null map to cast megumin verb. Yikes.");
+                return false;
+            }
+
+            var targetCell = this.currentTarget.Cell;
+
+            Log.Message($"MegVerb: Firing on map: {map}, target: {targetCell}");
+
+            CustomOrbitalStrike beam = (CustomOrbitalStrike)GenSpawn.Spawn(AADefOf.CustomOrbitalStrike_AA, targetCell, map, WipeMode.Vanish);
             beam.duration = Building_Megumin.DURATION_TICKS;
             beam.instigator = this.caster;
             beam.weaponDef = ((base.EquipmentSource != null) ? base.EquipmentSource.def : null);
@@ -34,6 +49,10 @@ namespace AntimatterAnnihilation.Verbs
             needLOSToCenter = false;
             return Building_Megumin.RADIUS;
         }
+
+        // ALWAYS HIT! It's a fucking sky laser, you can't hide from it.
+        public override bool CanHitTarget(LocalTargetInfo targ) { return true; }
+        public override bool CanHitTargetFrom(IntVec3 root, LocalTargetInfo targ) { return true; }
     }
     
 }

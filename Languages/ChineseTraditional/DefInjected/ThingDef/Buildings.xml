@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ParticleAccelerator_AA.label>粒子加速器</ParticleAccelerator_AA.label>
+  <ParticleAccelerator_AA.description>粒子加速器會將電子從塑鋼中剝離並將它們在環型軌道中加速到光速。當這些電子碰撞時，有機率產生微渺的反物質，能用在反物質反應爐中。</ParticleAccelerator_AA.description>
+  <ParticleAccelerator_AA_Blueprint.label>粒子加速器(藍圖)</ParticleAccelerator_AA_Blueprint.label>
+  <ParticleAccelerator_AA_Frame.label>粒子加速器(建築)</ParticleAccelerator_AA_Frame.label>
+  <ParticleAccelerator_AA_Frame.description>粒子加速器會將電子從塑鋼中剝離並將它們在環型軌道中加速到光速。當這些電子碰撞時，有機率產生微渺的反物質，能用在反物質反應爐中。</ParticleAccelerator_AA_Frame.description>
+
+  <AntimatterReactor_AA.label>反物質反應爐</AntimatterReactor_AA.label>
+  <AntimatterReactor_AA.description>能源供應的最終型態。藉由反物質與普通物質發生反應，產生驚人的能量。利用強大的力場包裹住大量能源和產生的輻射，因此能夠安全的運作。需要一個反應爐注入器來注入反物質，以及一個反應爐能源轉換器來接收輸出光束並將其轉換為電能。</AntimatterReactor_AA.description>
+  <AntimatterReactor_AA_Blueprint.label>反物質反應爐(藍圖)</AntimatterReactor_AA_Blueprint.label>
+  <AntimatterReactor_AA_Frame.label>反物質反應爐(建築)</AntimatterReactor_AA_Frame.label>
+  <AntimatterReactor_AA_Frame.description>能源供應的最終型態。藉由反物質與普通物質發生反應，產生驚人的能量。利用強大的力場包裹住大量能源和產生的輻射，因此能夠安全的運作。需要一個反應爐注入器來注入反物質，以及一個反應爐能源轉換器來接收輸出光束並將其轉換為電能。</AntimatterReactor_AA_Frame.description>
+
+  <AntimatterReactorInjector_AA.label>反應爐注入器</AntimatterReactorInjector_AA.label>
+  <AntimatterReactorInjector_AA.description>吸收所包含的反物質，並以光束的形式發射到反物質反應爐中。這種光束之所以成為可能，要歸功於一個圓柱形的力場，它既排斥普通物質，又限制反物質，使得一個原本不可能存在的懸浮狀的空間可以在半空中產生。如果光束在沒有反應爐收集它的情況下發射，被發射的反物質與任何物質接觸後就會發生湮滅，並迅速摧毀它。這可能是一堵墻，一個敵人或你的殖民者，所以萬分小心…</AntimatterReactorInjector_AA.description>
+  <AntimatterReactorInjector_AA_Blueprint.label>反應爐注入器(藍圖)</AntimatterReactorInjector_AA_Blueprint.label>
+  <AntimatterReactorInjector_AA_Blueprint_Install.label>反應爐注入器(藍圖)</AntimatterReactorInjector_AA_Blueprint_Install.label>
+  <AntimatterReactorInjector_AA_Frame.label>反應爐注入器(建築)</AntimatterReactorInjector_AA_Frame.label>
+  <AntimatterReactorInjector_AA_Frame.description>吸收所包含的反物質，並以光束的形式發射到反物質反應爐中。這種光束之所以成為可能，要歸功於一個圓柱形的力場，它既排斥普通物質，又限制反物質，使得一個原本不可能存在的懸浮狀的空間可以在半空中產生。如果光束在沒有反應爐收集它的情況下發射，被發射的反物質與任何物質接觸後就會發生湮滅，並迅速摧毀它。這可能是一堵墻，一個敵人或你的殖民者，所以萬分小心…</AntimatterReactorInjector_AA_Frame.description>
+
+  <AntimatterReactorPowerConverter_AA.label>反應爐能源轉換器</AntimatterReactorPowerConverter_AA.label>
+  <AntimatterReactorPowerConverter_AA.description>捕獲反物質反應爐的輸出光束，並將其轉換成可用的電力。</AntimatterReactorPowerConverter_AA.description>
+  <AntimatterReactorPowerConverter_AA_Blueprint.label>反應爐能源轉換器(藍圖)</AntimatterReactorPowerConverter_AA_Blueprint.label>
+  <AntimatterReactorPowerConverter_AA_Blueprint_Install.label>反應爐能源轉換器(藍圖)</AntimatterReactorPowerConverter_AA_Blueprint_Install.label>
+  <AntimatterReactorPowerConverter_AA_Frame.label>反應爐能源轉換器(建築)</AntimatterReactorPowerConverter_AA_Frame.label>
+  <AntimatterReactorPowerConverter_AA_Frame.description>捕獲反物質反應爐的輸出光束，並將其轉換成可用的電力。</AntimatterReactorPowerConverter_AA_Frame.description>
+
+  <PowerNetConsole_AA.label>電網控制台</PowerNetConsole_AA.label>
+  <PowerNetConsole_AA.description>顯示電力網絡的詳細概述，顯示電力在哪里使用和生產。還具有遠程開關機器的能力。</PowerNetConsole_AA.description>
+  <PowerNetConsole_AA_Blueprint.label>電網控制台(藍圖)</PowerNetConsole_AA_Blueprint.label>
+  <PowerNetConsole_AA_Blueprint_Install.label>電網控制台(藍圖)</PowerNetConsole_AA_Blueprint_Install.label>
+  <PowerNetConsole_AA_Frame.label>電網控制台(建築)</PowerNetConsole_AA_Frame.label>
+  <PowerNetConsole_AA_Frame.description>顯示電力網絡的詳細概述，顯示電力在哪里使用和生產。還具有遠程開關機器的能力。</PowerNetConsole_AA_Frame.description>
+
+
+</LanguageData>

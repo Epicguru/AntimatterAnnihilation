@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterGrenadeLauncher_AA.label>反物質榴彈發射器</AntimatterGrenadeLauncher_AA.label>
+  <AntimatterGrenadeLauncher_AA.description>一種能遠距離發射反物質榴彈的巨型發射器，對建築和敵人造成毀滅性的打擊。</AntimatterGrenadeLauncher_AA.description>
+  <AntimatterGrenadeLauncher_AA.tools.0.label>槍托</AntimatterGrenadeLauncher_AA.tools.0.label>
+  <AntimatterGrenadeLauncher_AA.tools.1.label>槍管</AntimatterGrenadeLauncher_AA.tools.1.label>
+
+  <Bullet_AntimatterGrenade_AA.label>發射反物質榴彈</Bullet_AntimatterGrenade_AA.label>
+
+
+</LanguageData>

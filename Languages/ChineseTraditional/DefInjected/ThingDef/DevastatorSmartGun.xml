@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorSmartGun_AA.label>破壞者衝鋒槍</DevastatorSmartGun_AA.label>
+  <DevastatorSmartGun_AA.description>一種重型反物質武器，使用尖端科技提高射擊了精度，遠遠超過人類能力。能夠引起巨大爆炸。這種武器結合了尖端科技。即使我們對反物質技術有了很好的理解，但這種武器仍然是難以置信的先進，並且不能使用任何已知的方法來制造。</DevastatorSmartGun_AA.description>
+  <DevastatorSmartGun_AA.tools.0.label>槍托</DevastatorSmartGun_AA.tools.0.label>
+  <DevastatorSmartGun_AA.tools.1.label>槍管</DevastatorSmartGun_AA.tools.1.label>
+
+  <Bullet_DevastatorSmartGun_AA.label>反物質彈</Bullet_DevastatorSmartGun_AA.label>
+
+
+</LanguageData>

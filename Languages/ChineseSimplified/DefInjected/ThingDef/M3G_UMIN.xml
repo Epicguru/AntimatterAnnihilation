@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Megumin_AA.label>M3G_UMIN</Megumin_AA.label>
+  <Megumin_AA.description>发射一束能量到一个古老的地球同步卫星，在那里它会被反射到行星表面的一个特定坐标。光束会将所有生物焚化，并迅速摧毁爆炸半径内的任何建筑。发射能量束会在发射区域和受其影响的区域产生巨大的电磁脉冲，暂时关闭所有电子设备。</Megumin_AA.description>
+  <Megumin_AA_Blueprint.label>M3G_UMIN(蓝图)</Megumin_AA_Blueprint.label>
+  <Megumin_AA_Blueprint_Install.label>M3G_UMIN(蓝图)</Megumin_AA_Blueprint_Install.label>
+  <Megumin_AA_Frame.label>M3G_UMIN(建筑)</Megumin_AA_Frame.label>
+  <Megumin_AA_Frame.description>发射一束能量到一个古老的地球同步卫星，在那里它被反射到行星表面的一个特定坐标。光束会将所有生物焚化，并迅速摧毁爆炸半径内的任何建筑。发射能量束会在发射区域和受其影响的区域产生巨大的电磁脉冲，暂时关闭所有电子设备。</Megumin_AA_Frame.description>
+
+  <Gun_Megumin_AA.label>M3G_UMIN</Gun_Megumin_AA.label>
+  <Gun_Megumin_AA.description>MEG-Umin防御系统的发射模块。你怎么弄到这个…?</Gun_Megumin_AA.description>
+
+  <CustomOrbitalStrike_AA.label>能量束</CustomOrbitalStrike_AA.label>
+
+
+</LanguageData>

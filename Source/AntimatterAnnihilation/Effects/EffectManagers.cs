@@ -4,6 +4,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Effects
 {
+    [StaticConstructorOnStartup]
     static class ExplosionEffectManager
     {
         public static GameObject Prefab;
@@ -36,6 +37,7 @@ namespace AntimatterAnnihilation.Effects
         }
     }
 
+    [StaticConstructorOnStartup]
     static class RailgunEffectSpawner
     {
         public static GameObject Prefab;

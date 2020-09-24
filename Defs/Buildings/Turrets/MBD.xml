@@ -20,6 +20,10 @@
             <Mass>220</Mass>
             <Beauty>-20</Beauty>
         </statBases>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
         <tickerType>Normal</tickerType>
         <passability>PassThroughOnly</passability>
         <pathCost>120</pathCost>
@@ -49,7 +53,7 @@
 It's multi-barrel destruction.</description>
         <uiIconPath>AntimatterAnnihilation/UI/MBDIcon</uiIconPath>
         <statBases>
-            <ShootingAccuracyTurret>1.4</ShootingAccuracyTurret>
+            <ShootingAccuracyTurret>0.985</ShootingAccuracyTurret>
         </statBases>
         <costList>
             <Steel>250</Steel>
@@ -73,9 +77,10 @@ It's multi-barrel destruction.</description>
                 <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
                 <fuelCapacity>2</fuelCapacity>
                 <initialFuelPercent>0</initialFuelPercent>
-                <autoRefuelPercent>0.5</autoRefuelPercent>
+                <autoRefuelPercent>0.8</autoRefuelPercent>
                 <showFuelGizmo>true</showFuelGizmo>
                 <minimumFueledThreshold>0.1</minimumFueledThreshold>
+                <fuelMultiplier>1</fuelMultiplier>
                 <factorByDifficulty>false</factorByDifficulty>
                 <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
                 <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>
@@ -100,16 +105,11 @@ It's multi-barrel destruction.</description>
             <texPath>Things/Projectile/Bullet_Big</texPath>
             <graphicClass>Graphic_Single</graphicClass>
         </graphicData>
-        <thingClass>Projectile_Explosive</thingClass>
         <projectile>
-            <damageDef>AnnihilationExplosionMBD_AA</damageDef>
-            <speed>120</speed> <!-- Speedy boy. -->
-            <explosionRadius>1.5</explosionRadius>
-            <flyOverhead>true</flyOverhead>
-            <soundHitThickRoof>Artillery_HitThickRoof</soundHitThickRoof>
-            <soundExplode>MortarBomb_Explode</soundExplode>
-            <soundImpactAnticipate>MortarRound_PreImpact</soundImpactAnticipate>
-            <soundAmbient>MortarRound_Ambient</soundAmbient>
+            <damageDef>Annihilate_AA</damageDef>
+            <damageAmountBase>8</damageAmountBase>
+            <speed>200</speed> <!-- Speedy boy. -->
+            <armorPenetrationBase>1.5</armorPenetrationBase>
         </projectile>
     </ThingDef>
 
@@ -123,10 +123,10 @@ It's multi-barrel destruction.</description>
             <drawSize>(2,2)</drawSize>
         </graphicData>
         <statBases>
-            <AccuracyTouch>0.5</AccuracyTouch>
-            <AccuracyShort>0.75</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
-            <AccuracyLong>0.6</AccuracyLong>
+            <AccuracyTouch>0.45</AccuracyTouch>
+            <AccuracyShort>0.65</AccuracyShort>
+            <AccuracyMedium>0.8</AccuracyMedium>
+            <AccuracyLong>0.75</AccuracyLong>
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>200</Mass>
             <Flammability>0</Flammability>
@@ -134,22 +134,17 @@ It's multi-barrel destruction.</description>
         <verbs>
             <li>
                 <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
-                <forcedMissRadius>2</forcedMissRadius>
                 <defaultProjectile>Bullet_MBD_AA</defaultProjectile>
                 <isPrimary>true</isPrimary>
                 <warmupTime>0</warmupTime>
                 <minRange>4</minRange>
                 <range>55</range>
-                <ai_AvoidFriendlyFireRadius>9.5</ai_AvoidFriendlyFireRadius>
-                <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
-                <burstShotCount>12</burstShotCount>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>16</burstShotCount>
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>40</muzzleFlashScale>
-                <consumeFuelPerShot>0.02</consumeFuelPerShot>
-                <targetParams>
-                    <canTargetLocations>true</canTargetLocations>
-                </targetParams>
+                <consumeFuelPerShot>0.00390625</consumeFuelPerShot> <!-- 16 bursts of 16 bullets. -->
             </li>
         </verbs>
     </ThingDef>

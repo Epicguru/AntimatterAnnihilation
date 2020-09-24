@@ -6,6 +6,8 @@ using AntimatterAnnihilation.Utils;
 using RimWorld;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using RimWorld.Planet;
 using UnityEngine;
 using Verse;
 using Verse.Sound;
@@ -28,6 +30,7 @@ namespace AntimatterAnnihilation.Buildings
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
         public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
+        public static int WORLD_MAP_RANGE = 130;
 
         public bool ShouldBeGlowingNow
         {
@@ -110,13 +113,29 @@ namespace AntimatterAnnihilation.Buildings
         }
         public int CooldownTicks;
         public int PoweringUpTicks;
+        public Map TargetMap
+        {
+            get
+            {
+                if (globalTarget.IsValid && globalTarget.Map != null)
+                {
+                    // The target map is in the global target.
+                    return globalTarget.Map;
+                }
+
+                // If there is no global target, the target must be this map.
+                return this.Map;
+            }
+        }
 
         private IntVec3 lastKnownThingLoc; // Used to prevent bugs where target is destroyed and laser does not spawn.
         private bool isChargingUp;
         private UpBeam beam;
-        private LocalTargetInfo localTarget;
+        private LocalTargetInfo localTarget = LocalTargetInfo.Invalid;
+        private GlobalTargetInfo globalTarget = GlobalTargetInfo.Invalid;
         private Sustainer soundSustainer;
         private ParticleSystem chargeEffect;
+        private Map globalTargetMapLastKnown;
 
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
@@ -157,30 +176,56 @@ namespace AntimatterAnnihilation.Buildings
             cmd.defaultDesc = "AA.MegStrikeLocationDesc".Translate();
             cmd.icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
             cmd.hotKey = KeyBindingDefOf.Misc4;
-            cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true};
-            cmd.onTargetSelected = StartAttackSequence;
+            cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true };
+            cmd.onTargetSelected = (local) =>
+            {
+                StartAttackSequence(GlobalTargetInfo.Invalid, local);
+            };
+
+            // Attack on world map.
+            Command_Action cmd2 = new Command_Action();
+            cmd2.icon = Content.GlobalStrikeIcon;
+            cmd2.defaultLabel = "AA.MegStrikeWorld".Translate();
+            cmd2.defaultDesc = "AA.MegStrikeWorldDesc".Translate();
+            cmd2.action = () =>
+            {
+                Find.WorldSelector.ClearSelection();
+                CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
+                Find.WorldTargeter.BeginTargeting_NewTemp(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
+                    () =>
+                    {
+                        GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
+                    });
+            };
+
             if (IsOnCooldown)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegCoolingDown".Translate(GetCooldownPretty(CooldownTicks))}");
             }
             else if (IsPoweringUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyPoweringUp".Translate()}");
             }
             else if (IsChargingUp)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
             }
-            else if (FuelComp.FuelPercentOfMax != 1f)
+            else if (FuelComp.FuelPercentOfMax < 0.999f)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
             }
             else if (!HasSkyAccess())
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
             }
 
             yield return cmd;
+            yield return cmd2;
 
             if (IsChargingUp)
             {
@@ -211,6 +256,58 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
 
+        private bool OnChoseWorldTarget(GlobalTargetInfo target)
+        {
+            // Invalid target.
+            if (!target.IsValid)
+            {
+                Messages.Message("AA.MegInvalidWorldTarget".Translate(), MessageTypeDefOf.RejectInput);
+                return false;
+            }
+
+            // Out of range.
+            if (Find.WorldGrid.TraversalDistanceBetween(base.Map.Tile, target.Tile) > WORLD_MAP_RANGE)
+            {
+                Messages.Message("AA.MegOutOfRange".Translate(), this, MessageTypeDefOf.RejectInput);
+                return false;
+            }
+
+            // Make sure that the map is generated. Cannot fire into a null map.
+            MapParent mapParent = target.WorldObject as MapParent;
+            if (mapParent == null || !mapParent.HasMap)
+            {
+                Messages.Message("AA.MegNeedsMap".Translate(), MessageTypeDefOf.RejectInput);
+                return false;
+            }
+
+            // Can't attack own map.
+            var targetMap = mapParent.Map;
+            if (targetMap == this.Map)
+            {
+                Messages.Message("AA.MegCantTargetSelf".Translate(), MessageTypeDefOf.RejectInput);
+                return false;
+            }
+
+            // Allow targeting everything.
+            var targParams = new TargetingParameters
+			{
+				canTargetPawns = true,
+				canTargetBuildings = true,
+				canTargetLocations = true,
+                canTargetAnimals = true
+			};
+
+            Current.Game.CurrentMap = targetMap;
+            Find.Targeter.BeginTargeting(targParams, (localTarg) =>
+            {
+                GlobalTargetInfo globalTargetInfo = localTarg.ToGlobalTargetInfo(targetMap);
+                StartAttackSequence(globalTargetInfo, LocalTargetInfo.Invalid);
+            });
+
+            //Messages.Message("Not working yet.", MessageTypeDefOf.RejectInput, true);
+            return true;
+        }
+
         public override void DeSpawn(DestroyMode mode = DestroyMode.Vanish)
         {
             base.DeSpawn(mode);
@@ -219,17 +316,33 @@ namespace AntimatterAnnihilation.Buildings
             beam = null;
         }
 
-        private void StartAttackSequence(LocalTargetInfo target)
+        private void StartAttackSequence(GlobalTargetInfo global, LocalTargetInfo local)
         {
-            if (!target.IsValid)
+            if (!local.IsValid && !global.IsValid)
             {
-                Log.Error($"Tried to start M3G_UMIN attack with invalid target {target}.");
+                Log.Error($"Tried to start M3G_UMIN attack with invalid target(s): Local {local}, Global {global}.");
+                return;
+            }
+            if (local.IsValid && global.IsValid)
+            {
+                Log.Error("Passed in valid global and local targets to attack sequence. This is not valid. Must be one or the other.");
                 return;
             }
 
             // Set local target.
-            this.localTarget = target;
-            lastKnownThingLoc = target.Cell;
+            if (local.IsValid)
+            {
+                Log.Message("Starting local attack.");
+                this.localTarget = local;
+                lastKnownThingLoc = local.Cell;
+            }
+            //Set global target.
+            if (global.IsValid)
+            {
+                Log.Message("Starting global attack.");
+                this.globalTarget = global;
+                lastKnownThingLoc = global.Cell;
+            }
 
             // Enter the charging phase.
             IsChargingUp = true;
@@ -256,14 +369,54 @@ namespace AntimatterAnnihilation.Buildings
 
         private void StartRealAttack()
         {
+            bool cast = true;
+            if (globalTarget.IsValid)
+            {
+                Log.Message($"Using global target to create local target. ({globalTarget})");
+                if (globalTarget.Map == null)
+                {
+                    if(globalTargetMapLastKnown != null)
+                    {
+                        Log.Warning($"Global target has null map (most likely missing pawn target). Falling back to last known map ({globalTargetMapLastKnown}).");
+                        localTarget = new LocalTargetInfo(lastKnownThingLoc);
+                        globalTarget = new GlobalTargetInfo(lastKnownThingLoc, globalTargetMapLastKnown);
+                    }
+                    else
+                    {
+                        Log.Error("Global target is valid, but has null map. Last known map is also null. Probably caused by map being unloaded prematurely, or immediately after the updated that added this feature. Strike cancelled to avoid damage to wrong map.");
+                        cast = false;
+                    }
+                }
+                else
+                {
+                    // Convert to local target. Note that Thing may be non-null be destroyed, that is handled below.
+                    localTarget = globalTarget.HasThing ? new LocalTargetInfo(globalTarget.Thing) : new LocalTargetInfo(globalTarget.Cell);
+                }
+            }
             // Make sure that the local target is completely valid: it is possible that thing is destroyed and Target.IsValid is still true.
             if (localTarget.HasThing && localTarget.ThingDestroyed)
             {
                 Log.Warning($"M3G_UMIN appears to have been targeting a Thing but that Thing was destroyed. Using last known location: {lastKnownThingLoc}");
                 localTarget = new LocalTargetInfo(lastKnownThingLoc);
             }
+
             // Spawn sky beam of death.
-            AttackVerb.TryStartCastOn(localTarget);
+            if (cast)
+            {
+                bool worked = AttackVerb.TryStartCastOn(localTarget);
+                if (!worked)
+                {
+                    Log.Error("Megumin verb cast failed!");
+                    cast = false;
+                }
+            }
+
+            if (!cast)
+            {
+                // Cast failed. Stop be beam effect immediately.
+                OnStrikeEnd(null);
+            }
+            
 
             chargeEffect?.Stop(true, ParticleSystemStopBehavior.StopEmitting);
 
@@ -271,11 +424,13 @@ namespace AntimatterAnnihilation.Buildings
             CooldownTicks = COOLDOWN_TICKS;
 
             // Delete target position.
-            localTarget = null;
-            lastKnownThingLoc = IntVec3.Zero;
+            localTarget = LocalTargetInfo.Invalid;
+            globalTarget = GlobalTargetInfo.Invalid;
+            lastKnownThingLoc = IntVec3.Invalid;
+            globalTargetMapLastKnown = null;
 
             // Spawn a solar flare event on the map that it was fired from.
-            if (DoSolarFlare)
+            if (DoSolarFlare && cast)
             {
                 IncidentParms param = new IncidentParms();
                 param.forced = true;
@@ -348,7 +503,8 @@ namespace AntimatterAnnihilation.Buildings
         public override void ExposeData()
         {
             base.ExposeData();
-            Scribe_TargetInfo.Look(ref localTarget, "localTarget");
+            Scribe_TargetInfo.Look(ref localTarget, "localTarget", LocalTargetInfo.Invalid);
+            Scribe_TargetInfo.Look(ref globalTarget, "globalTarget", GlobalTargetInfo.Invalid);
             Scribe_Values.Look(ref CooldownTicks, "cooldownTicks");
             Scribe_Values.Look(ref PoweringUpTicks, "powerUpTicks");
             Scribe_Values.Look(ref isChargingUp, "isChargingUp");
@@ -373,7 +529,16 @@ namespace AntimatterAnnihilation.Buildings
         {
             base.Tick();
 
-            if (localTarget != null && localTarget.HasThing && !localTarget.ThingDestroyed)
+            // Save the last known global target map. This is necessary for when targeting a pawn that is destroyed in a foreign map.
+            // Note that this isn't a perfect fix: this isn't saved, so reloading the game will still cause a 'fake strike' where the laser will not spawn.
+            if (globalTarget.IsValid && globalTarget.Map != null)
+            {
+                globalTargetMapLastKnown = globalTarget.Map;
+            }
+
+            if (globalTarget.HasThing && !globalTarget.ThingDestroyed)
+                lastKnownThingLoc = globalTarget.Cell;
+            else if (localTarget.HasThing && !localTarget.ThingDestroyed)
                 lastKnownThingLoc = localTarget.Cell;
 
             beam?.Tick();
@@ -427,6 +592,15 @@ namespace AntimatterAnnihilation.Buildings
 
             if (this.Spawned && !this.Destroyed)
                 this.GunComp?.verbTracker?.VerbsTick();
+
+            if(this.chargeEffect != null)
+            {
+                bool isActive = chargeEffect.gameObject.activeSelf;
+                bool shouldBeActive = Find.CurrentMap == this.Map;
+
+                if(isActive != shouldBeActive)
+                    chargeEffect.gameObject.SetActive(shouldBeActive);
+            }
         }
 
         /// <summary>

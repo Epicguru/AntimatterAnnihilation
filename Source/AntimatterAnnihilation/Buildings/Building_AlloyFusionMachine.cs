@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using AntimatterAnnihilation.ThingComps;
+﻿using AntimatterAnnihilation.ThingComps;
 using AntimatterAnnihilation.Utils;
 using RimWorld;
+using System.Collections.Generic;
 using UnityEngine;
 using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
+    [StaticConstructorOnStartup]
     public class Building_AlloyFusionMachine : Building_MultiRefuelable, IConditionalGlower
     {
         public const int TICKS_PER_FRAME = 3;
         public const int FRAME_COUNT = 20;
         public const int FRAME_STEP = 3;
 
-        public const int PULL_INTERVAL = 120;
         public const int TICKS_PER_HYPER = 2500; // 1 hour.
 
         public const int GOLD_PER_HYPER = 4;
@@ -306,7 +305,7 @@ namespace AntimatterAnnihilation.Buildings
             Thing thing = ThingMaker.MakeThing(AADefOf.HyperAlloy_AA);
             thing.stackCount = count;
 
-            GenPlace.TryPlaceThing(thing, this.Position + GetSpotOffset(outputSide), Find.CurrentMap, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(thing, this.Position + GetSpotOffset(outputSide), this.Map, ThingPlaceMode.Near);
         }
 
         public IntVec3 GetSpotOffset(int rot)

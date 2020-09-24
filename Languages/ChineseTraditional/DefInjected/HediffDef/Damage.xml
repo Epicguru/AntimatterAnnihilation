@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AnnihilationInjury_AA.label>湮滅傷害</AnnihilationInjury_AA.label>
+  <AnnihilationInjury_AA.description>因與反物質接觸而造成的湮滅傷害。肉體幾乎被徹底摧毀，只留下可怕的傷口。會引起劇烈的疼痛，並且有很高的感染幾率。</AnnihilationInjury_AA.description>
+  <AnnihilationInjury_AA.comps.0.labelTendedWell>包紮的</AnnihilationInjury_AA.comps.0.labelTendedWell>
+  <AnnihilationInjury_AA.comps.0.labelTendedWellInner>縫合的</AnnihilationInjury_AA.comps.0.labelTendedWellInner>
+  <AnnihilationInjury_AA.comps.0.labelSolidTendedWell>覆位的</AnnihilationInjury_AA.comps.0.labelSolidTendedWell>
+  <AnnihilationInjury_AA.injuryProps.destroyedLabel>完全湮滅的</AnnihilationInjury_AA.injuryProps.destroyedLabel>
+  <AnnihilationInjury_AA.injuryProps.destroyedOutLabel>徹底湮滅的</AnnihilationInjury_AA.injuryProps.destroyedOutLabel>
+  <AnnihilationInjury_AA.labelNoun>一種毀滅性傷害</AnnihilationInjury_AA.labelNoun>
+
+  <EnergyBurnInjury_AA.label>能量燃燒</EnergyBurnInjury_AA.label>
+  <EnergyBurnInjury_AA.description>能量燃燒，由純能量體強烈爆炸所引起。不會流血，因為肌肉被強力燒灼。會引起劇烈的疼痛。</EnergyBurnInjury_AA.description>
+  <EnergyBurnInjury_AA.comps.0.labelTendedWell>包紮的</EnergyBurnInjury_AA.comps.0.labelTendedWell>
+  <EnergyBurnInjury_AA.comps.0.labelTendedWellInner>縫合的</EnergyBurnInjury_AA.comps.0.labelTendedWellInner>
+  <EnergyBurnInjury_AA.comps.0.labelSolidTendedWell>凝固的</EnergyBurnInjury_AA.comps.0.labelSolidTendedWell>
+  <EnergyBurnInjury_AA.injuryProps.destroyedLabel>燒焦的</EnergyBurnInjury_AA.injuryProps.destroyedLabel>
+  <EnergyBurnInjury_AA.injuryProps.destroyedOutLabel>完全燒焦的</EnergyBurnInjury_AA.injuryProps.destroyedOutLabel>
+  <EnergyBurnInjury_AA.labelNoun>一種能量灼燒。</EnergyBurnInjury_AA.labelNoun>
+
+  <GalvaInjury_AA.label>令人痛苦的瘀傷</GalvaInjury_AA.label>
+  <GalvaInjury_AA.description>被使用電擊拳套的人打出的瘀傷。一旦受到沖擊，這種武器就會釋放出大量的電流，造成巨大的疼痛，但不會有長期的效果。</GalvaInjury_AA.description>
+  <GalvaInjury_AA.injuryProps.destroyedLabel>劇烈疼痛的</GalvaInjury_AA.injuryProps.destroyedLabel>
+  <GalvaInjury_AA.labelNoun>電擊拳套引发的一種瘀傷</GalvaInjury_AA.labelNoun>
+</LanguageData>

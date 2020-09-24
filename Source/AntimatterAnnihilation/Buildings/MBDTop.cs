@@ -5,6 +5,7 @@ using Verse;
 
 namespace AntimatterAnnihilation.Buildings
 {
+    [StaticConstructorOnStartup]
     public class MBDTop : AATurretTop
     {
         const float RATIO = 31f / 280f;

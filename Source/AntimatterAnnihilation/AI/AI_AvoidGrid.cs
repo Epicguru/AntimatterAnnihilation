@@ -78,10 +78,6 @@ namespace AntimatterAnnihilation.AI
         public AI_AvoidGrid(Map map) : base(map)
         {
             AvoidGrid = new ByteGrid(map);
-            for (int x = 20; x < 30; x++)
-            {
-                AvoidGrid[x, 20] = 240;
-            }
         }
 
         public override void MapComponentTick()

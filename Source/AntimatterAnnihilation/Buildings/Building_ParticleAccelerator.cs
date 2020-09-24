@@ -115,7 +115,7 @@ namespace AntimatterAnnihilation.Buildings
             Thing thing = ThingMaker.MakeThing(AADefOf.AntimatterCanister_AA);
             thing.stackCount = count;
 
-            GenPlace.TryPlaceThing(thing, OutputPos, Find.CurrentMap, ThingPlaceMode.Near);
+            GenPlace.TryPlaceThing(thing, OutputPos, this.Map, ThingPlaceMode.Near);
         }
 
         public override string GetInspectString()

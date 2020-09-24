@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorSniperRifle_AA.label>湮灭狙击步枪</DevastatorSniperRifle_AA.label>
+  <DevastatorSniperRifle_AA.description>一种重型反物质武器，能在很长的距离内造成巨大的伤害。这种武器结合了尖端科技。即使我们对反物质技术有了很好的理解，这仍然是难以置信的先进，并且不能使用任何已知的方法来制造。</DevastatorSniperRifle_AA.description>
+  <DevastatorSniperRifle_AA.tools.0.label>枪托</DevastatorSniperRifle_AA.tools.0.label>
+  <DevastatorSniperRifle_AA.tools.1.label>枪管</DevastatorSniperRifle_AA.tools.1.label>
+
+  <Bullet_DevastatorSniperRifle_AA.label>反物质电荷</Bullet_DevastatorSniperRifle_AA.label>
+
+
+</LanguageData>

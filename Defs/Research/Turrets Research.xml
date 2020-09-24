@@ -5,7 +5,7 @@
         <defName>R_Turrets_AA</defName>
         <label>turrets</label>
         <description>Begin researching how antimatter technology can be used to create stationary defences.</description>
-        <baseCost>300</baseCost>
+        <baseCost>500</baseCost>
         <techLevel>Spacer</techLevel>
         <tab>Antimatter</tab>
         <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>

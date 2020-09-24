@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterRifle_AA.label>反物质步枪</AntimatterRifle_AA.label>
+  <AntimatterRifle_AA.description>一款二冲程的反物质步枪。精度高，伤害小。在一个球形的力场中点燃少量的反物质。反物质一经碰撞就会溶解，暴露在周围的环境中并引起湮灭反应。</AntimatterRifle_AA.description>
+  <AntimatterRifle_AA.tools.0.label>枪托</AntimatterRifle_AA.tools.0.label>
+  <AntimatterRifle_AA.tools.1.label>枪管</AntimatterRifle_AA.tools.1.label>
+
+
+</LanguageData>

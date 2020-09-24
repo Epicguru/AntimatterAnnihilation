@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterSniperRifle_AA.label>反物質狙擊步槍</AntimatterSniperRifle_AA.label>
+  <AntimatterSniperRifle_AA.description>為遠程射擊設計的反物質步槍。精度和傷害都很高。發射內含少量反物質的球形力場。反物質一經碰撞就會溶解，暴露在周圍的環境中並引起湮滅反應。</AntimatterSniperRifle_AA.description>
+  <AntimatterSniperRifle_AA.tools.0.label>槍托</AntimatterSniperRifle_AA.tools.0.label>
+  <AntimatterSniperRifle_AA.tools.1.label>槍管</AntimatterSniperRifle_AA.tools.1.label>
+
+  <Bullet_AntimatterSniperRifle_AA.label>反物質彈</Bullet_AntimatterSniperRifle_AA.label>
+
+
+</LanguageData>

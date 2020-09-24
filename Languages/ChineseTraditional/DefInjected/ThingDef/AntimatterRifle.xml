@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterRifle_AA.label>反物質步槍</AntimatterRifle_AA.label>
+  <AntimatterRifle_AA.description>一款二連發的反物質步槍。精度高，傷害小。發射一個含有少量反物質的球形的力場。反物質一經碰撞就會溶解，暴露在周圍的環境中並引起湮滅反應。</AntimatterRifle_AA.description>
+  <AntimatterRifle_AA.tools.0.label>槍托</AntimatterRifle_AA.tools.0.label>
+  <AntimatterRifle_AA.tools.1.label>槍管</AntimatterRifle_AA.tools.1.label>
+
+
+</LanguageData>

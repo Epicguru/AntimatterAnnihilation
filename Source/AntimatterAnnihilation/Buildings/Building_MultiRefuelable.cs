@@ -24,7 +24,10 @@ namespace AntimatterAnnihilation.Buildings
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             if (RefuelComps != null)
+            {
+                base.SpawnSetup(map, respawningAfterLoad);
                 return;
+            }
 
             tempComps.Clear();
 
@@ -46,7 +49,7 @@ namespace AntimatterAnnihilation.Buildings
 
             tempComps.Clear();
 
-            Log.Message($"RefuelComps: {RefuelComps.Length}");
+            //Log.Message($"RefuelComps: {RefuelComps.Length}");
             if (RefuelComps == null || RefuelComps.Length == 0)
             {
                 Log.Error($"Missing refuel comps on this {this.LabelCap}.");

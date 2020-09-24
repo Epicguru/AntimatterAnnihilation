@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResonatingBlade_AA.label>高分子震動刀</ResonatingBlade_AA.label>
+  <ResonatingBlade_AA.description>一種反物質複合刀刃，內部能產生持續的湮滅反應，類似於核裂變的原理。由此釋放出來的能量通過使用者的身體，增加他們的最大肌肉力量，使他們移動比正常速度快得多。但這也會讓使用者感到疲勞，導致工作速度略有下降。</ResonatingBlade_AA.description>
+  <ResonatingBlade_AA.tools.0.label>刀柄</ResonatingBlade_AA.tools.0.label>
+  <ResonatingBlade_AA.tools.1.label>刀尖</ResonatingBlade_AA.tools.1.label>
+  <ResonatingBlade_AA.tools.2.label>刀刃</ResonatingBlade_AA.tools.2.label>
+
+
+</LanguageData>
