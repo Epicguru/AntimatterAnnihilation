@@ -272,17 +272,20 @@ namespace AntimatterAnnihilation.Buildings
                 avoidance.Add((posUpper, AI_AvoidGrid.WEIGHT_ENERGY_BEAM));
 
                 bool done = false;
-                var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
-                if (pawn != null && !(pawn as Pawn).Downed) // Don't damage downed pawns, because it's too punishing.
+                if (Settings.DoBeamDamage)
                 {
-                    done = true;
-                    tempThings.Add(pawn);
-                }
-                var pawn2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Pawn);
-                if (pawn2 != null && !(pawn2 as Pawn).Downed)
-                {
-                    done = true;
-                    tempThings.Add(pawn2);
+                    var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
+                    if (pawn != null && !(pawn as Pawn).Downed) // Don't damage downed pawns, because it's too punishing.
+                    {
+                        done = true;
+                        tempThings.Add(pawn);
+                    }
+                    var pawn2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Pawn);
+                    if (pawn2 != null && !(pawn2 as Pawn).Downed)
+                    {
+                        done = true;
+                        tempThings.Add(pawn2);
+                    }
                 }
 
                 if (done)
@@ -314,6 +317,9 @@ namespace AntimatterAnnihilation.Buildings
                 if (done)
                     break;
             }
+
+            if (!Settings.DoBeamDamage)
+                return i;
 
             foreach (var thing in tempThings)
             {

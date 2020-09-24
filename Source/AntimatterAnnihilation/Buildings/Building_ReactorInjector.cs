@@ -339,17 +339,20 @@ namespace AntimatterAnnihilation.Buildings
                 avoidance.Add((posUpper, AI_AvoidGrid.WEIGHT_INJECTOR_BEAM));
 
                 bool done = false;
-                var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
-                if (pawn != null && !(pawn as Pawn).Downed) // Don't damage downed pawns, because it's too punishing.
+                if (Settings.DoBeamDamage)
                 {
-                    done = true;
-                    tempThings.Add(pawn);
-                }
-                var pawn2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Pawn);
-                if (pawn2 != null && !(pawn2 as Pawn).Downed)
-                {
-                    done = true;
-                    tempThings.Add(pawn2);
+                    var pawn = Map.thingGrid.ThingAt(posLower, ThingCategory.Pawn);
+                    if (pawn != null && !(pawn as Pawn).Downed) // Don't damage downed pawns, because it's too punishing.
+                    {
+                        done = true;
+                        tempThings.Add(pawn);
+                    }
+                    var pawn2 = Map.thingGrid.ThingAt(posUpper, ThingCategory.Pawn);
+                    if (pawn2 != null && !(pawn2 as Pawn).Downed)
+                    {
+                        done = true;
+                        tempThings.Add(pawn2);
+                    }
                 }
 
                 if (done)
@@ -427,7 +430,8 @@ namespace AntimatterAnnihilation.Buildings
                 if (thingIsReactor && isInLine)
                     damage *= 0.05f; // Do much less damage to reactor if lined up with input/output, for situations where the power is cut to the reactor and AT field cannot be formed.
 
-                thing.TakeDamage(new DamageInfo(AADefOf.Annihilate_AA, damage, 15, instigator: this));
+                if(Settings.DoBeamDamage)
+                    thing.TakeDamage(new DamageInfo(AADefOf.Annihilate_AA, damage, 15, instigator: this));
             }
 
             return i;
