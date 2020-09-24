@@ -34,6 +34,10 @@
 <AA.FuelConsumeRate>Fuel consumption multiplier: {0}%</AA.FuelConsumeRate>
 <AA.InjectorVolume>Injector hum volume: {0}%</AA.InjectorVolume>
 <AA.EnableEasterEggs>Enable easter eggs:</AA.EnableEasterEggs>
+<AA.EnableCustomPathfinding>Enable custom pathfinding:</AA.EnableCustomPathfinding>
+<AA.BeamsDoDamage>Beams do damage:</AA.BeamsDoDamage>
+<AA.SettingsPerformance>Performance</AA.SettingsPerformance>
+<AA.BeamWarning>It is highly recommended to disable beam damage if you disable custom pathfinding. Otherwise pawns will walk through deadly laser beams!</AA.BeamWarning>
 
 <!-- PowerNet Console -->
 <AA.OpenConsole>Open console</AA.OpenConsole>

@@ -11,7 +11,8 @@ namespace AntimatterAnnihilation.Patches
         [HarmonyPriority(Priority.Last)]
         static void Postfix(Pawn p, ref ByteGrid __result)
         {
-            AI_AvoidGrid.DoAvoidGrid(p, ref __result);
+            if(Settings.EnableCustomPathfinding)
+                AI_AvoidGrid.DoAvoidGrid(p, ref __result);
         }
     }
 }
