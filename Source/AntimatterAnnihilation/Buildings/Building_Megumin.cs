@@ -191,10 +191,11 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Find.WorldSelector.ClearSelection();
                 CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
-                Find.WorldTargeter.BeginTargeting(OnChoseWorldTarget, false, Content.AutoAttackIcon, true, delegate
-                {
-                    GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
-                });
+                Find.WorldTargeter.BeginTargeting_NewTemp(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
+                    () =>
+                    {
+                        GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
+                    });
             };
 
             if (IsOnCooldown)
@@ -212,7 +213,7 @@ namespace AntimatterAnnihilation.Buildings
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
                 cmd2.Disable("CannotFire".Translate() + $": {"AA.MegAlreadyCharging".Translate()}");
             }
-            else if (FuelComp.FuelPercentOfMax != 1f)
+            else if (FuelComp.FuelPercentOfMax < 0.999f)
             {
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
                 cmd2.Disable("CannotFire".Translate() + $": {"AA.MegMissingCanisters".Translate()}");
