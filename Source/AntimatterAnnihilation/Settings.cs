@@ -9,6 +9,8 @@ namespace AntimatterAnnihilation
         public static float FuelConsumeRate = 1f;
         public static float InjectorHumVolume = 1f;
         public static bool EnableEasterEggs = true;
+        public static bool EnableCustomPathfinding = true;
+        public static bool DoBeamDamage = true;
 
         public override void ExposeData()
         {
@@ -34,6 +36,16 @@ namespace AntimatterAnnihilation
 
             Widgets.CheckboxLabeled(new Rect(window.x, window.y, 350, 32), "AA.EnableEasterEggs".Translate(), ref EnableEasterEggs, placeCheckboxNearText: true);
             MoveDown(32 + 5f);
+
+            Widgets.CheckboxLabeled(new Rect(window.x, window.y, 350, 32), "AA.BeamsDoDamage".Translate(), ref DoBeamDamage, placeCheckboxNearText: true);
+            MoveDown(32 + 5f);
+
+            Widgets.CheckboxLabeled(new Rect(window.x, window.y, 350, 32), "AA.EnableCustomPathfinding".Translate(), ref EnableCustomPathfinding, placeCheckboxNearText: true);
+            MoveDown(32 + 5f);
+            if (DoBeamDamage && !EnableCustomPathfinding)
+            {
+                DoLabel("<color=red>" + "AA.BeamWarning".Translate() + "</color>");
+            }
 
             void DoLabel(string label)
             {
