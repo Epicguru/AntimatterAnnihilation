@@ -18,6 +18,8 @@ namespace AntimatterAnnihilation
             Scribe_Values.Look(ref FuelConsumeRate, "FuelConsumeRate", 1f);
             Scribe_Values.Look(ref InjectorHumVolume, "InjectorHumVolume", 1f);
             Scribe_Values.Look(ref EnableEasterEggs, "EnableEasterEggs", true);
+            Scribe_Values.Look(ref DoBeamDamage, "DoBeamDamage", true);
+            Scribe_Values.Look(ref EnableCustomPathfinding, "EnableCustomPathfiding", true);
         }
 
         public static void DoWindow(Rect window)
