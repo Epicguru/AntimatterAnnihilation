@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ScissorBlade_AA.label>ножничный клинок</ScissorBlade_AA.label>
+  <ScissorBlade_AA.description>Уникальный длинный клинок напоминающий половину ножниц. Очень высокий режущий урон и пробивание брони, а так же быстрая атака тупым концом. Покрашен в красный, что бы вы не сбились с пути.</ScissorBlade_AA.description>
+  <ScissorBlade_AA.tools.0.label>рукоять</ScissorBlade_AA.tools.0.label>
+  <ScissorBlade_AA.tools.1.label>острие</ScissorBlade_AA.tools.1.label>
+  <ScissorBlade_AA.tools.2.label>лезвие</ScissorBlade_AA.tools.2.label>
+
+
+</LanguageData>

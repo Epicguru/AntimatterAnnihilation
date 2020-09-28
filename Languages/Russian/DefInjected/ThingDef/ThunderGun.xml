@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Turret_ThunderGun_AA.label>гром-пушка</Turret_ThunderGun_AA.label>
+  <Turret_ThunderGun_AA.description>Кинетическое оружие стреляющее огромными урановыми брусками. Двухствольная самозарядная система обеспечивает отличную скорострельность и большой урон.</Turret_ThunderGun_AA.description>
+  <Turret_ThunderGun_AA.comps.4.fuelLabel>Осталось урановых брусков</Turret_ThunderGun_AA.comps.4.fuelLabel>
+  <Turret_ThunderGun_AA.comps.4.fuelGizmoLabel>Урановые бруски гром-пушки</Turret_ThunderGun_AA.comps.4.fuelGizmoLabel>
+  <Turret_ThunderGun_AA.comps.4.outOfFuelMessage>Огонь невозможен: Нет урановых брусков</Turret_ThunderGun_AA.comps.4.outOfFuelMessage>
+
+  <Bullet_ThunderGun_AA.label>заряд гром-пушки</Bullet_ThunderGun_AA.label>
+
+  <Gun_ThunderGunTurret_AA.label>гром-пушка</Gun_ThunderGunTurret_AA.label>
+  <Gun_ThunderGunTurret_AA.description>Орудийная часть гром-пушки. Как вам удалось заполучить это...?</Gun_ThunderGunTurret_AA.description>
+
+
+</LanguageData>
