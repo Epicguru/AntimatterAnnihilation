@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterBlaster_AA.label>АВ бластер</AntimatterBlaster_AA.label>
+  <AntimatterBlaster_AA.description>Оружие самообороны средней дальности, стреляющее антивеществом.\nСтреляет крошечными зарядами антивещества в сферическом силовом поле. При попадании поле разрывается выпуская антивещество в окружающую среду, что вызывает аннигиляционную реакцию.</AntimatterBlaster_AA.description>
+  <AntimatterBlaster_AA.tools.0.label>приклад</AntimatterBlaster_AA.tools.0.label>
+  <AntimatterBlaster_AA.tools.1.label>ствол</AntimatterBlaster_AA.tools.1.label>
+
+
+</LanguageData>

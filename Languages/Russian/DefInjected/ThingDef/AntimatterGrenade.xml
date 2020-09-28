@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterGrenades_AA.label>АВ гранаты</AntimatterGrenades_AA.label>
+  <AntimatterGrenades_AA.description>Гранаты содержащие небольшой объем антивещества, при взрыве выделяют большое количество энергии и излучения.</AntimatterGrenades_AA.description>
+  <AntimatterGrenades_AA.verbs.0.label>метнуть АВ гранату</AntimatterGrenades_AA.verbs.0.label>
+
+  <Proj_GrenadeAntimatter_AA.label>АВ граната</Proj_GrenadeAntimatter_AA.label>
+
+
+</LanguageData>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Basic gunner implementation -->
+
+  <UltratechGunner_AA.label>стрелок Ультратеха</UltratechGunner_AA.label>
+  <UltratechGunner_AA.labelPlural>стрелки Ультратеха</UltratechGunner_AA.labelPlural>
+
+
+  <!-- Elite gunner implementation. Has much better guns, gear, bionics. -->
+
+  <UltratechGunnerAdvanced_AA.label>элитный стрелок Ультратеха</UltratechGunnerAdvanced_AA.label>
+  <UltratechGunnerAdvanced_AA.labelPlural>элитные стрелки Ультратеха</UltratechGunnerAdvanced_AA.labelPlural>
+
+
+  <!-- Basic sniper implementation -->
+
+  <UltratechSniper_AA.label>снайпер Ультратеха</UltratechSniper_AA.label>
+  <UltratechSniper_AA.labelPlural>снайперы Ультратеха</UltratechSniper_AA.labelPlural>
+
+
+  <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles. -->
+
+  <UltratechSniperAdvanced_AA.label>элитный снайпер Ультратеха</UltratechSniperAdvanced_AA.label>
+  <UltratechSniperAdvanced_AA.labelPlural>элитные снайперы Ультратеха</UltratechSniperAdvanced_AA.labelPlural>
+
+
+  <!-- Basic melee (slasher) implementation -->
+
+  <UltratechMelee_AA.label>потрошитель Ультратеха</UltratechMelee_AA.label>
+  <UltratechMelee_AA.labelPlural>потрошители Ультратеха</UltratechMelee_AA.labelPlural>
+
+
+  <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, weapons. -->
+
+  <UltratechMeleeAdvanced_AA.label>элитный потрошитель Ультратеха</UltratechMeleeAdvanced_AA.label>
+  <UltratechMeleeAdvanced_AA.labelPlural>элитные потрошители Ультратеха</UltratechMeleeAdvanced_AA.labelPlural>
+
+
+</LanguageData>

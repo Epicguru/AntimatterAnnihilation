@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ResonatingBlade_AA.label>резонирующий клинок</ResonatingBlade_AA.label>
+  <ResonatingBlade_AA.description>Клинок из композита антивещества, спроектирован для создания постоянных внутренних реакций аннигиляции, похожих на радиоактивный распад.\n\nЭнергия образованная этими реакциями передается пользователю, увеличивая его мышечную силу и позволяет двигаться намного быстрее нормы. Но так же это утомляет пользователя, что сказывается на скорости работы в худшую сторону. </ResonatingBlade_AA.description>
+  <ResonatingBlade_AA.tools.0.label>рукоять</ResonatingBlade_AA.tools.0.label>
+  <ResonatingBlade_AA.tools.1.label>острие</ResonatingBlade_AA.tools.1.label>
+  <ResonatingBlade_AA.tools.2.label>лезвие</ResonatingBlade_AA.tools.2.label>
+
+
+</LanguageData>
