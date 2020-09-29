@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterGrenadeLauncher_AA.label>АВ гранатомет</AntimatterGrenadeLauncher_AA.label>
+  <AntimatterGrenadeLauncher_AA.description>Огромная пушка запускающая АВ гранаты на большие расстояния. Очень разрушительное оружие как против строений, так и живой силы противника.</AntimatterGrenadeLauncher_AA.description>
+  <AntimatterGrenadeLauncher_AA.tools.0.label>приклад</AntimatterGrenadeLauncher_AA.tools.0.label>
+  <AntimatterGrenadeLauncher_AA.tools.1.label>ствол</AntimatterGrenadeLauncher_AA.tools.1.label>
+
+  <Bullet_AntimatterGrenade_AA.label>АВ граната</Bullet_AntimatterGrenade_AA.label>
+
+
+</LanguageData>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Megumin_AA.label>M3G_UMIN</Megumin_AA.label>
+  <Megumin_AA.description>Стреляет лучом энергии в древний геостационарный спутник, который отражает луч в указанные координаты на поверхности планеты. Луч воспламеняет все живое и быстро уничтожает любые постройки в области поражения. Выстрел производит огромный электромагнитный импульс, вокруг орудия и в области поражения, временно отключая всю электронику.</Megumin_AA.description>
+  <Megumin_AA_Blueprint.label>M3G_UMIN(чертеж)</Megumin_AA_Blueprint.label>
+  <Megumin_AA_Blueprint_Install.label>M3G_UMIN(чертеж)</Megumin_AA_Blueprint_Install.label>
+  <Megumin_AA_Frame.label>M3G_UMIN(чертеж)</Megumin_AA_Frame.label>
+  <Megumin_AA_Frame.description>Стреляет лучом энергии в древний геостационарный спутник, который отражает луч в указанные координаты на поверхности планеты. Луч воспламеняет все живое и быстро уничтожает любые постройки в области поражения. Выстрел производит огромный электромагнитный импульс, вокруг орудия и в области поражения, временно отключая всю электронику.</Megumin_AA_Frame.description>
+
+  <Gun_Megumin_AA.label>M3G_UMIN</Gun_Megumin_AA.label>
+  <Gun_Megumin_AA.description>Орудийная часть защитной системы MEG_UMIN. Как вам удалось заполучить это...?</Gun_Megumin_AA.description>
+
+  <CustomOrbitalStrike_AA.label>энерголуч</CustomOrbitalStrike_AA.label>
+
+
+</LanguageData>

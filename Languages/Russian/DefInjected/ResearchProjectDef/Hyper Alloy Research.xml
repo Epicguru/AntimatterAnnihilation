@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <R_HyperAlloy_AA.label>синтез гиперсплава</R_HyperAlloy_AA.label>
+  <R_HyperAlloy_AA.description>Данные указывают на то что соединение композита антивещества с другими плотными металлами может создать материал невероятной прочности и универсальности.\nДля этого процесса потребуется специальный производственный объект.</R_HyperAlloy_AA.description>
+  <R_HyperAlloy_AA.discoveredLetterTitle>О гиперсплаве</R_HyperAlloy_AA.discoveredLetterTitle>
+  <R_HyperAlloy_AA.discoveredLetterText>Ваши исследования привели к открытию гиперсплава - сплава золота, урана и композита антивещества.\nДанные говорят, что он будет иметь невероятные свойства делающие его намного лучше любой альтернативы с точки зрения прочности и универсальности.\nДля производства потребуется специальный производственный объект.</R_HyperAlloy_AA.discoveredLetterText>
+
+</LanguageData>

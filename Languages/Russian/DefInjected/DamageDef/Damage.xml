@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Annihilate_AA.label>Аннигилирован(а)</Annihilate_AA.label>
+  <Annihilate_AA.deathMessage>{0} аннигилирован(а)</Annihilate_AA.deathMessage>
+  
+  <EnergyBurn_AA.label>Энергетический ожог</EnergyBurn_AA.label>
+  <EnergyBurn_AA.deathMessage>{0} умирает от энергетического ожога.</EnergyBurn_AA.deathMessage>
+
+  <AnnihilationExplosion_AA.label>аннигиляционный взрыв</AnnihilationExplosion_AA.label>
+  <AnnihilationExplosion_AA.deathMessage>{0} погибает в аннигиляционном взрыве.</AnnihilationExplosion_AA.deathMessage>
+
+  <AnnihilationExplosionHuge_AA.label>аннигиляционный взрыв</AnnihilationExplosionHuge_AA.label>
+  <AnnihilationExplosionHuge_AA.deathMessage>{0} погибает в аннигиляционном взрыве.</AnnihilationExplosionHuge_AA.deathMessage>
+
+  <AnnihilationExplosionRailgun_AA.label>аннигиляционный взрыв</AnnihilationExplosionRailgun_AA.label>
+  <AnnihilationExplosionRailgun_AA.deathMessage>{0} погибает в аннигиляционном взрыве.</AnnihilationExplosionRailgun_AA.deathMessage>
+
+  <AnnihilationExplosionMBD_AA.label>аннигиляционный взрыв</AnnihilationExplosionMBD_AA.label>
+  <AnnihilationExplosionMBD_AA.deathMessage>{0} погибает в аннигиляционном взрыве.</AnnihilationExplosionMBD_AA.deathMessage>
+
+  <GalvaPain_AA.label>боль от гальвакастета</GalvaPain_AA.label>
+  <GalvaPain_AA.deathMessage>{0} погибает.</GalvaPain_AA.deathMessage>
+
+
+</LanguageData>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <CompositeRefiner_AA.label>Переработчик композита</CompositeRefiner_AA.label>
+  <CompositeRefiner_AA.description>Производит продвинутый материал из пластали и антивещества - композит антивещества. Для более подробной информации обратитесь к внутриигровой вики.</CompositeRefiner_AA.description>
+  <CompositeRefiner_AA_Blueprint.label>Переработчик композита(проект)</CompositeRefiner_AA_Blueprint.label>
+  <CompositeRefiner_AA_Blueprint_Install.label>Переработчик композита(проект)</CompositeRefiner_AA_Blueprint_Install.label>
+  <CompositeRefiner_AA_Frame.label>Переработчик композита(в процессе сборки)</CompositeRefiner_AA_Frame.label>
+  <CompositeRefiner_AA_Frame.description>Производит продвинутый материал из пластали и антивещества - композит антивещества. Для более подробной информации обратитесь к внутриигровой вики.</CompositeRefiner_AA_Frame.description>
+
+
+</LanguageData>

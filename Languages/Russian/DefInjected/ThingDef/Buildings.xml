@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <ParticleAccelerator_AA.label>ускоритель частиц</ParticleAccelerator_AA.label>
+  <ParticleAccelerator_AA.description>Отрывает электроны от атомов пластали и разгоняет их до скорости света. При столкновении этих электронов есть шанс образования крошечного объема антивещества, которое используется в реакторе антивещества.</ParticleAccelerator_AA.description>
+  <ParticleAccelerator_AA_Blueprint.label>ускоритель частиц(проект)</ParticleAccelerator_AA_Blueprint.label>
+  <ParticleAccelerator_AA_Frame.label>ускоритель частиц(в процессе сборки)</ParticleAccelerator_AA_Frame.label>
+  <ParticleAccelerator_AA_Frame.description>Отрывает электроны от атомов пластали и разгоняет их до скорости света. При столкновении этих электронов есть шанс образования крошечного объема антивещества, которое используется в реакторе антивещества.</ParticleAccelerator_AA_Frame.description>
+
+  <AntimatterReactor_AA.label>реактор антивещества</AntimatterReactor_AA.label>
+  <AntimatterReactor_AA.description>Идеальный способ генерации энергии. Реакция введенного антивещества с обычным веществом производит огромное количество энергии. Сверхмощное силовое поле сдерживает произведенный объем энергии и излучения, что делает реактор безопасным для работы. Необходим инжектор для подачи антивещества и преобразователь энергии для захвата исходящего луча и конвертации его в энергию.</AntimatterReactor_AA.description>
+  <AntimatterReactor_AA_Blueprint.label>реактор антивещества(проект)</AntimatterReactor_AA_Blueprint.label>
+  <AntimatterReactor_AA_Frame.label>реактор антивещества(в процессе сборки)</AntimatterReactor_AA_Frame.label>
+  <AntimatterReactor_AA_Frame.description>Идеальный способ генерации энергии. Реакция введенного антивещества с обычным веществом производит огромное количество энергии. Сверхмощное силовое поле сдерживает произведенный объем энергии и излучения, что делает реактор безопасным для работы. Необходим инжектор для подачи антивещества и преобразователь энергии для захвата исходящего луча и конвертации его в энергию.</AntimatterReactor_AA_Frame.description>
+
+  <AntimatterReactorInjector_AA.label>инжектор реактора</AntimatterReactorInjector_AA.label>
+  <AntimatterReactorInjector_AA.description>Запускает содержащееся антивещество, в виде луча, в реактор. Создание луча возможно благодаря цилиндрическому силовому полю которое одновременно отталкивает обычное вещество и сдерживает антивещество, позволяя создать вакуум невозможный при других условиях. Если луч будет выпущен не в реактор, антивещество аннигилирует все с чем вступит в контакт. Будь это стена, враг или поселенец, поэтому будьте внимательны...</AntimatterReactorInjector_AA.description>
+  <AntimatterReactorInjector_AA_Blueprint.label>инжектор реактора(проект)</AntimatterReactorInjector_AA_Blueprint.label>
+  <AntimatterReactorInjector_AA_Blueprint_Install.label>инжектор реактора(проект)</AntimatterReactorInjector_AA_Blueprint_Install.label>
+  <AntimatterReactorInjector_AA_Frame.label>инжектор реактора(в процессе сборки)</AntimatterReactorInjector_AA_Frame.label>
+  <AntimatterReactorInjector_AA_Frame.description>Запускает содержащееся антивещество, в виде луча, в реактор. Создание луча возможно благодаря цилиндрическому силовому полю которое одновременно отталкивает обычное вещество и сдерживает антивещество, позволяя создать вакуум невозможный при других условиях. Если луч будет выпущен не в реактор, антивещество аннигилирует все с чем вступит в контакт. Будь это стена, враг или поселенец, поэтому будьте внимательны...</AntimatterReactorInjector_AA_Frame.description>
+
+  <AntimatterReactorPowerConverter_AA.label>преобразователь энергии реактора</AntimatterReactorPowerConverter_AA.label>
+  <AntimatterReactorPowerConverter_AA.description>Захватывает исходящий из реактора луч и конвертирует его в электроэнергию.</AntimatterReactorPowerConverter_AA.description>
+  <AntimatterReactorPowerConverter_AA_Blueprint.label>преобразователь энергии реактора(проект)</AntimatterReactorPowerConverter_AA_Blueprint.label>
+  <AntimatterReactorPowerConverter_AA_Blueprint_Install.label>преобразователь энергии реактора(проект)</AntimatterReactorPowerConverter_AA_Blueprint_Install.label>
+  <AntimatterReactorPowerConverter_AA_Frame.label>преобразователь энергии реактора(в процессе сборки)</AntimatterReactorPowerConverter_AA_Frame.label>
+  <AntimatterReactorPowerConverter_AA_Frame.description>Захватывает исходящий из реактора луч и конвертирует его в электроэнергию.</AntimatterReactorPowerConverter_AA_Frame.description>
+
+  <PowerNetConsole_AA.label>консоль энергосети</PowerNetConsole_AA.label>
+  <PowerNetConsole_AA.description>Отображает детальную информацию о энергосети, где энергия используется и генерируется. Так же позволяет включать и выключать оборудование удаленно.</PowerNetConsole_AA.description>
+  <PowerNetConsole_AA_Blueprint.label>консоль энергосети(проект)</PowerNetConsole_AA_Blueprint.label>
+  <PowerNetConsole_AA_Blueprint_Install.label>консоль энергосети(проект)</PowerNetConsole_AA_Blueprint_Install.label>
+  <PowerNetConsole_AA_Frame.label>консоль энергосети(в процессе сборки)</PowerNetConsole_AA_Frame.label>
+  <PowerNetConsole_AA_Frame.description>Отображает детальную информацию о энергосети, где энергия используется и генерируется. Так же позволяет включать и выключать оборудование удаленно.</PowerNetConsole_AA_Frame.description>
+
+
+</LanguageData>

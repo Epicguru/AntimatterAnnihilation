@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterSniperRifle_AA.label>АВ снайперская винтовка</AntimatterSniperRifle_AA.label>
+  <AntimatterSniperRifle_AA.description>АВ винтовка разработана для ведения огня на дальней дистанции. Высокоточная и мощная.\nСтреляет крошечными зарядами антивещества в сферическом силовом поле. При попадании поле разрывается выпуская антивещество в окружающую среду, что вызывает аннигиляционную реакцию.</AntimatterSniperRifle_AA.description>
+  <AntimatterSniperRifle_AA.tools.0.label>приклад</AntimatterSniperRifle_AA.tools.0.label>
+  <AntimatterSniperRifle_AA.tools.1.label>ствол</AntimatterSniperRifle_AA.tools.1.label>
+
+  <Bullet_AntimatterSniperRifle_AA.label>заряд антивещества</Bullet_AntimatterSniperRifle_AA.label>
+
+
+</LanguageData>

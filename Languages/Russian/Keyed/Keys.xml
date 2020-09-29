@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- General -->
+  <AA.On>вкл.</AA.On>
+  <AA.Off>выкл.</AA.Off>
+  <AA.Enabled>питание</AA.Enabled>
+  <AA.Active>активно</AA.Active>
+  <AA.NotActive>неактивно</AA.NotActive>
+  <AA.Turn></AA.Turn>  <!-- As in 'turn' machine on or off. -->
+  <AA.Name>имя</AA.Name>
+  <AA.Power>мощность</AA.Power>
+
+  <!-- Material names -->
+  <AA.Antimatter>антивещество</AA.Antimatter>
+  <AA.AntimatterComposite>композит антивещества</AA.AntimatterComposite>
+  <AA.Gold>золото</AA.Gold>
+  <AA.Uranium>уран</AA.Uranium>
+  <AA.Plasteel>пласталь</AA.Plasteel>
+
+  <!-- Cardinal directions -->
+  <AA.North>север</AA.North>
+  <AA.East>восток</AA.East>
+  <AA.South>юг</AA.South>
+  <AA.West>запад</AA.West>
+
+  <!-- Time -->
+  <AA.Hours>часы</AA.Hours>
+  <AA.Days>дни</AA.Days>
+  <AA.Quadrums>сезоны</AA.Quadrums>
+
+  <!-- Settings -->
+  <AA.PowerGenMulti>Множитель энергогенерации: {0}%</AA.PowerGenMulti>
+  <AA.FuelConsumeRate>Множитель потребления топлива: {0}%</AA.FuelConsumeRate>
+  <AA.InjectorVolume>Громкость гудения инжектора: {0}%</AA.InjectorVolume>
+  <AA.EnableEasterEggs>Включить пасхалки:</AA.EnableEasterEggs>
+  <AA.EnableCustomPathfinding>Использовать модифицированный поиск пути:</AA.EnableCustomPathfinding>
+  <AA.BeamsDoDamage>Лазерные лучи наносят урон:</AA.BeamsDoDamage>
+  <AA.SettingsPerformance>Производительность</AA.SettingsPerformance>
+  <AA.BeamWarning>Рекомендуется отключать урон лазерных лучей при отключении модифицированного поиска пути. Иначе пешки будут ходить сквозь смертоносные лазерные лучи!</AA.BeamWarning> 
+ 
+
+  <!-- PowerNet Console -->
+  <AA.OpenConsole>Открыть консоль</AA.OpenConsole>
+  <AA.OpenConsoleDesc>Показывает детальную информацию о подключенной энергосети, и позволяет включать и отключать питание.</AA.OpenConsoleDesc>
+  <AA.PowerNetInfo>Энергосеть</AA.PowerNetInfo>
+  <AA.InstantFlickActive>Переключение доступно!</AA.InstantFlickActive>
+  <AA.Watts>W</AA.Watts>
+  <AA.KiloWatts>KW</AA.KiloWatts>
+  <AA.MegaWatts>MW</AA.MegaWatts>
+  <AA.GigaWatts>GW</AA.GigaWatts>
+  <AA.ConsoleNotConnected>Консоль не подключена к энергосети.</AA.ConsoleNotConnected>
+  <AA.ConsoleNotPowered>Консоль обесточена.</AA.ConsoleNotPowered>
+  <AA.Ascending>(Воз)</AA.Ascending>
+  <AA.Descending>(Убв)</AA.Descending>
+  <AA.TurnAll>Все</AA.TurnAll>  <!-- As in 'turn all' machines on/off. -->
+
+  <!-- AutoAttack component -->
+  <AA.ToggleAutoAttack>Переключить автоатаку</AA.ToggleAutoAttack>
+  <AA.ToggleAutoAttackDesc>Переключает будет ли эта {0} атаковать врагов автоматически.</AA.ToggleAutoAttackDesc>
+
+  <!-- Composite refiner -->
+  <AA.NotEnoughPower>Недостаточно энергии.</AA.NotEnoughPower>
+  <AA.MissingPlasteel>Не хватает {0} пластали.</AA.MissingPlasteel>  <!-- For example, 'Missing 10 plasteel' -->
+  <AA.MissingAntimatter>Не хватает {0} канистр антивещества.</AA.MissingAntimatter>
+  <AA.RunningInfo>Работает: {0} часов до завершения</AA.RunningInfo>
+  <AA.NotRunningInfo>Не работает: {0}</AA.NotRunningInfo>  <!-- For example, 'Not running: reason' -->
+
+  <!-- M3G_UMIN -->
+  <AA.MegStrikeLocation>Обстрелять местную позицию</AA.MegStrikeLocation>
+  <AA.MegStrikeWorld>Обстрелять мировую позицию</AA.MegStrikeWorld>
+  <AA.MegStrikeLocationDesc>Провести обстрел из M3G_UMIN по указанной позиции на этой карте.</AA.MegStrikeLocationDesc>
+  <AA.MegStrikeWorldDesc>Провести обстрел из M3G_UMIN по указанной позиции в мире.</AA.MegStrikeWorldDesc>
+  <AA.MegCancelStrike>Отменить обстрел</AA.MegCancelStrike>
+  <AA.MegCancelStrikeDesc>Отменяет обстрел из M3G_UMIN.\nВся накопленная энергия будет рассеяна. Доступно только в фазе зарядки.</AA.MegCancelStrikeDesc>
+  <AA.MegCoolingDown>Оружие охлаждается (осталось {0}).</AA.MegCoolingDown>  <!-- {0} is time period, such as '16 hours' or '5 days' -->
+  <AA.MegPoweringUp>Включается: {0}%</AA.MegPoweringUp>  <!-- {0} is a percentage (0-100) -->
+  <AA.MegAlreadyPoweringUp>Уже включается.</AA.MegAlreadyPoweringUp>
+  <AA.MegCharging>Заряжается: {0} ватт-дней осталось, {1}%</AA.MegCharging>  <!-- {1} is a percentage (0-100) -->
+  <AA.MegAlreadyCharging>Уже заряжается.</AA.MegAlreadyCharging>
+  <AA.MegMissingCanisters>Недостаточно канистр антивещества.</AA.MegMissingCanisters>
+  <AA.MegMissingXCanisters>Не хватает {0} канистр антивещества.</AA.MegMissingXCanisters>
+  <AA.MegBlockedByRoof>Блокируется крышей.</AA.MegBlockedByRoof>
+  <AA.MegReadyToFire>Готовность открыть огонь.</AA.MegReadyToFire>
+  <AA.MegCooldown>Охлаждение: {0}</AA.MegCooldown>  <!-- {0} is time period, such as '16 hours' or '5 days' -->
+  <AA.MegInvalidWorldTarget>Неверно указана цель.</AA.MegInvalidWorldTarget>
+  <AA.MegOutOfRange>Цель вне зоны действия.</AA.MegOutOfRange>
+  <AA.MegNeedsMap>Указанная карта не загружена. Вы должны загрузить карту прежде чем вести её обстрел. К примеру: сначала нужно атаковать караваном.</AA.MegNeedsMap>
+  <AA.MegCantTargetSelf>Нельзя выбрать целью исходную клетку: что бы обстрелять позицию на домашней карте, используйте опцию 'Обстрелять местную позицию'.</AA.MegCantTargetSelf>
+
+  <!-- Particle accelerator -->
+  <AA.PAProducing>Производит {0} канистр в день.\n{1} часов до следующей канистры антивещества.</AA.PAProducing>
+  <AA.PANotRunningNoPower>Не работает: Нет питания</AA.PANotRunningNoPower>
+  <AA.PANotRunningNoPlasteel>Не работает: Нет пластали</AA.PANotRunningNoPlasteel>
+
+  <!-- Alloy Fusion Machine -->
+  <AA.AFMOutputSide>Направление выгрузки: {0}</AA.AFMOutputSide>  <!-- {0} is a cardinal direction such as 'North' -->
+  <AA.AFMChangeOutputSide>Изменить направление выгрузки</AA.AFMChangeOutputSide>
+  <AA.AFMChangeOutputSideDesc>Меняет направление в котором выгружаются сплавы.</AA.AFMChangeOutputSideDesc>
+  <AA.AFMRunning>Работает: {0} часов до выгрузки.</AA.AFMRunning>
+  <AA.AFMNotRunningNoPower>Не работает: Нет питания.</AA.AFMNotRunningNoPower>
+  <AA.AFMNotRunningMissingStuff>Не работает: необходимо минимум {0} золота, {1} композита, {2} урана.</AA.AFMNotRunningMissingStuff>
+  <AA.AFMPowerLevel>Изменить уровень мощности</AA.AFMPowerLevel>
+  <AA.AFMPowerLevelDesc>Текущий уровень мощности: {0}% скорости, потребляется {1} ватт.\nИзменение уровня мощности применится после изготовления текущего сплава.</AA.AFMPowerLevelDesc>
+
+  <!-- Reactor injector -->
+  <AA.RIPowerLevel>Изменить уровень мощности</AA.RIPowerLevel>
+  <AA.RIPowerLevelDesc>Текущий уровень мощности: {0}%, потребляется {1} канистр в день.</AA.RIPowerLevelDesc>
+
+  <!-- Input tray -->
+  <AA.SetTrayFor>Установить для {0}</AA.SetTrayFor>
+  <AA.SetTrayForDesc>Настраивает этот лоток для хранения {0} с приоритетом 'высокий'.</AA.SetTrayForDesc>
+  <AA.TrayCurrentlyStored>Настроен хранить: {0}</AA.TrayCurrentlyStored>
+  <AA.TrayStoredNothing>Ничего</AA.TrayStoredNothing>
+  <AA.TrayStoredMultiple>Множество</AA.TrayStoredMultiple>
+
+</LanguageData>

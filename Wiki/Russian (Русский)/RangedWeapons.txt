@@ -1,0 +1,29 @@
+ID: RangedWeapons_AA
+Title: Оружие дальнего боя
+Icon: AntimatterAnnihilation/UI/RangedIcon
+Background: AntimatterAnnihilation/PreRendered/RangedBG
+Description: Обзор оружия дальнего боя добавленного в игру этим модом.
+RequiredResearch: RangedMedium_AA
+
+ENDTAGS
+
+$AntimatterAnnihilation/UI/ExampleColonists:256,256$
+
+#Большая часть оружия дальнего боя в этом моде требует <color=\#e485ff>канистры антивещества</color> или <color=\#ac54e3>композит антивещества</color> для создания.
+Остальное может быть получено только как трофеи с рейдеров Ультратеха.#
+
+#Большая часть оружия дальнего боя создается в кузне или на верстаке.#
+
+#!Создаваемое (обычное)#
+@AntimatterBlaster_AA@
+@AntimatterSMG_AA@
+@AntimatterRifle_AA@
+@AntimatterSniperRifle_AA@
+
+#!Создаваемое (взрывчатка)#
+@AntimatterGrenades_AA@
+@AntimatterGrenadeLauncher_AA@
+
+#!Трофеи#
+@DevastatorLMG_AA@
+@DevastatorSmartGun_AA@

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorSmartGun_AA.label>смартпушка опустошитель</DevastatorSmartGun_AA.label>
+  <DevastatorSmartGun_AA.description>Тяжелое оружие на антивеществе использующее технологии Архотехов для увелечения точности стрельбы за пределы человеческих возможностей. Огонь ведется длинными очередями.\nЭто оружие использует технологии Архотехов. Даже с хорошим пониманием технологий основанных на антивеществе, он все еще невероятно сложен и не может быть создан известными средствами.</DevastatorSmartGun_AA.description>
+  <DevastatorSmartGun_AA.tools.0.label>приклад</DevastatorSmartGun_AA.tools.0.label>
+  <DevastatorSmartGun_AA.tools.1.label>ствол</DevastatorSmartGun_AA.tools.1.label>
+
+  <Bullet_DevastatorSmartGun_AA.label>АВ заряд</Bullet_DevastatorSmartGun_AA.label>
+
+
+</LanguageData>

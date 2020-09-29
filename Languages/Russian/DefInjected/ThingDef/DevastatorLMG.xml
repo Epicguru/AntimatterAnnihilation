@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorLMG_AA.label>РП опустошитель</DevastatorLMG_AA.label>
+  <DevastatorLMG_AA.description>Тяжелое оружие на антивеществе, огонь ведется непрерывными залпами зарядов.Не очень точен, но идеален для подавления групп врага.\nЭто оружие использует технологии Архотехов. Даже с хорошим пониманием технологий основанных на антивеществе, он все еще невероятно сложен и не может быть создан известными средствами.</DevastatorLMG_AA.description>
+  <DevastatorLMG_AA.tools.0.label>приклад</DevastatorLMG_AA.tools.0.label>
+  <DevastatorLMG_AA.tools.1.label>ствол</DevastatorLMG_AA.tools.1.label>
+
+  <Bullet_DevastatorLMG_AA.label>АВ заряд</Bullet_DevastatorLMG_AA.label>
+
+
+</LanguageData>

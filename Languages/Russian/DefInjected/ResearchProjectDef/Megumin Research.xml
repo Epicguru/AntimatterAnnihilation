@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <R_Megumin_AA.label>M3G_UMIN</R_Megumin_AA.label>
+  <R_Megumin_AA.description>Исследуйте как строить M3G_UMIN，стационарную защитную систему которая взаимодействует с древними орбитальными спутниками, для перенаправления энергетического луча в указанную позицию на поверхности планеты. Необходимы гиперкомпоненты для создания и поддержания силового поля от поверхности до низкой орбиты. </R_Megumin_AA.description>
+  <R_Megumin_AA.discoveredLetterTitle>M3G_UMIN</R_Megumin_AA.discoveredLetterTitle>
+  <R_Megumin_AA.discoveredLetterText>Вы можете строить M3G_UMIN, как только получите достаточно гиперкомпонентов. M3G_UMIN не будет атаковать врагов автоматически, из-за слишком большой разрушительной силы. Использует канистры антивещества для ведения огня, и имеет очень длинный период охлаждения.\nНе цельтесь рядом с чем-то что жалко потерять!</R_Megumin_AA.discoveredLetterText>
+
+
+</LanguageData>

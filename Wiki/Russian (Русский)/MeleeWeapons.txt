@@ -1,0 +1,25 @@
+ID: MeleeWeapons_AA
+Title: Оружие ближнего боя
+Icon: AntimatterAnnihilation/UI/MeleeIcon
+Background: AntimatterAnnihilation/PreRendered/MeleeBG
+Description: Обзор оружия ближнего боя добавленного в игру этим модом.
+RequiredResearch: MeleeIndustrialAdvanced_AA
+
+ENDTAGS
+
+#Большая часть оружия ближнего боя добавленного этим модом может быть создана в кузне или на верстаке, как только исследование будет завершено.
+
+Так же вы можете создавать оружие оригинальной игры используя <b><color=\#e7a6ff>композит антивещества</color></b>, с очень высокими множителями урона и защиты:#
+@AntimatterComposite_AA@
+#Список оружия ближнего боя добавленного этим модом, по категориям:#
+
+#!Летальное#
+@ScissorBlade_AA@
+@SecretSword_AA@
+@Karambit_AA@
+
+#!Нелетальное(ну почти)#
+@Galvaknuckles_AA@
+
+#!Инструменты#
+@ResonatingBlade_AA@

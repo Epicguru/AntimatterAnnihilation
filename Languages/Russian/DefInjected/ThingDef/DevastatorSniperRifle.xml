@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <DevastatorSniperRifle_AA.label>Снайперская винтовка опустошитель</DevastatorSniperRifle_AA.label>
+  <DevastatorSniperRifle_AA.description>Тяжелое оружие на антивеществе наносящее огромный урон на очень больших дистанциях.\nЭто оружие использует технологии Архотехов. Даже с хорошим пониманием технологий основанных на антивеществе, он все еще невероятно сложен и не может быть создан известными средствами.</DevastatorSniperRifle_AA.description>
+  <DevastatorSniperRifle_AA.tools.0.label>приклад</DevastatorSniperRifle_AA.tools.0.label>
+  <DevastatorSniperRifle_AA.tools.1.label>ствол</DevastatorSniperRifle_AA.tools.1.label>
+
+  <Bullet_DevastatorSniperRifle_AA.label>АВ заряд</Bullet_DevastatorSniperRifle_AA.label>
+
+
+</LanguageData>

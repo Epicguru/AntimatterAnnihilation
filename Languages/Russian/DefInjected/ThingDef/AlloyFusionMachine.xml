@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AlloyFusionMachine_AA.label>термоядерная плавильня</AlloyFusionMachine_AA.label>
+  <AlloyFusionMachine_AA.description>Сплавляет плотные металлы между собой, потребляя огромное количество энергии, для создания продвинутых металлических сплавов, таких как гиперсплав. Для подробной информации и инструкции обратитесь к вики-странице.</AlloyFusionMachine_AA.description>
+  <AlloyFusionMachine_AA_Blueprint.label>термоядерная плавильня(проект)</AlloyFusionMachine_AA_Blueprint.label>
+  <AlloyFusionMachine_AA_Blueprint_Install.label>термоядерная плавильня(проект)</AlloyFusionMachine_AA_Blueprint_Install.label>
+  <AlloyFusionMachine_AA_Frame.label>термоядерная плавильня(в процессе сборки)</AlloyFusionMachine_AA_Frame.label>
+  <AlloyFusionMachine_AA_Frame.description>Сплавляет плотные металлы между собой потребляя огромное количество энергии для создания продвинутых металлических сплавов, таких как гиперсплав. Для подробной информации и инструкции обратитесь к вики-странице.</AlloyFusionMachine_AA_Frame.description>
+
+
+</LanguageData>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <R_Reactor_AA.label>реактор антивещества</R_Reactor_AA.label>
+  <R_Reactor_AA.description>Изучите как строить реактор антивещества, идеальный источник энергии!\nЛазерные лучи в комплекте!</R_Reactor_AA.description>
+  <R_Reactor_AA.discoveredLetterTitle>О реакторе антивещества</R_Reactor_AA.discoveredLetterTitle>
+  <R_Reactor_AA.discoveredLetterText>Теперь вы можете строить реактор антивещества, но настроить его правильно не так просто.\nРеактор очень большой сам по себе и требует дополнительное место вокруг себя для инжектора и преобразователя энергии. Помните что реактор можно поворачивать в соответствии с вашими предпочтениями.\nДля подробной инструкции по установке обратитесь к вики-странице.</R_Reactor_AA.discoveredLetterText>
+
+
+</LanguageData>

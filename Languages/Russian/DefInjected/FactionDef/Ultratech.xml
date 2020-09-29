@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <UltratechEnemy_AA.label>дивизион Ультратех</UltratechEnemy_AA.label>
+  <UltratechEnemy_AA.description>Один из дивизионов конгломерата Ультратех, таинственной и могущественной технологической империи которая охватывает многие планетные системы.\n\nОни одна из немногих групп людей знающих секрет производства антивещества и обращения с ним, и будут ревниво защищать этот секрет любой ценой.\n\nУльтратех считают себя выше всех обычных форм жизни и отвергают мирное взаимодействие.\nАванпосты Ультратех созданы для проведения исследований и разработок, а так же служат напоминанием о том кто действительно контроллирует этот мир.</UltratechEnemy_AA.description>
+  <UltratechEnemy_AA.pawnSingular>представитель Ультратех</UltratechEnemy_AA.pawnSingular>
+  <UltratechEnemy_AA.pawnsPlural>представители Ультратех</UltratechEnemy_AA.pawnsPlural>
+  <UltratechEnemy_AA.leaderTitle>лидер дивизиона</UltratechEnemy_AA.leaderTitle>
+
+
+</LanguageData>

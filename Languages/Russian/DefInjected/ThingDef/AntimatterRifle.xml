@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterRifle_AA.label>АВ винтовка</AntimatterRifle_AA.label>
+  <AntimatterRifle_AA.description>АВ винтовка стреляющая очередями по 2 заряда. Имеет высокую точность и урон.\nСтреляет крошечными зарядами антивещества в сферическом силовом поле. При попадании поле разрывается выпуская антивещество в окружающую среду, что вызывает аннигиляционную реакцию.</AntimatterRifle_AA.description>
+  <AntimatterRifle_AA.tools.0.label>приклад</AntimatterRifle_AA.tools.0.label>
+  <AntimatterRifle_AA.tools.1.label>ствол</AntimatterRifle_AA.tools.1.label>
+
+
+</LanguageData>

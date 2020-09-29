@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Turret_AntimatterRailgun_AA.label>АВ рельсотрон</Turret_AntimatterRailgun_AA.label>
+  <Turret_AntimatterRailgun_AA.description>Рельсотрон стреляющий антивеществом, что вызывает аннигиляционный взрыв при ударе. Действительно опустошительно.</Turret_AntimatterRailgun_AA.description>
+  <Turret_AntimatterRailgun_AA.comps.3.fuelLabel>Осталось антивещества</Turret_AntimatterRailgun_AA.comps.3.fuelLabel>
+  <Turret_AntimatterRailgun_AA.comps.3.fuelGizmoLabel>Осталось антивещества</Turret_AntimatterRailgun_AA.comps.3.fuelGizmoLabel>
+  <Turret_AntimatterRailgun_AA.comps.3.outOfFuelMessage>Огонь невозможен: Нужна канистра антивещества для перезарядки</Turret_AntimatterRailgun_AA.comps.3.outOfFuelMessage>
+  
+  <Bullet_AntimatterRailgun_AA.label>заряд</Bullet_AntimatterRailgun_AA.label>
+
+  <Gun_AntimatterRailgunTurret_AA.label>рельсотрон</Gun_AntimatterRailgunTurret_AA.label>
+  <Gun_AntimatterRailgunTurret_AA.description>Орудийная часть АВ рельсотрона. Как вам удалось заполучить это...?</Gun_AntimatterRailgunTurret_AA.description>
+
+
+</LanguageData>

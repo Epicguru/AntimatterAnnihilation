@@ -1,0 +1,5 @@
+RequiredResearch:R_AntimatterComposite_AA
+ENDTAGS
+
+#Производится переработчиком композита:#
+@CompositeRefiner_AA@

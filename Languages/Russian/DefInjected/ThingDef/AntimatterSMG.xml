@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AntimatterSMG_AA.label>АВ ПП</AntimatterSMG_AA.label>
+  <AntimatterSMG_AA.description>Благодаря улучшенному отводу тепла, этот ПП стреляет длинной очередью зарядов антивещества с достойной точностью.\nСтреляет крошечными зарядами антивещества в сферическом силовом поле. При попадании поле разрывается выпуская антивещество в окружающую среду, что вызывает аннигиляционную реакцию.</AntimatterSMG_AA.description>
+  <AntimatterSMG_AA.tools.0.label>приклад</AntimatterSMG_AA.tools.0.label>
+  <AntimatterSMG_AA.tools.1.label>ствол</AntimatterSMG_AA.tools.1.label>
+
+
+</LanguageData>
