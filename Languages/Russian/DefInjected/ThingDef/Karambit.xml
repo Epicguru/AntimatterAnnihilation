@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Karambit_AA.label>керамбит</Karambit_AA.label>
+  <Karambit_AA.description>Одноручный изогнутый клинок, разработан для ближнего боя в ограниченном пространстве. Очень высокая скорость атаки и относительно низкий урон за удар.</Karambit_AA.description>
+  <Karambit_AA.tools.0.label>рукоять</Karambit_AA.tools.0.label>
+  <Karambit_AA.tools.1.label>острие</Karambit_AA.tools.1.label>
+  <Karambit_AA.tools.2.label>лезвие</Karambit_AA.tools.2.label>
+
+
+</LanguageData>

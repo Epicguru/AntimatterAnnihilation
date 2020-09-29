@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <AnnihilationInjury_AA.label>Аннигиляционная травма</AnnihilationInjury_AA.label>
+  <AnnihilationInjury_AA.description>Аннигиляционная травма, полученная при контакте с антивеществом. Плоть буквально аннигилируется, не оставляя ничего, кроме ужасной раны. Причиняет сильную боль и имеет высокий шанс получить заражение. </AnnihilationInjury_AA.description>
+  <AnnihilationInjury_AA.comps.0.labelTendedWell>перевязано</AnnihilationInjury_AA.comps.0.labelTendedWell>
+  <AnnihilationInjury_AA.comps.0.labelTendedWellInner>зашито</AnnihilationInjury_AA.comps.0.labelTendedWellInner>
+  <AnnihilationInjury_AA.comps.0.labelSolidTendedWell>восстановлено</AnnihilationInjury_AA.comps.0.labelSolidTendedWell>
+  <AnnihilationInjury_AA.comps.2.permanentLabel>Аннигиляционный шрам</AnnihilationInjury_AA.comps.2.permanentLabel>
+  <AnnihilationInjury_AA.injuryProps.destroyedLabel>Полностью аннигилировано</AnnihilationInjury_AA.injuryProps.destroyedLabel>
+  <AnnihilationInjury_AA.injuryProps.destroyedOutLabel>аннигилировано</AnnihilationInjury_AA.injuryProps.destroyedOutLabel>
+  <AnnihilationInjury_AA.labelNoun>аннигиляционная травма</AnnihilationInjury_AA.labelNoun>
+
+  <EnergyBurnInjury_AA.label>Энергетический ожог</EnergyBurnInjury_AA.label>
+  <EnergyBurnInjury_AA.description>Энергетический ожог，причинен мощным взрывом чистой энергии. Не кровоточит так как плоть сразу же прижигается. Причиняет сильную боль.</EnergyBurnInjury_AA.description>
+  <EnergyBurnInjury_AA.comps.0.labelTendedWell>перевязано</EnergyBurnInjury_AA.comps.0.labelTendedWell>
+  <EnergyBurnInjury_AA.comps.0.labelTendedWellInner>зашито</EnergyBurnInjury_AA.comps.0.labelTendedWellInner>
+  <EnergyBurnInjury_AA.comps.0.labelSolidTendedWell>восстановлено</EnergyBurnInjury_AA.comps.0.labelSolidTendedWell>
+  <EnergyBurnInjury_AA.comps.2.permanentLabel>Шрам от энергетического ожога</EnergyBurnInjury_AA.comps.2.permanentLabel>
+  <EnergyBurnInjury_AA.injuryProps.destroyedLabel>Сгорело</EnergyBurnInjury_AA.injuryProps.destroyedLabel>
+  <EnergyBurnInjury_AA.injuryProps.destroyedOutLabel>Сгорело</EnergyBurnInjury_AA.injuryProps.destroyedOutLabel>
+  <EnergyBurnInjury_AA.labelNoun>энергетический ожог</EnergyBurnInjury_AA.labelNoun>
+
+  <GalvaInjury_AA.label>Болезненный ушиб</GalvaInjury_AA.label>
+  <GalvaInjury_AA.description>Ушиб полученый от удара гальвакастетом. При ударе оружие выпускает сильный электрический разряд, причиняя невероятную боль, но без длительных последствий.</GalvaInjury_AA.description>
+  <GalvaInjury_AA.injuryProps.destroyedLabel>Уничтожено</GalvaInjury_AA.injuryProps.destroyedLabel>
+  <GalvaInjury_AA.labelNoun>ушиб от удара гальвакастетом</GalvaInjury_AA.labelNoun>
+</LanguageData>

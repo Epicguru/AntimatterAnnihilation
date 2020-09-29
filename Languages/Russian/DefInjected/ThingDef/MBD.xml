@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <Turret_MBD_AA.label>Многоствольный разрушитель</Turret_MBD_AA.label>
+  <Turret_MBD_AA.description>АВ пушка с вращающимися стволами, наносит огромный урон и имеет высокий темп стрельбы.</Turret_MBD_AA.description>
+  <Turret_MBD_AA.comps.4.fuelLabel>Осталось антивещества</Turret_MBD_AA.comps.4.fuelLabel>
+  <Turret_MBD_AA.comps.4.fuelGizmoLabel>Осталось антивещества</Turret_MBD_AA.comps.4.fuelGizmoLabel>
+  <Turret_MBD_AA.comps.4.outOfFuelMessage>Огонь невозможен: Нужна канистра антивещества для перезарядки</Turret_MBD_AA.comps.4.outOfFuelMessage>
+
+  <Bullet_MBD_AA.label>заряд</Bullet_MBD_AA.label>
+
+  <Gun_MBDTurret_AA.label>Многоствольный разрушитель</Gun_MBDTurret_AA.label>
+  <Gun_MBDTurret_AA.description>Орудийная часть многоствольного разрушителя. Как вам удалось заполучить это...?</Gun_MBDTurret_AA.description>
+
+
+</LanguageData>

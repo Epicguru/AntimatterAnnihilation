@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <R_MBD_AA.label>Многоствольный разрушитель</R_MBD_AA.label>
+  <R_MBD_AA.description>Создавайте турель работающую по принципу гром-пушки, добавив больше стволов для еще больших разрушений.</R_MBD_AA.description>
+  <R_MBD_AA.discoveredLetterTitle>Многоствольный разрушитель</R_MBD_AA.discoveredLetterTitle>
+  <R_MBD_AA.discoveredLetterText>Теперь вы понимаете как создавать многоствольные пушки использующие антивещество.\nИспользование гиперкомпонентов позволяет очень точно контролировать направление и поток антивещества в многоствольной системе, что приводит к невероятной скорострельности и огромной разрушительной силе.</R_MBD_AA.discoveredLetterText>
+
+</LanguageData>
