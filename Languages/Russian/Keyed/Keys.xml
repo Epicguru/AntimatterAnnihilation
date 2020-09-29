@@ -34,10 +34,10 @@
   <AA.FuelConsumeRate>Множитель потребления топлива: {0}%</AA.FuelConsumeRate>
   <AA.InjectorVolume>Громкость гудения инжектора: {0}%</AA.InjectorVolume>
   <AA.EnableEasterEggs>Включить пасхалки:</AA.EnableEasterEggs>
-  <AA.EnableCustomPathfinding>Использовать модифицированный алгоритм поиска пути:</AA.EnableCustomPathfinding>
+  <AA.EnableCustomPathfinding>Использовать модифицированный поиск пути:</AA.EnableCustomPathfinding>
   <AA.BeamsDoDamage>Лазерные лучи наносят урон:</AA.BeamsDoDamage>
   <AA.SettingsPerformance>Производительность</AA.SettingsPerformance>
-  <AA.BeamWarning>Рекомендуется отключать урон лазерных лучей при отключении модифицированного алгоритма поиска пути. Иначе пешки будут ходить сквозь смертоносные лазерные лучи!</AA.BeamWarning> 
+  <AA.BeamWarning>Рекомендуется отключать урон лазерных лучей при отключении модифицированного поиска пути. Иначе пешки будут ходить сквозь смертоносные лазерные лучи!</AA.BeamWarning> 
  
 
   <!-- PowerNet Console -->
