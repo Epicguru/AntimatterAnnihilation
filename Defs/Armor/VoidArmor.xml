@@ -89,11 +89,12 @@
     <ThingDef ParentName="ApparelVoidArmorBase_AA">
         <defName>Apparel_VoidArmor_AA</defName>
         <label>void armor</label>
-        <description>A suit made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.</description>
+        <description>A suit made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.\nCan be used as an EVA suit in outer space.</description>
         <apparel>
         <tags>
             <li>SpacerMilitary</li>
             <li>RoyalCombatGear</li>
+            <li>EVA</li>
         </tags>
         </apparel>
     </ThingDef>

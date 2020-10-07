@@ -318,9 +318,6 @@ namespace AntimatterAnnihilation.Buildings
                     break;
             }
 
-            if (!Settings.DoBeamDamage)
-                return i;
-
             foreach (var thing in tempThings)
             {
                 if (thing.def.defName == "AntimatterReactorPowerConverter_AA")
@@ -349,6 +346,9 @@ namespace AntimatterAnnihilation.Buildings
                         continue;
                     }
                 }
+
+                if (!Settings.DoBeamDamage)
+                    continue;
 
                 float damage = thing.def.category == ThingCategory.Building ? BuildingDamage : PawnDamage;
                 thing.TakeDamage(new DamageInfo(AADefOf.EnergyBurn_AA, damage, 15, instigator: this));
