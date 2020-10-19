@@ -80,6 +80,12 @@
         <defName>UltratechGunner_AA</defName>
     </PawnKindDef>
 
+    <!-- Leader implementation -->
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechLeader_AA</defName>
+        <factionLeader>true</factionLeader>
+    </PawnKindDef>
+
     <!-- Elite gunner implementation. Has much better guns, gear, bionics.-->
     <PawnKindDef ParentName="UltratechGunnerBase_AA">
         <defName>UltratechGunnerAdvanced_AA</defName>
