@@ -236,6 +236,7 @@ namespace AntimatterAnnihilation.Buildings
                 cancel.action = () =>
                 {
                     localTarget = LocalTargetInfo.Invalid;
+		    globalTarget = GlobalTargetInfo.Invalid;
                     IsChargingUp = false;
                 };
                 yield return cancel;
@@ -465,7 +466,7 @@ namespace AntimatterAnnihilation.Buildings
                 return;
 
             // It's a trash anime btw. Genuine waste of time.
-            // You're better off watching JoJo or Cowboy Bebob or KillLaKill.
+            // You're better off watching JoJo or Cowboy Bebop or KillLaKill.
             AADefOf.Explosion_Voice_AA.PlayOneShotOnCamera();
         }
 
