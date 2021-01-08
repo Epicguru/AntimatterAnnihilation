@@ -12,6 +12,8 @@ namespace AntimatterAnnihilation
         public static bool EnableCustomPathfinding = true;
         public static bool DoBeamDamage = true;
 
+        internal static bool dontShowAgain = false;
+
         public override void ExposeData()
         {
             Scribe_Values.Look(ref PowerGenMulti, "PowerGenMulti", 1f);
@@ -20,6 +22,8 @@ namespace AntimatterAnnihilation
             Scribe_Values.Look(ref EnableEasterEggs, "EnableEasterEggs", true);
             Scribe_Values.Look(ref DoBeamDamage, "DoBeamDamage", true);
             Scribe_Values.Look(ref EnableCustomPathfinding, "EnableCustomPathfiding", true);
+
+            Scribe_Values.Look(ref dontShowAgain, "temp_dontShowAgain", false);
         }
 
         public static void DoWindow(Rect window)

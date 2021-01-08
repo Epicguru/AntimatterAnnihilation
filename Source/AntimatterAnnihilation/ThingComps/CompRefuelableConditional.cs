@@ -19,12 +19,13 @@ namespace AntimatterAnnihilation.ThingComps
 
         public bool IsConditionPassed { get; private set; }
         public float CustomFuelBurnRate { get; set; } = 0f;
+        public float CustomFuelBurnMultiplier { get; set; } = 1f;
 
         public float RealFuelConsumeRate
         {
             get
             {
-                return CustomFuelBurnRate > 0f ? CustomFuelBurnRate : Props.fuelConsumptionRate;
+                return (CustomFuelBurnRate > 0f ? CustomFuelBurnRate : Props.fuelConsumptionRate) * CustomFuelBurnMultiplier;
             }
         }
 
@@ -36,13 +37,13 @@ namespace AntimatterAnnihilation.ThingComps
             if (consume)
             {
                 // Base tick consumes fuel using default conditions (must be switched on).
-                if (CustomFuelBurnRate <= 0f)
+                if (CustomFuelBurnRate <= 0f && CustomFuelBurnMultiplier == 1f)
                 {
                     base.CompTick();
                 }
                 else
                 {
-                    base.ConsumeFuel(CustomFuelBurnRate / 60000f);
+                    base.ConsumeFuel((CustomFuelBurnRate * CustomFuelBurnMultiplier) / 60000f);
                 }
             }
         }

@@ -75,7 +75,7 @@
         <li Class="CompProperties_Flickable"/>
         <li Class="CompProperties_Power">
           <compClass>CompPowerTrader</compClass>
-          <basePowerConsumption>4000</basePowerConsumption>
+          <basePowerConsumption>-100</basePowerConsumption> <!-- When now producing Antimatter -->
         </li>
         <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
           <fuelConsumptionRate>20</fuelConsumptionRate>
