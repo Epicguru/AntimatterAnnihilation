@@ -22,10 +22,10 @@ namespace AntimatterAnnihilation.Attacks
         public event Action<CustomOrbitalStrike> OnStrikeOver;
         public float Radius = 15f;
         public int UpdatesPerTick = 4;
-		public float ArmorPen = 0.35f;
-		public DamageDef DamageDef;
-        public IntRange DamageAmountRange = new IntRange(65, 100);
-        public IntRange CorpseDamageAmountRange = new IntRange(5, 10);
+		public float ArmorPen = 0.75f;
+		public DamageDef[] DamageDefs;
+        public IntRange DamageAmountRange = new IntRange(70, 85);
+        public IntRange CorpseDamageAmountRange = new IntRange(3, 6);
 
 		public override void StartStrike()
 		{
@@ -91,7 +91,7 @@ namespace AntimatterAnnihilation.Attacks
 					log = new BattleLogEntry_DamageTaken(pawn, RulePackDefOf.DamageEvent_PowerBeam, this.instigator as Pawn);
 					Find.BattleLog.Add(log);
 				}
-				tmpThings[i].TakeDamage(new DamageInfo(DamageDef, (float)damage, ArmorPen, -1f, this.instigator, null, this.weaponDef, DamageInfo.SourceCategory.ThingOrUnknown, null)).AssociateWithLog(log);
+				tmpThings[i].TakeDamage(new DamageInfo(DamageDefs.RandomElement(), (float)damage, ArmorPen, -1f, this.instigator, null, this.weaponDef, DamageInfo.SourceCategory.ThingOrUnknown, null)).AssociateWithLog(log);
 			}
 			tmpThings.Clear();
 		}
