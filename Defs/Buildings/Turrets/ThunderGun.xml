@@ -89,7 +89,7 @@
         </comps>
         <building>
             <turretGunDef>Gun_ThunderGunTurret_AA</turretGunDef>
-            <turretBurstCooldownTime>8</turretBurstCooldownTime>
+            <turretBurstCooldownTime>7</turretBurstCooldownTime>
         </building>
         <researchPrerequisites>
             <li>ThunderGun_AA</li>
@@ -105,7 +105,7 @@
         </graphicData>
         <projectile>
             <damageDef>Bullet</damageDef>
-            <damageAmountBase>25</damageAmountBase>
+            <damageAmountBase>20</damageAmountBase>
             <speed>140</speed>
             <armorPenetrationBase>0.65</armorPenetrationBase>
         </projectile>
@@ -121,11 +121,11 @@
             <drawSize>(2,2)</drawSize>
         </graphicData>
         <statBases>
-            <AccuracyTouch>0.3</AccuracyTouch>
+            <AccuracyTouch>0.35</AccuracyTouch>
             <AccuracyShort>0.75</AccuracyShort>
-            <AccuracyMedium>0.85</AccuracyMedium>
+            <AccuracyMedium>0.8</AccuracyMedium>
             <AccuracyLong>0.6</AccuracyLong>
-            <RangedWeapon_Cooldown>3.5</RangedWeapon_Cooldown>
+            <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
             <DeteriorationRate>0</DeteriorationRate>
             <Mass>200</Mass>
             <Flammability>0</Flammability>
@@ -137,8 +137,8 @@
                 <warmupTime>0</warmupTime>
                 <minRange>6</minRange>
                 <range>55</range>
-                <ticksBetweenBurstShots>16</ticksBetweenBurstShots>
-                <burstShotCount>4</burstShotCount>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <burstShotCount>6</burstShotCount>
                 <soundCast>Shot_Autocannon</soundCast>
                 <soundCastTail>GunTail_Heavy</soundCastTail>
                 <muzzleFlashScale>12</muzzleFlashScale>

@@ -6,6 +6,7 @@
         <label>M3G_UMIN</label>
         <description>Fires a beam of energy up to an ancient geostationary satelite, where it is reflected towards a specific coordinate on the planet surface.
 The beam incinerates all living things and quickly destroys any structures in the blast radius.
+
 Firing the beam of energy creates a huge electromagnetic pulse in both the area it is fired from and also the area it impacts on, temporarily shutting down all electronics.</description>
         <graphicData>
             <texPath>AntimatterAnnihilation/Buildings/M3G_UMIN</texPath>
@@ -50,7 +51,7 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 <storedEnergyMax>600</storedEnergyMax> <!-- Required when using this component. Does not actually represent real max. -->
                 <transmitsPower>true</transmitsPower>
 
-                <maxPull>500000</maxPull> <!-- 500KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
+                <maxPull>1000000</maxPull> <!-- 1000KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
                 <doSelfDischarge>false</doSelfDischarge>
                 <doInspectorInfo>false</doInspectorInfo>
             </li>
@@ -117,7 +118,7 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 <sound>OrbitalBeam</sound>
             </li>
             <li Class="CompProperties_CameraShaker">
-                <mag>0.06</mag>
+                <mag>0.08</mag>
             </li>
         </comps>
     </ThingDef>

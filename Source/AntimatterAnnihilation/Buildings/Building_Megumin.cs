@@ -19,17 +19,17 @@ namespace AntimatterAnnihilation.Buildings
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
         [TweakValue("AntimatterAnnihilation", 0f, 1f)]
-        public static float EasterEggChance = 0.2f;
+        public static float EasterEggChance = 0.333f;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
         public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
-        public static float RADIUS = 15;
+        public static float RADIUS = 16;
         public static int DURATION_TICKS = 310;
         public static float EXPLOSION_RADIUS = 18;
         public static int EXPLOSION_DAMAGE = 50;
         public static float EXPLOSION_PEN = 0.7f;
-        public static float CHARGE_WATT_DAYS = 600 * 5; // Requires 5 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
-        public static int WORLD_MAP_RANGE = 130;
+        public static float CHARGE_WATT_DAYS = 600 * 1f; // Requires 1 fully-powered batteries to charge (semi-instantly). Otherwise it will take longer depending on power production.
+        public static int WORLD_MAP_RANGE = 150;
 
         public bool ShouldBeGlowingNow
         {

@@ -13,6 +13,7 @@ namespace AntimatterAnnihilation.Utils
 
         public static DamageDef Annihilate_AA;
         public static DamageDef EnergyBurn_AA;
+        public static DamageDef SkyBeamBlast_AA; // Same as EnergyBurn_AA except that it uses sharp armor.
         public static DamageDef AnnihilationExplosion_AA;
         public static DamageDef AnnihilationExplosionRailgun_AA;
 

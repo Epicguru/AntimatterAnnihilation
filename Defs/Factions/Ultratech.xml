@@ -14,7 +14,7 @@
         <leaderForceGenerateNewPawn>true</leaderForceGenerateNewPawn>
         
 		<factionIconPath>AntimatterAnnihilation/UI/FactionBaseIcon</factionIconPath>
-		<pawnsPlural>ultratech memebers</pawnsPlural>
+		<pawnsPlural>ultratech members</pawnsPlural>
 		<settlementGenerationWeight>0.8</settlementGenerationWeight>
 		<listOrderPriority>40</listOrderPriority>
 		<categoryTag>Ultratech</categoryTag>
