@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ThunderGun_AA.label>雷光炮</ThunderGun_AA.label>
-  <ThunderGun_AA.description>这个炮塔的设计是直接从欧泰克阵营偷来的。炮塔不需要非常先进的材料来建造，但是需要在使用后时常补充铀弹头。</ThunderGun_AA.description>
+  <ThunderGun_AA.label>雷霆炮</ThunderGun_AA.label>
+  <ThunderGun_AA.description>这款炮塔的设计是直接从超科技集团窃取的。
+这款炮塔并不需要先进的材料，但是需要补充铀弹。</ThunderGun_AA.description>
 
 
 </LanguageData>

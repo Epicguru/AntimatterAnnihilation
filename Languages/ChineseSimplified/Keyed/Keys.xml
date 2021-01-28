@@ -98,7 +98,7 @@
 
   <!-- Input tray -->
   <AA.SetTrayFor>为 {0}</AA.SetTrayFor>
-  <AA.SetTrayForDesc>配置此托盘以存储具有“重要”优先级的 {0} .</AA.SetTrayForDesc>
+  <AA.SetTrayForDesc>配置此注入器以存储具有“重要”优先级的 {0} .</AA.SetTrayForDesc>
   <AA.TrayCurrentlyStored>配置存储为: {0}</AA.TrayCurrentlyStored>
   <AA.TrayStoredNothing>无</AA.TrayStoredNothing>
   <AA.TrayStoredMultiple>多个</AA.TrayStoredMultiple>

@@ -1,12 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <AlloyFusionMachine_AA.label>合金熔炼器</AlloyFusionMachine_AA.label>
-  <AlloyFusionMachine_AA.description>利用巨大的能量将稠密的金属熔炼在一起，形成高级的金属合金，如超高温合金。有关更多信息和使用方法，请参见游戏内wiki.</AlloyFusionMachine_AA.description>
-  <AlloyFusionMachine_AA_Blueprint.label>合金熔炼器(蓝图)</AlloyFusionMachine_AA_Blueprint.label>
-  <AlloyFusionMachine_AA_Blueprint_Install.label>合金熔炼器(蓝图)</AlloyFusionMachine_AA_Blueprint_Install.label>
-  <AlloyFusionMachine_AA_Frame.label>合金熔炼器(蓝图)</AlloyFusionMachine_AA_Frame.label>
-  <AlloyFusionMachine_AA_Frame.description>利用巨大的能量将稠密的金属熔炼在一起，形成高级的金属合金，如超高温合金。有关更多信息和使用方法，请参见游戏内wiki.</AlloyFusionMachine_AA_Frame.description>
+  <AlloyFusionMachine_AA.label>合金熔融器</AlloyFusionMachine_AA.label>
+  <AlloyFusionMachine_AA.description>利用巨大的能量将高密度的金属熔合在一起，创造更加高级的金属合金，例如超合金。
+
+查看游戏内部的wiki以获得更多信息了解如何使用。</AlloyFusionMachine_AA.description>
+  <AlloyFusionMachine_AA_Blueprint.label>合金熔融器(蓝图)</AlloyFusionMachine_AA_Blueprint.label>
+  <AlloyFusionMachine_AA_Blueprint_Install.label>合金熔融器(蓝图)</AlloyFusionMachine_AA_Blueprint_Install.label>
+  <AlloyFusionMachine_AA_Frame.label>合金熔融器(建造中)</AlloyFusionMachine_AA_Frame.label>
+  <AlloyFusionMachine_AA_Frame.description>利用巨大的能量将高密度的金属熔合在一起，创造更加高级的金属合金，例如超合金。
+
+查看游戏内部的wiki以获得更多信息了解如何使用。</AlloyFusionMachine_AA_Frame.description>
 
 
 </LanguageData>

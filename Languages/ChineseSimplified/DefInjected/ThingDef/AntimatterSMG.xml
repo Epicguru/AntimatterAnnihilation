@@ -2,7 +2,9 @@
 <LanguageData>
 
   <AntimatterSMG_AA.label>反物质冲锋枪</AntimatterSMG_AA.label>
-  <AntimatterSMG_AA.description>由于先进的散热技术，这个冲锋枪可以精确地发射大量反物质。在一个球形的场中点燃少量的反物质。反物质一经碰撞就会溶解，暴露在周围的环境中并引起湮灭反应。</AntimatterSMG_AA.description>
+  <AntimatterSMG_AA.description>由于使用了先进的散热技术，这款冲锋枪可以短时间内发射大量的反物质弹药。
+
+在这款特殊弹药的AT力场中含有少量的反物质，一旦受到冲击，AT力场便会消解，将反物质暴露在周围的环境中并引起湮灭反应。</AntimatterSMG_AA.description>
   <AntimatterSMG_AA.tools.0.label>枪托</AntimatterSMG_AA.tools.0.label>
   <AntimatterSMG_AA.tools.1.label>枪管</AntimatterSMG_AA.tools.1.label>
 

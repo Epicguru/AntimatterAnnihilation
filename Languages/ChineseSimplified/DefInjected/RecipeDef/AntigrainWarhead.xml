@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
+
   <Make_AntigrainWarhead_AA.label>制作反粒子弹头</Make_AntigrainWarhead_AA.label>
-  <Make_AntigrainWarhead_AA.description>用反物质技术制造反粒子弹头。</Make_AntigrainWarhead_AA.description>
-  <Make_AntigrainWarhead_AA.jobString>正在制造反粒子弹头。</Make_AntigrainWarhead_AA.jobString>
+  <Make_AntigrainWarhead_AA.description>用反物质技术制作一枚反粒子弹头。</Make_AntigrainWarhead_AA.description>
+  <Make_AntigrainWarhead_AA.jobString>正在制作反粒子弹头。</Make_AntigrainWarhead_AA.jobString>
+
+
 </LanguageData>

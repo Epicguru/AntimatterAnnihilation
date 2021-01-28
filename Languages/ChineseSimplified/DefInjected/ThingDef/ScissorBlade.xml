@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ScissorBlade_AA.label>剪刃长刀</ScissorBlade_AA.label>
-  <ScissorBlade_AA.description>拥有独特的长刀刃，形似半把剪刀。拥有非常高的切割伤害和护甲穿透，也可以进行快速的钝器攻击。</ScissorBlade_AA.description>
+  <ScissorBlade_AA.label>剪刃刀</ScissorBlade_AA.label>
+  <ScissorBlade_AA.description>独特的长刀，像半把剪刀。具有非常高的切割伤害和穿甲能力，以及快速的钝器攻击能力。</ScissorBlade_AA.description>
   <ScissorBlade_AA.tools.0.label>刀柄</ScissorBlade_AA.tools.0.label>
   <ScissorBlade_AA.tools.1.label>刀尖</ScissorBlade_AA.tools.1.label>
   <ScissorBlade_AA.tools.2.label>刀刃</ScissorBlade_AA.tools.2.label>

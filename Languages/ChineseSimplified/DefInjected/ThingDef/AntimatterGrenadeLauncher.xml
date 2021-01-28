@@ -2,11 +2,11 @@
 <LanguageData>
 
   <AntimatterGrenadeLauncher_AA.label>反物质榴弹发射器</AntimatterGrenadeLauncher_AA.label>
-  <AntimatterGrenadeLauncher_AA.description>一种能远距离发射反物质榴弹的巨型发射器，对建筑和敌人都是毁灭性的打击。</AntimatterGrenadeLauncher_AA.description>
+  <AntimatterGrenadeLauncher_AA.description>一款可以远距离发射反物质榴弹的发射器，能够对软目标和建筑物造成毁灭性伤害。</AntimatterGrenadeLauncher_AA.description>
   <AntimatterGrenadeLauncher_AA.tools.0.label>枪托</AntimatterGrenadeLauncher_AA.tools.0.label>
   <AntimatterGrenadeLauncher_AA.tools.1.label>枪管</AntimatterGrenadeLauncher_AA.tools.1.label>
 
-  <Bullet_AntimatterGrenade_AA.label>发射反物质榴弹</Bullet_AntimatterGrenade_AA.label>
+  <Bullet_AntimatterGrenade_AA.label>反物质榴弹发射器</Bullet_AntimatterGrenade_AA.label>
 
 
 </LanguageData>

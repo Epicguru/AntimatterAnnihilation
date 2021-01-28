@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <!-- Faction name -->
+
+  <NamerFactionUltratech_AA.rulePack.rulesStrings.0>r_name->[ultratech_faction_names]</NamerFactionUltratech_AA.rulePack.rulesStrings.0>
+  <NamerSettlementUltratech_AA.rulePack.rulesStrings.0>r_name->[ultratech_settlement_names] [ultratech_settlement_type]</NamerSettlementUltratech_AA.rulePack.rulesStrings.0>
+
+
+</LanguageData>

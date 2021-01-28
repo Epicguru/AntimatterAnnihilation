@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <Karambit_AA.label>卡比特弯刀</Karambit_AA.label>
-  <Karambit_AA.description>这是一款单手弯刀，专为近距离格斗而设计，拥有非常快的攻击速度，但是每击的伤害相对较低。</Karambit_AA.description>
+  <Karambit_AA.label>爪刀</Karambit_AA.label>
+  <Karambit_AA.description>一款单手弯刀，专为近身格斗而设计。拥有非常快的攻击速度，但伤害较低。</Karambit_AA.description>
   <Karambit_AA.tools.0.label>刀柄</Karambit_AA.tools.0.label>
   <Karambit_AA.tools.1.label>刀尖</Karambit_AA.tools.1.label>
   <Karambit_AA.tools.2.label>刀刃</Karambit_AA.tools.2.label>
