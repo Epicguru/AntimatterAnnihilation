@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <DevastatorLMG_AA.label>湮灭轻机枪</DevastatorLMG_AA.label>
-  <DevastatorLMG_AA.description>一种能连续发射子弹的重型反物质武器。虽然不是很准确，但在对付成群的敌人时非常出色。这种武器结合了尖端科技。即使我们对反物质技术有了很好的理解，但这种武器仍然是难以置信的先进，并且不能使用任何已知的方法来制造。</DevastatorLMG_AA.description>
+  <DevastatorLMG_AA.label>蹂躏者轻机枪</DevastatorLMG_AA.label>
+  <DevastatorLMG_AA.description>一款重型反物质武器，能够连续发射大量反物质弹药。虽然精度有限但可以压制大量敌军。
+由于这款武器使用了远古科技，即便深入地了解了反物质技术也无法进行量产。</DevastatorLMG_AA.description>
   <DevastatorLMG_AA.tools.0.label>枪托</DevastatorLMG_AA.tools.0.label>
   <DevastatorLMG_AA.tools.1.label>枪管</DevastatorLMG_AA.tools.1.label>
 

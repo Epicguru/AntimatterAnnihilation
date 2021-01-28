@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <Turret_ThunderGun_AA.label>雷光炮</Turret_ThunderGun_AA.label>
-  <Turret_ThunderGun_AA.description>用传送带供弹，发射巨大的铀弹头的动能武器。双筒自动装弹系统使其具有良好的射速和较大的伤害。</Turret_ThunderGun_AA.description>
+  <Turret_ThunderGun_AA.label>雷霆炮</Turret_ThunderGun_AA.label>
+  <Turret_ThunderGun_AA.description>以常规方式来发射巨型铀弹的动能武器，双管自动装弹系统为其提供了优异的射速，可造成巨大伤害。</Turret_ThunderGun_AA.description>
 
-  <Bullet_ThunderGun_AA.label>雷光炮金属弹</Bullet_ThunderGun_AA.label>
+  <Bullet_ThunderGun_AA.label>雷霆炮重击</Bullet_ThunderGun_AA.label>
 
-  <Gun_ThunderGunTurret_AA.label>雷光炮</Gun_ThunderGunTurret_AA.label>
-  <Gun_ThunderGunTurret_AA.description>雷光炮的顶部配件。你怎么弄到这个...?</Gun_ThunderGunTurret_AA.description>
+  <Gun_ThunderGunTurret_AA.label>雷霆炮</Gun_ThunderGunTurret_AA.label>
+  <Gun_ThunderGunTurret_AA.description>雷霆炮的指挥塔。你是怎么搞到的？</Gun_ThunderGunTurret_AA.description>
 
 
 </LanguageData>

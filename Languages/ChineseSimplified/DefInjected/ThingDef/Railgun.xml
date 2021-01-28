@@ -2,12 +2,12 @@
 <LanguageData>
 
   <Turret_AntimatterRailgun_AA.label>反物质轨道炮</Turret_AntimatterRailgun_AA.label>
-  <Turret_AntimatterRailgun_AA.description>一款轨道炮，它发射的反物质在撞击后会产生真正毁灭性的湮灭爆炸。</Turret_AntimatterRailgun_AA.description>
+  <Turret_AntimatterRailgun_AA.description>发射反物质的轨道炮，炮弹在发生碰撞时会产生真正毁灭性的湮灭爆炸。</Turret_AntimatterRailgun_AA.description>
 
   <Bullet_AntimatterRailgun_AA.label>爆炸</Bullet_AntimatterRailgun_AA.label>
 
   <Gun_AntimatterRailgunTurret_AA.label>轨道炮</Gun_AntimatterRailgunTurret_AA.label>
-  <Gun_AntimatterRailgunTurret_AA.description>反物质轨道炮的顶部。你怎么弄到这个…?</Gun_AntimatterRailgunTurret_AA.description>
+  <Gun_AntimatterRailgunTurret_AA.description>T反物质轨道炮的指挥塔。你怎么搞到这个的？</Gun_AntimatterRailgunTurret_AA.description>
 
 
 </LanguageData>

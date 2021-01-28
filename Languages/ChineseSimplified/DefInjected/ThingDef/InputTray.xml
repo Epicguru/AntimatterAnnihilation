@@ -2,7 +2,7 @@
 <LanguageData>
 
   <InputTray_AA.label>注入器(遗留)</InputTray_AA.label>
-  <InputTray_AA.description>不再使用这个mod:机器现在使用一个更简单的注入系统。你应该把这个解构掉，把钢铁回收。</InputTray_AA.description>
+  <InputTray_AA.description>一款更简单的注入系统。\n你可以拆掉它来回收钢铁。</InputTray_AA.description>
 
 
 </LanguageData>

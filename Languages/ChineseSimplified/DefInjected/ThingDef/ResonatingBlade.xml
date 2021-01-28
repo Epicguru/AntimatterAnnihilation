@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <ResonatingBlade_AA.label>共振叶刃</ResonatingBlade_AA.label>
-  <ResonatingBlade_AA.description>一种反物质复合叶片，内部能产生持续的湮灭反应，类似于核裂变的工作原理。由此释放出来的能量通过使用者的身体流动，增加他们的最大肌肉力量，使他们移动比正常速度快得多。但这也会让使用者感到疲劳，导致工作速度略有下降。</ResonatingBlade_AA.description>
+  <ResonatingBlade_AA.label>共振刀</ResonatingBlade_AA.label>
+  <ResonatingBlade_AA.description>一把反物质复合刀，它的设计工作原理类似于核衰变，内部持续创造湮灭反应。\n\n释放出的能量流流经使用者，可以增加他们的肌肉力量，让他们移动速度更快。但这也会使使用者更快地疲劳，导致其工作速度略微下降。</ResonatingBlade_AA.description>
   <ResonatingBlade_AA.tools.0.label>刀柄</ResonatingBlade_AA.tools.0.label>
   <ResonatingBlade_AA.tools.1.label>刀尖</ResonatingBlade_AA.tools.1.label>
   <ResonatingBlade_AA.tools.2.label>刀刃</ResonatingBlade_AA.tools.2.label>

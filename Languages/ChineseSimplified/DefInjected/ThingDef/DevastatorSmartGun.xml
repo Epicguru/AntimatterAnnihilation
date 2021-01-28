@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LanguageData>
 
-  <DevastatorSmartGun_AA.label>湮灭冲锋枪</DevastatorSmartGun_AA.label>
-  <DevastatorSmartGun_AA.description>一种重型反物质武器，使用尖端科技提高射击了精度，远远超过人类能力。能够引起巨大爆炸。这种武器结合了尖端科技。即使我们对反物质技术有了很好的理解，但这种武器仍然是难以置信的先进，并且不能使用任何已知的方法来制造。</DevastatorSmartGun_AA.description>
+  <DevastatorSmartGun_AA.label>蹂躏者冲锋枪</DevastatorSmartGun_AA.label>
+  <DevastatorSmartGun_AA.description>这是一款重型反物质武器，利用远古科技提高了射速，可以造成大量伤害。
+由于这款武器使用了远古科技，即便深入地了解了反物质技术也无法进行量产。</DevastatorSmartGun_AA.description>
   <DevastatorSmartGun_AA.tools.0.label>枪托</DevastatorSmartGun_AA.tools.0.label>
   <DevastatorSmartGun_AA.tools.1.label>枪管</DevastatorSmartGun_AA.tools.1.label>
 

@@ -3,38 +3,44 @@
 
   <!-- Basic gunner implementation -->
 
-  <UltratechGunner_AA.label>欧泰克枪手</UltratechGunner_AA.label>
-  <UltratechGunner_AA.labelPlural>欧泰克枪手</UltratechGunner_AA.labelPlural>
+  <UltratechGunner_AA.label>超科技枪手</UltratechGunner_AA.label>
+  <UltratechGunner_AA.labelPlural>超科技枪手们</UltratechGunner_AA.labelPlural>
+
+
+  <!-- Leader implementation -->
+
+  <UltratechLeader_AA.label>超科技枪手</UltratechLeader_AA.label>
+  <UltratechLeader_AA.labelPlural>超科技枪手们</UltratechLeader_AA.labelPlural>
 
 
   <!-- Elite gunner implementation. Has much better guns, gear, bionics. -->
 
-  <UltratechGunnerAdvanced_AA.label>欧泰克精锐枪手</UltratechGunnerAdvanced_AA.label>
-  <UltratechGunnerAdvanced_AA.labelPlural>欧泰克精锐枪手</UltratechGunnerAdvanced_AA.labelPlural>
+  <UltratechGunnerAdvanced_AA.label>超科技精英枪手</UltratechGunnerAdvanced_AA.label>
+  <UltratechGunnerAdvanced_AA.labelPlural>超科技精英枪手们</UltratechGunnerAdvanced_AA.labelPlural>
 
 
   <!-- Basic sniper implementation -->
 
-  <UltratechSniper_AA.label>欧泰克狙击手</UltratechSniper_AA.label>
-  <UltratechSniper_AA.labelPlural>欧泰克狙击手</UltratechSniper_AA.labelPlural>
+  <UltratechSniper_AA.label>超科技狙击手</UltratechSniper_AA.label>
+  <UltratechSniper_AA.labelPlural>超科技狙击手们</UltratechSniper_AA.labelPlural>
 
 
   <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles. -->
 
-  <UltratechSniperAdvanced_AA.label>欧泰克精锐狙击手</UltratechSniperAdvanced_AA.label>
-  <UltratechSniperAdvanced_AA.labelPlural>欧泰克精锐狙击手</UltratechSniperAdvanced_AA.labelPlural>
+  <UltratechSniperAdvanced_AA.label>超科技精英狙击手</UltratechSniperAdvanced_AA.label>
+  <UltratechSniperAdvanced_AA.labelPlural>超科技精英狙击手们</UltratechSniperAdvanced_AA.labelPlural>
 
 
   <!-- Basic melee (slasher) implementation -->
 
-  <UltratechMelee_AA.label>欧泰克切割者</UltratechMelee_AA.label>
-  <UltratechMelee_AA.labelPlural>欧泰克切割者</UltratechMelee_AA.labelPlural>
+  <UltratechMelee_AA.label>超科技绞肉机</UltratechMelee_AA.label>
+  <UltratechMelee_AA.labelPlural>超科技绞肉机们</UltratechMelee_AA.labelPlural>
 
 
   <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, wepaons. -->
 
-  <UltratechMeleeAdvanced_AA.label>欧泰克精锐切割者</UltratechMeleeAdvanced_AA.label>
-  <UltratechMeleeAdvanced_AA.labelPlural>欧泰克精锐切割者</UltratechMeleeAdvanced_AA.labelPlural>
+  <UltratechMeleeAdvanced_AA.label>超科技精英绞肉机</UltratechMeleeAdvanced_AA.label>
+  <UltratechMeleeAdvanced_AA.labelPlural>超科技精英绞肉机们</UltratechMeleeAdvanced_AA.labelPlural>
 
 
 </LanguageData>
