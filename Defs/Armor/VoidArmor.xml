@@ -42,7 +42,7 @@
         </tradeTags>
         <costList>
             <ComponentSpacer>5</ComponentSpacer>
-            <Gold>10</Gold>
+            <Gold>1</Gold>
             <AntimatterComposite_AA>60</AntimatterComposite_AA>
             <Uranium>25</Uranium>
         </costList>
