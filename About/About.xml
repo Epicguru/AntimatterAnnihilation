@@ -31,6 +31,7 @@ See the store page for all plans, and don't hesitate to suggest new features or 
     </li>
   </modDependencies>
   <loadAfter>
+    <li>brrainz.harmony</li>
     <li>co.uk.epicguru.ingamewiki</li> <!-- Which has to go after Harmony, so that is sorted. -->
   </loadAfter>
 </ModMetaData>

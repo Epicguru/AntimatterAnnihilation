@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+  <Operation Class="PatchOperationFindMod">
+    <mods>
+      <li>RimForge</li>
+    </mods>
+    <match Class="PatchOperationSequence">
+      <success>Always</success>
+      <operations>
+
+        <!-- Antimatter composite -->
+        <li Class="PatchOperationAddModExtension">
+          <xpath>Defs/ThingDef[defName="AntimatterComposite_AA"]</xpath>
+          <value>
+            <li Class="RimForge.Extension">
+              <meltingPoint>1800</meltingPoint>
+            </li>
+          </value>
+        </li>
+
+      </operations>
+    </match>
+  </Operation>
+
+</Patch>

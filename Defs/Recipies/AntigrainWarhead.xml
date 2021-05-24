@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <Defs>
 
-<RecipeDef>
+  <RecipeDef>
     <defName>Make_AntigrainWarhead_AA</defName>
     <label>make antigrain warhead</label>
     <description>Make an antigrain warhead using antimatter.</description>
@@ -9,8 +9,8 @@
     <workSpeedStat>GeneralLaborSpeed</workSpeedStat>
     <effectWorking>Cook</effectWorking>
     <recipeUsers>
-        <li>TableMachining</li>
-      </recipeUsers>
+      <li>TableMachining</li>
+    </recipeUsers>
     <soundWorking>Recipe_Machining</soundWorking>
     <workAmount>1100</workAmount>
     <unfinishedThingDef>UnfinishedComponent</unfinishedThingDef>
@@ -40,7 +40,7 @@
         <count>2</count>
       </li>
     </ingredients>
-    
+
     <fixedIngredientFilter>
       <thingDefs>
         <li>AntimatterCanister_AA</li>

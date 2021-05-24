@@ -36,7 +36,7 @@
         </statBases>
         <costList>
             <ComponentSpacer>3</ComponentSpacer>
-            <Gold>6</Gold>
+            <Gold>1</Gold>
             <AntimatterComposite_AA>35</AntimatterComposite_AA>
             <Uranium>10</Uranium>
         </costList>
