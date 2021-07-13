@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="TrapIEDBase">
+        <defName>TrapIED_N2Mine_AA</defName>
+        <label>N² mine</label>
+        <description>A mine that makes antigrain IED's look like firecrackers. You don't want this exploding near anything you care about.</description>
+        <graphicData>
+            <texPath>Things/Building/Security/IEDAntigrainWarhead</texPath>
+        </graphicData>
+        <costList>
+            <Steel>15</Steel>
+            <AntimatterCanister_AA>3</AntimatterCanister_AA>
+        </costList>
+        <designationHotKey>Misc12</designationHotKey>
+        <building>
+            <!-- Don't nuke wild animals -->
+            <trapPeacefulWildAnimalsSpringChanceFactor>0</trapPeacefulWildAnimalsSpringChanceFactor>
+        </building>
+        <designationCategory>Antimatter</designationCategory>
+        <researchPrerequisites>
+            <li>AntimatterExplosives_AA</li>
+        </researchPrerequisites>
+        <comps>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_ExplosiveCustom">
+                <explosiveRadius>16.9</explosiveRadius>
+                <explosiveDamageType>AnnihilationExplosionHuge_AA</explosiveDamageType>
+                <startWickHitPointsPercent>0.2</startWickHitPointsPercent>
+                <chanceToStartFire>0.15</chanceToStartFire>
+                <damageFalloff>true</damageFalloff>
+                <explosionEffect>GiantExplosion</explosionEffect>
+
+                <wickTicks>90~90</wickTicks> <!-- 30 total wick ticks, explosion audio starts on second tick (30-28) -->
+                <wickTicksToPlayAudio>40</wickTicksToPlayAudio>
+                <customExplodeAudio>Explosion_Huge_AA</customExplodeAudio>
+
+                <startWickOnDamageTaken>
+                    <li>Bullet</li>
+                    <li>Arrow</li>
+                    <li>ArrowHighVelocity</li>
+                </startWickOnDamageTaken>
+            </li>
+        </comps>
+        <specialDisplayRadius>16.9</specialDisplayRadius>
+    </ThingDef>
+
+</Defs>

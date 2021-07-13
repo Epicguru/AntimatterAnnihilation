@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_LargeMuzzleFlash_AA</defName>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Motes/MuzzleFlash</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <drawOffscreen>true</drawOffscreen>
+        <mote>
+            <fadeInTime>0.1</fadeInTime>
+            <solidTime>0</solidTime>
+            <fadeOutTime>0.15</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_LargeMuzzleFlashFast_AA</defName>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Motes/MuzzleFlash</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <drawOffscreen>true</drawOffscreen>
+        <mote>
+            <fadeInTime>0.05</fadeInTime>
+            <solidTime>0</solidTime>
+            <fadeOutTime>0.1</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+</Defs>

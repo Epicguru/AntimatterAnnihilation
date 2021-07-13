@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>RangedMedium_AA</defName>
+        <label>antimatter short range weapons</label>
+        <description>Allows you to craft various short to medium range antimatter guns.</description>
+        <baseCost>2200</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ParticleAccelerators_AA</li>
+        </prerequisites>        
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>2.50</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

@@ -190,11 +190,19 @@ namespace AntimatterAnnihilation.Buildings
             {
                 Find.WorldSelector.ClearSelection();
                 CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
+#if V12
                 Find.WorldTargeter.BeginTargeting_NewTemp(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
                     () =>
                     {
                         GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
                     });
+#elif V13
+                Find.WorldTargeter.BeginTargeting(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
+                    () =>
+                    {
+                        GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
+                    });
+#endif
             };
 
             if (IsOnCooldown)

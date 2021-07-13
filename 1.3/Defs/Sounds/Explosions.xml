@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <SoundDef>
+        <defName>Explosion_Antimatter_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
+                    </li>
+                </grains>      
+                <volumeRange>80~80</volumeRange>      
+                <pitchRange>0.8516304~1.254348</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Explosion_Antimatter_Large_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>AntimatterAnnihilation/BombCloseShort</clipFolderPath>
+                    </li>
+                </grains>      
+                <volumeRange>90~90</volumeRange>      
+                <pitchRange>0.4~0.45</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Silent_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>AntimatterAnnihilation/Zap</clipFolderPath>
+                    </li>
+                </grains>      
+                <volumeRange>0~0</volumeRange>      
+                <pitchRange>1~1</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Explosion_Huge_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Folder">
+                        <clipFolderPath>AntimatterAnnihilation/HugeExplosion</clipFolderPath>
+                    </li>
+                </grains>      
+                <volumeRange>100~100</volumeRange>      
+                <pitchRange>0.9~0.95</pitchRange>
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Explosion_Voice_AA</defName>  
+        <context>MapOnly</context> 
+        <maxSimultaneous>1</maxSimultaneous>
+        <subSounds>
+        <li>
+            <onCamera>true</onCamera>
+            <grains>
+                <li Class="AudioGrain_Folder">
+                    <clipFolderPath>AntimatterAnnihilation/ExplosionVoice</clipFolderPath>
+                </li>
+            </grains>      
+            <volumeRange>100~100</volumeRange>      
+            <pitchRange>1~1</pitchRange>
+        </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

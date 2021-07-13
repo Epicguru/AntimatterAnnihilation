@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>Railgun_AA</defName>
+        <label>antimatter railgun</label>
+        <description>Based on the design of the Thunder Gun, this railgun uses advanced AT fields to accelerate antimatter to the speed of light before launching it towards an unfortunate target.</description>
+        <baseCost>4200</baseCost>
+        <techLevel>Ultra</techLevel>
+        <tab>Antimatter</tab>
+        <discoveredLetterTitle>Antimatter railgun</discoveredLetterTitle>
+        <discoveredLetterText>You now understand how to construct antimatter railguns.
+Antimatter railguns make convential projectile launchers seem primitive. They fire antimatter channeled through an AT field, giving it a theoretically infinite range and dealing massive damage in the impact area.
+
+You will need to aquire Hyper Components to build them.</discoveredLetterText>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ThunderGun_AA</li>
+            <li>R_HyperComponents_AA</li>
+        </prerequisites>        
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>3.85</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

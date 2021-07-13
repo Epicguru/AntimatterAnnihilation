@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_HyperComponents_AA</defName>
+        <label>hyper components</label>
+        <description>Investigate the uses of Hyper Components.
+Hyper components combine antimatter and archotech technology, but you don't quite understand how. Crafting these components will be impossible, but you might be able to use them if you somehow get your hands on them.
+The Ultratech faction may have some, but they won't give them up voluntarily...</description>
+        <baseCost>3300</baseCost>
+        <techLevel>Ultra</techLevel>
+        <discoveredLetterTitle>Hyper components</discoveredLetterTitle>
+        <discoveredLetterText>You have now analyzed the data on Hyper Components.
+You can use Hyper Components to build the most advanced defenses and production facilites, but you will have to steal them off the Ultratech faction.
+
+Ultratech raiders will ocasionally carry them, and you can also attack Ultratech bases to find more hyper components.</discoveredLetterText>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ATFields_AA</li>
+        </prerequisites>        
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>3.15</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

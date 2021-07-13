@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_MBD_AA</defName>
+        <label>Multi-Barrel Destruction</label>
+        <description>Build a turret that takes the principles of the thunder gun and adds even more barrels for even more destruction.</description>
+        <baseCost>3600</baseCost>
+        <techLevel>Ultra</techLevel>
+        <tab>Antimatter</tab>
+        <discoveredLetterTitle>MBD</discoveredLetterTitle>
+        <discoveredLetterText>You now understand how to construct multi-barreled antimatter cannons.
+Using hyper components allows for incredibly accurate control over channeling and flow of antimatter in a multi-barrel system, resulting in a blazing rate of fire and a huge damage output.</discoveredLetterText>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ThunderGun_AA</li>
+        </prerequisites>        
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>5.05</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

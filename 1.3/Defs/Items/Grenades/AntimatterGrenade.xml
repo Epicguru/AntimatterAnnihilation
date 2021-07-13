@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef ParentName="BaseMakeableGrenade">
+        <defName>AntimatterGrenades_AA</defName>
+        <label>antimatter grenades</label>
+        <description>Grenades that contain tiny amounts of antimatter that is allowed to come into contact with the environment, creating a large explosion of energy and radiation.</description>
+        <tickerType>Normal</tickerType>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterGrenades</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.3</uiIconScale>
+        <soundInteract>Interact_Grenade</soundInteract>
+        <techLevel>Spacer</techLevel>
+        <statBases>
+            <Mass>1.2</Mass>
+            <RangedWeapon_Cooldown>2.66</RangedWeapon_Cooldown>
+            <WorkToMake>20000</WorkToMake>
+        </statBases>
+        <costList>
+            <Steel>30</Steel>
+            <Plasteel>10</Plasteel>
+            <AntimatterCanister_AA>2</AntimatterCanister_AA>
+        </costList>
+        <weaponTags>
+            <li>GrenadeDestructive</li>
+        </weaponTags>
+        <thingCategories>
+            <li>Grenades</li>
+        </thingCategories>
+        <recipeMaker>
+            <researchPrerequisite>AntimatterExplosives_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>8</Crafting>
+                <Intellectual>4</Intellectual>
+            </skillRequirements>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <label>throw antimatter grenade</label>
+                <verbClass>Verb_LaunchProjectile</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <range>13.5</range>
+                <forcedMissRadius>1.4</forcedMissRadius>
+                <warmupTime>2</warmupTime>
+                <noiseRadius>6</noiseRadius>
+                <ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+                <soundCast>ThrowGrenade</soundCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+                <defaultProjectile>Proj_GrenadeAntimatter_AA</defaultProjectile>
+                <rangedFireRulepack>Combat_RangedFire_Thrown</rangedFireRulepack>
+            </li>
+        </verbs>
+        <comps>
+        <li Class="CompProperties_Explosive">
+            <explosiveRadius>2</explosiveRadius>
+            <explosiveDamageType>AnnihilationExplosion_AA</explosiveDamageType>
+            <requiredDamageTypeToExplode>Flame</requiredDamageTypeToExplode>
+        </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseGrenadeProjectile">
+        <defName>Proj_GrenadeAntimatter_AA</defName>
+        <label>antimatter grenade</label>
+        <thingClass>Projectile_Explosive</thingClass>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Projectiles/AntimatterGrenade</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <explosionRadius>2.3</explosionRadius>
+            <damageDef>AnnihilationExplosion_AA</damageDef>
+            <!-- Use default damage from explosion def -->
+            <explosionDelay>120</explosionDelay>
+        </projectile>
+    </ThingDef>
+
+</Defs>
