@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AAPoweredLarge">
+        <defName>AlloyFusionMachine_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_AlloyFusionMachine</thingClass>
+        <label>alloy fusion machine</label>
+        <description>Fuses dense metals together using huge amounts of power to create advanced metal alloys, such as Hyper Alloy.
+
+See the in-game wiki for more information and how to use.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/AlloyFusionMachine/Idle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3,3)</drawSize>
+        </graphicData>
+        <drawerType>RealtimeOnly</drawerType>
+        <passability>PassThroughOnly</passability>
+        <selectable>true</selectable>
+        <size>(3, 3)</size>
+        <costList>
+            <Steel>350</Steel>
+            <AntimatterComposite_AA>150</AntimatterComposite_AA>
+            <ComponentSpacer>8</ComponentSpacer>
+            <HyperComponent_AA>4</HyperComponent_AA>
+        </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>-100</basePowerConsumption>
+                <transmitsPower>false</transmitsPower>
+            </li>
+            <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
+                <glowRadius>6</glowRadius>
+                <glowColor>(255,248,214,255)</glowColor>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>1</id>
+                <fuelPriority>0</fuelPriority>
+                <fuelCapacity>40</fuelCapacity>
+
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <autoRefuelPercent>1</autoRefuelPercent>
+
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Gold</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>2</id>
+                <fuelPriority>1</fuelPriority>
+                <fuelCapacity>30</fuelCapacity>
+
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <autoRefuelPercent>1</autoRefuelPercent>
+
+                <fuelFilter>
+                    <thingDefs>
+                        <li>AntimatterComposite_AA</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>3</id>
+                <fuelPriority>2</fuelPriority>
+                <fuelCapacity>20</fuelCapacity>
+
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <autoRefuelPercent>1</autoRefuelPercent>
+
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Uranium</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+        </comps>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <researchPrerequisites>
+            <li>R_HyperAlloy_AA</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

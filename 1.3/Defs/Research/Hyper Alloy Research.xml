@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_HyperAlloy_AA</defName>
+        <label>hyper alloy synthesis</label>
+        <description>Data indicates that alloying Antimatter Composite with other dense metals could produce a material of extreme strength and versatility.\nDoing so will require a specialized production facility.</description>
+        <baseCost>5500</baseCost>
+        <techLevel>Ultra</techLevel>
+        <tab>Antimatter</tab>
+        <discoveredLetterTitle>About hyper alloy</discoveredLetterTitle>
+        <discoveredLetterText>Your research has lead you to the discovery of Hyper Alloy, an alloy of gold, uranium and antimatter composite.
+Data suggests that it will have incredible properties that would make it far superior to any alternative in terms of strength and versatility.
+In order to manufacture it, a special facility will be needed.</discoveredLetterText>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>R_HyperComponents_AA</li>
+        </prerequisites>        
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>2.50</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

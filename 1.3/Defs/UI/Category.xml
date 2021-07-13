@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <DesignationCategoryDef>
+    <defName>Antimatter</defName>
+    <label>Antimatter</label>
+    <description>Harnessing the power of annihilation.</description>
+    <order>10</order>
+  </DesignationCategoryDef>
+ 
+</Defs>

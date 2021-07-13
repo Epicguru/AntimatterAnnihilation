@@ -528,7 +528,7 @@ namespace AntimatterAnnihilation.Buildings
 		}
 
 		public override void Draw()
-		{
+        {
 			this.top.Draw();
 			base.Draw();
 		}

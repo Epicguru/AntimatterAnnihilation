@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>AntimatterExplosives_AA</defName>
+        <label>antimatter explosives</label>
+        <description>Research how antimatter can be used to create annihilation explosions, and how you can weaponize that.</description>
+        <baseCost>1900</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ParticleAccelerators_AA</li>
+        </prerequisites>        
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>4.15</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

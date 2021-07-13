@@ -3,27 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29521.150
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AntimatterAnnihilation", "AntimatterAnnihilation\AntimatterAnnihilation.csproj", "{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RunRimworld", "RunRimworld\RunRimworld.csproj", "{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}"
-	ProjectSection(ProjectDependencies) = postProject
-		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4} = {B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntimatterAnnihilation", "AntimatterAnnihilation\AntimatterAnnihilation.csproj", "{D8B43D52-1B11-4F19-AB20-C592B8124181}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
+		v1.2|Any CPU = v1.2|Any CPU
+		v1.3|Any CPU = v1.3|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B91D0E3B-09E7-44A7-9FEC-112A0B5DAFB4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDEB8074-7FA1-4AB7-8BB9-57FA5E737967}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B43D52-1B11-4F19-AB20-C592B8124181}.v1.2|Any CPU.ActiveCfg = v1.2|Any CPU
+		{D8B43D52-1B11-4F19-AB20-C592B8124181}.v1.2|Any CPU.Build.0 = v1.2|Any CPU
+		{D8B43D52-1B11-4F19-AB20-C592B8124181}.v1.3|Any CPU.ActiveCfg = v1.3|Any CPU
+		{D8B43D52-1B11-4F19-AB20-C592B8124181}.v1.3|Any CPU.Build.0 = v1.3|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

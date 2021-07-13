@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+    <ThingDef Name="AABuildingBase" ParentName="BuildingBase" Abstract="True">
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+        <designationCategory>Antimatter</designationCategory>
+        <passability>PassThroughOnly</passability>
+        <altitudeLayer>Building</altitudeLayer>
+        <tickerType>Normal</tickerType>        
+    </ThingDef>
+
+    <ThingDef Name="AAPoweredLarge" ParentName="AABuildingBase" Abstract="True">
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(9,9)</drawSize>
+        </graphicData>
+        <category>Building</category>
+        <tickerType>Normal</tickerType>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <canOverlapZones>false</canOverlapZones>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <blockWind>true</blockWind>
+        <castEdgeShadows>false</castEdgeShadows>
+        <pathCost>90</pathCost>
+        <size>(9,9)</size>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <rotatable>false</rotatable>
+        <statBases>
+            <MaxHitPoints>400</MaxHitPoints>
+            <WorkToBuild>35000</WorkToBuild>
+            <Flammability>3.0</Flammability>
+            <Beauty>2</Beauty>
+            <Cleanliness>10</Cleanliness>
+            <Mass>80</Mass>
+        </statBases>
+        <building>
+            <ai_chillDestination>false</ai_chillDestination>
+        </building>
+        <constructionSkillPrerequisite>6</constructionSkillPrerequisite>
+    </ThingDef>
+
+    <ThingDef Name="AATurret" ParentName="AABuildingBase" Abstract="True">
+    
+        <pathCost>120</pathCost>
+        <blockWind>true</blockWind>
+        <leaveResourcesWhenKilled>true</leaveResourcesWhenKilled>
+        <rotatable>false</rotatable>
+        <canOverlapZones>false</canOverlapZones>
+        <castEdgeShadows>false</castEdgeShadows>
+        <drawerType>MapMeshAndRealTime</drawerType>
+        
+    </ThingDef>
+
+    <ThingDef ParentName="AAPoweredLarge">
+      <defName>ParticleAccelerator_AA</defName>
+      <label>particle accelerator</label>
+      <thingClass>AntimatterAnnihilation.Buildings.Building_ParticleAccelerator</thingClass>
+      <description>Rips electrons from Plasteel and accelerates them to the speed of light. When these electrons collide they have a chance to produce a tiny amount of antimatter, which is used in the Antimatter Reactor.</description>
+      <graphicData>
+          <texPath>AntimatterAnnihilation/Buildings/Accelerator</texPath>
+          <graphicClass>Graphic_Single</graphicClass>
+          <drawSize>(9,9)</drawSize>
+      </graphicData>
+      <costList>
+          <Steel>650</Steel>
+          <Gold>80</Gold>
+          <Plasteel>150</Plasteel>
+          <ComponentIndustrial>18</ComponentIndustrial>
+          <ComponentSpacer>3</ComponentSpacer>
+      </costList>
+      <passability>Impassable</passability>
+      <drawOffscreen>true</drawOffscreen>
+      <comps>
+        <li Class="CompProperties_Flickable"/>
+        <li Class="CompProperties_Power">
+          <compClass>CompPowerTrader</compClass>
+          <basePowerConsumption>-100</basePowerConsumption> <!-- When now producing Antimatter -->
+        </li>
+        <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+          <fuelConsumptionRate>20</fuelConsumptionRate>
+          <fuelCapacity>60.0</fuelCapacity>
+          <fuelFilter>
+            <thingDefs>
+              <li>Plasteel</li>
+            </thingDefs>
+          </fuelFilter>
+          <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+          <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+          <initialConfigurableTargetFuelLevel>40</initialConfigurableTargetFuelLevel>
+        </li>
+      </comps>
+      <researchPrerequisites>
+        <li>ParticleAccelerators_AA</li>
+      </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactor_AA</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_AntimatterReactor</thingClass>
+    <label>antimatter reactor</label>
+    <description>The ultimate form of power generation.
+Reacts injected antimatter with regular matter to produce massive amounts of power. An ultra-powerful AT field contains the massive amount of energy and radiation created, making it mostly safe to work around.
+Requires a Reactor Injector to inject antimatter, and a Reactor Power Converter to capture the output beam and turn it into electrical power.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/Reactor</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(12,12)</drawSize>
+    </graphicData>
+    <passability>Impassable</passability>
+    <holdsRoof>true</holdsRoof> <!--Just because of how large it is, building roofs is difficult without putting columns all around it.-->
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>East</defaultPlacingRot>
+    <size>(12, 12)</size>
+    <drawOffscreen>true</drawOffscreen>
+    <costList>
+      <Steel>1100</Steel>
+      <Gold>50</Gold>
+      <Plasteel>200</Plasteel>
+      <ComponentIndustrial>30</ComponentIndustrial>
+      <ComponentSpacer>5</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>6000</basePowerConsumption>
+        <transmitsPower>false</transmitsPower>
+      </li>
+      <li Class="CompProperties_Explosive">
+            <explosiveRadius>8</explosiveRadius>
+            <explosiveDamageType>Flame</explosiveDamageType>
+            <destroyThingOnExplosionSize>4</destroyThingOnExplosionSize>
+            <startWickHitPointsPercent>0.333</startWickHitPointsPercent>
+            <preExplosionSpawnThingDef>Filth_RubbleBuilding</preExplosionSpawnThingDef>
+            <preExplosionSpawnChance>0.75</preExplosionSpawnChance>
+            <wickTicks>
+                <min>150</min>
+                <max>190</max>
+            </wickTicks>
+        </li>
+      <li Class="CompProperties_Glower"> <!-- Note that this glows whenever it has power - this is fine (for now) because the energy ball only appears when the reactor has enough power. -->
+        <glowRadius>14</glowRadius>
+        <glowColor>(51,124,193,255)</glowColor>
+      </li>
+    </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>R_Reactor_AA</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactorInjector_AA</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_ReactorInjector</thingClass>
+    <label>reactor injector</label>
+    <description>Takes in Contained Antimatter and fires it as a beam into an Antimatter Reactor.
+The beam is possible thanks to a cylindrical AT field that both repels regular matter and confines anti-matter, allowing for an otherwise impossible suspended vaccumm to be created in mid-air.
+If the beam is fired without a reactor to collect it, the fired anti-matter will annihilate upon contact with any matter, quickly destroying it. This could be a wall, an enemy or a colonist, so watch out...</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/ReactorInjector</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>East</defaultPlacingRot>
+    <passability>Impassable</passability>
+    <selectable>true</selectable>
+    <size>(2, 3)</size>
+    <costList>
+      <Steel>300</Steel>
+      <Plasteel>60</Plasteel>
+      <ComponentIndustrial>15</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+        <transmitsPower>false</transmitsPower>
+      </li>
+      <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+        <fuelConsumptionRate>1.5</fuelConsumptionRate>
+        <fuelCapacity>20.0</fuelCapacity>
+        <fuelFilter>
+          <thingDefs>
+            <li>AntimatterCanister_AA</li>
+          </thingDefs>
+        </fuelFilter>
+        <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+        <targetFuelLevelConfigurable>true</targetFuelLevelConfigurable>
+        <initialConfigurableTargetFuelLevel>20</initialConfigurableTargetFuelLevel>
+      </li>
+    </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>R_ReactorInjector_AA</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>AntimatterReactorPowerConverter_AA</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_PowerConverter</thingClass>
+    <label>reactor power converter</label>
+    <description>Captures the output beam of the Antimatter Reactor and turns it into useable electrical power.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/PowerConverter</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(2,3)</drawSize>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>West</defaultPlacingRot>
+    <passability>Impassable</passability>
+    <selectable>true</selectable>
+    <size>(2, 3)</size>
+    <costList>
+      <Steel>200</Steel>
+      <Plasteel>50</Plasteel>
+      <Gold>60</Gold>
+      <ComponentIndustrial>10</ComponentIndustrial>
+      <ComponentSpacer>2</ComponentSpacer>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>0</basePowerConsumption>
+        <transmitsPower>true</transmitsPower>
+      </li>
+    </comps>
+    <constructionSkillPrerequisite>8</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>R_Reactor_AA</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  <ThingDef ParentName="AAPoweredLarge">
+    <defName>PowerNetConsole_AA</defName>
+    <thingClass>AntimatterAnnihilation.Buildings.Building_PowerNetConsole</thingClass>
+    <label>PowerNet console</label>
+    <description>Shows a detailed overview of the power network, showing where power is being used and produced.
+Also has the ability to switch machines on or off remotely.</description>
+    <graphicData>
+      <texPath>AntimatterAnnihilation/Buildings/PowerNetConsole</texPath>
+      <graphicClass>Graphic_Multi</graphicClass>
+      <drawSize>(1,1)</drawSize>
+    </graphicData>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsPower</li>
+    </thingCategories>
+    <rotatable>true</rotatable>
+    <defaultPlacingRot>South</defaultPlacingRot>
+    <passability>PassThroughOnly</passability>
+    <selectable>true</selectable>
+    <size>(1, 1)</size>
+    <costList>
+      <Steel>90</Steel>
+      <ComponentIndustrial>6</ComponentIndustrial>
+    </costList>
+    <comps>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>50</basePowerConsumption>
+        <transmitsPower>false</transmitsPower>
+      </li>
+    </comps>
+    <constructionSkillPrerequisite>2</constructionSkillPrerequisite>
+    <researchPrerequisites>
+      <li>Entry_AA</li>
+    </researchPrerequisites>
+  </ThingDef>
+
+  </Defs>

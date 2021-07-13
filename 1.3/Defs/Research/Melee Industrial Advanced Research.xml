@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>MeleeIndustrialAdvanced_AA</defName>
+        <label>advanced melee weapons</label>
+        <description>Blueprints taken from the Ultratech faction also describe how to create some advanced melee weapons using fairly common materials.</description>
+        <baseCost>1500</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <prerequisites>
+            <li>Entry_AA</li>
+        </prerequisites>        
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>0.20</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

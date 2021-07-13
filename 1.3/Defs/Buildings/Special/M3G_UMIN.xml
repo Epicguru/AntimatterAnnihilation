@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="AAPoweredLarge">
+        <defName>Megumin_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_Megumin</thingClass>
+        <label>M3G_UMIN</label>
+        <description>Fires a beam of energy up to an ancient geostationary satelite, where it is reflected towards a specific coordinate on the planet surface.
+The beam incinerates all living things and quickly destroys any structures in the blast radius.
+
+Firing the beam of energy creates a huge electromagnetic pulse in both the area it is fired from and also the area it impacts on, temporarily shutting down all electronics.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/M3G_UMIN</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,4)</drawSize>
+        </graphicData>
+        <rotatable>false</rotatable>
+        <passability>Impassable</passability>
+        <selectable>true</selectable>
+        <size>(2, 2)</size>
+        <building>
+            <turretGunDef>Gun_Megumin_AA</turretGunDef>
+            <turretBurstCooldownTime>0</turretBurstCooldownTime>
+        </building>
+        <costList>
+            <Steel>300</Steel>
+            <Uranium>50</Uranium>
+            <AntimatterComposite_AA>80</AntimatterComposite_AA>
+            <HyperComponent_AA>5</HyperComponent_AA>
+            <ComponentIndustrial>22</ComponentIndustrial>
+            <ComponentSpacer>8</ComponentSpacer>
+        </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableConditional">
+                <fuelConsumptionRate>80000</fuelConsumptionRate> <!-- Changes dynamically in code based on activation state. When active, requires and uses all stored antimatter. -->
+                <fuelCapacity>8.0</fuelCapacity>
+                <fuelFilter>
+                    <thingDefs>
+                        <li>AntimatterCanister_AA</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_GreedyBattery">
+                <efficiency>1.0</efficiency> <!-- 100% efficient, just so that time calculations are easier for the user, if they want to make them. -->
+                <shortCircuitInRain>false</shortCircuitInRain>
+                <storedEnergyMax>600</storedEnergyMax> <!-- Required when using this component. Does not actually represent real max. -->
+                <transmitsPower>true</transmitsPower>
+
+                <maxPull>1000000</maxPull> <!-- 1000KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
+                <doSelfDischarge>false</doSelfDischarge>
+                <doInspectorInfo>false</doInspectorInfo>
+            </li>
+            <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
+                <glowRadius>9</glowRadius>
+                <glowColor>(255,232,142,255)</glowColor>
+            </li>
+        </comps>
+        <researchPrerequisites>
+            <li>R_Megumin_AA</li>
+        </researchPrerequisites>
+        <placeWorkers>
+			<li>PlaceWorker_NotUnderRoof</li>
+		</placeWorkers>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>Gun_Megumin_AA</defName>
+        <label>M3G_UMIN</label>
+        <description>The firing part of the MEG-Umin defence system. How did you get this...?</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <MaxHitPoints>600</MaxHitPoints>
+            <AccuracyTouch>1</AccuracyTouch>
+            <AccuracyShort>1</AccuracyShort>
+            <AccuracyMedium>1</AccuracyMedium>
+            <AccuracyLong>1</AccuracyLong>
+            <RangedWeapon_Cooldown>0</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>300</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>AntimatterAnnihilation.Verbs.Verb_Megumin</verbClass>
+                <requireLineOfSight>false</requireLineOfSight>
+                <hasStandardCommand>true</hasStandardCommand>
+                <warmupTime>5</warmupTime>
+                <ai_AvoidFriendlyFireRadius>15</ai_AvoidFriendlyFireRadius>
+                <range>300</range>
+                <burstShotCount>1</burstShotCount>
+                <soundAiming>OrbitalTargeter_Aiming</soundAiming>
+                <soundCast>OrbitalTargeter_Fire</soundCast>
+                <onlyManualCast>true</onlyManualCast>
+                <targetParams>
+                    <canTargetLocations>true</canTargetLocations>
+                </targetParams>
+            </li>
+        </verbs>
+    </ThingDef>
+
+    <ThingDef ParentName="OrbitalStrikeBase">
+        <defName>CustomOrbitalStrike_AA</defName>
+        <label>power beam</label>
+        <thingClass>AntimatterAnnihilation.Attacks.CustomOrbitalStrike</thingClass>
+        <comps>
+            <li Class="CompProperties_OrbitalBeam">
+                <width>12</width>
+                <color>(255, 198, 0, 242)</color>
+                <sound>OrbitalBeam</sound>
+            </li>
+            <li Class="CompProperties_CameraShaker">
+                <mag>0.08</mag>
+            </li>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="MoteBase">
+        <defName>Mote_MeguminBeam_AA</defName>
+        <graphicData>
+            <texPath>Things/Mote/PowerBeam</texPath>
+            <shaderType>MoteGlow</shaderType>
+        </graphicData>
+        <altitudeLayer>MoteOverhead</altitudeLayer>
+        <drawOffscreen>true</drawOffscreen>
+        <mote>
+            <fadeInTime>0.5</fadeInTime>
+            <solidTime>4.8</solidTime>
+            <fadeOutTime>1.0</fadeOutTime>
+        </mote>
+    </ThingDef>
+
+</Defs>
