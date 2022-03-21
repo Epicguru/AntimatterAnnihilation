@@ -9,7 +9,9 @@
             <li>(0.878, 0, 0.854)</li>
             <li>(0.454, 0.039, 0.643)</li>
         </colorSpectrum>
-        
+
+        <earliestRaidDays>10</earliestRaidDays>
+        <maxConfigurableAtWorldCreation>3</maxConfigurableAtWorldCreation>
         <permanentEnemy>true</permanentEnemy>
         <leaderForceGenerateNewPawn>true</leaderForceGenerateNewPawn>
         
