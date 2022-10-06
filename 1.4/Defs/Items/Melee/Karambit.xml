@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>Karambit_AA</defName>
+        <label>karambit</label>
+        <description>A single-handed curved blade, designed for close quater combat. Very fast attack speed, relatively low damage per hit.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/Karambit</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <techLevel>Industrial</techLevel>
+        <weaponTags>
+            <li>IndustrialMeleeAdvanced</li>
+        </weaponTags>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+            <WorkToMake>18000</WorkToMake>
+            <Mass>0.15</Mass>
+            <!-- <MarketValue>350</MarketValue> -->
+        </statBases>
+        <costList>
+            <Plasteel>5</Plasteel>
+            <Steel>20</Steel>
+            <ComponentIndustrial>2</ComponentIndustrial>
+        </costList>
+        <equippedAngleOffset>180</equippedAngleOffset>
+        <recipeMaker>
+            <researchPrerequisite>MeleeIndustrialAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>8</power>
+                <armorPenetration>0.15</armorPenetration>
+                <cooldownTime>0.9</cooldownTime>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>12</power>
+                <armorPenetration>0.40</armorPenetration>
+                <cooldownTime>0.9</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>8</power>
+                <armorPenetration>0.35</armorPenetration>
+                <cooldownTime>0.6</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+</Defs>

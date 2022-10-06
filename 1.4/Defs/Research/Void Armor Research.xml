@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_VoidArmor_AA</defName>
+        <label>void armor</label>
+        <description>Use antimatter composite to create very powerful armor and headgear.</description>
+        <baseCost>3500</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>R_AntimatterComposite_AA</li>
+        </prerequisites>        
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>1.05</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

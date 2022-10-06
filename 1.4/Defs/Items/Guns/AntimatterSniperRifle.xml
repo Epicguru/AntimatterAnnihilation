@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AntimatterGunBase_AA">
+        <defName>AntimatterSniperRifle_AA</defName>
+        <label>antimatter sniper rifle</label>
+        <description>An antimatter rifle designed for long range shooting. Pinpoint accuracy and high damage.
+
+Fires tiny amounts of antimatter contained in a spherical AT field. Upon impact the AT field dissolves, exposing the antimatter to the surrounding environment and causing an annihilation reaction.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/AntimatterSniperRifle</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>30.3</equippedAngleOffset>
+        <weaponTags>
+            <li>SniperRifleSpacer</li>
+        </weaponTags>
+        <statBases>
+            <WorkToMake>55000</WorkToMake>
+            <Mass>3.9</Mass>
+            <AccuracyTouch>0.65</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.9</AccuracyMedium>
+            <AccuracyLong>0.86</AccuracyLong>
+            <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+            <MarketValue>2850</MarketValue>
+        </statBases>
+        <costList>
+            <Plasteel>55</Plasteel>
+            <AntimatterCanister_AA>2</AntimatterCanister_AA>
+            <ComponentIndustrial>7</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <recipeMaker>
+            <researchPrerequisite>RangedLong_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>7</Crafting>
+                <Intellectual>3</Intellectual>
+            </skillRequirements>
+            <recipeUsers Inherit="False">
+                <li>FabricationBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_AntimatterSniperRifle_AA</defaultProjectile>
+                <warmupTime>2.5</warmupTime>
+                <range>45.5</range>
+                <soundCast>Shot_AntimatterBlaster_AA</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_AntimatterSniperRifle_AA</defName>
+        <label>antimatter charge</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <stoppingPower>2.5</stoppingPower>
+            <damageAmountBase>35</damageAmountBase>
+            <armorPenetrationBase>0.85</armorPenetrationBase>
+            <speed>75</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

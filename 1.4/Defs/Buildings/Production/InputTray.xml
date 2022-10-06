@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <ThingDef ParentName="AABuildingBase">
+        <defName>InputTray_AA</defName>
+        <label>input tray (legacy)</label>
+        <description>No longer used in this mod: machines now use a more simple refueling system.\nYou should deconstruct this to get steel back.</description>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_InputTray</thingClass>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/InputTray</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(1,1)</drawSize>
+        </graphicData>
+        <altitudeLayer>Building</altitudeLayer>
+        <passability>PassThroughOnly</passability>
+        <fillPercent>0.2</fillPercent>
+        <castEdgeShadows>true</castEdgeShadows>
+        <pathCost>70</pathCost>
+        <costList>
+            <Steel>20</Steel>
+        </costList>
+        <statBases>
+            <MaxHitPoints>140</MaxHitPoints>
+            <Mass>10</Mass>
+            <WorkToBuild>500</WorkToBuild>
+            <Flammability>0.5</Flammability>
+            <Beauty>0.4</Beauty>
+        </statBases>
+        <size>(1,1)</size>
+        <building>
+            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+            <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+            <defaultStorageSettings>
+                <priority>Important</priority>
+                <filter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </filter>
+            </defaultStorageSettings>
+        </building>
+        <inspectorTabs>
+            <li>ITab_Storage</li>
+        </inspectorTabs>
+        <designationHotKey>Misc12</designationHotKey>
+        <staticSunShadowHeight>0.5</staticSunShadowHeight>
+        <surfaceType>Item</surfaceType>
+        <canOverlapZones>false</canOverlapZones>
+        <researchPrerequisites>
+            <li>R_Megumin_AA</li> <!-- Just so it doesn't show up for as long as possible. Not sure how to completely hide it from the player. -->
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

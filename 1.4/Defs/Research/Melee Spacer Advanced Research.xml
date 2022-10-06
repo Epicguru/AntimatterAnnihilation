@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>MeleeSpacerAdvanced_AA</defName>
+        <label>spacer melee weapons</label>
+        <description>Using antimatter technology and materials allows you to craft even more powerful melee weapons that have special properties.</description>
+        <baseCost>2600</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>MeleeIndustrialAdvanced_AA</li>
+            <li>R_AntimatterComposite_AA</li>
+        </prerequisites>
+        <researchViewX>3.00</researchViewX>
+        <researchViewY>0.20</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

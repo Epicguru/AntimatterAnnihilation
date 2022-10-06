@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Blunt">
+        <defName>Galvaknuckles_AA</defName>
+        <label>galvaknuckles</label>
+        <description>A set of brass knuckles, upgraded with plasteel and equipped with an internal battery that shocks the person hit and causes intense pain but minimal damage.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/Galvaknuckles</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1.1</uiIconScale>
+        <techLevel>Industrial</techLevel>
+        <weaponTags>
+            <li>IndustrialMeleeAdvanced</li>
+        </weaponTags>
+        <statBases>
+            <WorkToMake>22000</WorkToMake>
+            <Mass>0.6</Mass>
+        </statBases>
+        <equippedAngleOffset>-30</equippedAngleOffset>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <recipeMaker>
+            <researchPrerequisite>MeleeIndustrialAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>6</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <costList>
+            <Plasteel>25</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <tools>
+            <li>
+                <label>knuckles</label>
+                <labelUsedInLogging>true</labelUsedInLogging>
+                <capacities>
+                    <li>GalvaPainToolCap_AA</li>
+                </capacities>
+                <power>7.9</power>
+                <cooldownTime>0.9</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+</Defs>

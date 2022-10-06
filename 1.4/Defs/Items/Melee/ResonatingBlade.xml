@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>ResonatingBlade_AA</defName>
+        <label>resonating blade</label>
+        <description>An antimatter composite blade, that is engineered to create constant internal annihilation reactions, similarly to how nuclear decay works.\n\nThe energy released from this flows through the user, increasing their maximum muscle strength and allowing them to move much faster than normal. This also tires out the user, resulting in slightly decreased work speed.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/ResonatingBlade</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <techLevel>Spacer</techLevel>
+        <weaponTags>
+            <li>SpacerMeleeAdvanced</li>
+        </weaponTags>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+            <WorkToMake>42000</WorkToMake>
+            <Mass>1.2</Mass>
+        </statBases>
+        <equippedStatOffsets>
+            <MoveSpeed>2.5</MoveSpeed> <!-- Gives +2.5 cps movement boost. -->
+            <WorkSpeedGlobal>-0.10</WorkSpeedGlobal>
+        </equippedStatOffsets>
+        <costList>
+            <AntimatterComposite_AA>35</AntimatterComposite_AA> <!-- ~1.3 canisters, ~80 plasteel -->
+            <ComponentIndustrial>16</ComponentIndustrial>
+            <ComponentSpacer>6</ComponentSpacer>
+        </costList>
+        <equippedAngleOffset>0</equippedAngleOffset>
+        <recipeMaker>
+            <researchPrerequisite>MeleeSpacerAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>14</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>8</power>
+                <armorPenetration>0.15</armorPenetration>
+                <cooldownTime>1.6</cooldownTime>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>12</power>
+                <armorPenetration>0.60</armorPenetration>
+                <cooldownTime>1.2</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>11</power>
+                <armorPenetration>0.50</armorPenetration>
+                <cooldownTime>1.1</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+</Defs>

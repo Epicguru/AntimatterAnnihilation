@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef Name="ApparelVoidHelmetBase_AA" ParentName="ArmorHelmetMakeableBase" Abstract="True">
+        <techLevel>Spacer</techLevel>
+        <recipeMaker>
+            <unfinishedThingDef>UnfinishedTechArmor</unfinishedThingDef>
+            <researchPrerequisite>R_VoidArmor_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+            <recipeUsers Inherit="False">
+                <li>FabricationBench</li>
+            </recipeUsers>
+        </recipeMaker>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Pawn/VoidHelmet</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <uiIconScale>1</uiIconScale>
+        <tradeTags>
+            <li>HiTechArmor</li>
+        </tradeTags>
+        <generateCommonality>2</generateCommonality>
+        <statBases>
+            <WorkToMake>30000</WorkToMake>
+            <MaxHitPoints>280</MaxHitPoints>
+            <Mass>1.8</Mass>
+            <Flammability>0.4</Flammability>
+            <ArmorRating_Sharp>1.35</ArmorRating_Sharp>
+            <ArmorRating_Blunt>0.85</ArmorRating_Blunt>
+            <ArmorRating_Heat>0.7</ArmorRating_Heat>
+            <Insulation_Cold>90</Insulation_Cold>
+            <Insulation_Heat>30</Insulation_Heat>
+            <EquipDelay>3.5</EquipDelay>
+        </statBases>
+        <costList>
+            <ComponentSpacer>3</ComponentSpacer>
+            <Gold>1</Gold>
+            <AntimatterComposite_AA>35</AntimatterComposite_AA>
+            <Uranium>10</Uranium>
+        </costList>
+        <equippedStatOffsets>
+            <MoveSpeed>-0.05</MoveSpeed>
+            <WorkSpeedGlobal>-0.05</WorkSpeedGlobal>
+        </equippedStatOffsets>
+        <apparel>
+            <bodyPartGroups>
+                <li>FullHead</li>
+            </bodyPartGroups>
+            <wornGraphicPath>AntimatterAnnihilation/Pawn/VoidHelmet</wornGraphicPath>
+            <layers>
+                <li>Overhead</li>
+            </layers>
+            <defaultOutfitTags>
+                <li>Soldier</li>
+            </defaultOutfitTags>
+            <useDeflectMetalEffect>true</useDeflectMetalEffect>
+        </apparel>
+        <colorGenerator Class="ColorGenerator_Options">
+            <options>
+                <li>
+                    <weight>2</weight>
+                    <min>(0.5921, 0.4862, 0.6862)</min>
+                    <max>(0.8784, 0.3058, 0.8)</max>
+                </li>
+                <li>
+                    <weight>10</weight>
+                    <min>(0.85, 0.85, 0.85)</min>
+                    <max>(1, 1, 1)</max>
+                </li>
+            </options>
+        </colorGenerator>
+        <thingSetMakerTags>
+            <li>RewardStandardHighFreq</li>
+        </thingSetMakerTags>
+        <comps>
+            <li Class="CompProperties_Biocodable"/>
+        </comps>
+    </ThingDef>
+
+    <ThingDef ParentName="ApparelVoidHelmetBase_AA">
+        <defName>Apparel_VoidHelmet_AA</defName>
+        <label>void helmet</label>
+        <description>A helmet made out of antimatter composite.\n\nEven gliterworld planets struggle to understand and use the technology that allows antimatter composite to so effectively deflect kinetic and energy projectiles.\nCan be used as an EVA helmet in outer space.</description>
+        <apparel>
+        <tags>
+            <li>SpacerMilitary</li>
+            <li>RoyalCombatGear</li>
+            <li>EVA</li>
+        </tags>
+        </apparel>
+    </ThingDef>
+
+  </Defs>

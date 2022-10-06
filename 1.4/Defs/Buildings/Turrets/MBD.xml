@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AATurret" Name="MBD_AA" Abstract="True"> 
+        <!-- <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass> -->
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>    
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <size>(3,3)</size>
+        <statBases>
+            <MaxHitPoints>1000</MaxHitPoints>
+            <Flammability>0.1</Flammability>
+            <WorkToBuild>9000</WorkToBuild>
+            <Mass>220</Mass>
+            <Beauty>-10</Beauty>
+        </statBases>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <tickerType>Normal</tickerType>
+        <passability>PassThroughOnly</passability>
+        <pathCost>120</pathCost>
+        <fillPercent>0.7</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>Antimatter</designationCategory>
+        <constructionSkillPrerequisite>10</constructionSkillPrerequisite>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretTopDrawSize>4.4</turretTopDrawSize>
+            <turretTopOffset>(0, 0)</turretTopOffset>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>AntimatterAnnihilation.Buildings.PlaceWorker_ShowAATurretRadius</li>
+        </placeWorkers>
+        <designationHotKey>Misc3</designationHotKey>    
+        <uiIconScale>0.95</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="MBD_AA">
+        <defName>Turret_MBD_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_MBD</thingClass>
+        <label>MBD</label>
+        <description>An antimatter cannon with rotary barrels delivering huge damage with a high rate of fire.
+It's multi-barrel destruction.</description>
+        <uiIconPath>AntimatterAnnihilation/UI/MBDIcon</uiIconPath>
+        <statBases>
+            <ShootingAccuracyTurret>0.99</ShootingAccuracyTurret>
+        </statBases>
+        <costList>
+            <Steel>250</Steel>
+            <ComponentIndustrial>12</ComponentIndustrial>
+            <ComponentSpacer>4</ComponentSpacer>
+            <AntimatterComposite_AA>50</AntimatterComposite_AA>
+            <HyperComponent_AA>1</HyperComponent_AA>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>300</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Antimatter remaining</fuelLabel>
+                <fuelGizmoLabel>Antimatter remaining</fuelGizmoLabel>
+                <outOfFuelMessage>Cannot shoot: Needs antimatter canister refuel</outOfFuelMessage>
+                <fuelFilter><thingDefs><li>AntimatterCanister_AA</li></thingDefs></fuelFilter>
+                <fuelCapacity>2</fuelCapacity>
+                <initialFuelPercent>0</initialFuelPercent>
+                <autoRefuelPercent>0.8</autoRefuelPercent>
+                <showFuelGizmo>true</showFuelGizmo>
+                <minimumFueledThreshold>0.1</minimumFueledThreshold>
+                <fuelMultiplier>1</fuelMultiplier>
+                <factorByDifficulty>false</factorByDifficulty>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelIconPath>AntimatterAnnihilation/Items/AntimatterCanister</fuelIconPath>
+            </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
+                <defaultAutoAttack>true</defaultAutoAttack>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>Gun_MBDTurret_AA</turretGunDef>
+            <turretBurstCooldownTime>5</turretBurstCooldownTime>
+        </building>
+        <researchPrerequisites>
+            <li>R_MBD_AA</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_MBD_AA</defName>
+        <label>blast</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <damageAmountBase>10</damageAmountBase>
+            <speed>200</speed> <!-- Speedy boy. -->
+            <armorPenetrationBase>1.5</armorPenetrationBase>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>Gun_MBDTurret_AA</defName>
+        <label>MBD gun</label>
+        <description>The top part of the MBD. How did you get this...?</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/MBDTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.45</AccuracyTouch>
+            <AccuracyShort>0.65</AccuracyShort>
+            <AccuracyMedium>0.85</AccuracyMedium>
+            <AccuracyLong>0.80</AccuracyLong>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>200</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
+                <defaultProjectile>Bullet_MBD_AA</defaultProjectile>
+                <isPrimary>true</isPrimary>
+                <warmupTime>0</warmupTime>
+                <minRange>4</minRange>
+                <range>55</range>
+                <ticksBetweenBurstShots>4</ticksBetweenBurstShots>
+                <burstShotCount>16</burstShotCount>
+                <soundCast>Shot_Autocannon</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>40</muzzleFlashScale>
+                <consumeFuelPerShot>0.00390625</consumeFuelPerShot> <!-- 16 bursts of 16 bullets. -->
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>
