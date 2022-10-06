@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <!-- Faction name -->
+    <RulePackDef>
+        <defName>NamerFactionUltratech_AA</defName>
+        <!-- <include>
+            <li>OutlanderPlaceNameUtility</li>
+        </include> -->
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->[ultratech_faction_names]</li>
+            </rulesStrings>
+            <rulesFiles>
+                <li>ultratech_faction_names->NameBanks/ultratech_faction_names_AA</li>
+            </rulesFiles>
+        </rulePack>
+    </RulePackDef>
+
+    <RulePackDef>
+        <defName>NamerSettlementUltratech_AA</defName>
+        <rulePack>
+            <rulesStrings>
+                <li>r_name->[ultratech_settlement_names] [ultratech_settlement_type]</li>
+            </rulesStrings>
+            <rulesFiles>
+                <li>ultratech_settlement_names->NameBanks/ultratech_settlement_names_AA</li>
+                <li>ultratech_settlement_type->NameBanks/ultratech_settlement_types_AA</li>
+                <li>concept_positive->Words/Nouns/Concepts_Positive</li>
+            </rulesFiles>
+        </rulePack>
+  </RulePackDef>
+
+</Defs>

@@ -41,7 +41,7 @@ namespace AntimatterAnnihilation.AI
                 }
                 else
                 {
-                    Log.ErrorOnce($"Pawn {pawn} from {pawn.Faction} has an avoidance grid, but {nameof(DoNonDestructiveAvoidance)} is false. This is probably caused by another mod adding custom avoidance. Enable {nameof(DoNonDestructiveAvoidance)} to fix this, but it will affect performace quite heavily.", 891723879, true);
+                    Log.ErrorOnce($"Pawn {pawn} from {pawn.Faction} has an avoidance grid, but {nameof(DoNonDestructiveAvoidance)} is false. This is probably caused by another mod adding custom avoidance. Enable {nameof(DoNonDestructiveAvoidance)} to fix this, but it will affect performace quite heavily.", 891723879);
                     grid = mapGrid.AvoidGrid;
                 }
             }

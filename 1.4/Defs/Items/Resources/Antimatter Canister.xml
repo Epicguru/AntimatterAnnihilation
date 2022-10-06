@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+        <defName>AntimatterCanister_AA</defName>
+        <label>antimatter canister</label>
+        <description>An ultra-durable canister containing a small amount of antimatter.
+The antimatter is suspended in an AT field that prevents it from entering contact with the sides of the canister. Each canister has an internal power supply for this field, desinged to last for hundreds of years.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Items/AntimatterCanister</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <stackLimit>16</stackLimit>
+        <statBases>
+            <MarketValue>65</MarketValue>
+            <Mass>0.8</Mass>
+            <Beauty>3</Beauty>
+        </statBases>
+        <thingCategories>
+            <li>ResourcesRaw</li>
+        </thingCategories>
+        <deepCommonality>0</deepCommonality>
+        <smeltable>false</smeltable>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+  </Defs>

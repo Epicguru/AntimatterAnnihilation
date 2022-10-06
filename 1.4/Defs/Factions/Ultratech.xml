@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<FactionDef ParentName="FactionBase">
+		<defName>UltratechEnemy_AA</defName>
+		<label>ultratech division</label>
+		<description>One of the divisions of the Ultratech conglomerate, a mysterious and powerful technological empire that spans various solar systems.\n\nThey are one of the few groups of humans that understand the secrets of antimatter production and manipulation, and will jealously guard this secret at all costs.\n\nUltratech considers themselves to be above all regular life forms, and will refuse to interact peacefully.\nUltratech outposts exist to conduct research and development, as well as a reminder of who has the real control of this rimworld.</description>
+		<colorSpectrum>
+            <li>(0.878, 0, 0.854)</li>
+            <li>(0.454, 0.039, 0.643)</li>
+        </colorSpectrum>
+
+        <earliestRaidDays>10</earliestRaidDays>
+        <maxConfigurableAtWorldCreation>3</maxConfigurableAtWorldCreation>
+        <permanentEnemy>true</permanentEnemy>
+        <leaderForceGenerateNewPawn>true</leaderForceGenerateNewPawn>
+        
+        <allowedMemes>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+          </allowedMemes>
+        <requiredMemes>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Supremacist</li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Transhumanist</li>
+            <li MayRequire="Ludeon.RimWorld.Ideology">Raider</li>
+          </requiredMemes>
+          <structureMemeWeights>
+            <Structure_Ideological MayRequire="Ludeon.RimWorld.Ideology">1</Structure_Ideological>
+          </structureMemeWeights>
+
+		<factionIconPath>AntimatterAnnihilation/UI/FactionBaseIcon</factionIconPath>
+		<pawnsPlural>ultratech members</pawnsPlural>
+		<settlementGenerationWeight>0.8</settlementGenerationWeight>
+		<listOrderPriority>40</listOrderPriority>
+		<categoryTag>Ultratech</categoryTag>
+        <pawnSingular>ultratech member</pawnSingular>
+		<requiredCountAtGameStart>1</requiredCountAtGameStart>
+		<canStageAttacks>true</canStageAttacks>
+        <leaderTitle>division leader</leaderTitle>
+		<techLevel>Spacer</techLevel>
+		<backstoryFilters>
+            <li>
+                <categories>
+                    <li>Outlander</li>
+                </categories>
+                <commonality>0.30</commonality>
+            </li>
+            <li>
+                <categories>
+                    <li>Offworld</li>
+                </categories>
+                <commonality>0.70</commonality>
+            </li>
+        </backstoryFilters>
+		<!-- <hairTags>
+            <li>Punk</li>
+            <li>Urban</li>
+        </hairTags> -->
+        <allowedCultures><li>AA_Culture</li></allowedCultures>
+		<canSiege>true</canSiege>
+        <allowedArrivalTemperatureRange>-60~60</allowedArrivalTemperatureRange>
+
+        <canMakeRandomly>true</canMakeRandomly>
+        <factionNameMaker>NamerFactionUltratech_AA</factionNameMaker>
+        <settlementNameMaker>NamerSettlementUltratech_AA</settlementNameMaker>
+		
+        <maxPawnCostPerTotalPointsCurve>
+            <points> <!-- TODO Understand and adjust -->
+                <li>(0,25)</li>
+                <li>(70, 40)</li>
+                <li>(700, 90)</li>
+                <li>(1300, 140)</li>
+                <li>(100000, 10000)</li>
+            </points>
+        </maxPawnCostPerTotalPointsCurve>
+
+		<autoFlee>false</autoFlee>
+		<hidden>false</hidden>
+	
+		<pawnGroupMakers>
+            <li>
+                <!-- Normal fights, standard mix -->
+                <kindDef>Combat</kindDef>
+                <options>
+                    <UltratechMelee_AA>2</UltratechMelee_AA>
+                    <UltratechMeleeAdvanced_AA>1</UltratechMeleeAdvanced_AA>
+
+                    <UltratechSniper_AA>2</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>1</UltratechSniperAdvanced_AA>
+
+                    <UltratechGunner_AA>8</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>5</UltratechGunnerAdvanced_AA>
+
+                    <UltratechLeader_AA>1</UltratechLeader_AA>
+                </options>
+            </li>
+            <li>
+                <kindDef>Settlement</kindDef>
+                <options>
+                    <UltratechMelee_AA>3</UltratechMelee_AA>
+                    <UltratechMeleeAdvanced_AA>2</UltratechMeleeAdvanced_AA>
+
+                    <UltratechSniper_AA>5</UltratechSniper_AA>
+                    <UltratechSniperAdvanced_AA>3</UltratechSniperAdvanced_AA>
+                    
+                    <UltratechGunner_AA>5</UltratechGunner_AA>
+                    <UltratechGunnerAdvanced_AA>9</UltratechGunnerAdvanced_AA>
+                </options>
+            </li>
+        </pawnGroupMakers>
+        <settlementTexturePath>AntimatterAnnihilation/UI/FactionIcon</settlementTexturePath>
+	</FactionDef>
+</Defs>

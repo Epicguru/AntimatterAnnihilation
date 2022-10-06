@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>InstantFlick_AA</defName>
+        <label>instant flick</label>
+        <description>Using the PowerNet Console, send a signal directly through the power lines to instantly turn machines on or off.</description>
+        <baseCost>600</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <prerequisites>
+            <li>Entry_AA</li>
+        </prerequisites>        
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>1.45</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

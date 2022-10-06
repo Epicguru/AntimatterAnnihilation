@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_Megumin_AA</defName>
+        <label>M3G_UMIN</label>
+        <description>Learn how to build the M3G_UMIN, a stationary defence system that interacts with ancient satelites to redirect a beam of energy to a disired position on the planet's surface.
+Hyper components will be required to create and maintain an AT field going from the surface all the way to low planet orbit.</description>
+        <baseCost>4500</baseCost>
+        <techLevel>Ultra</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <discoveredLetterTitle>M3G_UMIN</discoveredLetterTitle>
+        <discoveredLetterText>You can now construct the M3G_UMIN, once you aquire enough Hyper Components.
+The M3G_UMIN will not automatically attack enemies, because it is too destructive. It uses antimatter canisters to fire, and has a very long cooldown.
+Don't target anything near something you care about loosing!</discoveredLetterText>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>R_HyperComponents_AA</li>
+        </prerequisites>        
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>3.15</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_Turrets_AA</defName>
+        <label>turrets</label>
+        <description>Begin researching how antimatter technology can be used to create stationary defences.</description>
+        <baseCost>500</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>Entry_AA</li>
+        </prerequisites>        
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>4.90</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>
