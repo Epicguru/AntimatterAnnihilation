@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AntimatterGunUncraftableBase_AA">
+        <defName>DevastatorSniperRifle_AA</defName>
+        <label>devastator sniper rifle</label>
+        <description>A heavy antimatter weapon that deals huge damage over very long ranges.
+This weapon incorporates archotech technology. Even with a good understanding of Antimatter tech, this is still incredibly advanced, and can't be crafted using any known means.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/DSR</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <equippedAngleOffset>33.5</equippedAngleOffset>
+        <weaponTags>
+            <li>SniperRifleUltra</li>
+        </weaponTags>
+        <statBases>
+            <Mass>7</Mass>
+            <AccuracyTouch>0.5</AccuracyTouch>
+            <AccuracyShort>0.6</AccuracyShort>
+            <AccuracyMedium>0.9</AccuracyMedium>
+            <AccuracyLong>0.88</AccuracyLong>
+            <RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+            <MarketValue>5000</MarketValue>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>Verb_Shoot</verbClass>
+                <hasStandardCommand>true</hasStandardCommand>
+                <defaultProjectile>Bullet_DevastatorSniperRifle_AA</defaultProjectile>
+                <warmupTime>3.5</warmupTime>
+                <range>65</range>
+                <soundCast>Shot_HeavySniper_AA</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+            </li>
+        </verbs>
+        <tools>
+            <li>
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+            <li>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                    <li>Poke</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>2</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_DevastatorSniperRifle_AA</defName>
+        <label>antimatter charge</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <stoppingPower>3</stoppingPower>
+            <damageAmountBase>70</damageAmountBase>
+            <armorPenetrationBase>1.05</armorPenetrationBase>
+            <speed>200</speed>
+        </projectile>
+    </ThingDef>
+
+</Defs>

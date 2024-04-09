@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>Entry_AA</defName>
+        <label>hack Ultratech database</label>
+        <description>Using your multi-analyzer and long range comms equipment, attempt to gain access to the Ultratech faction's database.</description>
+        <baseCost>2500</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tab>Antimatter</tab>
+        <discoveredLetterTitle>Antimatter technology unlocked!</discoveredLetterTitle>
+        <discoveredLetterText>The hacking was very successful!\nAlthough the connection was shut down almost as soon as it was opened, you still managed to steal enough blueprints and information to start researching and building antimatter technology.\n\nYou are concerned that you data heist has angered the Ultratech faction, but you consider the power that this technology will give you worth the risk.</discoveredLetterText>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>MicroelectronicsBasics</li>
+        </prerequisites>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>1.55</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

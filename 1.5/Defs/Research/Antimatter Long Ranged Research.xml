@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>RangedLong_AA</defName>
+        <label>antimatter long range weapons</label>
+        <description>Allows you to craft various long range antimatter rifles.</description>
+        <baseCost>2300</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>ParticleAccelerators_AA</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>3.30</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

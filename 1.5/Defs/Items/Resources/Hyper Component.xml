@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+    <ThingDef ParentName="ResourceBase">
+        <defName>HyperComponent_AA</defName>
+        <label>hyper component</label>
+        <description>This component blends antimatter technology with archotech technology. It is tremendously complicated, and will probably never be understood by human minds.
+It can be used to construct and craft things that were previously only theoretical.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Items/HyperComponent</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <stackLimit>16</stackLimit>
+        <statBases>
+            <MarketValue>350</MarketValue>
+            <Mass>0.8</Mass>
+            <Beauty>3</Beauty>
+        </statBases>
+        <thingCategories>
+            <li>ResourcesRaw</li>
+        </thingCategories>
+        <deepCommonality>0</deepCommonality>
+        <smeltable>false</smeltable>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+  </Defs>

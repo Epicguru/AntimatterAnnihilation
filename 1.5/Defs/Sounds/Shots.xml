@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+    <SoundDef>
+        <defName>Shot_AntimatterBlaster_AA</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>2</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/BlasterShoot</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.88~1</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Shot_HeavySniper_AA</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>2</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/HeavySniper</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.95~1</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+
+    <SoundDef>
+        <defName>Melee_GalvaknucklesDischarge_AA</defName>  
+        <context>MapOnly</context>  
+        <maxSimultaneous>1</maxSimultaneous>  
+        <subSounds>
+            <li>
+                <grains>
+                    <li Class="AudioGrain_Clip">
+                        <clipPath>AntimatterAnnihilation/Zap</clipPath>
+                    </li>
+                </grains>
+                <pitchRange>0.85~1.15</pitchRange>   
+            </li>
+        </subSounds>
+    </SoundDef>
+
+</Defs>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AAPoweredLarge">
+        <defName>CompositeRefiner_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_CompositeRefiner</thingClass>
+        <label>composite refiner</label>
+        <description>Creates the advanced material Antimatter Composite from plasteel and antimatter.
+
+See the in-game wiki for more information and how to use.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/CompositeRefiner</texPath>
+            <graphicClass>Graphic_Multi</graphicClass>
+            <drawSize>(3,2)</drawSize>
+        </graphicData>
+        <passability>PassThroughOnly</passability>
+        <selectable>true</selectable>
+        <size>(3, 2)</size>
+        <hasInteractionCell>True</hasInteractionCell>
+        <interactionCellOffset>(0,0,2)</interactionCellOffset>
+        <rotatable>true</rotatable>
+        <defaultPlacingRot>South</defaultPlacingRot>
+        <costList>
+            <Steel>150</Steel>
+            <Plasteel>20</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>1</ComponentSpacer>
+        </costList>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsProduction</li>
+        </thingCategories>
+        <comps>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>1500</basePowerConsumption>
+                <transmitsPower>false</transmitsPower>
+            </li>
+            <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
+                <glowRadius>5</glowRadius>
+                <glowColor>(245,198,255,255)</glowColor>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>1</id>
+                <fuelPriority>0</fuelPriority>
+                <fuelCapacity>60</fuelCapacity>
+
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <autoRefuelPercent>1</autoRefuelPercent>
+
+                <fuelFilter>
+                    <thingDefs>
+                        <li>Plasteel</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_RefuelableMulti">
+                <id>2</id>
+                <fuelPriority>1</fuelPriority>
+                <fuelCapacity>1</fuelCapacity>
+
+                <fuelConsumptionRate>0</fuelConsumptionRate>
+                <autoRefuelPercent>1</autoRefuelPercent>
+
+                <fuelFilter>
+                    <thingDefs>
+                        <li>AntimatterCanister_AA</li>
+                    </thingDefs>
+                </fuelFilter>
+                <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
+            </li>
+
+        </comps>
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+        <researchPrerequisites>
+            <li>R_AntimatterComposite_AA</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+</Defs>

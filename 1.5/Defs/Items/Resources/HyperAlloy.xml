@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>HyperAlloy_AA</defName>
+        <label>hyper alloy</label>
+        <stackLimit>75</stackLimit>
+        <description>Ingots of hyper alloy, a material with incredible strength and striking beauty.
+
+This material is a fusion of Antimatter Composite, Gold and small amounts of Uranium to create a hyper-dense, ultra resistant material.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Items/HyperAlloy</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <tradeability>Sellable</tradeability>        
+        <statBases>
+            <MarketValue>240</MarketValue> <!-- Base cost of materials used to craft is 150 -->
+            <Mass>0.8</Mass>
+            <StuffPower_Armor_Sharp>3</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>2.5</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>2.5</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>3</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>3</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>5</SharpDamageMultiplier>
+            <BluntDamageMultiplier>7</BluntDamageMultiplier>
+        </statBases>
+        <thingCategories>
+            <li>ResourcesRaw</li>
+        </thingCategories>
+            <deepCommonality>0</deepCommonality>
+        <burnableByRecipe>false</burnableByRecipe>
+        <smeltable>true</smeltable>
+        <stuffProps>
+            <categories>
+                <li>Metallic</li>
+            </categories>
+            <statOffsets>
+                <Beauty>12</Beauty>
+            </statOffsets>
+            <commonality>0</commonality>
+            <constructEffect>ConstructMetal</constructEffect>
+            <color>(255,209,0)</color>
+            <soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+            <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+            <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+            <statFactors>
+                <MaxHitPoints>12</MaxHitPoints>
+                <Beauty>8</Beauty>
+                <Flammability>0</Flammability>
+                <WorkToMake>4</WorkToMake>
+                <WorkToBuild>4.5</WorkToBuild>
+                <MeleeWeapon_CooldownMultiplier>0.5</MeleeWeapon_CooldownMultiplier>
+                <DoorOpenSpeed>5</DoorOpenSpeed>
+                <BedRestEffectiveness>2.5</BedRestEffectiveness>
+            </statFactors>
+        </stuffProps>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+
+</Defs>

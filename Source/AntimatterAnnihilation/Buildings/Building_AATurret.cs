@@ -298,10 +298,10 @@ namespace AntimatterAnnihilation.Buildings
             {
                 this.GunCompEq.verbTracker.VerbsTick();
 
-				if(!this.stunner.Stunned)
+				if(!this.IsStunned)
                     this.top.Tick();
 
-                if (!this.stunner.Stunned && this.AttackVerb.state != VerbState.Bursting)
+                if (!this.IsStunned && this.AttackVerb.state != VerbState.Bursting)
                 {
                     if (this.WarmingUp)
                     {
@@ -547,13 +547,16 @@ namespace AntimatterAnnihilation.Buildings
 			return stringBuilder.ToString().TrimEndNewlines();
 		}
 
-		public override void Draw()
+        public override void DynamicDrawPhaseAt(DrawPhase phase, Vector3 drawLoc, bool flip = false)
         {
-			this.top.Draw();
-			base.Draw();
-		}
+            base.DynamicDrawPhaseAt(phase, drawLoc, flip);
 
-		public override void DrawExtraSelectionOverlays()
+			if (phase == DrawPhase.Draw)
+                top.Draw();
+
+        }
+
+        public override void DrawExtraSelectionOverlays()
 		{
 			float range = this.AttackVerb.verbProps.range;
 			if (range < 90f)

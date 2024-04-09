@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="AATurret" Name="ThunderGun_AA" Abstract="True"> 
+        <!-- <thingClass>AntimatterAnnihilation.Buildings.Building_AATurret</thingClass> -->
+        <thingClass>Building_TurretGun</thingClass>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/RailgunBase</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(3, 3)</drawSize>
+        </graphicData>    
+        <altitudeLayer>Building</altitudeLayer>
+        <stealable>false</stealable>
+        <rotatable>false</rotatable>
+        <size>(3,3)</size>
+        <statBases>
+            <MaxHitPoints>800</MaxHitPoints>
+            <Flammability>0.4</Flammability>
+            <WorkToBuild>9000</WorkToBuild>
+            <Mass>200</Mass>
+            <Beauty>-25</Beauty>
+        </statBases>
+        <minifiedDef>MinifiedThing</minifiedDef>
+        <thingCategories>
+            <li>BuildingsSecurity</li>
+        </thingCategories>
+        <tickerType>Normal</tickerType>
+        <passability>PassThroughOnly</passability>
+        <pathCost>120</pathCost>
+        <fillPercent>0.7</fillPercent>
+        <hasTooltip>true</hasTooltip>
+        <terrainAffordanceNeeded>Heavy</terrainAffordanceNeeded>
+        <designationCategory>Antimatter</designationCategory>
+        <constructionSkillPrerequisite>7</constructionSkillPrerequisite>
+        <building>
+            <ai_combatDangerous>true</ai_combatDangerous>
+            <turretTopDrawSize>2</turretTopDrawSize>
+            <turretTopOffset>(0, 0)</turretTopOffset>
+        </building>
+        <placeWorkers>
+            <li>PlaceWorker_TurretTop</li>
+            <li>AntimatterAnnihilation.Buildings.PlaceWorker_ShowAATurretRadius</li>
+        </placeWorkers>
+        <designationHotKey>Misc3</designationHotKey>    
+        <uiIconScale>0.95</uiIconScale>
+    </ThingDef>
+
+    <ThingDef ParentName="ThunderGun_AA">
+        <defName>Turret_ThunderGun_AA</defName>
+        <thingClass>AntimatterAnnihilation.Buildings.Building_ThunderGun</thingClass>
+        <label>thunder gun</label>
+        <description>A kinetic weapon firing huge uranum slugs using convetional methods. A dual barrel self-loading system offers excellent rate of fire and large damage.</description>
+        <uiIconPath>AntimatterAnnihilation/UI/ThunderGunIcon</uiIconPath>
+        <statBases>
+            <ShootingAccuracyTurret>0.995</ShootingAccuracyTurret>
+        </statBases>
+        <costList>
+            <Steel>350</Steel>
+            <Plasteel>50</Plasteel>
+            <ComponentIndustrial>6</ComponentIndustrial>
+            <ComponentSpacer>2</ComponentSpacer>
+        </costList>
+        <comps>
+            <li Class="CompProperties_Forbiddable"/>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>400</basePowerConsumption>
+            </li>
+            <li Class="CompProperties_Flickable"/>
+            <li Class="CompProperties_Breakdownable"/>
+            <li Class="CompProperties_Refuelable">
+                <fuelLabel>Uranium slugs remaining</fuelLabel>
+                <fuelGizmoLabel>Uranium thunder gun slugs</fuelGizmoLabel>
+                <outOfFuelMessage>Cannot shoot: No slugs</outOfFuelMessage>
+                <fuelFilter><thingDefs><li>Uranium</li></thingDefs></fuelFilter>
+                <fuelCapacity>80</fuelCapacity>
+                <fuelMultiplier>0.5</fuelMultiplier>
+                <initialFuelPercent>1</initialFuelPercent>
+                <autoRefuelPercent>0.8</autoRefuelPercent>
+                <showFuelGizmo>true</showFuelGizmo>
+                <minimumFueledThreshold>1</minimumFueledThreshold>
+                <factorByDifficulty>false</factorByDifficulty>
+                <consumeFuelOnlyWhenUsed>true</consumeFuelOnlyWhenUsed>
+                <fuelIconPath>UI/Overlays/Barrel</fuelIconPath>
+            </li>
+            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_AutoAttack">
+                <defaultAutoAttack>true</defaultAutoAttack>
+            </li>
+        </comps>
+        <building>
+            <turretGunDef>Gun_ThunderGunTurret_AA</turretGunDef>
+            <turretBurstCooldownTime>7</turretBurstCooldownTime>
+        </building>
+        <researchPrerequisites>
+            <li>ThunderGun_AA</li>
+        </researchPrerequisites>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_ThunderGun_AA</defName>
+        <label>thunder gun slug</label>
+        <graphicData>
+            <texPath>Things/Projectile/Bullet_Big</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Bullet</damageDef>
+            <damageAmountBase>20</damageAmountBase>
+            <speed>140</speed>
+            <armorPenetrationBase>0.65</armorPenetrationBase>
+        </projectile>
+    </ThingDef>
+
+    <ThingDef ParentName="BaseWeaponTurret">
+        <defName>Gun_ThunderGunTurret_AA</defName>
+        <label>thunder gun</label>
+        <description>The top part of a thunder gun. How did you get this...?</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Buildings/ThunderGunTop</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+            <drawSize>(2,2)</drawSize>
+        </graphicData>
+        <statBases>
+            <AccuracyTouch>0.35</AccuracyTouch>
+            <AccuracyShort>0.75</AccuracyShort>
+            <AccuracyMedium>0.8</AccuracyMedium>
+            <AccuracyLong>0.6</AccuracyLong>
+            <RangedWeapon_Cooldown>4</RangedWeapon_Cooldown>
+            <DeteriorationRate>0</DeteriorationRate>
+            <Mass>200</Mass>
+            <Flammability>0</Flammability>
+        </statBases>
+        <verbs>
+            <li>
+                <verbClass>AntimatterAnnihilation.Verbs.Verb_Railgun</verbClass>
+                <defaultProjectile>Bullet_ThunderGun_AA</defaultProjectile>
+                <warmupTime>0</warmupTime>
+                <minRange>6</minRange>
+                <range>55</range>
+                <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
+                <burstShotCount>6</burstShotCount>
+                <soundCast>Shot_Autocannon</soundCast>
+                <soundCastTail>GunTail_Heavy</soundCastTail>
+                <muzzleFlashScale>12</muzzleFlashScale>
+                <consumeFuelPerShot>1</consumeFuelPerShot>
+            </li>
+        </verbs>
+    </ThingDef>
+
+</Defs>

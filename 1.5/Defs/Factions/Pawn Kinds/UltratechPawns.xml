@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <PawnKindDef Name="UltratechPawnBase_AA" Abstract="True">
+        <race>Human</race>
+        <defaultFactionType>UltratechEnemy_AA</defaultFactionType>
+        <chemicalAddictionChance>0.1</chemicalAddictionChance>
+        <invNutrition>2.55</invNutrition>
+        <itemQuality>Normal</itemQuality>
+        <backstoryCryptosleepCommonality>0.2</backstoryCryptosleepCommonality>
+        <maxGenerationAge>55</maxGenerationAge>
+        <minGenerationAge>16</minGenerationAge>
+        <combatEnhancingDrugsChance>0.1</combatEnhancingDrugsChance>
+        <combatEnhancingDrugsCount>0~1</combatEnhancingDrugsCount>
+        <biocodeWeaponChance>0.2</biocodeWeaponChance>
+        <inventoryOptions>
+            <subOptionsTakeAll>
+                <li>
+                    <skipChance>0.8</skipChance> <!-- All raiders have a 20% chance to carry hyper components -->
+                    <thingDef>HyperComponent_AA</thingDef>
+                    <countRange>1~1</countRange>
+                </li>
+            </subOptionsTakeAll>
+        </inventoryOptions>
+        <initialWillRange>2~4</initialWillRange>
+        <initialResistanceRange>30~50</initialResistanceRange>
+    </PawnKindDef>
+
+    <!-- Soldiers have good chances to have expensive or powerful implants. -->
+    <PawnKindDef Name="UltratechSoldierBase_AA" ParentName="UltratechPawnBase_AA" Abstract="True">
+        <techHediffsChance>0.1</techHediffsChance>
+        <techHediffsMoney>900~1300</techHediffsMoney>
+        <techHediffsTags>
+            <li>Advanced</li>
+        </techHediffsTags>
+    </PawnKindDef>
+
+    <!-- Basic gunner soldier, has regular (assault rifle, LMG, belts) weapons as well as spacer (antimatter) weapons. 
+         Abstract to allow death acidifer version (dlc only?)-->
+    <PawnKindDef Name="UltratechGunnerBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
+        <label>ultratech gunner</label>
+        <combatPower>130</combatPower>
+        <gearHealthRange>0.85~3.8</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialMilitaryBasic</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>IndustrialAdvanced</li>
+            <li>BeltDefensePop</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <apparelMoney>2200~2800</apparelMoney>
+        <apparelAllowHeadgearChance>0.55</apparelAllowHeadgearChance>
+        <weaponMoney>450~1100</weaponMoney>
+        <weaponTags>
+            <li>SpacerGun</li>
+            <li>IndustrialGunAdvanced</li>
+            <li>MechanoidGunMedium</li>
+        </weaponTags>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>60~150</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineIndustrial</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+    <!-- Basic gunner implementation -->
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechGunner_AA</defName>
+    </PawnKindDef>
+
+    <!-- Leader implementation -->
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechLeader_AA</defName>
+        <factionLeader>true</factionLeader>
+    </PawnKindDef>
+
+    <!-- Elite gunner implementation. Has much better guns, gear, bionics.-->
+    <PawnKindDef ParentName="UltratechGunnerBase_AA">
+        <defName>UltratechGunnerAdvanced_AA</defName>
+        <label>ultratech elite gunner</label>
+        <combatPower>170</combatPower>
+        <gearHealthRange>0.95~4.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>BeltDefensePop</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <techHediffsRequired>
+            <li>BionicEye</li>
+        </techHediffsRequired>
+        <apparelMoney>3000~4500</apparelMoney>
+        <apparelAllowHeadgearChance>0.8</apparelAllowHeadgearChance>
+        <weaponMoney>2200~12000</weaponMoney>
+        <weaponTags>
+            <li>SpacerGun</li>
+            <li>UltraGun</li>
+            <li>MechanoidGunMedium</li>
+        </weaponTags>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>100~200</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineIndustrial</thingDef>
+                    <countRange>2~5</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>2~3</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+    <!-- Basic sniper soldier. Uses only sniper rifles and long range antimatter rifles. Abstract to allow death acidifer version (dlc only?)-->
+    <PawnKindDef Name="UltratechSniperBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
+        <label>ultratech sniper</label>
+        <combatPower>135</combatPower>
+        <gearHealthRange>0.7~3.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialMilitaryBasic</li>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <apparelMoney>2000~2600</apparelMoney>
+        <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+        <weaponMoney>2000~4000</weaponMoney>
+        <weaponTags>
+            <li>SniperRifle</li>
+            <li>SniperRifleSpacer</li>
+        </weaponTags>
+        <techHediffsRequired>
+            <li>BionicEye</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>80~250</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+    <!-- Basic sniper implementation -->
+    <PawnKindDef ParentName="UltratechSniperBase_AA">
+        <defName>UltratechSniper_AA</defName>
+    </PawnKindDef>
+
+    <!-- Elite sniper implementation. Uses only spacer nad ultra sniper rifles.-->
+    <PawnKindDef ParentName="UltratechSniperBase_AA">
+        <defName>UltratechSniperAdvanced_AA</defName>
+        <label>ultratech elite sniper</label>
+        <combatPower>150</combatPower>
+        <gearHealthRange>0.7~3.0</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>
+        <apparelMoney>26000~3300</apparelMoney>
+        <apparelAllowHeadgearChance>0.1</apparelAllowHeadgearChance>
+        <weaponMoney>3500~7000</weaponMoney>
+        <weaponTags>
+            <li>SniperRifleSpacer</li>
+            <li>SniperRifleUltra</li>
+        </weaponTags>
+        <techHediffsRequired>
+            <li>BionicEye</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>90~260</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+    <!-- Basic melee soldier. Uses powerful melee weapons, and has boosted speed due to gear and implants. Abstract to allow death acidifer version (dlc only?)-->
+    <PawnKindDef Name="UltratechMeleeBase_AA" ParentName="UltratechSoldierBase_AA" Abstract="True">
+        <label>ultratech slasher</label>
+        <combatPower>135</combatPower>
+        <gearHealthRange>0.5~2.5</gearHealthRange>
+        <apparelTags>
+            <li>IndustrialMilitaryBasic</li>
+            <li>IndustrialAdvanced</li>
+            <li>IndustrialMilitaryAdvanced</li>
+            <li>SpacerMilitary</li>
+        </apparelTags>        
+        <apparelMoney>1500~2000</apparelMoney>
+        <apparelAllowHeadgearChance>0.05</apparelAllowHeadgearChance>
+        <weaponMoney>1600~2600</weaponMoney>
+        <weaponTags>
+            <li>IndustrialMeleeAdvanced</li>
+            <li>SpacerMeleeAdvanced</li>
+        </weaponTags>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>Silver</thingDef>
+                    <countRange>80~250</countRange>
+                </li>
+                <li>
+                    <skipChance>0.5</skipChance>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>1~2</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+    <!-- Basic melee (slasher) implementation -->
+    <PawnKindDef ParentName="UltratechMeleeBase_AA">
+        <defName>UltratechMelee_AA</defName>
+    </PawnKindDef>
+
+    <!-- Elite melee (slasher) implementation. Always has bionics, better apparel, wepaons. -->
+    <PawnKindDef ParentName="UltratechMeleeBase_AA">
+        <defName>UltratechMeleeAdvanced_AA</defName>
+        <label>ultratech elite slasher</label>
+        <combatPower>165</combatPower>
+        <gearHealthRange>0.7~3.5</gearHealthRange>
+        <apparelMoney>2500~4000</apparelMoney>
+        <apparelAllowHeadgearChance>0.4</apparelAllowHeadgearChance>
+        <weaponMoney>2600~4400</weaponMoney>
+        <weaponTags>
+            <li>IndustrialMeleeAdvanced</li>
+            <li>SpacerMeleeAdvanced</li>
+        </weaponTags>
+        <apparelRequired>
+            <li>Apparel_ShieldBelt</li>
+        </apparelRequired>
+        <techHediffsRequired>
+            <li>BionicLeg</li>
+            <li>BionicLeg</li>
+        </techHediffsRequired>
+        <inventoryOptions>
+            <subOptionsChooseOne>
+                <li>
+                    <thingDef>Silver</thingDef>
+                    <countRange>100~150</countRange>
+                </li>
+                <li>
+                    <thingDef>MedicineUltratech</thingDef>
+                    <countRange>2~3</countRange>
+                </li>
+            </subOptionsChooseOne>
+        </inventoryOptions>
+    </PawnKindDef>
+
+</Defs>

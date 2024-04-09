@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+    <ToolCapacityDef>
+        <defName>GalvaPainToolCap_AA</defName>
+        <label>punch with galvaknuckles</label>
+    </ToolCapacityDef>
+
+    <ManeuverDef>
+        <defName>GalvaPainManeuver_AA</defName>
+        <requiredCapacity>GalvaPainToolCap_AA</requiredCapacity>
+        <verb>
+            <verbClass>Verb_MeleeAttackDamage</verbClass>
+            <meleeDamageDef>GalvaPain_AA</meleeDamageDef>
+            <soundCast>Melee_GalvaknucklesDischarge_AA</soundCast>
+        </verb>
+        <logEntryDef>MeleeAttack</logEntryDef>
+        <combatLogRulesHit>Maneuver_Smash_MeleeHit</combatLogRulesHit>
+        <combatLogRulesDeflect>Maneuver_Smash_MeleeDeflect</combatLogRulesDeflect>
+        <combatLogRulesMiss>Maneuver_Smash_MeleeMiss</combatLogRulesMiss>
+        <combatLogRulesDodge>Maneuver_Smash_MeleeDodge</combatLogRulesDodge>
+    </ManeuverDef>
+
+</Defs>

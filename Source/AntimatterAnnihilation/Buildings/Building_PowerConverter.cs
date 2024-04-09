@@ -95,7 +95,7 @@ namespace AntimatterAnnihilation.Buildings
             if (map == null)
                 map = base.Map;
 
-            map?.mapDrawer.MapMeshDirty(base.Position, MapMeshFlag.Things | MapMeshFlag.Buildings);
+            map?.mapDrawer.MapMeshDirty(base.Position, MapMeshFlagDefOf.Things | MapMeshFlagDefOf.Buildings);
         }
     }
 }

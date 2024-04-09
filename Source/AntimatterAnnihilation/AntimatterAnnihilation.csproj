@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
@@ -9,42 +9,21 @@
     <LangVersion>preview</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
-    <Configurations>v1.3;v1.4</Configurations>
+    <Configurations>Release</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Lib.Harmony" Version="2.2.2" ExcludeAssets="runtime" />
-    <PackageReference Include="Lib.InGameWiki" Version="*" />
-  </ItemGroup>
-
-  <!-- _____ 1.3 _____ -->
-
-  <!-- Rimworld assembly refs for latest 1.3 -->
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='v1.3|AnyCPU'">
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.3.3389" />
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" ExcludeAssets="runtime" />
+    <PackageReference Include="Lib.InGameWiki" Version="15.0.1" />
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.5.4060-beta" />
   </ItemGroup>
 
   <!-- Output -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='v1.3|AnyCPU'">
+  <PropertyGroup>
     <DebugType>none</DebugType>
-    <OutputPath>..\..\1.3\Assemblies\</OutputPath>
+    <OutputPath>..\..\1.5\Assemblies\</OutputPath>
     <Optimize>true</Optimize>
-    <DefineConstants>TRACE;V13</DefineConstants>
-  </PropertyGroup>
-
-  <!-- _____ 1.4 _____ -->
-
-  <!-- Rimworld assembly refs for latest 1.4 -->
-  <ItemGroup Condition="'$(Configuration)|$(Platform)'=='v1.4|AnyCPU'">
-	  <PackageReference Include="Krafs.Rimworld.Ref" Version="1.4.3641" />
-  </ItemGroup>
-
-  <!-- Output -->
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='v1.4|AnyCPU'">
-	  <DebugType>none</DebugType>
-	  <OutputPath>..\..\1.4\Assemblies\</OutputPath>
-	  <Optimize>true</Optimize>
-	  <DefineConstants>TRACE;V14</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
 </Project>
