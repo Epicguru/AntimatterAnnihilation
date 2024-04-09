@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseMeleeWeapon_Sharp_Quality">
+        <defName>ScissorBlade_AA</defName>
+        <label>scissor blade</label>
+        <description>Unique long blade that resembles half of a pair of scissors. Very high cutting damage and armor penetration, and fast blunt attack.
+Painted red so that you don't loose your way.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Weapons/ScissorBlade</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <techLevel>Spacer</techLevel>
+        <weaponTags>
+            <li>SpacerMeleeAdvanced</li>
+        </weaponTags>
+        <thingSetMakerTags><li>RewardStandardQualitySuper</li></thingSetMakerTags>
+        <statBases>
+            <WorkToMake>40000</WorkToMake>
+            <Mass>12</Mass>
+        </statBases>
+        <equippedStatOffsets>
+            <MoveSpeed>0.4</MoveSpeed> <!-- Gives +0.4 cps movement boost. Because I can. -->
+        </equippedStatOffsets>
+        <costList>
+            <AntimatterComposite_AA>40</AntimatterComposite_AA> <!-- ~1.3 canisters, ~80 plasteel -->
+            <ComponentIndustrial>12</ComponentIndustrial>
+            <ComponentSpacer>4</ComponentSpacer>
+        </costList>
+        <equippedAngleOffset>0</equippedAngleOffset>
+        <recipeMaker>
+            <researchPrerequisite>MeleeSpacerAdvanced_AA</researchPrerequisite>
+            <skillRequirements>
+                <Crafting>12</Crafting>
+            </skillRequirements>
+        </recipeMaker>
+        <tools>
+            <li>
+                <label>handle</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>12</power>
+                <armorPenetration>0.30</armorPenetration>
+                <cooldownTime>1.4</cooldownTime>
+            </li>
+            <li>
+                <label>point</label>
+                <capacities>
+                    <li>Stab</li>
+                </capacities>
+                <power>28</power>
+                <armorPenetration>1.2</armorPenetration>
+                <cooldownTime>2.6</cooldownTime>
+            </li>
+            <li>
+                <label>edge</label>
+                <capacities>
+                    <li>Cut</li>
+                </capacities>
+                <power>36</power>
+                <armorPenetration>0.80</armorPenetration>
+                <cooldownTime>1.8</cooldownTime>
+            </li>
+        </tools>
+    </ThingDef>
+
+</Defs>

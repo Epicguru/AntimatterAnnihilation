@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using AntimatterAnnihilation.Buildings;
 using UnityEngine;
 using Verse;
 
@@ -19,6 +20,8 @@ namespace AntimatterAnnihilation.Attacks
 		private static FieldInfo fieldInfo;
 		private static FieldInfo fieldInfo2;
 
+		public Building_Megumin Meg;
+
         public event Action<CustomOrbitalStrike> OnStrikeOver;
         public float Radius = 15f;
         public int UpdatesPerTick = 4;
@@ -33,6 +36,12 @@ namespace AntimatterAnnihilation.Attacks
 			MakeCustomPowerBeamMote(base.Position, base.Map);
 
             SetAngle(0);
+        }
+
+        public override void ExposeData()
+        {
+            base.ExposeData();
+			Scribe_References.Look(ref Meg, "Meg");
         }
 
         public static void MakeCustomPowerBeamMote(IntVec3 cell, Map map)
@@ -78,7 +87,7 @@ namespace AntimatterAnnihilation.Attacks
 						 where x.InBounds(base.Map)
 						 select x).RandomElementByWeight((IntVec3 x) => 1f - Mathf.Min(x.DistanceTo(base.Position) / Radius, 1f) + 0.05f);
 
-			FireUtility.TryStartFireIn(c, base.Map, Rand.Range(0.1f, 0.925f));
+			FireUtility.TryStartFireIn(c, base.Map, Rand.Range(0.1f, 0.925f), Meg);
 			tmpThings.Clear();
 			tmpThings.AddRange(c.GetThingList(base.Map));
 			for (int i = 0; i < tmpThings.Count; i++)

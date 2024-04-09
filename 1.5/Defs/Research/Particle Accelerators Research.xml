@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>ParticleAccelerators_AA</defName>
+        <label>particle accelerator</label>
+        <description>Research how to build and operate a particle accelerator, which produces Antimatter Canisters.</description>
+        <baseCost>2100</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>Entry_AA</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>2.90</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

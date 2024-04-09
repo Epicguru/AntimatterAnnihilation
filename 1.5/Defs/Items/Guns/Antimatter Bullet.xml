@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="BaseBullet">
+        <defName>Bullet_Antimatter_AA</defName>
+        <label>antimatter charge</label>
+        <graphicData>
+            <texPath>Things/Projectile/Charge_Small</texPath>
+            <graphicClass>Graphic_Single</graphicClass>
+        </graphicData>
+        <projectile>
+            <damageDef>Annihilate_AA</damageDef>
+            <damageAmountBase>16</damageAmountBase>
+            <armorPenetrationBase>0.48</armorPenetrationBase>
+            <speed>65</speed>
+            <stoppingPower>1.0</stoppingPower>
+        </projectile>
+    </ThingDef>
+
+</Defs>

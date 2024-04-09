@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>R_Reactor_AA</defName>
+        <label>reactor</label>
+        <description>Learn how to construct an Antimatter Reactor, the ultimate source of energy!\nLaser beams included!</description>
+        <baseCost>3600</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <discoveredLetterTitle>About the antimatter reactor</discoveredLetterTitle>
+        <discoveredLetterText>You can now construct an antimatter reactor, but setting it up correctly is a little tricky.
+The reactor itself is very large and requires additional space around it for an injector and a power converter. Remember that the reactor can be rotated to suit your preferences.
+See the in-game wiki page for exact instructions on how to set up.</discoveredLetterText>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>R_ReactorInjector_AA</li>
+        </prerequisites>        
+        <researchViewX>4.00</researchViewX>
+        <researchViewY>1.85</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

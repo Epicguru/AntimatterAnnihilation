@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ResearchProjectDef>
+        <defName>ThunderGun_AA</defName>
+        <label>thunder gun</label>
+        <description>This turret design is stolen straight from the Ultratech faction.
+The turret does not require very advanced materials to construct it, but requires Uranium slugs to be replaced after firing.</description>
+        <baseCost>1800</baseCost>
+        <techLevel>Spacer</techLevel>
+        <tab>Antimatter</tab>
+        <requiredResearchBuilding>HiTechResearchBench</requiredResearchBuilding>
+        <requiredResearchFacilities>
+            <li>MultiAnalyzer</li>
+        </requiredResearchFacilities>
+        <prerequisites>
+            <li>R_Turrets_AA</li>
+        </prerequisites>        
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>4.90</researchViewY>
+    </ResearchProjectDef>
+
+</Defs>

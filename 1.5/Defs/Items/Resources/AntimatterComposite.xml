@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+    <ThingDef ParentName="ResourceBase">
+        <defName>AntimatterComposite_AA</defName>
+        <label>antimatter composite</label>
+        <stackLimit>200</stackLimit>
+        <description>Ingots of antimatter composite. Created in the Composite Refiner.
+
+This material has the ability to cause microscopic annihilation reactions when taking damage, or upon demand, which gives it many applications in construction and weaponry.</description>
+        <graphicData>
+            <texPath>AntimatterAnnihilation/Items/AntimatterComposite</texPath>
+            <graphicClass>Graphic_StackCount</graphicClass>
+        </graphicData>
+        <soundInteract>Metal_Drop</soundInteract>
+        <soundDrop>Metal_Drop</soundDrop>
+        <useHitPoints>false</useHitPoints>
+        <healthAffectsPrice>false</healthAffectsPrice>
+        <tradeability>Sellable</tradeability>
+        <statBases>
+            <MarketValue>26</MarketValue>
+            <Mass>0.6</Mass>
+            <StuffPower_Armor_Sharp>1.5</StuffPower_Armor_Sharp>
+            <StuffPower_Armor_Blunt>1.3</StuffPower_Armor_Blunt>
+            <StuffPower_Armor_Heat>1.9</StuffPower_Armor_Heat>
+            <StuffPower_Insulation_Cold>0.6</StuffPower_Insulation_Cold>
+            <StuffPower_Insulation_Heat>0.6</StuffPower_Insulation_Heat>
+            <SharpDamageMultiplier>1.25</SharpDamageMultiplier>
+            <BluntDamageMultiplier>1.1</BluntDamageMultiplier>
+        </statBases>
+        <thingCategories>
+            <li>ResourcesRaw</li>
+        </thingCategories>
+            <deepCommonality>0</deepCommonality>
+        <burnableByRecipe>false</burnableByRecipe>
+        <smeltable>true</smeltable>
+        <stuffProps>
+        <categories>
+            <li>Metallic</li>
+        </categories>
+        <commonality>0</commonality>
+        <constructEffect>ConstructMetal</constructEffect>
+        <color>(113,52,122)</color>
+        <soundImpactMelee>BulletImpact_Metal</soundImpactMelee>
+        <soundMeleeHitSharp>MeleeHit_Metal_Sharp</soundMeleeHitSharp>
+        <soundMeleeHitBlunt>MeleeHit_Metal_Blunt</soundMeleeHitBlunt>
+        <statFactors>
+            <MaxHitPoints>4.5</MaxHitPoints>
+            <Beauty>1.8</Beauty>
+            <Flammability>0</Flammability>
+            <WorkToMake>2.5</WorkToMake>
+            <WorkToBuild>2.5</WorkToBuild>
+            <MeleeWeapon_CooldownMultiplier>0.7</MeleeWeapon_CooldownMultiplier>
+        </statFactors>
+        </stuffProps>
+        <terrainAffordanceNeeded>Medium</terrainAffordanceNeeded>
+    </ThingDef>
+
+</Defs>

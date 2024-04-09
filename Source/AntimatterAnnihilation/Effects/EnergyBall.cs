@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using Verse;
+using Keyframe = UnityEngine.Keyframe;
 using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation.Effects

@@ -25,6 +25,7 @@ namespace AntimatterAnnihilation.Verbs
             Log.Message($"MegVerb: Firing on map: {map}, target: {targetCell}");
 
             CustomOrbitalStrike beam = (CustomOrbitalStrike)GenSpawn.Spawn(AADefOf.CustomOrbitalStrike_AA, targetCell, map, WipeMode.Vanish);
+            beam.Meg = meg;
             beam.duration = Building_Megumin.DURATION_TICKS;
             beam.instigator = this.caster;
             beam.weaponDef = ((base.EquipmentSource != null) ? base.EquipmentSource.def : null);
