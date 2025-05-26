@@ -46,15 +46,9 @@ Firing the beam of energy creates a huge electromagnetic pulse in both the area 
                 </fuelFilter>
                 <showAllowAutoRefuelToggle>true</showAllowAutoRefuelToggle>
             </li>
-            <li Class="AntimatterAnnihilation.ThingComps.CompProperties_GreedyBattery">
-                <efficiency>1.0</efficiency> <!-- 100% efficient, just so that time calculations are easier for the user, if they want to make them. -->
-                <shortCircuitInRain>false</shortCircuitInRain>
-                <storedEnergyMax>600</storedEnergyMax> <!-- Required when using this component. Does not actually represent real max. -->
-                <transmitsPower>true</transmitsPower>
-
-                <maxPull>1000000</maxPull> <!-- 1000KW max pull from other batteries. There is infinite input power from other sources, just like with vanilla batteries. -->
-                <doSelfDischarge>false</doSelfDischarge>
-                <doInspectorInfo>false</doInspectorInfo>
+            <li Class="CompProperties_Power">
+                <compClass>CompPowerTrader</compClass>
+                <basePowerConsumption>1500</basePowerConsumption>
             </li>
             <li Class="CompProperties_Glower"> <!-- A Harmony patch ensures that this only glows when required. -->
                 <glowRadius>9</glowRadius>

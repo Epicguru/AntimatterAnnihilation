@@ -1,11 +1,16 @@
-﻿using HarmonyLib;
+﻿using System;
+using HarmonyLib;
 using InGameWiki;
 using System.Linq;
 using UnityEngine;
 using Verse;
+using Object = UnityEngine.Object;
 
 namespace AntimatterAnnihilation
 {
+    internal class HotSwapAllAttribute : Attribute { }
+    
+    [HotSwapAll]
     public class ModCore : Mod
     {
         public static ModCore Instance { get; private set; }

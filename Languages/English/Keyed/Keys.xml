@@ -76,6 +76,7 @@
 <AA.MegPoweringUp>Powering up: {0}%</AA.MegPoweringUp> <!-- {0} is a percentage (0-100) -->
 <AA.MegAlreadyPoweringUp>Already powering up.</AA.MegAlreadyPoweringUp>
 <AA.MegCharging>Charging: {0} watt-days remining, {1}%</AA.MegCharging> <!-- {1} is a percentage (0-100) -->
+<AA.MegChargingNew>Missing electrical power!</AA.MegChargingNew> <!-- {1} is a percentage (0-100) -->
 <AA.MegAlreadyCharging>Already charging strike.</AA.MegAlreadyCharging>
 <AA.MegMissingCanisters>Missing antimatter canisters.</AA.MegMissingCanisters>
 <AA.MegMissingXCanisters>Missing {0} antimatter canisters.</AA.MegMissingXCanisters>

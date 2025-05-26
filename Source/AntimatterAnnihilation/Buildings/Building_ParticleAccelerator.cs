@@ -131,11 +131,7 @@ namespace AntimatterAnnihilation.Buildings
 
         private void UpdatePowerDraw()
         {
-#if V13
-            PowerTraderComp.PowerOutput = IsRunning ? -GetActivePowerDraw() : PowerTraderComp.Props.basePowerConsumption;
-#else
             PowerTraderComp.PowerOutput = IsRunning ? -GetActivePowerDraw() : PowerTraderComp.Props.PowerConsumption;
-#endif
         }
 
         public float GetActivePowerDraw()
