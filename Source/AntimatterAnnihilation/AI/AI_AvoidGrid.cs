@@ -1,6 +1,8 @@
-﻿using RimWorld;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading.Tasks;
 using LudeonTK;
+using RimWorld;
 using Verse;
 
 namespace AntimatterAnnihilation.AI
@@ -16,6 +18,11 @@ namespace AntimatterAnnihilation.AI
 
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoNonDestructiveAvoidance = true;
+
+        [TweakValue("AntimatterAnnihilation")]
+        public static bool DoParallelAvoidanceCalculation = true;
+        [TweakValue("AntimatterAnnihilation")]
+        public static bool LogGridBenchmark = false;
 
         public static void DoAvoidGrid(Pawn pawn, ref ByteGrid grid)
         {
@@ -123,14 +130,39 @@ namespace AntimatterAnnihilation.AI
                 Log.ErrorOnce("AvoidGridNonDestructive error: existing and map grid size do not match. Probably caused by another mod doing fucky stuff.", 8712316);
                 return;
             }
-
-            for(int i = 0; i < this.AvoidGrid.CellsCount; i++)
+            
+            int count = this.AvoidGrid.CellsCount;
+            Stopwatch timer = null;
+            if (LogGridBenchmark)
+                timer = Stopwatch.StartNew();
+            
+            if (DoParallelAvoidanceCalculation)
             {
-                var own = this.AvoidGrid[i];
-                var other = existing[i];
+                Parallel.For(0, count, i =>
+                {
+                    byte own = AvoidGrid[i];
+                    byte other = existing[i];
 
-                if (own > other)
-                    existing[i] = own;
+                    if (own > other)
+                        existing[i] = own;
+                });
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    byte own = AvoidGrid[i];
+                    byte other = existing[i]; 
+
+                    if (own > other)
+                        existing[i] = own;
+                }
+            }
+            
+            if (timer != null)
+            {
+                timer.Stop();
+                ModCore.Log($"AvoidGridNonDestructive took {timer.Elapsed.TotalMilliseconds:F3}ms to run for {count} cells ({(DoParallelAvoidanceCalculation ? "parallel" : "single thread")}).");
             }
         }
     }

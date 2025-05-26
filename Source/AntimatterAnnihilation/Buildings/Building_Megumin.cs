@@ -20,7 +20,7 @@ namespace AntimatterAnnihilation.Buildings
         [TweakValue("AntimatterAnnihilation")]
         public static bool DoSolarFlare = true;
         [TweakValue("AntimatterAnnihilation", 0f, 1f)]
-        public static float EasterEggChance = 0.333f;
+        public static float EasterEggChance = 0.15f;
         public static int COOLDOWN_TICKS = 2500 * 24 * 4; // 4 in-game days.
         public static int POWER_UP_TICKS = 1276; // Made to correspond to audio queue.
         public static int TICKS_BEFORE_FIRING_LASER = 1200; // Made to correspond to audio queue.
@@ -49,16 +49,6 @@ namespace AntimatterAnnihilation.Buildings
             }
         }
         private CompEquippable _gunCompEq;
-        public CompGreedyBattery BatComp
-        {
-            get
-            {
-                if (_batComp == null)
-                    _batComp = this.TryGetComp<CompGreedyBattery>();
-                return _batComp;
-            }
-        }
-        private CompGreedyBattery _batComp;
         public CompRefuelableConditional FuelComp
         {
             get
@@ -228,7 +218,12 @@ namespace AntimatterAnnihilation.Buildings
                 cmd.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
                 cmd2.Disable("CannotFire".Translate() + $": {"AA.MegBlockedByRoof".Translate()}");
             }
-
+            else if (!GetComp<CompPowerTrader>().PowerOn)
+            {
+                cmd.Disable("CannotFire".Translate() + $": {"AA.MegChargingNew".Translate()}");
+                cmd2.Disable("CannotFire".Translate() + $": {"AA.MegChargingNew".Translate()}");
+            }
+            
             yield return cmd;
             yield return cmd2;
 
@@ -320,6 +315,13 @@ namespace AntimatterAnnihilation.Buildings
 
             beam?.Dispose();
             beam = null;
+            soundSustainer?.End();
+            if (chargeEffect != null)
+            {
+                chargeEffect.Stop();
+                UnityEngine.Object.Destroy(chargeEffect.gameObject);
+                chargeEffect = null;
+            }
         }
 
         private void StartAttackSequence(GlobalTargetInfo global, LocalTargetInfo local)
@@ -501,8 +503,8 @@ namespace AntimatterAnnihilation.Buildings
         public override string GetInspectString()
         {
             string cooldown = IsOnCooldown ? "AA.MegCooldown".Translate(GetCooldownPretty(CooldownTicks)) : "AA.MegReadyToFire".Translate();
-            string status = IsPoweringUp ? "AA.MegPoweringUp".Translate($"{PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}").ToString() : FuelComp.FuelPercentOfMax == 1f ? cooldown : "AA.MegMissingXCanisters".Translate(8 - FuelComp.Fuel).ToString();
-            status = IsChargingUp ? "AA.MegCharging".Translate($"{BatComp.WattDaysUntilFull:F0}", $"{BatComp.StoredEnergyPct * 100f:F0}").ToString() : status;
+            string status = IsPoweringUp ? "AA.MegPoweringUp".Translate($"{PoweringUpTicks / (float)POWER_UP_TICKS * 100f:F0}").ToString() : Mathf.Approximately(FuelComp.FuelPercentOfMax, 1f) ? cooldown : "AA.MegMissingXCanisters".Translate(8 - FuelComp.Fuel).ToString();
+            status = IsChargingUp || !GetComp<CompPowerTrader>().PowerOn ? "AA.MegChargingNew".Translate().ToString() : status;
             return base.GetInspectString() + $"\n{status}";
         }
 
@@ -569,21 +571,28 @@ namespace AntimatterAnnihilation.Buildings
                 }
             }
 
+            // Charging up is a disabled feature, too many code issues with it in new versions of RimWorld.
             if (IsChargingUp)
             {
-                BatComp.MaxStoredEnergy = CHARGE_WATT_DAYS;
-                if (Math.Abs(BatComp.StoredEnergyPct - 1f) < 0.005f)
+                if (GetComp<CompPowerTrader>().PowerOn)
                 {
-                    // Now full on power!
                     IsChargingUp = false;
                     StartPowerUpSequence();
                 }
+                
+                // BatComp.MaxStoredEnergy = CHARGE_WATT_DAYS;
+                // if (Math.Abs(BatComp.StoredEnergyPct - 1f) < 0.005f)
+                // {
+                    // Now full on power!
+                    // IsChargingUp = false;
+                    // StartPowerUpSequence();
+                //}
             }
-            else
-            {
-                BatComp.SetStoredEnergyPct(0f);
-                BatComp.MaxStoredEnergy = 0;
-            }
+            // else
+            // {
+            //     BatComp.SetStoredEnergyPct(0f);
+            //     BatComp.MaxStoredEnergy = 0;
+            // }
             if (IsOnCooldown)
             {
                 CooldownTicks--;
@@ -597,15 +606,25 @@ namespace AntimatterAnnihilation.Buildings
             }
 
             if (this.Spawned && !this.Destroyed)
+            {
                 this.GunComp?.verbTracker?.VerbsTick();
+            }
 
             if(this.chargeEffect != null)
             {
                 bool isActive = chargeEffect.gameObject.activeSelf;
-                bool shouldBeActive = Find.CurrentMap == this.Map;
+                bool isRightMap = Find.CurrentMap == this.Map;
+                bool shouldBeActive = isRightMap && IsPoweringUp;
+                //ModCore.Log($"Change effect active: {chargeEffect.gameObject.activeSelf}, Map: {this.Map}, CurrentMap: {Find.CurrentMap}");
 
-                if(isActive != shouldBeActive)
+                if (isActive != shouldBeActive)
+                {
                     chargeEffect.gameObject.SetActive(shouldBeActive);
+                    if (shouldBeActive)
+                        chargeEffect.Play();
+                    else
+                        chargeEffect.Stop(true, isRightMap ? ParticleSystemStopBehavior.StopEmitting : ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
             }
         }
 
