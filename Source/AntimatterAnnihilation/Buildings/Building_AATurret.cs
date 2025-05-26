@@ -228,14 +228,10 @@ namespace AntimatterAnnihilation.Buildings
             else
                 Log.Error("Could not expose data for turret top: turret top is null.");
         }
-
-#if V13
-		public override bool ClaimableBy(Faction by)
-#else
+		
 		public override bool ClaimableBy(Faction by, StringBuilder reason = null)
-#endif
 		{
-			return base.ClaimableBy(by) && (this.mannableComp == null || this.mannableComp.ManningPawn == null) && (!this.Active || this.mannableComp != null) && (((this.dormantComp == null || this.dormantComp.Awake) && (this.initiatableComp == null || this.initiatableComp.Initiated)) || (this.powerComp != null && !this.powerComp.PowerOn));
+			return base.ClaimableBy(by, reason) && (this.mannableComp == null || this.mannableComp.ManningPawn == null) && (!this.Active || this.mannableComp != null) && (((this.dormantComp == null || this.dormantComp.Awake) && (this.initiatableComp == null || this.initiatableComp.Initiated)) || (this.powerComp != null && !this.powerComp.PowerOn));
 		}
 
         public override void OrderAttack(LocalTargetInfo targ)
@@ -378,20 +374,13 @@ namespace AntimatterAnnihilation.Buildings
                 this.ResetCurrentTarget();
                 return;
             }
-#if V13
-			if (this.def.building.turretBurstWarmupTime > 0f)
-            {
-                this.burstWarmupTicksLeft = this.def.building.turretBurstWarmupTime.SecondsToTicks();
-                return;
-            }
-#else
             float randomInRange = this.def.building.turretBurstWarmupTime.RandomInRange;
             if (randomInRange > 0f)
             {
                 this.burstWarmupTicksLeft = randomInRange.SecondsToTicks();
                 return;
             }
-#endif
+
             if (canBeginBurstImmediately)
             {
                 if(top.CanShootNow())
@@ -422,17 +411,10 @@ namespace AntimatterAnnihilation.Buildings
 				targetScanFlags |= TargetScanFlags.NeedLOSToAll;
 				targetScanFlags |= TargetScanFlags.LOSBlockableByGas;
 			}
-#if V13
-			if (this.AttackVerb.IsIncendiary())
-			{
-				targetScanFlags |= TargetScanFlags.NeedNonBurning;
-			}
-#else
             if (this.AttackVerb.IsIncendiary_Ranged())
             {
                 targetScanFlags |= TargetScanFlags.NeedNonBurning;
             }
-#endif
             return (Thing)AttackTargetFinder.BestShootTargetFromCurrentPosition(attackTargetSearcher, targetScanFlags, new Predicate<Thing>(this.IsValidTarget), 0f, 9999f);
 		}
 

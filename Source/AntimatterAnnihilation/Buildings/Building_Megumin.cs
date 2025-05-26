@@ -176,34 +176,31 @@ namespace AntimatterAnnihilation.Buildings
             cmd.defaultDesc = "AA.MegStrikeLocationDesc".Translate();
             cmd.icon = ContentFinder<Texture2D>.Get("UI/Commands/Attack", true);
             cmd.hotKey = KeyBindingDefOf.Misc4;
-            cmd.targetingParams = new TargetingParameters() {canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true };
+            cmd.targetingParams = new TargetingParameters() { canTargetBuildings = true, canTargetLocations = true, canTargetPawns = true, canTargetAnimals = true };
             cmd.onTargetSelected = (local) =>
             {
                 StartAttackSequence(GlobalTargetInfo.Invalid, local);
             };
 
             // Attack on world map.
-            Command_Action cmd2 = new Command_Action();
-            cmd2.icon = Content.GlobalStrikeIcon;
-            cmd2.defaultLabel = "AA.MegStrikeWorld".Translate();
-            cmd2.defaultDesc = "AA.MegStrikeWorldDesc".Translate();
-            cmd2.action = () =>
+            Command_Action cmd2 = new Command_Action
             {
-                Find.WorldSelector.ClearSelection();
-                CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
-#if V12
-                Find.WorldTargeter.BeginTargeting_NewTemp(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
-                    () =>
-                    {
-                        GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
-                    });
-#elif V13
-                Find.WorldTargeter.BeginTargeting(OnChoseWorldTarget, false, Content.AutoAttackIcon, true,
-                    () =>
-                    {
-                        GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE);
-                    });
-#endif
+                icon = Content.GlobalStrikeIcon,
+                defaultLabel = "AA.MegStrikeWorld".Translate(),
+                defaultDesc = "AA.MegStrikeWorldDesc".Translate(),
+                action = () =>
+                {
+                    Find.WorldSelector.ClearSelection();
+                    CameraJumper.TryJump(CameraJumper.GetWorldTarget(this));
+
+                    Find.WorldTargeter.BeginTargeting(
+                        OnChoseWorldTarget,
+                        false,
+                        Content.AutoAttackIcon,
+                        true,
+                        () => { GenDraw.DrawWorldRadiusRing(this.Map.Tile, WORLD_MAP_RANGE); }
+                    );
+                }
             };
 
             if (IsOnCooldown)
